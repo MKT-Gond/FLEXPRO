@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlexPro | Catálogo 3D Gondopar</title>
+
+  <style>
+    :root {
+      --vermelho: #d80019;
+      --texto: #242424;
+      --cinza: #777;
+      --fundo: #f5f5f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 22px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .marca {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--vermelho);
+    }
+
+    .header-direita {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 65px 20px 45px;
+      text-align: center;
+      background: linear-gradient(180deg, #fff, #f5f5f5);
+    }
+
+    .hero .categoria {
+      color: var(--vermelho);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 15px 0 12px;
+      font-size: clamp(34px, 5vw, 60px);
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: #777;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .linha {
+      width: 65px;
+      height: 3px;
+      background: var(--vermelho);
+      margin: 25px auto 0;
+    }
+
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 45px 25px 80px;
+    }
+
+    .titulo-secao {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .titulo-secao h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .titulo-secao span {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .produto {
+      background: white;
+      border: 1px solid #eaeaea;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .produto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 35px rgba(0,0,0,.08);
+    }
+
+    .imagem {
+      height: 285px;
+      background: radial-gradient(
+        ellipse at center,
+        #fff 0%,
+        #eeeeee 100%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .imagem img {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+    }
+
+    .placeholder {
+      color: #aaa;
+      font-size: 13px;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .selo {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 7px 12px;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: var(--vermelho);
+    }
+
+    .conteudo {
+      padding: 23px;
+    }
+
+    .codigo {
+      color: var(--vermelho);
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .conteudo h3 {
+      margin: 9px 0;
+      font-size: 19px;
+    }
+
+    .conteudo p {
+      min-height: 42px;
+      color: #888;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .botao {
+      display: block;
+      margin-top: 22px;
+      padding: 14px;
+      border-radius: 8px;
+      background: var(--vermelho);
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: background .2s;
+    }
+
+    .botao:hover {
+      background: #b50016;
+    }
+
+    .botao.indisponivel {
+      background: #e8e8e8;
+      color: #888;
+      pointer-events: none;
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid #e8e8e8;
+      padding: 25px 6%;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: #888;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--vermelho);
+    }
+
+    @media (max-width: 900px) {
+      .grade {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 5%; }
+      .marca { font-size: 19px; letter-spacing: 2px; }
+      .header-direita { font-size: 10px; }
+      .hero { padding: 45px 20px 35px; }
+      main { padding: 30px 15px 55px; }
+      .grade { grid-template-columns: 1fr; gap: 18px; }
+      .imagem { height: 270px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="marca">GONDOPAR</div>
+    <div class="header-direita">Catálogo Virtual 3D</div>
+  </header>
+
+  <section class="hero">
+    <div class="categoria">Nova linha Gondopar</div>
+    <h1>FlexPro</h1>
+    <p>
+      Explore nossa linha de mobiliários com
+      visualização interativa em 360°.
+      Conheça os detalhes e acabamentos de cada produto.
+    </p>
+    <div class="linha"></div>
+  </section>
+
+  <main>
+    <div class="titulo-secao">
+      <h2>Conheça a linha</h2>
+      <span>06 produtos</span>
+    </div>
+
+    <div class="grade" id="gradeProdutos"></div>
+  </main>
+
+  <footer>
+    <div>© 2026 <strong>GONDOPAR</strong> · Todos os direitos reservados.</div>
+    <div>www.gondopar.com.br</div>
+  </footer>
+
+  <script>
+    const produtos = [
+      {
+        nome: "Produto FlexPro 01",
+        codigo: "FLEX-01",
+        descricao: "Conheça o produto em visualização 360°.",
+        imagem: "imagens/produto-01.png",
+        pagina: "produtos/produto-01.html"
+      },
+      {
+        nome: "Produto FlexPro 02",
+        codigo: "FLEX-02",
+        descricao: "Explore todos os detalhes do modelo.",
+        imagem: "imagens/produto-02.png",
+        pagina: "produtos/produto-02.html"
+      },
+      {
+        nome: "Produto FlexPro 03",
+        codigo: "FLEX-03",
+        descricao: "Visualização interativa do mobiliário.",
+        imagem: "imagens/produto-03.png",
+        pagina: "produtos/produto-03.html"
+      },
+      {
+        nome: "Produto FlexPro 04",
+        codigo: "FLEX-04",
+        descricao: "Conheça os detalhes e acabamentos.",
+        imagem: "imagens/produto-04.png",
+        pagina: "produtos/produto-04.html"
+      },
+      {
+        nome: "Produto FlexPro 05",
+        codigo: "FLEX-05",
+        descricao: "Explore o modelo em diferentes ângulos.",
+        imagem: "imagens/produto-05.png",
+        pagina: "produtos/produto-05.html"
+      },
+      {
+        nome: "Produto FlexPro 06",
+        codigo: "FLEX-06",
+        descricao: "Descubra os detalhes deste produto.",
+        imagem: "imagens/produto-06.png",
+        pagina: "produtos/produto-06.html"
+      }
+    ];
+
+    const grade = document.getElementById("gradeProdutos");
+
+    produtos.forEach(produto => {
+      const card = document.createElement("article");
+      card.className = "produto";
+
+      const imagem = document.createElement("div");
+      imagem.className = "imagem";
+
+      const selo = document.createElement("span");
+      selo.className = "selo";
+      selo.textContent = "VISUALIZAÇÃO 3D";
+      imagem.appendChild(selo);
+
+      const foto = document.createElement("img");
+      foto.src = produto.imagem;
+      foto.alt = produto.nome;
+
+      foto.onerror = () => {
+        foto.remove();
+        const aviso = document.createElement("div");
+        aviso.className = "placeholder";
+        aviso.textContent = "Imagem do produto em breve";
+        imagem.appendChild(aviso);
+      };
+
+      imagem.appendChild(foto);
+
+      const conteudo = document.createElement("div");
+      conteudo.className = "conteudo";
+
+      const codigo = document.createElement("div");
+      codigo.className = "codigo";
+      codigo.textContent = produto.codigo;
+
+      const nome = document.createElement("h3");
+      nome.textContent = produto.nome;
+
+      const descricao = document.createElement("p");
+      descricao.textContent = produto.descricao;
+
+      const botao = document.createElement("a");
+      botao.className = "botao indisponivel";
+      botao.textContent = "3D EM BREVE";
+      botao.setAttribute("aria-disabled", "true");
+
+      conteudo.append(codigo, nome, descricao, botao);
+      card.append(imagem, conteudo);
+      grade.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
