@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FlexPro | Visualização 3D - Gondopar</title>
+
+<script type="module"
+src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+</script>
+
+<style>
+:root {
+  --azul: #052b5b;
+  --ciano: #42c9e8;
+  --vermelho: #d80019;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagina {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 450px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 25% 25%,
+      rgba(255,255,255,.96),
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      #f9fdff 0%,
+      #d7f5fb 55%,
+      #a7eaf5 100%
+    );
+}
+
+.pagina::before {
+  content: "";
+  position: absolute;
+  width: 75vw;
+  height: 75vw;
+  right: -30vw;
+  top: -30vw;
+  border: 2px solid rgba(0,128,186,.18);
+  border-radius: 18%;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.cabecalho {
+  position: absolute;
+  z-index: 20;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.logo {
+  display: block;
+  width: 190px;
+  height: auto;
+  max-height: 75px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.nome {
+  margin-top: 10px;
+  color: var(--azul);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+model-viewer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  --poster-color: transparent;
+}
+
+.voltar {
+  position: absolute;
+  z-index: 30;
+  top: 25px;
+  left: 25px;
+  padding: 13px 18px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.92);
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 8px 25px #00000012;
+}
+
+.voltar:hover {
+  color: var(--vermelho);
+}
+
+.fullscreen {
+  position: absolute;
+  z-index: 30;
+  top: 25px;
+  right: 25px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: var(--azul);
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px #00000012;
+}
+
+.instrucoes {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  width: 100px;
+  padding: 15px 8px;
+  background: #ffffffd9;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 12px 30px #00000012;
+  pointer-events: none;
+}
+
+.item {
+  padding: 12px 0;
+  font-size: 10px;
+  color: #56748c;
+  line-height: 1.5;
+}
+
+.item span {
+  display: block;
+  font-size: 22px;
+  color: var(--azul);
+  margin-bottom: 5px;
+}
+
+.vistas {
+  position: absolute;
+  z-index: 30;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  padding: 8px;
+  border-radius: 16px;
+  background: #ffffffed;
+  box-shadow: 0 10px 30px #00000015;
+}
+
+.vista {
+  min-width: 65px;
+  height: 47px;
+  padding: 0 9px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #56748c;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.vista.ativa {
+  color: var(--azul);
+  border-color: var(--ciano);
+  background: #e7f8fc;
+}
+
+.status {
+  position: absolute;
+  z-index: 25;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.9);
+  color: var(--azul);
+  font-size: 12px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.status[hidden] {
+  display: none;
+}
+
+.rodape {
+  position: absolute;
+  z-index: 20;
+  bottom: 14px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #58738a;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+@media(max-width:700px) {
+  .cabecalho {
+    top: 16px;
+    width: 55%;
+  }
+
+  .logo {
+    width: 135px;
+  }
+
+  .nome {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .voltar {
+    top: 17px;
+    left: 9px;
+    padding: 11px;
+    font-size: 10px;
+  }
+
+  .fullscreen {
+    top: 17px;
+    right: 9px;
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .instrucoes {
+    left: 8px;
+    width: 65px;
+    padding: 8px 4px;
+  }
+
+  .item {
+    padding: 9px 0;
+    font-size: 7px;
+  }
+
+  .item span {
+    font-size: 17px;
+  }
+
+  .vistas {
+    bottom: 38px;
+    gap: 3px;
+    padding: 5px;
+  }
+
+  .vista {
+    min-width: 47px;
+    height: 40px;
+    padding: 0 4px;
+    font-size: 8px;
+  }
+
+  .rodape {
+    left: 9px;
+    right: 9px;
+    bottom: 9px;
+    font-size: 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="pagina">
+
+  <a class="voltar" href="../index.html">
+    ← CATÁLOGO
+  </a>
+
+  <header class="cabecalho">
+    <img
+      src="../imagens/logo-gondopar.png.png"
+      alt="Gondopar"
+      class="logo">
+
+    <div class="nome">
+      FlexPro | Produto 01
+    </div>
+  </header>
+
+  <model-viewer
+    id="produto"
+    src="../modelos/TESTE%20DERMO1.glb"
+    camera-controls
+    auto-rotate
+    auto-rotate-delay="2500"
+    rotation-per-second="8deg"
+    shadow-intensity="0.65"
+    shadow-softness="0.9"
+    exposure="1"
+    environment-image="neutral"
+    tone-mapping="neutral"
+    interaction-prompt="none"
+    camera-orbit="30deg 75deg auto"
+    min-camera-orbit="auto auto 60%"
+    max-camera-orbit="auto auto 300%">
+  </model-viewer>
+
+  <div class="status" id="status">
+    Carregando modelo 3D...
+  </div>
+
+  <div class="instrucoes">
+    <div class="item">
+      <span>↻</span>
+      ARRASTE<br>PARA GIRAR
+    </div>
+
+    <div class="item">
+      <span>⌕</span>
+      ZOOM<br>PARA APROXIMAR
+    </div>
+
+    <div class="item">
+      <span>◇</span>
+      VISUALIZAÇÃO<br>360°
+    </div>
+  </div>
+
+  <button
+    class="fullscreen"
+    onclick="telaCheia()"
+    title="Tela cheia">
+    ⛶
+  </button>
+
+  <div class="vistas">
+    <button class="vista ativa"
+      onclick="mudarVista(this,'30deg 75deg auto')">
+      3D
+    </button>
+
+    <button class="vista"
+      onclick="mudarVista(this,'0deg 90deg auto')">
+      FRENTE
+    </button>
+
+    <button class="vista"
+      onclick="mudarVista(this,'90deg 90deg auto')">
+      LATERAL
+    </button>
+
+    <button class="vista"
+      onclick="mudarVista(this,'180deg 90deg auto')">
+      TRASEIRA
+    </button>
+  </div>
+
+  <footer class="rodape">
+    <div>© 2026 GONDOPAR</div>
+    <div>www.gondopar.com.br</div>
+  </footer>
+
+</div>
+
+<script>
+const produto = document.getElementById("produto");
+const status = document.getElementById("status");
+
+produto.addEventListener("load", () => {
+  status.hidden = true;
+});
+
+produto.addEventListener("error", () => {
+  status.textContent =
+    "Não foi possível carregar o GLB. Confira o nome do arquivo na pasta modelos.";
+});
+
+function mudarVista(botao, posicao) {
+  produto.autoRotate = false;
+  produto.cameraOrbit = posicao;
+
+  document.querySelectorAll(".vista")
+    .forEach(b => b.classList.remove("ativa"));
+
+  botao.classList.add("ativa");
+}
+
+function telaCheia() {
+  const pagina = document.querySelector(".pagina");
+
+  if (!document.fullscreenElement) {
+    pagina.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+</script>
+
+</body>
+</html>
