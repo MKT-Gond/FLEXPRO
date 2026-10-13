@@ -3,47 +3,52 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>DERMO FLEXPRO PREMIUM | Gondopar</title>
-
-<script
-  type="module"
-  src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
-</script>
 
 <style>
 :root {
   --azul: #052b5b;
   --ciano: #42c9e8;
+  --vermelho: #d80019;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  color: var(--azul);
+  background: #e3f7fb;
 }
 
 .pagina {
   position: relative;
   width: 100%;
-  height: 100dvh;
-  min-height: 450px;
+  min-height: 100dvh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
   background:
     radial-gradient(
       ellipse at 25% 25%,
-      #ffffffed,
-      transparent 50%
+      rgba(255,255,255,.95),
+      transparent 55%
     ),
     linear-gradient(
       135deg,
-      #f9fdff,
+      #f9fdff 0%,
       #d7f5fb 55%,
-      #a7eaf5
+      #a7eaf5 100%
     );
 }
 
@@ -54,229 +59,171 @@ html, body {
   height: 75vw;
   right: -30vw;
   top: -30vw;
-  border: 2px solid #0080ba33;
+  border: 2px solid rgba(0,128,186,.18);
   border-radius: 18%;
   transform: rotate(45deg);
   pointer-events: none;
 }
 
-model-viewer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  --poster-color: transparent;
-}
-
 .cabecalho {
-  position: absolute;
-  z-index: 20;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  pointer-events: none;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 22px 160px 8px;
+  min-height: 90px;
 }
 
 .logo {
   display: block;
   width: 190px;
-  max-height: 75px;
+  max-width: 100%;
   height: auto;
+  max-height: 70px;
   object-fit: contain;
-  margin: auto;
-}
-
-.nome {
-  margin-top: 10px;
-  color: var(--azul);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.voltar, .fullscreen {
-  position: absolute;
-  z-index: 30;
-  top: 25px;
-  border: 0;
-  border-radius: 10px;
-  background: #ffffffed;
-  color: var(--azul);
-  box-shadow: 0 8px 25px #00000012;
-  cursor: pointer;
 }
 
 .voltar {
+  position: absolute;
+  top: 25px;
   left: 25px;
+  z-index: 10;
   padding: 13px 18px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.95);
+  color: var(--azul);
   text-decoration: none;
   font-size: 12px;
   font-weight: bold;
+  box-shadow: 0 8px 25px #00000012;
 }
 
-.fullscreen {
-  right: 25px;
-  width: 48px;
-  height: 48px;
-  font-size: 22px;
+.voltar:hover {
+  color: var(--vermelho);
+}
+
+.titulo {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 10px 15px 15px;
+}
+
+.titulo h1 {
+  margin: 0;
+  color: var(--azul);
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.titulo p {
+  margin: 9px 0 0;
+  font-size: 11px;
+  color: #55778e;
+  letter-spacing: 2px;
+}
+
+.visualizador {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  width: min(1100px, 94%);
+  min-height: 520px;
+  margin: 0 auto 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 45px #052b5b16;
+}
+
+.visualizador iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border: 0;
+  background: #fff;
 }
 
 .instrucoes {
-  position: absolute;
-  z-index: 20;
-  top: 50%;
-  left: 25px;
-  transform: translateY(-50%);
-  width: 100px;
-  padding: 15px 8px;
-  border-radius: 18px;
-  background: #ffffffd9;
-  text-align: center;
-  box-shadow: 0 12px 30px #00000012;
-  pointer-events: none;
-}
-
-.item {
-  padding: 12px 0;
-  color: #56748c;
-  font-size: 10px;
-  line-height: 1.5;
-}
-
-.item span {
-  display: block;
-  color: var(--azul);
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-.vistas {
-  position: absolute;
-  z-index: 30;
-  bottom: 55px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  z-index: 5;
   display: flex;
-  gap: 7px;
-  padding: 8px;
-  border-radius: 16px;
-  background: #ffffffed;
-  box-shadow: 0 10px 30px #00000015;
-}
-
-.vista {
-  min-width: 65px;
-  height: 47px;
-  padding: 0 9px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: transparent;
-  color: #56748c;
-  font-size: 11px;
-  cursor: pointer;
-}
-
-.vista.ativa {
-  color: var(--azul);
-  border-color: var(--ciano);
-  background: #e7f8fc;
-}
-
-.status {
-  position: absolute;
-  z-index: 25;
-  left: 50%;
-  top: 58%;
-  transform: translate(-50%, -50%);
-  padding: 10px 15px;
-  border-radius: 10px;
-  background: #ffffffe6;
-  color: var(--azul);
-  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 15px 22px;
   text-align: center;
-  pointer-events: none;
 }
 
-.status[hidden] {
-  display: none;
+.instrucoes span {
+  display: inline-block;
+  padding: 11px 17px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.85);
+  color: #416784;
+  font-size: 11px;
+  box-shadow: 0 5px 20px #052b5b0b;
 }
 
 .rodape {
-  position: absolute;
-  z-index: 20;
-  bottom: 14px;
-  left: 25px;
-  right: 25px;
+  position: relative;
+  z-index: 5;
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  color: #58738a;
+  gap: 15px;
+  padding: 15px 25px;
   font-size: 10px;
-  pointer-events: none;
+  color: #58738a;
 }
 
-@media(max-width:700px) {
+@media (max-width: 700px) {
   .cabecalho {
-    top: 16px;
-    width: 55%;
+    min-height: 80px;
+    padding: 65px 15px 5px;
   }
 
-  .logo { width: 135px; }
-
-  .nome {
-    font-size: 9px;
-    letter-spacing: 1px;
+  .logo {
+    width: 150px;
   }
 
   .voltar {
-    top: 17px;
-    left: 9px;
-    padding: 11px;
+    top: 15px;
+    left: 12px;
+    padding: 11px 13px;
     font-size: 10px;
   }
 
-  .fullscreen {
-    top: 17px;
-    right: 9px;
-    width: 38px;
-    height: 38px;
-    font-size: 17px;
+  .titulo h1 {
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+
+  .visualizador {
+    width: 96%;
+    min-height: 460px;
+    margin-bottom: 15px;
+  }
+
+  .visualizador iframe {
+    min-height: 460px;
   }
 
   .instrucoes {
-    left: 8px;
-    width: 65px;
-    padding: 8px 4px;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
-  .item {
-    padding: 9px 0;
-    font-size: 7px;
-  }
-
-  .item span { font-size: 17px; }
-
-  .vistas {
-    bottom: 38px;
-    gap: 3px;
-    padding: 5px;
-  }
-
-  .vista {
-    min-width: 47px;
-    height: 40px;
-    padding: 0 4px;
-    font-size: 8px;
+  .instrucoes span {
+    font-size: 9px;
+    padding: 9px 11px;
   }
 
   .rodape {
-    left: 9px;
-    right: 9px;
-    bottom: 9px;
-    font-size: 7px;
+    padding: 12px;
+    font-size: 8px;
   }
 }
 </style>
@@ -286,151 +233,63 @@ model-viewer {
 
 <div class="pagina">
 
-  <a href="../index.html" class="voltar">
+  <!-- VOLTAR AO CATÁLOGO -->
+  <a class="voltar" href="../index.html">
     ← CATÁLOGO
   </a>
 
+  <!-- LOGO GONDOPAR -->
   <header class="cabecalho">
     <img
       id="logo"
       class="logo"
       src="../imagens/logo-gondopar.png.png"
       alt="Gondopar">
-
-    <div class="nome">
-      DERMO FLEXPRO PREMIUM · REF. 25
-    </div>
   </header>
 
-  <model-viewer
-    id="produto"
-    src="../modelos/TESTE%20DERMO1.glb"
-    camera-controls
-    auto-rotate
-    auto-rotate-delay="2500"
-    rotation-per-second="8deg"
-    shadow-intensity="0.65"
-    shadow-softness="0.9"
-    exposure="1"
-    environment-image="neutral"
-    tone-mapping="neutral"
-    interaction-prompt="none"
-    camera-orbit="30deg 75deg auto"
-    min-camera-orbit="auto auto 60%"
-    max-camera-orbit="auto auto 300%">
-  </model-viewer>
+  <!-- IDENTIFICAÇÃO DO PRODUTO -->
+  <section class="titulo">
+    <h1>DERMO FLEXPRO PREMIUM</h1>
+    <p>REFERÊNCIA 25 | VISUALIZAÇÃO 360°</p>
+  </section>
 
-  <div class="status" id="status">
-    Carregando modelo 3D...
-  </div>
+  <!-- RENDERIZAÇÃO INTERATIVA KEYSHOTXR -->
+  <main class="visualizador">
 
+    <iframe
+      src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_25.3.html"
+      title="DERMO FLEXPRO PREMIUM - KeyShotXR 360°"
+      allowfullscreen
+      loading="eager">
+    </iframe>
+
+  </main>
+
+  <!-- INSTRUÇÕES -->
   <div class="instrucoes">
-    <div class="item">
-      <span>↻</span>
-      ARRASTE
-      PARA GIRAR
-    </div>
-
-    <div class="item">
-      <span>⌕</span>
-      ZOOM
-      PARA APROXIMAR
-    </div>
-
-    <div class="item">
-      <span>◇</span>
-      VISUALIZAÇÃO
-      360°
-    </div>
+    <span>↻ ARRASTE PARA GIRAR</span>
+    <span>◇ EXPLORE OS ÂNGULOS</span>
+    <span>360° FOTORREALISTA</span>
   </div>
 
-  <button
-    class="fullscreen"
-    onclick="telaCheia()"
-    title="Tela cheia">
-    ⛶
-  </button>
-
-  <div class="vistas">
-
-    <button
-      class="vista ativa"
-      onclick="mudarVista(this,'30deg 75deg auto')">
-      3D
-    </button>
-
-    <button
-      class="vista"
-      onclick="mudarVista(this,'0deg 90deg auto')">
-      FRENTE
-    </button>
-
-    <button
-      class="vista"
-      onclick="mudarVista(this,'90deg 90deg auto')">
-      LATERAL
-    </button>
-
-    <button
-      class="vista"
-      onclick="mudarVista(this,'180deg 90deg auto')">
-      TRASEIRA
-    </button>
-
-  </div>
-
+  <!-- RODAPÉ -->
   <footer class="rodape">
-    <div>© 2026 GONDOPAR</div>
-    <div>www.gondopar.com.br</div>
+    <span>© 2026 GONDOPAR</span>
+    <span>www.gondopar.com.br</span>
   </footer>
 
 </div>
 
 <script>
-const produto = document.getElementById("produto");
-const status = document.getElementById("status");
+// Corrige possíveis diferenças no nome da logo.
 const logo = document.getElementById("logo");
 
-// Tenta os dois nomes possíveis da logo.
 logo.onerror = function() {
   if (!this.dataset.tentouOutro) {
     this.dataset.tentouOutro = "sim";
     this.src = "../imagens/logo-gondopar.png";
   }
 };
-
-// Oculta o aviso quando o 3D carregar.
-produto.addEventListener("load", () => {
-  status.hidden = true;
-});
-
-// Exibe uma mensagem caso o arquivo GLB não carregue.
-produto.addEventListener("error", () => {
-  status.textContent =
-    "Não foi possível carregar o modelo 3D.";
-});
-
-// Alterna os ângulos de visualização.
-function mudarVista(botao, posicao) {
-  produto.autoRotate = false;
-  produto.cameraOrbit = posicao;
-
-  document.querySelectorAll(".vista")
-    .forEach(b => b.classList.remove("ativa"));
-
-  botao.classList.add("ativa");
-}
-
-// Ativa e desativa a tela cheia.
-function telaCheia() {
-  const pagina = document.querySelector(".pagina");
-
-  if (!document.fullscreenElement) {
-    pagina.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-}
 </script>
 
 </body>
