@@ -5,12 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Dermo FlexPro Premium | Gondopar</title>
+<title>DERMO FLEXPRO PREMIUM | Gondopar</title>
 
 <style>
 :root {
   --azul: #092d59;
-  --azul-secundario: #267fa4;
+  --azul-medio: #267fa4;
   --cinza: #67869b;
   --vermelho: #d80019;
 }
@@ -43,9 +43,9 @@ body {
     ),
     linear-gradient(
       120deg,
-      #f8fdff,
+      #f8fdff 0%,
       #e5f7fb 50%,
-      #d5f1f9
+      #d5f1f9 100%
     );
 }
 
@@ -107,6 +107,10 @@ body {
   font-weight: bold;
 }
 
+.voltar:hover {
+  border-color: var(--azul-medio);
+}
+
 /* CONTEÚDO */
 
 .conteudo {
@@ -126,7 +130,7 @@ body {
   font-size: 10px;
   letter-spacing: 2px;
   font-weight: bold;
-  color: var(--azul-secundario);
+  color: var(--azul-medio);
 }
 
 .identificacao h1 {
@@ -141,7 +145,7 @@ body {
   color: var(--cinza);
 }
 
-/* QUADRO DO VISUALIZADOR */
+/* QUADRO 360 */
 
 .quadro {
   width: 100%;
@@ -184,18 +188,7 @@ body {
   color: var(--cinza);
 }
 
-/*
-  KEYSHOTXR
-
-  O HTML exportado pelo KeyShot usa
-  dimensões internas de 1000 x 524.
-
-  A área abaixo mantém essa proporção.
-
-  O iframe é redimensionado usando
-  transform: scale(), para que o conteúdo
-  interno acompanhe o quadro.
-*/
+/* KEYSHOTXR EM ESCALA */
 
 .viewer {
   position: relative;
@@ -209,18 +202,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-
   width: 1000px;
   height: 524px;
-
   border: 0;
   background: white;
-
   transform-origin: top left;
   transform: scale(var(--escala, 1));
 }
-
-/* INSTRUÇÃO */
 
 .instrucao {
   display: flex;
@@ -243,14 +231,14 @@ body {
   color: var(--cinza);
 }
 
-/* SELETOR DE ACABAMENTOS */
+/* ACABAMENTOS */
 
 .acabamentos {
   margin-top: 23px;
   padding: 22px;
   border: 1px solid #dcebf1;
   border-radius: 14px;
-  background: rgba(255,255,255,.78);
+  background: rgba(255,255,255,.8);
 }
 
 .acabamentos-topo {
@@ -290,6 +278,7 @@ body {
   transition: .2s;
   text-align: left;
   color: var(--azul);
+  font-family: inherit;
 }
 
 .opcao:hover {
@@ -298,7 +287,7 @@ body {
 }
 
 .opcao.ativa {
-  border: 2px solid var(--azul-secundario);
+  border: 2px solid var(--azul-medio);
   background: #f1fbfe;
 }
 
@@ -337,22 +326,6 @@ body {
   color: var(--cinza);
 }
 
-/* AVISO DE VERSÃO NÃO DISPONÍVEL */
-
-.aviso {
-  display: none;
-  margin-top: 14px;
-  padding: 12px 15px;
-  border-radius: 8px;
-  background: #eaf6fb;
-  color: #245e7a;
-  font-size: 11px;
-}
-
-.aviso.visivel {
-  display: block;
-}
-
 /* RODAPÉ */
 
 .rodape {
@@ -371,7 +344,7 @@ body {
 
 /* CELULAR */
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
   .cabecalho {
     padding: 13px 4%;
     gap: 10px;
@@ -508,7 +481,7 @@ body {
 
   <main class="conteudo">
 
-    <!-- TÍTULO -->
+    <!-- IDENTIFICAÇÃO -->
     <section class="identificacao">
 
       <span class="referencia">
@@ -518,8 +491,8 @@ body {
       <h1>DERMO FLEXPRO PREMIUM</h1>
 
       <p class="subtitulo">
-        Explore o produto em 360° e conheça
-        os acabamentos disponíveis.
+        Explore o produto em 360° e selecione
+        o acabamento desejado.
       </p>
 
     </section>
@@ -545,15 +518,18 @@ body {
         <iframe
           id="keyshotFrame"
           src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_25.3.html"
-          title="DERMO FLEXPRO PREMIUM 360°"
-          allowfullscreen>
+          title="DERMO FLEXPRO PREMIUM - 360°"
+          allowfullscreen
+          loading="eager">
         </iframe>
 
       </div>
 
       <div class="instrucao">
 
-        <span>↻ Clique e arraste para girar o produto</span>
+        <span>
+          ↻ Clique e arraste para girar o produto
+        </span>
 
         <small>RENDER FOTORREALISTA</small>
 
@@ -561,7 +537,7 @@ body {
 
     </section>
 
-    <!-- ACABAMENTOS -->
+    <!-- SELETOR DE ACABAMENTOS -->
     <section class="acabamentos">
 
       <div class="acabamentos-topo">
@@ -574,53 +550,57 @@ body {
 
       <div class="opcoes">
 
+        <!-- MADEIRA -->
         <button
           class="opcao ativa"
           type="button"
+          data-cor="madeira"
+          aria-pressed="true"
           onclick="mudarCor('madeira', this)">
 
           <span class="amostra madeira"></span>
 
           <span class="opcao-texto">
             <strong>Madeira natural</strong>
-            <small>Visualizar 360°</small>
+            <small>Visualizar em 360°</small>
           </span>
 
         </button>
 
+        <!-- BRANCO -->
         <button
           class="opcao"
           type="button"
+          data-cor="branco"
+          aria-pressed="false"
           onclick="mudarCor('branco', this)">
 
           <span class="amostra branco"></span>
 
           <span class="opcao-texto">
             <strong>Branco</strong>
-            <small>Em preparação</small>
+            <small>Visualizar em 360°</small>
           </span>
 
         </button>
 
+        <!-- PRETO -->
         <button
           class="opcao"
           type="button"
+          data-cor="preto"
+          aria-pressed="false"
           onclick="mudarCor('preto', this)">
 
           <span class="amostra preto"></span>
 
           <span class="opcao-texto">
             <strong>Preto</strong>
-            <small>Em preparação</small>
+            <small>Visualizar em 360°</small>
           </span>
 
         </button>
 
-      </div>
-
-      <div id="aviso" class="aviso">
-        Este acabamento estará disponível
-        para visualização 360° em breve.
       </div>
 
     </section>
@@ -639,19 +619,14 @@ body {
 
 const logo = document.getElementById("logo");
 
-logo.onerror = function() {
+logo.onerror = function () {
   if (!this.dataset.tentouOutro) {
     this.dataset.tentouOutro = "sim";
     this.src = "../imagens/logo-gondopar.png";
   }
 };
 
-/*
-  AJUSTE DE ESCALA DO KEYSHOTXR
-
-  O KeyShotXR original possui 1000 x 524 px.
-  A escala acompanha a largura do quadro.
-*/
+/* VISUALIZADOR */
 
 const viewer = document.getElementById("viewer");
 const frame = document.getElementById("keyshotFrame");
@@ -682,40 +657,39 @@ window.addEventListener(
 ajustarVisualizador();
 
 /*
-  SELETOR DE ACABAMENTOS
+  CAMINHOS DOS TRÊS KEYSHOTXR
 
-  Quando os novos KeyShotXR estiverem
-  publicados, basta adicionar seus
-  caminhos ao objeto abaixo.
+  Os nomes abaixo correspondem aos
+  arquivos enviados ao GitHub.
 */
 
 const modelos = {
   madeira:
     "../keyshotxr/DERMO_FLEXPRO_PREMIUM_25.3.html",
 
-  branco: null,
+  branco:
+    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
 
-  preto: null
+  preto:
+    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html"
 };
+
+/* TROCAR ACABAMENTO */
 
 function mudarCor(cor, botao) {
   const arquivo = modelos[cor];
-  const aviso = document.getElementById("aviso");
 
-  if (!arquivo) {
-    aviso.classList.add("visivel");
-    return;
-  }
+  if (!arquivo) return;
 
-  aviso.classList.remove("visivel");
-
-  document
-    .querySelectorAll(".opcao")
-    .forEach(opcao => {
+  document.querySelectorAll(".opcao").forEach(
+    opcao => {
       opcao.classList.remove("ativa");
-    });
+      opcao.setAttribute("aria-pressed", "false");
+    }
+  );
 
   botao.classList.add("ativa");
+  botao.setAttribute("aria-pressed", "true");
 
   if (frame.getAttribute("src") !== arquivo) {
     frame.src = arquivo;
