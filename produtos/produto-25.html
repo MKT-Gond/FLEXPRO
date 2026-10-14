@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>DERMO FLEXPRO PREMIUM | Gondopar</title>
 
 <style>
@@ -12,12 +11,9 @@
   --azul: #092d59;
   --azul-medio: #267fa4;
   --cinza: #67869b;
-  --vermelho: #d80019;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body {
   margin: 0;
@@ -42,13 +38,11 @@ body {
     ),
     linear-gradient(
       120deg,
-      #f8fdff 0%,
+      #f8fdff,
       #e5f7fb 50%,
-      #d5f1f9 100%
+      #d5f1f9
     );
 }
-
-/* CABEÇALHO */
 
 .cabecalho {
   display: flex;
@@ -106,12 +100,6 @@ body {
   font-weight: bold;
 }
 
-.voltar:hover {
-  border-color: var(--azul-medio);
-}
-
-/* CONTEÚDO */
-
 .conteudo {
   width: min(1200px, 94%);
   margin: 0 auto;
@@ -135,7 +123,6 @@ body {
 .identificacao h1 {
   margin: 0;
   font-size: clamp(24px, 3vw, 35px);
-  letter-spacing: -.5px;
 }
 
 .subtitulo {
@@ -144,10 +131,7 @@ body {
   color: var(--cinza);
 }
 
-/* QUADRO 360 */
-
 .quadro {
-  width: 100%;
   overflow: hidden;
   border-radius: 15px;
   background: white;
@@ -187,12 +171,9 @@ body {
   color: var(--cinza);
 }
 
-/* VISUALIZADOR RESPONSIVO */
-
 .viewer {
   position: relative;
   width: 100%;
-  height: 0;
   overflow: hidden;
   background: white;
 }
@@ -206,8 +187,6 @@ body {
   transform-origin: top left;
 }
 
-/* INSTRUÇÕES */
-
 .instrucao {
   display: flex;
   justify-content: space-between;
@@ -219,17 +198,12 @@ body {
   border-top: 1px solid #e8f0f4;
 }
 
-.instrucao span {
-  font-size: 11px;
-  color: var(--azul);
-}
+.instrucao span { font-size: 11px; }
 
 .instrucao small {
   font-size: 10px;
   color: var(--cinza);
 }
-
-/* ACABAMENTOS */
 
 .acabamentos {
   margin-top: 23px;
@@ -273,10 +247,10 @@ body {
   border-radius: 10px;
   background: white;
   cursor: pointer;
-  transition: .2s;
   text-align: left;
   color: var(--azul);
   font-family: inherit;
+  transition: .2s;
 }
 
 .opcao:hover {
@@ -297,17 +271,9 @@ body {
   border: 1px solid rgba(0,0,0,.12);
 }
 
-.itapua {
-  background: #a77b54;
-}
-
-.branco {
-  background: #f2f1ed;
-}
-
-.preto {
-  background: #303238;
-}
+.itapua { background: #a77b54; }
+.branco { background: #f2f1ed; }
+.preto { background: #303238; }
 
 .opcao-texto {
   display: flex;
@@ -315,16 +281,12 @@ body {
   gap: 5px;
 }
 
-.opcao-texto strong {
-  font-size: 12px;
-}
+.opcao-texto strong { font-size: 12px; }
 
 .opcao-texto small {
   font-size: 10px;
   color: var(--cinza);
 }
-
-/* RODAPÉ */
 
 .rodape {
   display: flex;
@@ -340,25 +302,11 @@ body {
   letter-spacing: 1px;
 }
 
-/* RESPONSIVIDADE */
-
 @media (max-width: 700px) {
-  .cabecalho {
-    padding: 13px 4%;
-    gap: 10px;
-  }
-
-  .marca {
-    gap: 10px;
-  }
-
-  .logo {
-    width: 115px;
-  }
-
-  .divisor {
-    height: 27px;
-  }
+  .cabecalho { padding: 13px 4%; gap: 10px; }
+  .marca { gap: 10px; }
+  .logo { width: 115px; }
+  .divisor { height: 27px; }
 
   .nome-linha strong {
     font-size: 11px;
@@ -370,54 +318,16 @@ body {
     letter-spacing: 0;
   }
 
-  .voltar {
-    padding: 10px;
-    font-size: 10px;
-  }
-
-  .conteudo {
-    width: 96%;
-    padding-top: 20px;
-  }
-
-  .identificacao h1 {
-    font-size: 23px;
-  }
-
-  .subtitulo {
-    font-size: 11px;
-  }
-
-  .barra {
-    padding: 0 12px;
-    min-height: 40px;
-  }
-
-  .barra-esquerda,
-  .barra-direita {
-    font-size: 9px;
-  }
-
-  .instrucao {
-    padding: 10px 12px;
-  }
-
-  .instrucao span,
-  .instrucao small {
-    font-size: 9px;
-  }
-
-  .acabamentos {
-    padding: 15px;
-  }
-
-  .acabamentos h2 {
-    font-size: 11px;
-  }
-
-  .opcoes {
-    gap: 8px;
-  }
+  .voltar { padding: 10px; font-size: 10px; }
+  .conteudo { width: 96%; padding-top: 20px; }
+  .identificacao h1 { font-size: 23px; }
+  .barra { padding: 0 12px; min-height: 40px; }
+  .barra-esquerda, .barra-direita { font-size: 9px; }
+  .instrucao { padding: 10px 12px; }
+  .instrucao span, .instrucao small { font-size: 9px; }
+  .acabamentos { padding: 15px; }
+  .acabamentos h2 { font-size: 11px; }
+  .opcoes { gap: 8px; }
 
   .opcao {
     padding: 10px 6px;
@@ -426,318 +336,179 @@ body {
     gap: 8px;
   }
 
-  .amostra {
-    width: 30px;
-    height: 30px;
-  }
-
-  .opcao-texto strong {
-    font-size: 10px;
-  }
-
-  .opcao-texto small {
-    font-size: 9px;
-  }
-
-  .rodape {
-    padding: 15px 4%;
-    font-size: 9px;
-  }
+  .amostra { width: 30px; height: 30px; }
+  .opcao-texto strong { font-size: 10px; }
+  .opcao-texto small { font-size: 9px; }
+  .rodape { padding: 15px 4%; font-size: 9px; }
 }
 </style>
 </head>
 
 <body>
-
 <div class="pagina">
 
-  <header class="cabecalho">
+<header class="cabecalho">
+  <div class="marca">
+    <img
+      id="logo"
+      class="logo"
+      src="../imagens/logo-gondopar.png.png"
+      alt="Gondopar">
 
-    <div class="marca">
+    <div class="divisor"></div>
 
-      <img
-        id="logo"
-        class="logo"
-        src="../imagens/logo-gondopar.png.png"
-        alt="Gondopar">
+    <div class="nome-linha">
+      <strong>FLEXPRO</strong>
+      <span>LINHA DE EXPOSITORES</span>
+    </div>
+  </div>
 
-      <div class="divisor"></div>
+  <a class="voltar" href="../index.html">← CATÁLOGO</a>
+</header>
 
-      <div class="nome-linha">
-        <strong>FLEXPRO</strong>
-        <span>LINHA DE EXPOSITORES</span>
-      </div>
+<main class="conteudo">
 
+<section class="identificacao">
+  <span class="referencia">LINHA FLEXPRO · REF. 25</span>
+  <h1>DERMO FLEXPRO PREMIUM</h1>
+  <p class="subtitulo">
+    Explore o produto em 360° e selecione o acabamento desejado.
+  </p>
+</section>
+
+<section class="quadro">
+  <div class="barra">
+    <div class="barra-esquerda">
+      <span class="ponto"></span>
+      VISUALIZADOR DO PRODUTO
     </div>
 
-    <a class="voltar" href="../index.html">
-      ← CATÁLOGO
-    </a>
+    <span class="barra-direita">KEYSHOTXR · 360°</span>
+  </div>
 
-  </header>
+  <div class="viewer" id="viewer">
+    <iframe
+      id="keyshotFrame"
+      src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html"
+      title="DERMO FLEXPRO PREMIUM 360°"
+      allowfullscreen
+      loading="eager">
+    </iframe>
+  </div>
 
-  <main class="conteudo">
+  <div class="instrucao">
+    <span>↻ Clique e arraste para girar o produto</span>
+    <small>RENDER FOTORREALISTA</small>
+  </div>
+</section>
 
-    <section class="identificacao">
+<section class="acabamentos">
+  <div class="acabamentos-topo">
+    <h2>ACABAMENTOS DISPONÍVEIS</h2>
+    <span>Selecione uma opção</span>
+  </div>
 
-      <span class="referencia">
-        LINHA FLEXPRO · REF. 25
+  <div class="opcoes">
+    <button class="opcao ativa" type="button"
+      aria-pressed="true"
+      onclick="mudarCor('itapua', this)">
+      <span class="amostra itapua"></span>
+      <span class="opcao-texto">
+        <strong>Itapuã</strong>
+        <small>Visualizar em 360°</small>
       </span>
+    </button>
 
-      <h1>DERMO FLEXPRO PREMIUM</h1>
+    <button class="opcao" type="button"
+      aria-pressed="false"
+      onclick="mudarCor('branco', this)">
+      <span class="amostra branco"></span>
+      <span class="opcao-texto">
+        <strong>Branco</strong>
+        <small>Visualizar em 360°</small>
+      </span>
+    </button>
 
-      <p class="subtitulo">
-        Explore o produto em 360° e selecione
-        o acabamento desejado.
-      </p>
+    <button class="opcao" type="button"
+      aria-pressed="false"
+      onclick="mudarCor('preto', this)">
+      <span class="amostra preto"></span>
+      <span class="opcao-texto">
+        <strong>Preto</strong>
+        <small>Visualizar em 360°</small>
+      </span>
+    </button>
+  </div>
+</section>
 
-    </section>
+</main>
 
-    <section class="quadro">
-
-      <div class="barra">
-
-        <div class="barra-esquerda">
-          <span class="ponto"></span>
-          VISUALIZADOR DO PRODUTO
-        </div>
-
-        <span class="barra-direita">
-          KEYSHOTXR · 360°
-        </span>
-
-      </div>
-
-      <div class="viewer" id="viewer">
-
-        <iframe
-          id="keyshotFrame"
-          src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html"
-          title="DERMO FLEXPRO PREMIUM - 360°"
-          allowfullscreen
-          loading="eager">
-        </iframe>
-
-      </div>
-
-      <div class="instrucao">
-
-        <span>
-          ↻ Clique e arraste para girar o produto
-        </span>
-
-        <small>RENDER FOTORREALISTA</small>
-
-      </div>
-
-    </section>
-
-    <section class="acabamentos">
-
-      <div class="acabamentos-topo">
-
-        <h2>ACABAMENTOS DISPONÍVEIS</h2>
-
-        <span>Selecione uma opção</span>
-
-      </div>
-
-      <div class="opcoes">
-
-        <!-- ITAPUÃ -->
-        <button
-          class="opcao ativa"
-          type="button"
-          aria-pressed="true"
-          onclick="mudarCor('itapua', this)">
-
-          <span class="amostra itapua"></span>
-
-          <span class="opcao-texto">
-            <strong>Itapuã</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-        <!-- BRANCO -->
-        <button
-          class="opcao"
-          type="button"
-          aria-pressed="false"
-          onclick="mudarCor('branco', this)">
-
-          <span class="amostra branco"></span>
-
-          <span class="opcao-texto">
-            <strong>Branco</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-        <!-- PRETO -->
-        <button
-          class="opcao"
-          type="button"
-          aria-pressed="false"
-          onclick="mudarCor('preto', this)">
-
-          <span class="amostra preto"></span>
-
-          <span class="opcao-texto">
-            <strong>Preto</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer class="rodape">
-    <strong>GONDOPAR</strong>
-    <span>Gôndolas e mobílias especiais</span>
-  </footer>
+<footer class="rodape">
+  <strong>GONDOPAR</strong>
+  <span>Gôndolas e mobílias especiais</span>
+</footer>
 
 </div>
 
 <script>
-/* LOGO */
-
 const logo = document.getElementById("logo");
 
-logo.onerror = function () {
+logo.onerror = function() {
   if (!this.dataset.tentouOutro) {
     this.dataset.tentouOutro = "sim";
     this.src = "../imagens/logo-gondopar.png";
   }
 };
 
-/* VISUALIZADOR */
+const modelos = {
+  itapua: {
+    arquivo: "../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html",
+    largura: 1453,
+    altura: 1000
+  },
+  branco: {
+    arquivo: "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
+    largura: 1453,
+    altura: 1000
+  },
+  preto: {
+    arquivo: "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html",
+    largura: 1571,
+    altura: 823
+  }
+};
 
 const viewer = document.getElementById("viewer");
 const frame = document.getElementById("keyshotFrame");
 
-/*
-  CAMINHOS DOS ACABAMENTOS
-
-  Itapuã substitui a antiga versão Madeira.
-
-  As dimensões de Itapuã e Preto são
-  provisórias até serem identificadas
-  a partir do HTML do KeyShotXR.
-*/
-
-const modelos = {
-  itapua: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html",
-    largura: 1453,
-    altura: 1000
-  },
-
-  branco: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
-    largura: 1453,
-    altura: 1000
-  },
-
-  preto: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html",
-    largura: 1453,
-    altura: 1000
-  }
-};
-
 let corAtual = "itapua";
-
-/*
-  LÊ AS DIMENSÕES DO HTML DO KEYSHOTXR.
-*/
-
-function detectarDimensoes() {
-  try {
-    const win = frame.contentWindow;
-
-    const largura = win.eval("viewPortWidth");
-    const altura = win.eval("viewPortHeight");
-
-    if (
-      Number.isFinite(largura) &&
-      Number.isFinite(altura) &&
-      largura > 0 &&
-      altura > 0
-    ) {
-      modelos[corAtual].largura = largura;
-      modelos[corAtual].altura = altura;
-    }
-  } catch (erro) {
-    // Mantém as dimensões provisórias.
-  }
-
-  ajustarVisualizador();
-}
-
-/*
-  AJUSTA A ALTURA DO QUADRO E A ESCALA
-  DO IFRAME CONFORME O RENDER.
-*/
 
 function ajustarVisualizador() {
   const modelo = modelos[corAtual];
-
-  const larguraOriginal = modelo.largura;
-  const alturaOriginal = modelo.altura;
-
   const larguraDisponivel = viewer.clientWidth;
 
   if (!larguraDisponivel) return;
 
-  const escala = larguraDisponivel / larguraOriginal;
+  const escala = larguraDisponivel / modelo.largura;
 
-  viewer.style.height =
-    (alturaOriginal * escala) + "px";
+  viewer.style.height = (modelo.altura * escala) + "px";
 
-  frame.style.width = larguraOriginal + "px";
-  frame.style.height = alturaOriginal + "px";
-
-  frame.style.transform =
-    "scale(" + escala + ")";
+  frame.style.width = modelo.largura + "px";
+  frame.style.height = modelo.altura + "px";
+  frame.style.transformOrigin = "top left";
+  frame.style.transform = "scale(" + escala + ")";
 }
-
-/* EVENTOS */
-
-window.addEventListener(
-  "resize",
-  ajustarVisualizador
-);
-
-frame.addEventListener(
-  "load",
-  detectarDimensoes
-);
-
-/* ALTERAR ACABAMENTO */
 
 function mudarCor(cor, botao) {
   const modelo = modelos[cor];
-
   if (!modelo) return;
 
   corAtual = cor;
 
-  document.querySelectorAll(".opcao").forEach(
-    opcao => {
-      opcao.classList.remove("ativa");
-      opcao.setAttribute("aria-pressed", "false");
-    }
-  );
+  document.querySelectorAll(".opcao").forEach(opcao => {
+    opcao.classList.remove("ativa");
+    opcao.setAttribute("aria-pressed", "false");
+  });
 
   botao.classList.add("ativa");
   botao.setAttribute("aria-pressed", "true");
@@ -749,10 +520,10 @@ function mudarCor(cor, botao) {
   }
 }
 
-/* INICIALIZAÇÃO */
+window.addEventListener("resize", ajustarVisualizador);
+window.addEventListener("load", ajustarVisualizador);
 
 ajustarVisualizador();
 </script>
-
 </body>
 </html>
