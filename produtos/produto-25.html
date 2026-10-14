@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>DERMO FLEXPRO PREMIUM | Gondopar</title>
 
 <style>
@@ -11,6 +12,7 @@
   --azul: #092d59;
   --azul-medio: #267fa4;
   --cinza: #67869b;
+  --borda: #dcebf1;
 }
 
 * {
@@ -141,7 +143,7 @@ body {
   color: var(--cinza);
 }
 
-/* QUADRO PRINCIPAL */
+/* QUADRO DO VISUALIZADOR */
 
 .quadro {
   width: 100%;
@@ -184,22 +186,14 @@ body {
   color: var(--cinza);
 }
 
-/*
-  VISUALIZADOR PADRONIZADO
-
-  Todos os acabamentos ocupam um quadro
-  com a proporção 1453 x 1000.
-
-  O iframe é redimensionado sem deformar
-  o render original.
-*/
+/* VISUALIZADOR 360 */
 
 .viewer {
   position: relative;
   width: 100%;
   aspect-ratio: 1453 / 1000;
   overflow: hidden;
-  background: #ffffff;
+  background: white;
 }
 
 .viewer iframe {
@@ -226,7 +220,6 @@ body {
 
 .instrucao span {
   font-size: 11px;
-  color: var(--azul);
 }
 
 .instrucao small {
@@ -234,17 +227,17 @@ body {
   color: var(--cinza);
 }
 
-/* ACABAMENTOS */
+/* PAINÉIS */
 
-.acabamentos {
+.painel {
   margin-top: 23px;
   padding: 22px;
-  border: 1px solid #dcebf1;
+  border: 1px solid var(--borda);
   border-radius: 14px;
   background: rgba(255,255,255,.8);
 }
 
-.acabamentos-topo {
+.painel-topo {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -252,16 +245,18 @@ body {
   margin-bottom: 18px;
 }
 
-.acabamentos h2 {
+.painel h2 {
   margin: 0;
   font-size: 13px;
   letter-spacing: 1.5px;
 }
 
-.acabamentos-topo span {
+.painel-topo span {
   font-size: 10px;
   color: var(--cinza);
 }
+
+/* ACABAMENTOS */
 
 .opcoes {
   display: grid;
@@ -329,6 +324,94 @@ body {
   color: var(--cinza);
 }
 
+/* DIMENSÕES */
+
+.medidas-resumo {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.medida {
+  min-width: 0;
+  padding: 18px 12px;
+  border: 1px solid #e1edf2;
+  border-radius: 10px;
+  background: #f4fafc;
+  text-align: center;
+}
+
+.medida-label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--cinza);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.medida-valor {
+  display: block;
+  font-size: clamp(13px, 1.7vw, 19px);
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.medida-unidade {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--cinza);
+}
+
+.separador {
+  height: 1px;
+  margin: 22px 0;
+  background: #e2edf2;
+}
+
+.combinacoes-titulo {
+  margin: 0 0 13px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+.combinacoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.combinacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 10px;
+  border: 1px solid #e0ebf0;
+  border-radius: 9px;
+  background: white;
+  text-align: center;
+}
+
+.combinacao-numero {
+  color: var(--azul-medio);
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.combinacao-medida {
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.nota-medidas {
+  margin: 14px 0 0;
+  font-size: 10px;
+  color: var(--cinza);
+}
+
 /* RODAPÉ */
 
 .rodape {
@@ -348,6 +431,7 @@ body {
 /* RESPONSIVIDADE */
 
 @media (max-width: 700px) {
+
   .cabecalho {
     padding: 13px 4%;
     gap: 10px;
@@ -412,11 +496,11 @@ body {
     font-size: 9px;
   }
 
-  .acabamentos {
+  .painel {
     padding: 15px;
   }
 
-  .acabamentos h2 {
+  .painel h2 {
     font-size: 11px;
   }
 
@@ -444,9 +528,53 @@ body {
     font-size: 9px;
   }
 
+  .medidas-resumo {
+    gap: 7px;
+  }
+
+  .medida {
+    padding: 13px 5px;
+  }
+
+  .medida-label {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+
+  .medida-valor {
+    font-size: 12px;
+  }
+
+  .medida-unidade {
+    font-size: 10px;
+  }
+
+  .combinacoes {
+    gap: 8px;
+  }
+
+  .combinacao {
+    padding: 12px 5px;
+    gap: 5px;
+  }
+
+  .combinacao-numero {
+    font-size: 9px;
+  }
+
+  .combinacao-medida {
+    font-size: 10px;
+  }
+
   .rodape {
     padding: 15px 4%;
     font-size: 9px;
+  }
+}
+
+@media (max-width: 360px) {
+  .combinacoes {
+    grid-template-columns: 1fr;
   }
 }
 </style>
@@ -545,9 +673,9 @@ body {
 
     <!-- ACABAMENTOS -->
 
-    <section class="acabamentos">
+    <section class="painel">
 
-      <div class="acabamentos-topo">
+      <div class="painel-topo">
 
         <h2>ACABAMENTOS DISPONÍVEIS</h2>
 
@@ -556,8 +684,6 @@ body {
       </div>
 
       <div class="opcoes">
-
-        <!-- ITAPUÃ -->
 
         <button
           class="opcao ativa"
@@ -574,8 +700,6 @@ body {
 
         </button>
 
-        <!-- BRANCO -->
-
         <button
           class="opcao"
           type="button"
@@ -590,8 +714,6 @@ body {
           </span>
 
         </button>
-
-        <!-- PRETO -->
 
         <button
           class="opcao"
@@ -609,6 +731,104 @@ body {
         </button>
 
       </div>
+
+    </section>
+
+    <!-- DIMENSÕES DISPONÍVEIS -->
+
+    <section class="painel">
+
+      <div class="painel-topo">
+
+        <h2>DIMENSÕES DISPONÍVEIS</h2>
+
+        <span>Medidas em mm</span>
+
+      </div>
+
+      <div class="medidas-resumo">
+
+        <div class="medida">
+
+          <span class="medida-label">
+            PROFUNDIDADE
+          </span>
+
+          <span class="medida-valor">
+            300 <span class="medida-unidade">mm</span>
+          </span>
+
+        </div>
+
+        <div class="medida">
+
+          <span class="medida-label">
+            LARGURA
+          </span>
+
+          <span class="medida-valor">
+            330 / 630
+            <span class="medida-unidade">mm</span>
+          </span>
+
+        </div>
+
+        <div class="medida">
+
+          <span class="medida-label">
+            ALTURA
+          </span>
+
+          <span class="medida-valor">
+            2200 / 2400
+            <span class="medida-unidade">mm</span>
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="separador"></div>
+
+      <p class="combinacoes-titulo">
+        COMBINAÇÕES DISPONÍVEIS (P × L × A)
+      </p>
+
+      <div class="combinacoes">
+
+        <div class="combinacao">
+          <span class="combinacao-numero">01</span>
+          <span class="combinacao-medida">
+            300 × 330 × 2200 mm
+          </span>
+        </div>
+
+        <div class="combinacao">
+          <span class="combinacao-numero">02</span>
+          <span class="combinacao-medida">
+            300 × 630 × 2200 mm
+          </span>
+        </div>
+
+        <div class="combinacao">
+          <span class="combinacao-numero">03</span>
+          <span class="combinacao-medida">
+            300 × 330 × 2400 mm
+          </span>
+        </div>
+
+        <div class="combinacao">
+          <span class="combinacao-numero">04</span>
+          <span class="combinacao-medida">
+            300 × 630 × 2400 mm
+          </span>
+        </div>
+
+      </div>
+
+      <p class="nota-medidas">
+        P = Profundidade · L = Largura · A = Altura
+      </p>
 
     </section>
 
@@ -636,11 +856,7 @@ logo.onerror = function() {
   }
 };
 
-/*
-  CONFIGURAÇÃO DOS ACABAMENTOS
-
-  Cada render mantém sua resolução original.
-*/
+/* CONFIGURAÇÃO DOS RENDERS */
 
 const modelos = {
 
@@ -672,19 +888,19 @@ const frame = document.getElementById("keyshotFrame");
 
 let corAtual = "itapua";
 
-/*
-  PROPORÇÃO PADRÃO DO QUADRO
-
-  Todos terão o mesmo tamanho externo.
-*/
-
 const proporcaoPadrao = 1000 / 1453;
 
 /*
-  AJUSTAR VISUALIZADOR
+  AJUSTE DO VISUALIZADOR
 
-  O iframe será centralizado dentro do
-  quadro padrão, sem distorcer o render.
+  Branco e Itapuã:
+  mantêm o enquadramento original.
+
+  Preto:
+  preenche a altura inteira do quadro,
+  eliminando as faixas brancas.
+
+  O render não é deformado.
 */
 
 function ajustarVisualizador() {
@@ -698,14 +914,25 @@ function ajustarVisualizador() {
   const alturaQuadro =
     larguraQuadro * proporcaoPadrao;
 
-  // Mantém a altura igual para todas as cores
   viewer.style.height = alturaQuadro + "px";
 
-  // Calcula a escala para o render caber inteiro
-  const escala = Math.min(
-    larguraQuadro / modelo.largura,
-    alturaQuadro / modelo.altura
-  );
+  /*
+    Para o Preto, usa a maior escala,
+    preenchendo toda a área disponível.
+
+    Para os outros acabamentos,
+    mantém a escala original.
+  */
+
+  const escala = corAtual === "preto"
+    ? Math.max(
+        larguraQuadro / modelo.largura,
+        alturaQuadro / modelo.altura
+      )
+    : Math.min(
+        larguraQuadro / modelo.largura,
+        alturaQuadro / modelo.altura
+      );
 
   const larguraFinal =
     modelo.largura * escala;
@@ -713,14 +940,18 @@ function ajustarVisualizador() {
   const alturaFinal =
     modelo.altura * escala;
 
-  // Centraliza horizontalmente e verticalmente
+  /*
+    Centralização do render.
+    O excesso lateral do Preto
+    fica oculto pelo quadro.
+  */
+
   const deslocamentoX =
     (larguraQuadro - larguraFinal) / 2;
 
   const deslocamentoY =
     (alturaQuadro - alturaFinal) / 2;
 
-  // Mantém dimensões originais do KeyShotXR
   frame.style.width =
     modelo.largura + "px";
 
@@ -740,9 +971,7 @@ function ajustarVisualizador() {
 
 }
 
-/*
-  TROCAR ACABAMENTO
-*/
+/* TROCA DE ACABAMENTOS */
 
 function mudarCor(cor, botao) {
 
@@ -770,9 +999,7 @@ function mudarCor(cor, botao) {
 
 }
 
-/*
-  RESPONSIVIDADE
-*/
+/* RESPONSIVIDADE */
 
 window.addEventListener(
   "resize",
