@@ -2,93 +2,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DERMO FLEXPRO PREMIUM - ITAPUÃ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>DERMO FLEXPRO PREMIUM - ITAPUÃ</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #ffffff;
-    }
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    -ms-touch-action: none;
+  }
+</style>
 
-    #KeyShotXR {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+<script src="DERMO_FLEXPRO_PREMIUM_ITAPUA.6/files/KeyShotXR.js"></script>
 
-  <script src="DERMO_FLEXPRO_PREMIUM_ITAPUA.6/files/KeyShotXR.js"></script>
+<script>
+var keyshotViewer;
 
-  <script>
-    var keyshotXR;
+function initKeyShotXR() {
+  var nameOfDiv = "KeyShotXR";
+  var folderName = "DERMO_FLEXPRO_PREMIUM_ITAPUA.6";
+  var viewPortWidth = 1453;
+  var viewPortHeight = 1000;
+  var backgroundColor = "#FFFFFF";
 
-    function initKeyShotXR() {
-      var nameOfDiv = "KeyShotXR";
-      var folderName = "DERMO_FLEXPRO_PREMIUM_ITAPUA.6";
-      var viewPortWidth = 1453;
-      var viewPortHeight = 1000;
-      var backgroundColor = "#FFFFFF";
-      var uCount = 24;
-      var vCount = 5;
-      var uWrap = true;
-      var vWrap = false;
-      var uMouseSensitivity = -0.0666667;
-      var vMouseSensitivity = 0.03125;
-      var uStartIndex = 12;
-      var vStartIndex = 3;
-      var minZoom = 1;
-      var maxZoom = 1;
-      var rotationDamping = 0.96;
-      var downScaleToBrowser = true;
-      var addDownScaleGUIButton = false;
-      var downloadOnInteraction = false;
-      var imageExtension = "jpg";
-      var showLoading = true;
-      var loadingIcon = "ks_logo.png";
-      var allowFullscreen = true;
-      var uReverse = false;
-      var vReverse = false;
-      var hotspots = {};
-      var isIBooksWidget = false;
+  var uCount = 24;
+  var vCount = 5;
+  var uWrap = true;
+  var vWrap = false;
 
-      keyshotXR = new keyshotXR(
-        nameOfDiv,
-        folderName,
-        viewPortWidth,
-        viewPortHeight,
-        backgroundColor,
-        uCount,
-        vCount,
-        uWrap,
-        vWrap,
-        uMouseSensitivity,
-        vMouseSensitivity,
-        uStartIndex,
-        vStartIndex,
-        minZoom,
-        maxZoom,
-        rotationDamping,
-        downScaleToBrowser,
-        addDownScaleGUIButton,
-        downloadOnInteraction,
-        imageExtension,
-        showLoading,
-        loadingIcon,
-        allowFullscreen,
-        uReverse,
-        vReverse,
-        hotspots,
-        isIBooksWidget
-      );
-    }
+  var uMouseSensitivity = -0.0666667;
+  var vMouseSensitivity = 0.03125;
 
-    window.addEventListener("load", initKeyShotXR);
-  </script>
+  var uStartIndex = 12;
+  var vStartIndex = 3;
+
+  var minZoom = 1;
+  var maxZoom = 1;
+  var rotationDamping = 0.96;
+  var downScaleToBrowser = true;
+  var addDownScaleGUIButton = false;
+  var downloadOnInteraction = false;
+  var imageExtension = "jpg";
+  var showLoading = true;
+  var loadingIcon = "ks_logo.png";
+  var allowFullscreen = true;
+  var uReverse = false;
+  var vReverse = false;
+  var hotspots = {};
+  var isIBooksWidget = false;
+
+  keyshotViewer = new window.keyshotXR(
+    nameOfDiv,
+    folderName,
+    viewPortWidth,
+    viewPortHeight,
+    backgroundColor,
+    uCount,
+    vCount,
+    uWrap,
+    vWrap,
+    uMouseSensitivity,
+    vMouseSensitivity,
+    uStartIndex,
+    vStartIndex,
+    minZoom,
+    maxZoom,
+    rotationDamping,
+    downScaleToBrowser,
+    addDownScaleGUIButton,
+    downloadOnInteraction,
+    imageExtension,
+    showLoading,
+    loadingIcon,
+    allowFullscreen,
+    uReverse,
+    vReverse,
+    hotspots,
+    isIBooksWidget
+  );
+}
+
+window.addEventListener("load", initKeyShotXR);
+</script>
 </head>
 
 <body oncontextmenu="return false;">
