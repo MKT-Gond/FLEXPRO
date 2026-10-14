@@ -19,8 +19,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   min-height: 100%;
 }
@@ -188,12 +187,12 @@ body {
   color: var(--cinza);
 }
 
-/* KEYSHOTXR EM ESCALA */
+/* VISUALIZADOR RESPONSIVO */
 
 .viewer {
   position: relative;
   width: 100%;
-  aspect-ratio: 1000 / 524;
+  height: 0;
   overflow: hidden;
   background: white;
 }
@@ -202,13 +201,12 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 1000px;
-  height: 524px;
   border: 0;
   background: white;
   transform-origin: top left;
-  transform: scale(var(--escala, 1));
 }
+
+/* INSTRUÇÕES */
 
 .instrucao {
   display: flex;
@@ -273,7 +271,7 @@ body {
   padding: 13px 15px;
   border: 1px solid #d9e7ed;
   border-radius: 10px;
-  background: #fff;
+  background: white;
   cursor: pointer;
   transition: .2s;
   text-align: left;
@@ -299,7 +297,7 @@ body {
   border: 1px solid rgba(0,0,0,.12);
 }
 
-.madeira {
+.itapua {
   background: #a77b54;
 }
 
@@ -342,7 +340,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* CELULAR */
+/* RESPONSIVIDADE */
 
 @media (max-width: 700px) {
   .cabecalho {
@@ -453,7 +451,6 @@ body {
 
 <div class="pagina">
 
-  <!-- CABEÇALHO -->
   <header class="cabecalho">
 
     <div class="marca">
@@ -481,7 +478,6 @@ body {
 
   <main class="conteudo">
 
-    <!-- IDENTIFICAÇÃO -->
     <section class="identificacao">
 
       <span class="referencia">
@@ -497,7 +493,6 @@ body {
 
     </section>
 
-    <!-- VISUALIZADOR -->
     <section class="quadro">
 
       <div class="barra">
@@ -517,7 +512,7 @@ body {
 
         <iframe
           id="keyshotFrame"
-          src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_25.3.html"
+          src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html"
           title="DERMO FLEXPRO PREMIUM - 360°"
           allowfullscreen
           loading="eager">
@@ -537,7 +532,6 @@ body {
 
     </section>
 
-    <!-- SELETOR DE ACABAMENTOS -->
     <section class="acabamentos">
 
       <div class="acabamentos-topo">
@@ -550,18 +544,17 @@ body {
 
       <div class="opcoes">
 
-        <!-- MADEIRA -->
+        <!-- ITAPUÃ -->
         <button
           class="opcao ativa"
           type="button"
-          data-cor="madeira"
           aria-pressed="true"
-          onclick="mudarCor('madeira', this)">
+          onclick="mudarCor('itapua', this)">
 
-          <span class="amostra madeira"></span>
+          <span class="amostra itapua"></span>
 
           <span class="opcao-texto">
-            <strong>Madeira natural</strong>
+            <strong>Itapuã</strong>
             <small>Visualizar em 360°</small>
           </span>
 
@@ -571,7 +564,6 @@ body {
         <button
           class="opcao"
           type="button"
-          data-cor="branco"
           aria-pressed="false"
           onclick="mudarCor('branco', this)">
 
@@ -588,7 +580,6 @@ body {
         <button
           class="opcao"
           type="button"
-          data-cor="preto"
           aria-pressed="false"
           onclick="mudarCor('preto', this)">
 
@@ -631,55 +622,115 @@ logo.onerror = function () {
 const viewer = document.getElementById("viewer");
 const frame = document.getElementById("keyshotFrame");
 
-function ajustarVisualizador() {
-  const largura = viewer.clientWidth;
+/*
+  CAMINHOS DOS ACABAMENTOS
 
-  if (!largura) return;
+  Itapuã substitui a antiga versão Madeira.
 
-  const escala = largura / 1000;
+  As dimensões de Itapuã e Preto são
+  provisórias até serem identificadas
+  a partir do HTML do KeyShotXR.
+*/
 
-  viewer.style.setProperty(
-    "--escala",
-    escala
-  );
+const modelos = {
+  itapua: {
+    arquivo:
+      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html",
+    largura: 1453,
+    altura: 1000
+  },
+
+  branco: {
+    arquivo:
+      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
+    largura: 1453,
+    altura: 1000
+  },
+
+  preto: {
+    arquivo:
+      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html",
+    largura: 1453,
+    altura: 1000
+  }
+};
+
+let corAtual = "itapua";
+
+/*
+  LÊ AS DIMENSÕES DO HTML DO KEYSHOTXR.
+*/
+
+function detectarDimensoes() {
+  try {
+    const win = frame.contentWindow;
+
+    const largura = win.eval("viewPortWidth");
+    const altura = win.eval("viewPortHeight");
+
+    if (
+      Number.isFinite(largura) &&
+      Number.isFinite(altura) &&
+      largura > 0 &&
+      altura > 0
+    ) {
+      modelos[corAtual].largura = largura;
+      modelos[corAtual].altura = altura;
+    }
+  } catch (erro) {
+    // Mantém as dimensões provisórias.
+  }
+
+  ajustarVisualizador();
 }
+
+/*
+  AJUSTA A ALTURA DO QUADRO E A ESCALA
+  DO IFRAME CONFORME O RENDER.
+*/
+
+function ajustarVisualizador() {
+  const modelo = modelos[corAtual];
+
+  const larguraOriginal = modelo.largura;
+  const alturaOriginal = modelo.altura;
+
+  const larguraDisponivel = viewer.clientWidth;
+
+  if (!larguraDisponivel) return;
+
+  const escala = larguraDisponivel / larguraOriginal;
+
+  viewer.style.height =
+    (alturaOriginal * escala) + "px";
+
+  frame.style.width = larguraOriginal + "px";
+  frame.style.height = alturaOriginal + "px";
+
+  frame.style.transform =
+    "scale(" + escala + ")";
+}
+
+/* EVENTOS */
 
 window.addEventListener(
   "resize",
   ajustarVisualizador
 );
 
-window.addEventListener(
+frame.addEventListener(
   "load",
-  ajustarVisualizador
+  detectarDimensoes
 );
 
-ajustarVisualizador();
-
-/*
-  CAMINHOS DOS TRÊS KEYSHOTXR
-
-  Os nomes abaixo correspondem aos
-  arquivos enviados ao GitHub.
-*/
-
-const modelos = {
-  madeira:
-    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_25.3.html",
-
-  branco:
-    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
-
-  preto:
-    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html"
-};
-
-/* TROCAR ACABAMENTO */
+/* ALTERAR ACABAMENTO */
 
 function mudarCor(cor, botao) {
-  const arquivo = modelos[cor];
+  const modelo = modelos[cor];
 
-  if (!arquivo) return;
+  if (!modelo) return;
+
+  corAtual = cor;
 
   document.querySelectorAll(".opcao").forEach(
     opcao => {
@@ -691,12 +742,16 @@ function mudarCor(cor, botao) {
   botao.classList.add("ativa");
   botao.setAttribute("aria-pressed", "true");
 
-  if (frame.getAttribute("src") !== arquivo) {
-    frame.src = arquivo;
-  }
-
   ajustarVisualizador();
+
+  if (frame.getAttribute("src") !== modelo.arquivo) {
+    frame.src = modelo.arquivo;
+  }
 }
+
+/* INICIALIZAÇÃO */
+
+ajustarVisualizador();
 </script>
 
 </body>
