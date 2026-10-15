@@ -3,259 +3,177 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FlexPro | Catálogo Virtual 3D Gondopar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catálogo FLEXPRO | Gondopar</title>
 
 <style>
 :root {
-  --azul: #052b5b;
-  --ciano: #42c9e8;
+  --azul: #092d59;
+  --azul-medio: #267fa4;
   --vermelho: #d80019;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--azul);
-  background:
-    radial-gradient(ellipse at 18% 20%, #fff 0%, transparent 52%),
-    radial-gradient(ellipse at 90% 30%, #8de3f2 0%, transparent 65%),
-    linear-gradient(135deg, #f9fdff, #d7f5fb 55%, #a7eaf5);
+  background: linear-gradient(135deg, #f8fdff, #d9f2f9);
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  width: 80vw;
-  height: 80vw;
-  right: -28vw;
-  top: -28vw;
-  border: 2px solid #48b7df55;
-  border-radius: 18%;
-  transform: rotate(45deg);
-  pointer-events: none;
+header {
+  padding: 28px 5%;
+  background: rgba(255,255,255,.65);
+  border-bottom: 1px solid #dcebf1;
 }
 
-header {
-  position: relative;
-  z-index: 2;
+.cabecalho {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  padding: 16px 6%;
-  min-height: 105px;
-  background: #ffffffc9;
-  border-bottom: 1px solid #fff;
 }
 
 .logo {
-  display: block;
-  width: 230px;
-  max-width: 45vw;
-  height: auto;
-  max-height: 85px;
+  width: 190px;
+  max-width: 100%;
   object-fit: contain;
 }
 
-.header-direita {
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.marca {
+  font-size: 12px;
+  color: #68869b;
   text-align: right;
 }
 
-.hero {
-  position: relative;
-  max-width: 1250px;
-  margin: auto;
-  padding: 75px 25px 65px;
-}
-
-.hero-conteudo {
-  border-left: 4px solid var(--ciano);
-  padding-left: 28px;
-}
-
-.categoria {
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  margin: 12px 0;
-  font-size: clamp(55px, 9vw, 105px);
-  letter-spacing: -4px;
-  line-height: 1.05;
-}
-
-.hero h1 span { color: #32bfe5; }
-
-.hero p {
-  max-width: 570px;
-  color: #486b8a;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
 main {
-  position: relative;
-  max-width: 1250px;
-  margin: auto;
-  padding: 20px 25px 85px;
+  width: min(1200px, 92%);
+  margin: 45px auto 70px;
 }
 
-.titulo-secao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  border-left: 3px solid var(--ciano);
-  padding-left: 15px;
-  margin-bottom: 28px;
+.apresentacao {
+  margin-bottom: 35px;
 }
 
-.titulo-secao h2 {
-  margin: 0;
-  font-size: 25px;
+.referencia {
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--azul-medio);
+  letter-spacing: 2px;
 }
 
-.titulo-secao span {
-  font-size: 12px;
-  color: #537b98;
+h1 {
+  font-size: clamp(30px, 4vw, 46px);
+  margin: 12px 0;
+}
+
+.descricao {
+  color: #67869b;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .grade {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-.produto {
+.card {
+  display: block;
   overflow: hidden;
-  border-radius: 15px;
-  background: #fffffff0;
-  border: 1px solid #fff;
-  box-shadow: 0 10px 30px #052b5b12;
-  transition: transform .25s, box-shadow .25s;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #dcebf1;
+  box-shadow: 0 12px 30px rgba(9,45,89,.06);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s, box-shadow .2s;
 }
 
-.produto:hover {
+.card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px #052b5b22;
+  box-shadow: 0 18px 35px rgba(9,45,89,.12);
 }
 
-.imagem {
-  height: 270px;
-  position: relative;
+.card-imagem {
+  height: 280px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #fff, #d8f1f8);
+  align-items: center;
+  background: #f8fcfd;
+  overflow: hidden;
 }
 
-.imagem img {
+.card-imagem img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.placeholder {
-  text-align: center;
-  padding: 25px;
-  color: #7893a8;
-  font-size: 13px;
+.card-conteudo {
+  padding: 22px;
 }
 
-.selo {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 1;
-  background: #fff;
-  border-radius: 20px;
-  padding: 7px 12px;
+.card-ref {
   font-size: 10px;
+  color: var(--azul-medio);
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-.conteudo { padding: 24px; }
-
-.codigo {
-  color: #149ec6;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.conteudo h3 {
-  margin: 10px 0;
+.card h2 {
   font-size: 19px;
+  margin: 10px 0;
 }
 
-.conteudo p {
-  min-height: 42px;
-  color: #66809a;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.botao {
-  display: block;
-  margin-top: 20px;
-  padding: 14px;
-  text-align: center;
-  text-decoration: none;
-  background: var(--azul);
-  color: #fff;
-  border-radius: 8px;
+.card p {
   font-size: 12px;
-  font-weight: bold;
+  color: #67869b;
+  margin-bottom: 20px;
 }
 
-.botao:hover { background: #087bad; }
-
-.botao.indisponivel {
-  background: #dce8ee;
-  color: #6d8797;
-  pointer-events: none;
+.abrir {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--azul);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
 }
 
 footer {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 25px 6%;
-  background: #ffffffa6;
-  color: #58738a;
-  font-size: 12px;
+  padding: 25px 5%;
+  text-align: center;
+  color: #67869b;
+  font-size: 11px;
+  border-top: 1px solid #dcebf1;
 }
 
-@media(max-width:900px) {
-  .grade { grid-template-columns: repeat(2, 1fr); }
-}
+@media(max-width: 600px) {
+  .logo {
+    width: 135px;
+  }
 
-@media(max-width:600px) {
-  header { padding: 14px 5%; min-height: 85px; }
-  .logo { width: 145px; }
-  .header-direita { font-size: 9px; letter-spacing: 1px; }
-  .hero { padding: 55px 20px 45px; }
-  .hero-conteudo { padding-left: 17px; }
-  .categoria { font-size: 10px; letter-spacing: 2px; }
-  .hero h1 { font-size: 55px; letter-spacing: -2px; }
-  .hero p { font-size: 13px; }
-  main { padding: 15px 15px 55px; }
-  .grade { grid-template-columns: 1fr; gap: 18px; }
-  .titulo-secao h2 { font-size: 21px; }
-  footer { flex-direction: column; text-align: center; }
+  .marca {
+    font-size: 10px;
+  }
+
+  main {
+    margin-top: 30px;
+  }
+
+  .card-imagem {
+    height: 240px;
+  }
 }
 </style>
 </head>
@@ -263,162 +181,91 @@ footer {
 <body>
 
 <header>
-  <a href="index.html" aria-label="Início">
+  <div class="cabecalho">
+
     <img
       id="logo"
       class="logo"
-      alt="Gondopar"
-      src="imagens/logo-gondopar.png.png">
-  </a>
-  <div class="header-direita">Catálogo Virtual 3D</div>
+      src="imagens/logo-gondopar.png.png"
+      alt="Gondopar">
+
+    <div class="marca">
+      Gôndolas e mobílias especiais
+    </div>
+
+  </div>
 </header>
 
-<section class="hero">
-  <div class="hero-conteudo">
-    <div class="categoria">Nova linha Gondopar</div>
-    <h1>Flex<span>Pro</span></h1>
-    <p>
-      Explore nossa linha de mobiliários com
-      visualização interativa em 360°.
-      Conheça os detalhes e acabamentos de cada produto.
-    </p>
-  </div>
-</section>
-
 <main>
-  <div class="titulo-secao">
-    <h2>Conheça a linha</h2>
-    <span>06 produtos</span>
-  </div>
-  <div class="grade" id="gradeProdutos"></div>
+
+  <section class="apresentacao">
+    <span class="referencia">CATÁLOGO INTERATIVO</span>
+    <h1>LINHA FLEXPRO</h1>
+    <p class="descricao">
+      Explore nossos produtos em 360° e consulte
+      as dimensões disponíveis.
+    </p>
+  </section>
+
+  <section class="grade">
+
+    <!-- PRODUTO REF. 25 -->
+
+    <a class="card" href="produtos/produto-25.html">
+
+      <div class="card-imagem">
+        <img
+          src="imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png"
+          alt="Dermo FlexPro Premium"
+          onerror="this.style.visibility='hidden'">
+      </div>
+
+      <div class="card-conteudo">
+        <span class="card-ref">REF. 25</span>
+        <h2>DERMO FLEXPRO PREMIUM</h2>
+        <p>Visualização interativa do produto.</p>
+        <span class="abrir">EXPLORAR EM 360° →</span>
+      </div>
+
+    </a>
+
+    <!-- PRODUTO REF. 08 -->
+
+    <a class="card" href="produtos/produto-08.html">
+
+      <div class="card-imagem">
+        <img
+          src="imagens/PONTA PADRAO.png"
+          alt="Gôndola de Centro"
+          onerror="this.style.visibility='hidden'">
+      </div>
+
+      <div class="card-conteudo">
+        <span class="card-ref">REF. 08</span>
+        <h2>GÔNDOLA DE CENTRO</h2>
+        <p>Visualização interativa do produto.</p>
+        <span class="abrir">EXPLORAR EM 360° →</span>
+      </div>
+
+    </a>
+
+  </section>
+
 </main>
 
 <footer>
-  <div>© 2026 GONDOPAR · Todos os direitos reservados.</div>
-  <div>www.gondopar.com.br</div>
+  GONDOPAR | Gôndolas e mobílias especiais
 </footer>
 
 <script>
 const logo = document.getElementById("logo");
 
 logo.onerror = function() {
-  if (!this.dataset.tentouOutro) {
-    this.dataset.tentouOutro = "sim";
+  if (!this.dataset.alternativa) {
+    this.dataset.alternativa = "sim";
     this.src = "imagens/logo-gondopar.png";
   }
 };
-
-const produtos = [
-  {
-    nome: "DERMO FLEXPRO PREMIUM",
-    codigo: "REF. 25",
-    descricao: "Conheça o mobiliário em visualização interativa 360°.",
-    imagem: "imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png",
-    pagina: "produtos/produto-25.html",
-    disponivel: true
-  },
-  {
-    nome: "Produto FlexPro 02",
-    codigo: "REF. A DEFINIR",
-    descricao: "Explore todos os detalhes do modelo.",
-    imagem: "imagens/produto-02.png",
-    disponivel: false
-  },
-  {
-    nome: "Produto FlexPro 03",
-    codigo: "REF. A DEFINIR",
-    descricao: "Visualização interativa do mobiliário.",
-    imagem: "imagens/produto-03.png",
-    disponivel: false
-  },
-  {
-    nome: "Produto FlexPro 04",
-    codigo: "REF. A DEFINIR",
-    descricao: "Conheça os detalhes e acabamentos.",
-    imagem: "imagens/produto-04.png",
-    disponivel: false
-  },
-  {
-    nome: "Produto FlexPro 05",
-    codigo: "REF. A DEFINIR",
-    descricao: "Explore o modelo em diferentes ângulos.",
-    imagem: "imagens/produto-05.png",
-    disponivel: false
-  },
-  {
-    nome: "Produto FlexPro 06",
-    codigo: "REF. A DEFINIR",
-    descricao: "Descubra os detalhes deste produto.",
-    imagem: "imagens/produto-06.png",
-    disponivel: false
-  }
-];
-
-const grade = document.getElementById("gradeProdutos");
-
-produtos.forEach(p => {
-  const card = document.createElement("article");
-  card.className = "produto";
-
-  const imagem = document.createElement("div");
-  imagem.className = "imagem";
-
-  const selo = document.createElement("span");
-  selo.className = "selo";
-  selo.textContent = p.disponivel
-    ? "VISUALIZAÇÃO 3D"
-    : "EM BREVE";
-
-  imagem.appendChild(selo);
-
-  const foto = document.createElement("img");
-  foto.src = p.imagem;
-  foto.alt = p.nome;
-
-  foto.onerror = () => {
-    foto.remove();
-
-    const aviso = document.createElement("div");
-    aviso.className = "placeholder";
-    aviso.textContent = "Imagem do produto em breve";
-
-    imagem.appendChild(aviso);
-  };
-
-  imagem.appendChild(foto);
-
-  const conteudo = document.createElement("div");
-  conteudo.className = "conteudo";
-
-  const codigo = document.createElement("div");
-  codigo.className = "codigo";
-  codigo.textContent = p.codigo;
-
-  const nome = document.createElement("h3");
-  nome.textContent = p.nome;
-
-  const descricao = document.createElement("p");
-  descricao.textContent = p.descricao;
-
-  const botao = document.createElement("a");
-  botao.className = p.disponivel
-    ? "botao"
-    : "botao indisponivel";
-
-  botao.textContent = p.disponivel
-    ? "VISUALIZAR EM 3D →"
-    : "3D EM BREVE";
-
-  if (p.disponivel) {
-    botao.href = p.pagina;
-  } else {
-    botao.setAttribute("aria-disabled", "true");
-  }
-
-  conteudo.append(codigo, nome, descricao, botao);
-  card.append(imagem, conteudo);
-  grade.appendChild(card);
-});
 </script>
 
 </body>
