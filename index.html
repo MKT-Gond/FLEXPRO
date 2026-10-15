@@ -20,20 +20,26 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--azul);
-  background: linear-gradient(135deg, #f8fdff, #d9f2f9);
-  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f8fdff,
+    #d9f2f9
+  );
 }
 
+/* CABEÇALHO */
+
 header {
-  padding: 28px 5%;
+  padding: 24px 5%;
   background: rgba(255,255,255,.65);
   border-bottom: 1px solid #dcebf1;
 }
 
 .cabecalho {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -42,7 +48,7 @@ header {
 }
 
 .logo {
-  width: 190px;
+  width: 175px;
   max-width: 100%;
   object-fit: contain;
 }
@@ -53,112 +59,140 @@ header {
   text-align: right;
 }
 
+/* CONTEÚDO */
+
 main {
-  width: min(1200px, 92%);
-  margin: 45px auto 70px;
+  width: min(1100px, 92%);
+  margin: 35px auto 60px;
 }
 
 .apresentacao {
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 }
 
 .referencia {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
   color: var(--azul-medio);
   letter-spacing: 2px;
 }
 
 h1 {
-  font-size: clamp(30px, 4vw, 46px);
-  margin: 12px 0;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 10px 0;
 }
 
 .descricao {
   color: #67869b;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
+/* GRADE DE PRODUTOS */
+
 .grade {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 300px)
+  );
+  gap: 22px;
+  justify-content: start;
 }
+
+/* CARD */
 
 .card {
   display: block;
   overflow: hidden;
-  border-radius: 16px;
-  background: white;
+  border-radius: 13px;
+  background: #fff;
   border: 1px solid #dcebf1;
-  box-shadow: 0 12px 30px rgba(9,45,89,.06);
+  box-shadow: 0 10px 25px rgba(9,45,89,.06);
   text-decoration: none;
   color: inherit;
   transition: transform .2s, box-shadow .2s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 35px rgba(9,45,89,.12);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(9,45,89,.12);
 }
 
+/* IMAGEM DO PRODUTO */
+
 .card-imagem {
-  height: 280px;
+  width: 100%;
+  height: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f8fcfd;
+  background: #f7fbfd;
   overflow: hidden;
 }
 
 .card-imagem img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
+/* INFORMAÇÕES DO PRODUTO */
+
 .card-conteudo {
-  padding: 22px;
+  padding: 17px;
 }
 
 .card-ref {
-  font-size: 10px;
+  display: block;
+  font-size: 9px;
   color: var(--azul-medio);
   font-weight: bold;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
 }
 
 .card h2 {
-  font-size: 19px;
-  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 9px 0 7px;
 }
 
 .card p {
-  font-size: 12px;
+  font-size: 11px;
   color: #67869b;
-  margin-bottom: 20px;
+  margin: 0 0 17px;
 }
 
 .abrir {
   display: inline-block;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 11px 14px;
+  border-radius: 7px;
   background: var(--azul);
   color: white;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
 }
 
+/* RODAPÉ */
+
 footer {
-  padding: 25px 5%;
+  padding: 22px 5%;
   text-align: center;
   color: #67869b;
   font-size: 11px;
   border-top: 1px solid #dcebf1;
 }
 
-@media(max-width: 600px) {
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+  header {
+    padding: 18px 4%;
+  }
+
   .logo {
     width: 135px;
   }
@@ -168,11 +202,33 @@ footer {
   }
 
   main {
-    margin-top: 30px;
+    width: 94%;
+    margin-top: 28px;
+  }
+
+  .grade {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(220px, 1fr)
+    );
+    gap: 15px;
   }
 
   .card-imagem {
-    height: 240px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .grade {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+    margin: auto;
+  }
+
+  .card-imagem {
+    height: 220px;
   }
 }
 </style>
@@ -199,8 +255,12 @@ footer {
 <main>
 
   <section class="apresentacao">
-    <span class="referencia">CATÁLOGO INTERATIVO</span>
+    <span class="referencia">
+      CATÁLOGO INTERATIVO
+    </span>
+
     <h1>LINHA FLEXPRO</h1>
+
     <p class="descricao">
       Explore nossos produtos em 360° e consulte
       as dimensões disponíveis.
@@ -209,42 +269,70 @@ footer {
 
   <section class="grade">
 
-    <!-- PRODUTO REF. 25 -->
+    <!-- DERMO FLEXPRO PREMIUM - REF. 25 -->
 
-    <a class="card" href="produtos/produto-25.html">
+    <a
+      class="card"
+      href="produtos/produto-25.html">
 
       <div class="card-imagem">
+
         <img
           src="imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png"
-          alt="Dermo FlexPro Premium"
-          onerror="this.style.visibility='hidden'">
+          alt="Dermo FlexPro Premium">
+
       </div>
 
       <div class="card-conteudo">
-        <span class="card-ref">REF. 25</span>
+
+        <span class="card-ref">
+          REF. 25
+        </span>
+
         <h2>DERMO FLEXPRO PREMIUM</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
+
+        <p>
+          Visualização interativa do produto.
+        </p>
+
+        <span class="abrir">
+          EXPLORAR EM 360° →
+        </span>
+
       </div>
 
     </a>
 
-    <!-- PRODUTO REF. 08 -->
+    <!-- GÔNDOLA DE CENTRO - REF. 08 -->
 
-    <a class="card" href="produtos/produto-08.html">
+    <a
+      class="card"
+      href="produtos/produto-08.html">
 
       <div class="card-imagem">
+
         <img
           src="imagens/PONTA PADRAO.png"
-          alt="Gôndola de Centro"
-          onerror="this.style.visibility='hidden'">
+          alt="Gôndola de Centro">
+
       </div>
 
       <div class="card-conteudo">
-        <span class="card-ref">REF. 08</span>
+
+        <span class="card-ref">
+          REF. 08
+        </span>
+
         <h2>GÔNDOLA DE CENTRO</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
+
+        <p>
+          Visualização interativa do produto.
+        </p>
+
+        <span class="abrir">
+          EXPLORAR EM 360° →
+        </span>
+
       </div>
 
     </a>
