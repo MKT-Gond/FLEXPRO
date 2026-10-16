@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GÔNDOLA DE PAREDE - REF. 01 | Gondopar</title>
+<title>Gôndola de Parede - REF. 01 | Gondopar</title>
 
 <style>
 :root {
@@ -143,7 +143,7 @@ body {
   color: var(--cinza);
 }
 
-/* VISUALIZADOR 360 */
+/* QUADRO DO VISUALIZADOR */
 
 .quadro {
   width: 100%;
@@ -186,19 +186,22 @@ body {
   color: var(--cinza);
 }
 
+/* VISUALIZADOR CENTRALIZADO */
+
 .viewer {
   position: relative;
   width: 100%;
-  aspect-ratio: 1453 / 1000;
+  height: 580px;
   overflow: hidden;
-  background: white;
+  background: #fff;
 }
 
 .viewer iframe {
   position: absolute;
   top: 0;
   left: 0;
-  border: 0;
+  display: block;
+  border: none;
   background: white;
   transform-origin: top left;
 }
@@ -550,7 +553,8 @@ body {
         <iframe
           id="keyshotFrame"
           title="Gôndola de Parede REF. 01 em 360°"
-          loading="eager">
+          src="../keyshotxr/GONDOLA_PAREDE_FLEXPRO.16.html"
+          scrolling="no">
         </iframe>
 
       </div>
@@ -652,58 +656,165 @@ logo.onerror = function() {
 
 /* VISUALIZADOR KEYSHOTXR */
 
-const arquivo360 =
-  "../keyshotxr/GONDOLA_PAREDE_FLEXPRO.16.html";
-
 const frame = document.getElementById("keyshotFrame");
 const viewer = document.getElementById("viewer");
 
 /*
-  RESOLUÇÃO PROVISÓRIA
+  Dimensões de reserva.
 
-  Se o KeyShotXR tiver outra resolução,
-  ajustar estes valores.
+  O código tentará descobrir automaticamente
+  as dimensões reais do visualizador.
 */
 
-const larguraRender = 1453;
-const alturaRender = 1000;
+let larguraRender = 1453;
+let alturaRender = 1000;
 
-frame.src = arquivo360;
+function detectarDimensoes() {
+
+  try {
+
+    const doc = frame.contentDocument;
+
+    if (!doc) return;
+
+    /*
+      Exportações KeyShotXR normalmente
+      possuem um contêiner próprio.
+    */
+
+    const candidatos = [
+      "#KeyShotXR",
+      "#keyshotxr",
+      "[id*='KeyShotXR']",
+      "[id*='keyshotxr']"
+    ];
+
+    let elemento = null;
+
+    for (const seletor of candidatos) {
+
+      elemento = doc.querySelector(seletor);
+
+      if (elemento) break;
+
+    }
+
+    if (elemento) {
+
+      const estilo = doc.defaultView
+        .getComputedStyle(elemento);
+
+      const largura = parseFloat(estilo.width);
+      const altura = parseFloat(estilo.height);
+
+      if (largura > 0 && altura > 0) {
+        larguraRender = largura;
+        alturaRender = altura;
+        return;
+      }
+
+    }
+
+    /*
+      Caso o export não use os seletores acima,
+      tenta identificar dimensões fixas
+      do contêiner principal.
+    */
+
+    const elementos = Array.from(
+      doc.body.querySelectorAll("div")
+    );
+
+    for (const el of elementos) {
+
+      const estilo = doc.defaultView
+        .getComputedStyle(el);
+
+      const largura = parseFloat(estilo.width);
+      const altura = parseFloat(estilo.height);
+
+      if (
+        largura >= 300 &&
+        altura >= 300 &&
+        largura <= 5000 &&
+        altura <= 5000 &&
+        estilo.position === "relative"
+      ) {
+
+        larguraRender = largura;
+        alturaRender = altura;
+        return;
+
+      }
+    }
+
+  } catch (erro) {
+    console.warn(
+      "Não foi possível detectar as dimensões do KeyShotXR.",
+      erro
+    );
+  }
+}
 
 function ajustarVisualizador() {
 
-  const larguraQuadro = viewer.clientWidth;
+  const larguraDisponivel = viewer.clientWidth;
 
-  if (!larguraQuadro) return;
+  if (!larguraDisponivel) return;
 
-  const alturaQuadro =
-    larguraQuadro * (alturaRender / larguraRender);
+  /*
+    Altura proporcional ao visualizador original.
+    Limita a altura em telas grandes para
+    evitar quadros excessivamente altos.
+  */
 
-  viewer.style.height = alturaQuadro + "px";
+  const alturaDisponivel = Math.min(
+    Math.max(larguraDisponivel * 0.66, 360),
+    680
+  );
+
+  viewer.style.height = alturaDisponivel + "px";
+
+  /*
+    Escala uniforme: mantém a proporção
+    e evita distorções.
+  */
 
   const escala = Math.min(
-    larguraQuadro / larguraRender,
-    alturaQuadro / alturaRender
+    larguraDisponivel / larguraRender,
+    alturaDisponivel / alturaRender
   );
 
   const larguraFinal = larguraRender * escala;
   const alturaFinal = alturaRender * escala;
 
   const deslocamentoX =
-    (larguraQuadro - larguraFinal) / 2;
+    (larguraDisponivel - larguraFinal) / 2;
 
   const deslocamentoY =
-    (alturaQuadro - alturaFinal) / 2;
+    (alturaDisponivel - alturaFinal) / 2;
 
   frame.style.width = larguraRender + "px";
   frame.style.height = alturaRender + "px";
+
   frame.style.left = deslocamentoX + "px";
   frame.style.top = deslocamentoY + "px";
-  frame.style.transform = "scale(" + escala + ")";
+
+  frame.style.transform =
+    "scale(" + escala + ")";
 }
 
-window.addEventListener("resize", ajustarVisualizador);
-window.addEventListener("load", ajustarVisualizador);
+frame.addEventListener("load", function() {
+
+  detectarDimensoes();
+  ajustarVisualizador();
+
+});
+
+window.addEventListener(
+  "resize",
+  ajustarVisualizador
+);
 
 ajustarVisualizador();
 
@@ -718,10 +829,13 @@ const lista = document.getElementById("combinacoes");
 let numero = 1;
 
 profundidades.forEach(function(p) {
+
   larguras.forEach(function(l) {
+
     alturas.forEach(function(a) {
 
       const item = document.createElement("div");
+
       item.className = "combinacao";
 
       const indice = String(numero).padStart(2, "0");
@@ -739,7 +853,9 @@ profundidades.forEach(function(p) {
       numero++;
 
     });
+
   });
+
 });
 
 </script>
