@@ -186,22 +186,29 @@ body {
   color: var(--cinza);
 }
 
-/* VISUALIZADOR CENTRALIZADO */
+/* VISUALIZADOR KEYSHOTXR */
+
+/*
+  Resolução original:
+  1000 x 688 px
+
+  O quadro é responsivo.
+  A imagem mantém sua proporção.
+*/
 
 .viewer {
   position: relative;
   width: 100%;
-  height: 580px;
   overflow: hidden;
   background: #fff;
 }
 
 .viewer iframe {
   position: absolute;
-  top: 0;
-  left: 0;
   display: block;
-  border: none;
+  width: 1000px;
+  height: 688px;
+  border: 0;
   background: white;
   transform-origin: top left;
 }
@@ -554,7 +561,8 @@ body {
           id="keyshotFrame"
           title="Gôndola de Parede REF. 01 em 360°"
           src="../keyshotxr/GONDOLA_PAREDE_FLEXPRO.16.html"
-          scrolling="no">
+          scrolling="no"
+          loading="eager">
         </iframe>
 
       </div>
@@ -656,163 +664,70 @@ logo.onerror = function() {
 
 /* VISUALIZADOR KEYSHOTXR */
 
+/*
+  Dimensões confirmadas no arquivo original:
+  1000 x 688 px.
+
+  Não altera o KeyShotXR.
+  Apenas dimensiona e centraliza o iframe.
+*/
+
 const frame = document.getElementById("keyshotFrame");
 const viewer = document.getElementById("viewer");
 
-/*
-  Dimensões de reserva.
-
-  O código tentará descobrir automaticamente
-  as dimensões reais do visualizador.
-*/
-
-let larguraRender = 1453;
-let alturaRender = 1000;
-
-function detectarDimensoes() {
-
-  try {
-
-    const doc = frame.contentDocument;
-
-    if (!doc) return;
-
-    /*
-      Exportações KeyShotXR normalmente
-      possuem um contêiner próprio.
-    */
-
-    const candidatos = [
-      "#KeyShotXR",
-      "#keyshotxr",
-      "[id*='KeyShotXR']",
-      "[id*='keyshotxr']"
-    ];
-
-    let elemento = null;
-
-    for (const seletor of candidatos) {
-
-      elemento = doc.querySelector(seletor);
-
-      if (elemento) break;
-
-    }
-
-    if (elemento) {
-
-      const estilo = doc.defaultView
-        .getComputedStyle(elemento);
-
-      const largura = parseFloat(estilo.width);
-      const altura = parseFloat(estilo.height);
-
-      if (largura > 0 && altura > 0) {
-        larguraRender = largura;
-        alturaRender = altura;
-        return;
-      }
-
-    }
-
-    /*
-      Caso o export não use os seletores acima,
-      tenta identificar dimensões fixas
-      do contêiner principal.
-    */
-
-    const elementos = Array.from(
-      doc.body.querySelectorAll("div")
-    );
-
-    for (const el of elementos) {
-
-      const estilo = doc.defaultView
-        .getComputedStyle(el);
-
-      const largura = parseFloat(estilo.width);
-      const altura = parseFloat(estilo.height);
-
-      if (
-        largura >= 300 &&
-        altura >= 300 &&
-        largura <= 5000 &&
-        altura <= 5000 &&
-        estilo.position === "relative"
-      ) {
-
-        larguraRender = largura;
-        alturaRender = altura;
-        return;
-
-      }
-    }
-
-  } catch (erro) {
-    console.warn(
-      "Não foi possível detectar as dimensões do KeyShotXR.",
-      erro
-    );
-  }
-}
+const larguraRender = 1000;
+const alturaRender = 688;
 
 function ajustarVisualizador() {
 
-  const larguraDisponivel = viewer.clientWidth;
+  const larguraQuadro = viewer.clientWidth;
 
-  if (!larguraDisponivel) return;
-
-  /*
-    Altura proporcional ao visualizador original.
-    Limita a altura em telas grandes para
-    evitar quadros excessivamente altos.
-  */
-
-  const alturaDisponivel = Math.min(
-    Math.max(larguraDisponivel * 0.66, 360),
-    680
-  );
-
-  viewer.style.height = alturaDisponivel + "px";
+  if (!larguraQuadro) return;
 
   /*
-    Escala uniforme: mantém a proporção
-    e evita distorções.
+    Nunca amplia além da resolução original.
+    Em telas menores, reduz proporcionalmente.
   */
 
   const escala = Math.min(
-    larguraDisponivel / larguraRender,
-    alturaDisponivel / alturaRender
+    1,
+    larguraQuadro / larguraRender
   );
 
   const larguraFinal = larguraRender * escala;
   const alturaFinal = alturaRender * escala;
 
-  const deslocamentoX =
-    (larguraDisponivel - larguraFinal) / 2;
+  /*
+    Altura exata da imagem renderizada.
+    Não corta a parte superior ou inferior.
+  */
 
-  const deslocamentoY =
-    (alturaDisponivel - alturaFinal) / 2;
+  viewer.style.height = alturaFinal + "px";
+
+  /*
+    Centralização horizontal.
+  */
+
+  const deslocamentoX =
+    (larguraQuadro - larguraFinal) / 2;
 
   frame.style.width = larguraRender + "px";
   frame.style.height = alturaRender + "px";
 
   frame.style.left = deslocamentoX + "px";
-  frame.style.top = deslocamentoY + "px";
+  frame.style.top = "0px";
 
   frame.style.transform =
     "scale(" + escala + ")";
 }
 
-frame.addEventListener("load", function() {
-
-  detectarDimensoes();
-  ajustarVisualizador();
-
-});
-
 window.addEventListener(
   "resize",
+  ajustarVisualizador
+);
+
+window.addEventListener(
+  "load",
   ajustarVisualizador
 );
 
