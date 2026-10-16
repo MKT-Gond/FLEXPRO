@@ -107,10 +107,7 @@ h1 {
 
 .grade {
   display: grid;
-  grid-template-columns: repeat(
-    3,
-    minmax(0, 380px)
-  );
+  grid-template-columns: repeat(3, minmax(0, 380px));
   gap: 24px;
   align-items: start;
 }
@@ -184,6 +181,15 @@ h1 {
 .imagem-checkout img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center 65%;
+}
+
+/* GÔNDOLA DE PAREDE */
+
+.imagem-parede img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
 }
@@ -245,10 +251,7 @@ footer {
 
 @media (max-width: 1100px) {
   .grade {
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 380px)
-    );
+    grid-template-columns: repeat(2, minmax(0, 380px));
   }
 }
 
@@ -347,17 +350,13 @@ footer {
 
     <!-- DERMO FLEXPRO PREMIUM - REF. 25 -->
 
-    <a
-      class="card"
-      href="produtos/produto-25.html">
+    <a class="card" href="produtos/produto-25.html">
 
       <div class="card-imagem imagem-dermo">
-
         <img
           src="imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png"
           alt="Dermo FlexPro Premium"
           loading="eager">
-
       </div>
 
       <div class="card-conteudo">
@@ -366,9 +365,7 @@ footer {
 
         <h2>DERMO FLEXPRO PREMIUM</h2>
 
-        <p>
-          Visualização interativa do produto.
-        </p>
+        <p>Visualização interativa do produto.</p>
 
         <span class="abrir">
           EXPLORAR EM 360° →
@@ -380,17 +377,13 @@ footer {
 
     <!-- GÔNDOLA DE CENTRO - REF. 08 -->
 
-    <a
-      class="card"
-      href="produtos/produto-08.html">
+    <a class="card" href="produtos/produto-08.html">
 
       <div class="card-imagem imagem-centro">
-
         <img
           src="imagens/PONTA PADRAO.png"
           alt="Gôndola de Centro"
           loading="eager">
-
       </div>
 
       <div class="card-conteudo">
@@ -399,9 +392,7 @@ footer {
 
         <h2>GÔNDOLA DE CENTRO</h2>
 
-        <p>
-          Visualização interativa do produto.
-        </p>
+        <p>Visualização interativa do produto.</p>
 
         <span class="abrir">
           EXPLORAR EM 360° →
@@ -413,17 +404,13 @@ footer {
 
     <!-- CHECKOUT - REF. 19 -->
 
-    <a
-      class="card"
-      href="produtos/produto-19.html">
+    <a class="card" href="produtos/produto-19.html">
 
       <div class="card-imagem imagem-checkout">
-
         <img
           src="imagens/CHECKOUT.png"
           alt="Checkout FlexPro"
           loading="eager">
-
       </div>
 
       <div class="card-conteudo">
@@ -432,9 +419,34 @@ footer {
 
         <h2>CHECKOUT</h2>
 
-        <p>
-          Visualização interativa do produto.
-        </p>
+        <p>Visualização interativa do produto.</p>
+
+        <span class="abrir">
+          EXPLORAR EM 360° →
+        </span>
+
+      </div>
+
+    </a>
+
+    <!-- GÔNDOLA DE PAREDE - REF. 01 -->
+
+    <a class="card" href="produtos/produto-01.html">
+
+      <div class="card-imagem imagem-parede">
+        <img
+          src="imagens/GONDOLA PAREDE.png"
+          alt="Gôndola de Parede FlexPro"
+          loading="eager">
+      </div>
+
+      <div class="card-conteudo">
+
+        <span class="card-ref">REF. 01</span>
+
+        <h2>GÔNDOLA DE PAREDE</h2>
+
+        <p>Visualização interativa do produto.</p>
 
         <span class="abrir">
           EXPLORAR EM 360° →
