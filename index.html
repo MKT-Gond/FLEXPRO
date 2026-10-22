@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo FLEXPRO | Gondopar</title>
+
 <style>
 :root {
   --azul:#092d59;
@@ -12,8 +13,11 @@
   --cinza:#67869b;
   --borda:#dcebf1;
 }
-* {box-sizing:border-box}
-html {min-height:100%}
+
+* { box-sizing:border-box; }
+
+html { min-height:100%; }
+
 body {
   margin:0;
   min-height:100vh;
@@ -21,13 +25,17 @@ body {
   flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(120deg,#f7fcfe 0%,#e7f7fb 55%,#d9f2f9 100%);
+  background:linear-gradient(
+    120deg,#f7fcfe 0%,#e7f7fb 55%,#d9f2f9 100%
+  );
 }
+
 header {
   width:100%;
   background:rgba(255,255,255,.72);
   border-bottom:1px solid var(--borda);
 }
+
 .cabecalho {
   width:min(1240px,92%);
   margin:auto;
@@ -37,24 +45,29 @@ header {
   justify-content:space-between;
   gap:20px;
 }
+
 .logo {
   display:block;
   width:185px;
   max-height:65px;
   object-fit:contain;
 }
+
 .marca {
   color:var(--cinza);
   font-size:12px;
   text-align:right;
 }
+
 main {
   width:min(1240px,92%);
   margin:0 auto;
   padding:48px 0 75px;
   flex:1;
 }
-.apresentacao {margin-bottom:32px}
+
+.apresentacao { margin-bottom:32px; }
+
 .referencia {
   display:block;
   font-size:11px;
@@ -62,23 +75,27 @@ main {
   letter-spacing:2px;
   color:var(--azul-medio);
 }
+
 h1 {
   margin:12px 0;
   font-size:clamp(30px,3.5vw,44px);
   line-height:1.2;
 }
+
 .descricao {
   margin:0;
   font-size:14px;
   line-height:1.6;
   color:var(--cinza);
 }
+
 .grade {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,380px));
   gap:24px;
   align-items:start;
 }
+
 .card {
   display:flex;
   flex-direction:column;
@@ -92,10 +109,12 @@ h1 {
   box-shadow:0 10px 28px rgba(9,45,89,.07);
   transition:transform .2s ease,box-shadow .2s ease;
 }
+
 .card:hover {
   transform:translateY(-4px);
   box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
+
 .card-imagem {
   position:relative;
   width:100%;
@@ -107,6 +126,7 @@ h1 {
   overflow:hidden;
   background:#f7fbfd;
 }
+
 .card-imagem img {
   display:block;
   width:100%;
@@ -114,19 +134,29 @@ h1 {
   object-fit:contain;
   object-position:center;
 }
+
 .imagem-centro img {
   height:auto;
   max-height:100%;
 }
+
 .imagem-checkout img {
   object-fit:cover;
   object-position:center 65%;
 }
+
 .imagem-dermo img {
   object-fit:cover;
   object-position:center 72%;
 }
-.card-conteudo {padding:19px 21px 22px}
+
+.imagem-dermo-vidro img {
+  object-fit:contain;
+  object-position:center;
+}
+
+.card-conteudo { padding:19px 21px 22px; }
+
 .card-ref {
   display:block;
   color:var(--azul-medio);
@@ -134,17 +164,20 @@ h1 {
   font-weight:bold;
   letter-spacing:1.5px;
 }
+
 .card h2 {
   margin:10px 0 8px;
   font-size:17px;
   line-height:1.35;
 }
+
 .card p {
   margin:0 0 18px;
   color:var(--cinza);
   font-size:12px;
   line-height:1.5;
 }
+
 .abrir {
   display:inline-block;
   padding:12px 16px;
@@ -155,7 +188,9 @@ h1 {
   font-weight:bold;
   transition:background .2s;
 }
-.card:hover .abrir {background:var(--azul-medio)}
+
+.card:hover .abrir { background:var(--azul-medio); }
+
 footer {
   padding:24px 5%;
   text-align:center;
@@ -164,16 +199,20 @@ footer {
   color:var(--cinza);
   font-size:11px;
 }
+
 @media(max-width:1100px) {
-  .grade {grid-template-columns:repeat(2,minmax(0,380px))}
+  .grade {
+    grid-template-columns:repeat(2,minmax(0,380px));
+  }
 }
+
 @media(max-width:650px) {
-  .cabecalho {width:92%;padding:17px 0}
-  .logo {width:135px}
-  .marca {font-size:10px}
-  main {width:92%;padding:30px 0 50px}
-  h1 {font-size:29px}
-  .descricao {font-size:12px}
+  .cabecalho { width:92%;padding:17px 0; }
+  .logo { width:135px; }
+  .marca { font-size:10px; }
+  main { width:92%;padding:30px 0 50px; }
+  h1 { font-size:29px; }
+  .descricao { font-size:12px; }
   .grade {
     grid-template-columns:1fr;
     justify-content:center;
@@ -184,175 +223,200 @@ footer {
     max-width:380px;
     margin:0 auto;
   }
-  .card-imagem {height:290px}
-  .card-conteudo {padding:18px}
-  .card h2 {font-size:16px}
+  .card-imagem { height:290px; }
+  .card-conteudo { padding:18px; }
+  .card h2 { font-size:16px; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="cabecalho">
-    <img id="logo" class="logo"
+    <img
+      id="logo"
+      class="logo"
       src="imagens/logo-gondopar.png.png"
       alt="Gondopar">
-    <div class="marca">Gôndolas e mobílias especiais</div>
+
+    <div class="marca">
+      Gôndolas e mobílias especiais
+    </div>
   </div>
 </header>
 
 <main>
-  <section class="apresentacao">
-    <span class="referencia">CATÁLOGO INTERATIVO</span>
-    <h1>LINHA FLEXPRO</h1>
-    <p class="descricao">
-      Explore nossos produtos em 360° e consulte as dimensões disponíveis.
-    </p>
-  </section>
 
-  <section class="grade">
+<section class="apresentacao">
+  <span class="referencia">CATÁLOGO INTERATIVO</span>
+  <h1>LINHA FLEXPRO</h1>
+  <p class="descricao">
+    Explore nossos produtos em 360° e consulte as dimensões disponíveis.
+  </p>
+</section>
 
-    <!-- REF. 01 -->
-    <a class="card" href="produtos/produto-01.html">
-      <div class="card-imagem imagem-parede">
-        <img
-          src="imagens/AMBIENTAÇÃO_GÔNDOLA DE PAREDE (COM TESTEIRA).png"
-          alt="Gôndola de Parede"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 01</span>
-        <h2>GÔNDOLA DE PAREDE</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+<section class="grade">
 
-    <!-- REF. 03 - NOVO -->
-    <a class="card" href="produtos/produto-03.html">
-      <div class="card-imagem imagem-sanca">
-        <img
-          src="imagens/AMBIENTAÇÃO_PAREDE COM SANCA.png"
-          alt="Gôndola de Parede com Sanca"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 03</span>
-        <h2>GÔNDOLA DE PAREDE COM SANCA</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 01 -->
+  <a class="card" href="produtos/produto-01.html">
+    <div class="card-imagem imagem-parede">
+      <img
+        src="imagens/AMBIENTAÇÃO_GÔNDOLA DE PAREDE (COM TESTEIRA).png"
+        alt="Gôndola de Parede"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 01</span>
+      <h2>GÔNDOLA DE PAREDE</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 08 -->
-    <a class="card" href="produtos/produto-08.html">
-      <div class="card-imagem imagem-centro">
-        <img
-          src="imagens/PONTA PADRAO.png"
-          alt="Gôndola de Centro"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 08</span>
-        <h2>GÔNDOLA DE CENTRO</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 03 -->
+  <a class="card" href="produtos/produto-03.html">
+    <div class="card-imagem imagem-sanca">
+      <img
+        src="imagens/AMBIENTAÇÃO_PAREDE COM SANCA.png"
+        alt="Gôndola de Parede com Sanca"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 03</span>
+      <h2>GÔNDOLA DE PAREDE COM SANCA</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 17 -->
-    <a class="card" href="produtos/produto-17.html">
-      <div class="card-imagem imagem-balcao">
-        <img
-          src="imagens/CHECKOUT CONCEPT.png"
-          alt="Balcão Curvo Concept"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 17</span>
-        <h2>BALCÃO CURVO CONCEPT</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 08 -->
+  <a class="card" href="produtos/produto-08.html">
+    <div class="card-imagem imagem-centro">
+      <img
+        src="imagens/PONTA PADRAO.png"
+        alt="Gôndola de Centro"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 08</span>
+      <h2>GÔNDOLA DE CENTRO</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 19 -->
-    <a class="card" href="produtos/produto-19.html">
-      <div class="card-imagem imagem-checkout">
-        <img
-          src="imagens/CHECKOUT.png"
-          alt="Checkout FlexPro"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 19</span>
-        <h2>CHECKOUT</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 17 -->
+  <a class="card" href="produtos/produto-17.html">
+    <div class="card-imagem imagem-balcao">
+      <img
+        src="imagens/CHECKOUT CONCEPT.png"
+        alt="Balcão Curvo Concept"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 17</span>
+      <h2>BALCÃO CURVO CONCEPT</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 20 -->
-    <a class="card" href="produtos/produto-20.html">
-      <div class="card-imagem imagem-reto">
-        <img
-          src="imagens/CHECKOUT RETO.png"
-          alt="Checkout Reto"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 20</span>
-        <h2>CHECKOUT RETO</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 19 -->
+  <a class="card" href="produtos/produto-19.html">
+    <div class="card-imagem imagem-checkout">
+      <img
+        src="imagens/CHECKOUT.png"
+        alt="Checkout FlexPro"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 19</span>
+      <h2>CHECKOUT</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 25 -->
-    <a class="card" href="produtos/produto-25.html">
-      <div class="card-imagem imagem-dermo">
-        <img
-          src="imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png"
-          alt="Dermo FlexPro Premium"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 25</span>
-        <h2>DERMO FLEXPRO PREMIUM</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 20 -->
+  <a class="card" href="produtos/produto-20.html">
+    <div class="card-imagem imagem-reto">
+      <img
+        src="imagens/CHECKOUT RETO.png"
+        alt="Checkout Reto"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 20</span>
+      <h2>CHECKOUT RETO</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-    <!-- REF. 27 -->
-    <a class="card" href="produtos/produto-27.html">
-      <div class="card-imagem imagem-psico">
-        <img
-          src="imagens/PSICO.png"
-          alt="Armário Psico"
-          loading="eager">
-      </div>
-      <div class="card-conteudo">
-        <span class="card-ref">REF. 27</span>
-        <h2>ARMÁRIO PSICO</h2>
-        <p>Visualização interativa do produto.</p>
-        <span class="abrir">EXPLORAR EM 360° →</span>
-      </div>
-    </a>
+  <!-- REF. 24 - NOVO -->
+  <a class="card" href="produtos/produto-24.html">
+    <div class="card-imagem imagem-dermo-vidro">
+      <img
+        src="imagens/AMBIENTAÇÃO_ DERMO VIDRO.png"
+        alt="Dermo FlexPro Premium com Porta de Vidro"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 24</span>
+      <h2>DERMO FLEXPRO PREMIUM COM PORTA DE VIDRO</h2>
+      <p>Disponível em Branco, Itapuã e Preto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
 
-  </section>
+  <!-- REF. 25 -->
+  <a class="card" href="produtos/produto-25.html">
+    <div class="card-imagem imagem-dermo">
+      <img
+        src="imagens/AMBIENTAÇÃO_ DERMO ITAPUÃ.png"
+        alt="Dermo FlexPro Premium"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 25</span>
+      <h2>DERMO FLEXPRO PREMIUM</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
+
+  <!-- REF. 27 -->
+  <a class="card" href="produtos/produto-27.html">
+    <div class="card-imagem imagem-psico">
+      <img
+        src="imagens/PSICO.png"
+        alt="Armário Psico"
+        loading="eager">
+    </div>
+    <div class="card-conteudo">
+      <span class="card-ref">REF. 27</span>
+      <h2>ARMÁRIO PSICO</h2>
+      <p>Visualização interativa do produto.</p>
+      <span class="abrir">EXPLORAR EM 360° →</span>
+    </div>
+  </a>
+
+</section>
 </main>
 
 <footer>GONDOPAR | Gôndolas e mobílias especiais</footer>
 
 <script>
-const logo=document.getElementById("logo");
-logo.onerror=function(){
-  if(!this.dataset.alternativa){
-    this.dataset.alternativa="sim";
-    this.src="imagens/logo-gondopar.png";
+const logo = document.getElementById("logo");
+
+logo.onerror = function() {
+  if (!this.dataset.alternativa) {
+    this.dataset.alternativa = "sim";
+    this.src = "imagens/logo-gondopar.png";
   }
 };
 </script>
+
 </body>
 </html>
