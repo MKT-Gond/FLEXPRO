@@ -1,1 +1,580 @@
 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dermo FlexPro Porta de Vidro - REF. 24 | Gondopar</title>
+
+<style>
+:root {
+  --azul:#092d59;
+  --azul-medio:#267fa4;
+  --cinza:#67869b;
+  --borda:#dcebf1;
+}
+
+* {box-sizing:border-box}
+
+html,body {
+  margin:0;
+  min-height:100%;
+}
+
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--azul);
+  background:linear-gradient(120deg,#f8fdff,#e5f7fb 50%,#d5f1f9);
+}
+
+.pagina {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.cabecalho {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:17px 5%;
+  background:rgba(255,255,255,.4);
+  border-bottom:1px solid rgba(9,45,89,.08);
+}
+
+.marca {
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.logo {
+  width:175px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.divisor {
+  width:1px;
+  height:35px;
+  background:#c4dce5;
+}
+
+.nome-linha {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.nome-linha strong {
+  font-size:15px;
+  letter-spacing:3px;
+}
+
+.nome-linha span {
+  font-size:10px;
+  letter-spacing:1px;
+  color:var(--cinza);
+}
+
+.voltar {
+  padding:13px 19px;
+  border:1px solid #d5e4eb;
+  border-radius:9px;
+  background:white;
+  color:var(--azul);
+  text-decoration:none;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.conteudo {
+  width:min(1200px,94%);
+  margin:0 auto;
+  padding:27px 0 35px;
+  flex:1;
+}
+
+.identificacao {margin-bottom:20px}
+
+.referencia {
+  display:block;
+  margin-bottom:9px;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:bold;
+  color:var(--azul-medio);
+}
+
+h1 {
+  margin:0;
+  font-size:clamp(24px,3vw,35px);
+}
+
+.subtitulo {
+  margin:9px 0 0;
+  font-size:12px;
+  color:var(--cinza);
+}
+
+/* BOTÕES DE ACABAMENTO */
+
+.acabamentos {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin:0 0 20px;
+}
+
+.acabamentos-label {
+  margin-right:7px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.botao-cor {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:12px 17px;
+  border:1px solid #d9e8ef;
+  border-radius:9px;
+  background:white;
+  color:var(--azul);
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+
+.botao-cor:hover {
+  border-color:var(--azul-medio);
+}
+
+.botao-cor.ativo {
+  background:var(--azul);
+  border-color:var(--azul);
+  color:white;
+}
+
+.amostra {
+  width:16px;
+  height:16px;
+  display:inline-block;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.16);
+}
+
+.amostra.branco {background:#fff}
+.amostra.itapua {background:#b88c62}
+.amostra.preto {background:#242424}
+
+/* VISUALIZADOR */
+
+.quadro {
+  width:100%;
+  overflow:hidden;
+  border-radius:15px;
+  background:white;
+  border:1px solid #e0edf2;
+  box-shadow:0 15px 45px rgba(9,45,89,.06);
+}
+
+.barra {
+  min-height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:0 20px;
+  background:#f8fcfd;
+  border-bottom:1px solid #e8f0f4;
+}
+
+.barra-esquerda {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.ponto {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#37bbd0;
+}
+
+.barra-direita {
+  font-size:10px;
+  color:var(--cinza);
+}
+
+.viewer {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:white;
+}
+
+.viewer iframe {
+  position:absolute;
+  top:0;
+  left:0;
+  width:1000px;
+  height:688px;
+  border:0;
+  transform-origin:top left;
+  background:white;
+}
+
+.instrucao {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  min-height:52px;
+  padding:11px 20px;
+  background:#f8fcfd;
+  border-top:1px solid #e8f0f4;
+}
+
+.instrucao span {font-size:11px}
+
+.instrucao small {
+  font-size:10px;
+  color:var(--cinza);
+}
+
+/* DIMENSÕES */
+
+.painel {
+  margin-top:23px;
+  padding:24px;
+  border:1px solid var(--borda);
+  border-radius:14px;
+  background:rgba(255,255,255,.8);
+}
+
+.painel h2 {
+  margin:0 0 17px;
+  font-size:13px;
+  letter-spacing:1.5px;
+}
+
+.medidas-resumo {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.medida {
+  padding:18px 12px;
+  border:1px solid #e1edf2;
+  border-radius:10px;
+  background:#f4fafc;
+  text-align:center;
+}
+
+.medida-label {
+  display:block;
+  margin-bottom:9px;
+  color:var(--cinza);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.medida-valor {
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.nota {
+  margin:16px 0 0;
+  font-size:11px;
+  color:var(--cinza);
+  line-height:1.6;
+}
+
+.rodape {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  padding:17px 5%;
+  color:#68869b;
+  font-size:10px;
+}
+
+.rodape strong {
+  color:var(--azul);
+  letter-spacing:1px;
+}
+
+@media(max-width:700px) {
+  .cabecalho {padding:13px 4%;gap:10px}
+  .marca {gap:10px}
+  .logo {width:115px}
+  .divisor {height:27px}
+  .nome-linha strong {font-size:11px;letter-spacing:1px}
+  .nome-linha span {font-size:8px;letter-spacing:0}
+  .voltar {padding:10px;font-size:10px}
+  .conteudo {width:96%;padding-top:20px}
+  h1 {font-size:23px}
+  .acabamentos {gap:8px}
+  .acabamentos-label {width:100%}
+  .botao-cor {padding:11px 12px}
+  .barra {padding:0 12px}
+  .barra-esquerda,.barra-direita {font-size:9px}
+  .instrucao {padding:10px 12px}
+  .instrucao span,.instrucao small {font-size:9px}
+  .painel {padding:15px}
+  .medidas-resumo {gap:7px}
+  .medida {padding:13px 5px}
+  .medida-label {font-size:8px;letter-spacing:0}
+  .medida-valor {font-size:11px}
+}
+</style>
+</head>
+
+<body>
+<div class="pagina">
+
+<header class="cabecalho">
+  <div class="marca">
+
+    <img
+      id="logo"
+      class="logo"
+      src="../imagens/logo-gondopar.png.png"
+      alt="Gondopar">
+
+    <div class="divisor"></div>
+
+    <div class="nome-linha">
+      <strong>FLEXPRO</strong>
+      <span>LINHA DE MOBILIÁRIOS</span>
+    </div>
+
+  </div>
+
+  <a class="voltar" href="../index.html">
+    ← CATÁLOGO
+  </a>
+</header>
+
+<main class="conteudo">
+
+  <section class="identificacao">
+    <span class="referencia">LINHA FLEXPRO · REF. 24</span>
+
+    <h1>DERMO FLEXPRO PREMIUM COM PORTA DE VIDRO</h1>
+
+    <p class="subtitulo">
+      Explore o produto em 360° e alterne entre os acabamentos disponíveis.
+    </p>
+  </section>
+
+  <!-- SELEÇÃO DE ACABAMENTO -->
+
+  <section class="acabamentos" aria-label="Acabamentos disponíveis">
+
+    <span class="acabamentos-label">
+      ACABAMENTO:
+    </span>
+
+    <button
+      type="button"
+      class="botao-cor ativo"
+      data-cor="branco"
+      aria-pressed="true">
+      <span class="amostra branco"></span>
+      BRANCO
+    </button>
+
+    <button
+      type="button"
+      class="botao-cor"
+      data-cor="itapua"
+      aria-pressed="false">
+      <span class="amostra itapua"></span>
+      ITAPUÃ
+    </button>
+
+    <button
+      type="button"
+      class="botao-cor"
+      data-cor="preto"
+      aria-pressed="false">
+      <span class="amostra preto"></span>
+      PRETO
+    </button>
+
+  </section>
+
+  <!-- VISUALIZADOR 360° -->
+
+  <section class="quadro">
+
+    <div class="barra">
+      <div class="barra-esquerda">
+        <span class="ponto"></span>
+        VISUALIZADOR DO PRODUTO
+      </div>
+
+      <span class="barra-direita">
+        KEYSHOTXR · 360°
+      </span>
+    </div>
+
+    <div class="viewer" id="viewer">
+
+      <iframe
+        id="keyshotFrame"
+        title="Dermo FlexPro Premium Porta de Vidro em 360 graus"
+        src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_PORTA VIDRO_BRANCO.5.9.html"
+        scrolling="no"
+        loading="eager">
+      </iframe>
+
+    </div>
+
+    <div class="instrucao">
+      <span>↻ Clique e arraste para girar o produto</span>
+      <small id="corAtual">ACABAMENTO: BRANCO</small>
+    </div>
+
+  </section>
+
+  <!-- DIMENSÕES -->
+
+  <section class="painel">
+
+    <h2>DIMENSÕES DO PRODUTO</h2>
+
+    <div class="medidas-resumo">
+
+      <div class="medida">
+        <span class="medida-label">PROFUNDIDADE</span>
+        <span class="medida-valor">Sob consulta</span>
+      </div>
+
+      <div class="medida">
+        <span class="medida-label">LARGURA</span>
+        <span class="medida-valor">Sob consulta</span>
+      </div>
+
+      <div class="medida">
+        <span class="medida-label">ALTURA</span>
+        <span class="medida-valor">Sob consulta</span>
+      </div>
+
+    </div>
+
+    <p class="nota">
+      Dimensões disponíveis mediante consulta.
+    </p>
+
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <strong>GONDOPAR</strong>
+  <span>Gôndolas e mobílias especiais</span>
+</footer>
+
+</div>
+
+<script>
+const logo = document.getElementById("logo");
+
+logo.onerror = function() {
+  if (!this.dataset.alternativa) {
+    this.dataset.alternativa = "sim";
+    this.src = "../imagens/logo-gondopar.png";
+  }
+};
+
+const arquivos = {
+  branco:
+    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PORTA VIDRO_BRANCO.5.9.html",
+  itapua:
+    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PORTA VIDRO_ITAPUA.5.10.html",
+  preto:
+    "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PORTA VIDRO_PRETO.5.7.html"
+};
+
+const nomes = {
+  branco:"BRANCO",
+  itapua:"ITAPUÃ",
+  preto:"PRETO"
+};
+
+const frame = document.getElementById("keyshotFrame");
+const viewer = document.getElementById("viewer");
+const corAtual = document.getElementById("corAtual");
+const botoes = document.querySelectorAll(".botao-cor");
+
+// Valores provisórios. Conferir a resolução nativa
+// de cada exportação KeyShotXR.
+const larguraRender = 1000;
+const alturaRender = 688;
+
+function ajustarVisualizador() {
+  const larguraQuadro = viewer.clientWidth;
+  if (!larguraQuadro) return;
+
+  const escala = Math.min(1, larguraQuadro / larguraRender);
+  const larguraFinal = larguraRender * escala;
+  const alturaFinal = alturaRender * escala;
+
+  viewer.style.height = alturaFinal + "px";
+  frame.style.width = larguraRender + "px";
+  frame.style.height = alturaRender + "px";
+  frame.style.left =
+    ((larguraQuadro - larguraFinal) / 2) + "px";
+  frame.style.top = "0px";
+  frame.style.transform = "scale(" + escala + ")";
+}
+
+function trocarAcabamento(cor) {
+  if (!arquivos[cor]) return;
+
+  botoes.forEach(function(botao) {
+    const ativo = botao.dataset.cor === cor;
+
+    botao.classList.toggle("ativo", ativo);
+    botao.setAttribute("aria-pressed", String(ativo));
+  });
+
+  corAtual.textContent = "ACABAMENTO: " + nomes[cor];
+
+  if (frame.getAttribute("src") !== arquivos[cor]) {
+    frame.setAttribute("src", arquivos[cor]);
+  }
+
+  ajustarVisualizador();
+}
+
+botoes.forEach(function(botao) {
+  botao.addEventListener("click", function() {
+    trocarAcabamento(botao.dataset.cor);
+  });
+});
+
+window.addEventListener("resize", ajustarVisualizador);
+window.addEventListener("load", ajustarVisualizador);
+
+ajustarVisualizador();
+</script>
+
+</body>
+</html>
