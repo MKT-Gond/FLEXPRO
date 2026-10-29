@@ -98,7 +98,7 @@ h1 {
   line-height:1.7;
 }
 
-/* ÁREA DE FILTROS */
+/* FILTROS */
 
 .barra-filtros {
   display:flex;
@@ -132,11 +132,7 @@ h1 {
   transition:.2s;
 }
 
-.botao-filtro:hover {
-  background:var(--azul-medio);
-  border-color:var(--azul-medio);
-}
-
+.botao-filtro:hover,
 .botao-filtro.ativo {
   background:var(--azul-medio);
   border-color:var(--azul-medio);
@@ -219,7 +215,7 @@ h1 {
   color:white;
 }
 
-/* GRADE GERAL */
+/* GRADE */
 
 .grade {
   display:grid;
@@ -449,8 +445,6 @@ footer {
     </p>
   </section>
 
-  <!-- FILTROS -->
-
   <div class="barra-filtros">
 
     <div class="filtros-esquerda">
@@ -482,11 +476,8 @@ footer {
 
   <div id="painelFiltros" class="painel-filtros">
     <h2>SELECIONE UMA CATEGORIA</h2>
-
     <div id="opcoesCategoria" class="opcoes-categoria"></div>
   </div>
-
-  <!-- TODOS OS PRODUTOS -->
 
   <section
     id="gradeProdutos"
@@ -513,48 +504,25 @@ logo.onerror=function(){
   }
 };
 
-/*
-  PRODUTOS FLEXPRO
-
-  Os nomes das imagens são utilizados exatamente
-  como informados, com extensão .png.
-
-  Os links existentes foram mantidos.
-
-  Quando a página 360° ainda não estiver pronta,
-  deixe pagina:null.
-*/
+/* CATEGORIAS */
 
 const categorias=[
-  {
-    id:"parede",
-    nome:"Gôndolas de Parede"
-  },
-  {
-    id:"centro",
-    nome:"Gôndolas de Centro e Pontas"
-  },
-  {
-    id:"balcoes",
-    nome:"Balcões e Expositores"
-  },
-  {
-    id:"checkouts",
-    nome:"Checkouts"
-  },
-  {
-    id:"dermo",
-    nome:"Dermocosméticos"
-  },
-  {
-    id:"mip",
-    nome:"MIP e Armários"
-  },
-  {
-    id:"outros",
-    nome:"Outros Mobiliários"
-  }
+  {id:"parede",nome:"Gôndolas de Parede"},
+  {id:"centro",nome:"Gôndolas de Centro e Pontas"},
+  {id:"balcoes",nome:"Balcões e Expositores"},
+  {id:"checkouts",nome:"Checkouts"},
+  {id:"dermo",nome:"Dermocosméticos"},
+  {id:"mip",nome:"MIP e Armários"},
+  {id:"outros",nome:"Outros Mobiliários"}
 ];
+
+/*
+  PRODUTOS
+
+  ATUALIZAÇÃO:
+  Gôndola Centro agora utiliza:
+  AMBIENTAÇÃO_GONDOLA CENTRO_.png
+*/
 
 const produtos=[
 
@@ -595,7 +563,7 @@ const produtos=[
 
   {
     nome:"Gôndola Centro",
-    imagem:"AMBIENTAÇÃO_GONDOLA CENTRO",
+    imagem:"AMBIENTAÇÃO_GONDOLA CENTRO_",
     categoria:"centro",
     pagina:"produtos/produto-08.html"
   },
@@ -766,7 +734,7 @@ const opcoesCategoria=document.getElementById("opcoesCategoria");
 
 let categoriaSelecionada="todos";
 
-/* FUNÇÕES AUXILIARES */
+/* FUNÇÕES */
 
 function elemento(tag,classe,texto){
   const el=document.createElement(tag);
@@ -790,8 +758,6 @@ function nomeCategoria(id){
   return categoria?categoria.nome:"";
 }
 
-/* CRIA OS CARDS */
-
 function criarCard(produto){
 
   const temPagina=Boolean(produto.pagina);
@@ -813,6 +779,7 @@ function criarCard(produto){
   const imagemContainer=elemento("div","card-imagem");
 
   const imagem=document.createElement("img");
+
   imagem.src="imagens/"+produto.imagem+".png";
   imagem.alt=produto.nome;
   imagem.loading="lazy";
@@ -860,7 +827,7 @@ function criarCard(produto){
   return card;
 }
 
-/* MOSTRA OS PRODUTOS */
+/* RENDERIZAÇÃO */
 
 function renderizarProdutos(){
 
@@ -886,7 +853,7 @@ function renderizarProdutos(){
 
 }
 
-/* CRIA AS OPÇÕES DE FILTRO */
+/* OPÇÕES DE CATEGORIA */
 
 function criarOpcao(id,nome){
 
@@ -921,7 +888,7 @@ categorias.forEach(function(categoria){
   criarOpcao(categoria.id,categoria.nome);
 });
 
-/* DESTACA O FILTRO SELECIONADO */
+/* BOTÃO SELECIONADO */
 
 function atualizarBotoes(){
 
@@ -941,7 +908,7 @@ function atualizarBotoes(){
 
 }
 
-/* ABRE E FECHA O MENU */
+/* ABRIR / FECHAR FILTRO */
 
 botaoFiltro.addEventListener("click",function(){
 
