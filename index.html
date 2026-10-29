@@ -5,7 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catálogo FLEXPRO | Gondopar</title>
-
 <style>
 :root{
   --azul:#092d59;
@@ -13,11 +12,8 @@
   --cinza:#67869b;
   --borda:#dcebf1;
 }
-
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
   min-height:100vh;
@@ -25,18 +21,12 @@ body{
   flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(
-    120deg,#f7fcfe 0%,#e7f7fb 55%,#d9f2f9 100%
-  );
+  background:linear-gradient(120deg,#f7fcfe,#e7f7fb 55%,#d9f2f9);
 }
-
-/* CABEÇALHO */
-
 header{
   background:rgba(255,255,255,.85);
   border-bottom:1px solid var(--borda);
 }
-
 .cabecalho{
   width:min(1300px,94%);
   margin:auto;
@@ -46,79 +36,56 @@ header{
   justify-content:space-between;
   gap:20px;
 }
-
 .logo{
   display:block;
   width:185px;
   max-height:65px;
   object-fit:contain;
 }
-
 .logo-texto{
   display:none;
+  color:#d80019;
   font-size:28px;
   font-weight:900;
-  letter-spacing:1px;
-  color:#d80019;
 }
-
 .marca{
   color:var(--cinza);
   font-size:12px;
   text-align:right;
 }
-
-/* BANNER PRINCIPAL */
-
 .banner{
   width:100%;
   background:#e8f5f9;
-  overflow:hidden;
 }
-
 .banner img{
   display:block;
   width:100%;
   height:auto;
   object-fit:contain;
 }
-
-.banner:has(img:not([src])){
-  display:none;
-}
-
-/* CONTEÚDO */
-
 main{
   width:min(1300px,94%);
   margin:0 auto;
   padding:43px 0 75px;
   flex:1;
 }
-
 .referencia{
   display:block;
+  color:var(--azul-medio);
   font-size:11px;
   font-weight:bold;
   letter-spacing:2px;
-  color:var(--azul-medio);
 }
-
 h1{
   margin:12px 0;
   font-size:clamp(30px,4vw,46px);
-  line-height:1.2;
 }
-
 .descricao{
   margin:0;
   color:var(--cinza);
   font-size:14px;
   line-height:1.7;
 }
-
-/* FILTROS */
-
 .barra-filtros{
   display:flex;
   align-items:center;
@@ -127,14 +94,12 @@ h1{
   gap:15px;
   margin:35px 0 23px;
 }
-
 .filtros-esquerda{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
   gap:12px;
 }
-
 .botao-filtro{
   display:flex;
   align-items:center;
@@ -144,107 +109,69 @@ h1{
   border-radius:9px;
   background:var(--azul);
   color:white;
-  font-family:inherit;
-  font-size:12px;
-  font-weight:bold;
+  font:700 12px Arial,sans-serif;
   cursor:pointer;
-  transition:.2s;
 }
-
 .botao-filtro:hover,
 .botao-filtro.ativo{
   background:var(--azul-medio);
   border-color:var(--azul-medio);
 }
-
-.seta{
-  font-size:12px;
-  transition:transform .2s;
-}
-
-.botao-filtro.ativo .seta{
-  transform:rotate(180deg);
-}
-
+.seta{transition:transform .2s}
+.botao-filtro.ativo .seta{transform:rotate(180deg)}
 .filtro-atual{
   padding:11px 14px;
   border:1px solid #d4e7ee;
   border-radius:8px;
   background:rgba(255,255,255,.75);
-  color:var(--azul);
   font-size:11px;
   font-weight:bold;
 }
-
 .contador{
   color:var(--cinza);
   font-size:11px;
   font-weight:bold;
-  letter-spacing:.5px;
 }
-
-/* PAINEL DE CATEGORIAS */
-
 .painel-filtros{
   display:none;
   margin-bottom:28px;
   padding:20px;
   border:1px solid var(--borda);
   border-radius:12px;
-  background:rgba(255,255,255,.9);
-  box-shadow:0 8px 25px rgba(9,45,89,.04);
+  background:rgba(255,255,255,.92);
 }
-
-.painel-filtros.aberto{
-  display:block;
-}
-
+.painel-filtros.aberto{display:block}
 .painel-filtros h2{
   margin:0 0 15px;
   font-size:12px;
   letter-spacing:1px;
 }
-
 .opcoes-categoria{
   display:flex;
   flex-wrap:wrap;
   gap:9px;
 }
-
 .opcao-categoria{
   padding:12px 15px;
   border:1px solid #d7e7ee;
   border-radius:8px;
   background:#f8fcfd;
   color:var(--azul);
-  font-family:inherit;
-  font-size:11px;
-  font-weight:bold;
+  font:700 11px Arial,sans-serif;
   cursor:pointer;
-  transition:.2s;
 }
-
-.opcao-categoria:hover{
-  border-color:var(--azul-medio);
-}
-
+.opcao-categoria:hover{border-color:var(--azul-medio)}
 .opcao-categoria.selecionada{
   background:var(--azul);
   border-color:var(--azul);
   color:white;
 }
-
-/* GRADE */
-
 .grade{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:24px;
   align-items:stretch;
 }
-
-/* CARDS */
-
 .card{
   display:flex;
   flex-direction:column;
@@ -258,14 +185,10 @@ h1{
   box-shadow:0 10px 28px rgba(9,45,89,.07);
   transition:transform .2s,box-shadow .2s;
 }
-
 a.card:hover{
   transform:translateY(-4px);
   box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
-
-/* CAPAS 1050 x 900 */
-
 .card-imagem{
   width:100%;
   aspect-ratio:7/6;
@@ -276,7 +199,6 @@ a.card:hover{
   overflow:hidden;
   background:#f7fbfd;
 }
-
 .card-imagem img{
   display:block;
   width:100%;
@@ -284,16 +206,36 @@ a.card:hover{
   object-fit:contain;
   object-position:center;
 }
-
-/* INFORMAÇÕES */
-
+.sem-imagem{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  height:100%;
+  border:1px dashed #c5dce7;
+  border-radius:10px;
+  background:linear-gradient(135deg,#f7fcfe,#edf7fa);
+  color:#91adba;
+  text-align:center;
+}
+.sem-imagem svg{
+  width:43px;
+  height:43px;
+  stroke:#9ab5c3;
+}
+.sem-imagem span{
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.5px;
+}
 .card-conteudo{
   padding:18px 20px 21px;
   display:flex;
   flex-direction:column;
   flex:1;
 }
-
 .card-categoria{
   display:block;
   margin-bottom:9px;
@@ -302,20 +244,17 @@ a.card:hover{
   font-weight:bold;
   letter-spacing:1px;
 }
-
 .card h3{
   margin:0 0 10px;
   font-size:17px;
   line-height:1.4;
 }
-
 .card p{
   margin:0 0 19px;
   color:var(--cinza);
   font-size:12px;
   line-height:1.6;
 }
-
 .abrir{
   display:inline-block;
   align-self:flex-start;
@@ -326,20 +265,12 @@ a.card:hover{
   color:white;
   font-size:10px;
   font-weight:bold;
-  letter-spacing:.3px;
 }
-
-a.card:hover .abrir{
-  background:var(--azul-medio);
-}
-
+a.card:hover .abrir{background:var(--azul-medio)}
 .card.pendente .abrir{
   background:#eaf2f6;
   color:#7892a2;
 }
-
-/* RODAPÉ */
-
 footer{
   padding:26px 5%;
   text-align:center;
@@ -348,66 +279,25 @@ footer{
   color:var(--cinza);
   font-size:11px;
 }
-
-/* TABLET */
-
 @media(max-width:1000px){
-  .grade{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+  .grade{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-/* CELULAR */
-
 @media(max-width:650px){
-  .cabecalho{
-    width:92%;
-    padding:16px 0;
-  }
-
+  .cabecalho{width:92%;padding:16px 0}
   .logo{width:135px}
   .logo-texto{font-size:21px}
   .marca{font-size:10px}
-
-  main{
-    width:92%;
-    padding:30px 0 50px;
-  }
-
+  main{width:92%;padding:30px 0 50px}
   h1{font-size:31px}
   .descricao{font-size:12px}
-
-  .barra-filtros{
-    margin:27px 0 20px;
-    align-items:flex-start;
-  }
-
+  .barra-filtros{margin:27px 0 20px}
   .filtros-esquerda{width:100%}
-
-  .botao-filtro{
-    padding:12px 14px;
-    font-size:11px;
-  }
-
+  .botao-filtro{padding:12px 14px;font-size:11px}
   .filtro-atual{font-size:10px}
   .painel-filtros{padding:15px}
-
-  .opcao-categoria{
-    padding:10px 12px;
-    font-size:10px;
-  }
-
-  .grade{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-
-  .card{
-    width:100%;
-    max-width:420px;
-    margin:0 auto;
-  }
-
+  .opcao-categoria{padding:10px 12px;font-size:10px}
+  .grade{grid-template-columns:1fr;gap:20px}
+  .card{width:100%;max-width:420px;margin:0 auto}
   .card h3{font-size:16px}
   .card-conteudo{padding:17px}
 }
@@ -418,91 +308,65 @@ footer{
 
 <header>
   <div class="cabecalho">
-
     <div>
       <img
         id="logo"
         class="logo"
         src="imagens/logo-gondopar.png.png"
         alt="Gondopar">
-
       <span id="logoTexto" class="logo-texto">
         GONDOPAR
       </span>
     </div>
-
     <div class="marca">
       Gôndolas e mobílias especiais
     </div>
-
   </div>
 </header>
-
-<!-- NOVO BANNER DA FARMÁCIA -->
 
 <section class="banner" id="bannerPrincipal">
   <img
     id="imagemBanner"
     src="imagens/BANNER_FARMACIA.png"
-    alt="Ambientação de farmácia com mobiliário Gondopar"
-    fetchpriority="high">
+    alt="Ambientação de farmácia Gondopar">
 </section>
 
 <main>
-
   <section class="apresentacao">
-
-    <span class="referencia">
-      CATÁLOGO INTERATIVO
-    </span>
-
+    <span class="referencia">CATÁLOGO INTERATIVO</span>
     <h1>LINHA FLEXPRO</h1>
-
     <p class="descricao">
       Conheça nossas soluções em mobiliário para farmácias.
       Explore os modelos e visualize os produtos disponíveis em 360°.
     </p>
-
   </section>
 
   <div class="barra-filtros">
-
     <div class="filtros-esquerda">
-
       <button
         id="botaoFiltro"
         class="botao-filtro"
         type="button"
         aria-expanded="false"
         aria-controls="painelFiltros">
-
         <span>☷</span>
         FILTRAR POR CATEGORIA
         <span class="seta">▼</span>
-
       </button>
 
       <span id="filtroAtual" class="filtro-atual">
         TODOS OS PRODUTOS
       </span>
-
     </div>
 
     <span id="contador" class="contador">
-      29 PRODUTOS
+      55 PRODUTOS
     </span>
-
   </div>
 
   <div id="painelFiltros" class="painel-filtros">
-
     <h2>SELECIONE UMA CATEGORIA</h2>
-
-    <div
-      id="opcoesCategoria"
-      class="opcoes-categoria">
-    </div>
-
+    <div id="opcoesCategoria" class="opcoes-categoria"></div>
   </div>
 
   <section
@@ -510,7 +374,6 @@ footer{
     class="grade"
     aria-label="Produtos FLEXPRO">
   </section>
-
 </main>
 
 <footer>
@@ -536,9 +399,7 @@ logo.onerror=function(){
 
 /* BANNER */
 
-const imagemBanner=document.getElementById("imagemBanner");
-
-imagemBanner.onerror=function(){
+document.getElementById("imagemBanner").onerror=function(){
   document.getElementById("bannerPrincipal").style.display="none";
 };
 
@@ -551,10 +412,29 @@ const categorias=[
   {id:"checkouts",nome:"Checkouts"},
   {id:"dermo",nome:"Dermocosméticos"},
   {id:"mip",nome:"MIP e Armários"},
-  {id:"outros",nome:"Outros Mobiliários"}
+  {id:"outros",nome:"Outros Mobiliários"},
+
+  /* NOVAS CATEGORIAS */
+  {id:"fechamentos",nome:"Fechamentos"},
+  {id:"cestos",nome:"Cestos"},
+  {id:"suportes",nome:"Suportes para Monitor"},
+  {id:"acessorios",nome:"Acessórios e Complementos"}
 ];
 
-/* TODOS OS 29 PRODUTOS */
+/*
+  CADASTRO DOS PRODUTOS
+
+  nome: nome exibido no catálogo
+  imagem: nome do PNG sem a extensão
+  categoria: grupo do filtro
+  pagina: endereço da página 360° ou null
+
+  Produtos sem imagem:
+  imagem:null
+
+  Esses produtos exibem um espaço reservado,
+  sem tentar carregar um PNG inexistente.
+*/
 
 const produtos=[
 
@@ -751,6 +631,174 @@ const produtos=[
     imagem:"AMBIENTAÇÃO_BASE METALICA",
     categoria:"outros",
     pagina:null
+  },
+
+  /* NOVOS: FECHAMENTOS */
+
+  {
+    nome:"Fechamento Lateral",
+    imagem:null,
+    categoria:"fechamentos",
+    pagina:null
+  },
+  {
+    nome:"Fechamento U",
+    imagem:null,
+    categoria:"fechamentos",
+    pagina:null
+  },
+  {
+    nome:"Fechamento L",
+    imagem:null,
+    categoria:"fechamentos",
+    pagina:null
+  },
+  {
+    nome:"Canto Triangular Fechado",
+    imagem:null,
+    categoria:"fechamentos",
+    pagina:null
+  },
+  {
+    nome:"Canto Triangular Aberto",
+    imagem:null,
+    categoria:"fechamentos",
+    pagina:null
+  },
+
+  /* NOVOS: CESTOS */
+
+  {
+    nome:"Cesto Promoção",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto Última Chance",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto Lenço",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto Aço",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto MDF",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto Alumínio",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+  {
+    nome:"Cesto Aramado",
+    imagem:null,
+    categoria:"cestos",
+    pagina:null
+  },
+
+  /* NOVOS: SUPORTES PARA MONITOR */
+
+  {
+    nome:"Suporte Simples",
+    imagem:null,
+    categoria:"suportes",
+    pagina:null
+  },
+  {
+    nome:"Suporte Duplo",
+    imagem:null,
+    categoria:"suportes",
+    pagina:null
+  },
+  {
+    nome:"Suporte Simples + Numeração",
+    imagem:null,
+    categoria:"suportes",
+    pagina:null
+  },
+  {
+    nome:"Suporte Duplo + Numeração",
+    imagem:null,
+    categoria:"suportes",
+    pagina:null
+  },
+
+  /* NOVOS: ACESSÓRIOS E COMPLEMENTOS */
+
+  {
+    nome:"Expositor de Esparadrapo",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Aparador",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Comprimideiro OTC",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Régua com Ganchos",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Mobiliário Descarte",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Display de Balcão Grande",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Display de Balcão Pequeno",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Totem para Tablet",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Porta Encarte",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
+  },
+  {
+    nome:"Letreiro",
+    imagem:null,
+    categoria:"acessorios",
+    pagina:null
   }
 
 ];
@@ -790,7 +838,42 @@ function nomeCategoria(id){
   return categoria?categoria.nome:"";
 }
 
-/* CARDS */
+/* PLACEHOLDER PARA PRODUTOS SEM IMAGEM */
+
+function criarPlaceholder(){
+  const caixa=elemento("div","sem-imagem");
+
+  const icone=document.createElementNS(
+    "http://www.w3.org/2000/svg","svg"
+  );
+
+  icone.setAttribute("viewBox","0 0 24 24");
+  icone.setAttribute("fill","none");
+  icone.setAttribute("stroke-width","1.5");
+  icone.setAttribute("stroke-linecap","round");
+  icone.setAttribute("stroke-linejoin","round");
+  icone.setAttribute("aria-hidden","true");
+
+  const caminho=document.createElementNS(
+    "http://www.w3.org/2000/svg","path"
+  );
+
+  caminho.setAttribute(
+    "d",
+    "M3 3h18v18H3z M8 8h.01 M3 17l5-5 4 4 3-3 6 6"
+  );
+
+  icone.appendChild(caminho);
+  caixa.appendChild(icone);
+
+  caixa.appendChild(
+    elemento("span","","IMAGEM EM PREPARAÇÃO")
+  );
+
+  return caixa;
+}
+
+/* CRIA OS CARDS */
 
 function criarCard(produto){
 
@@ -812,13 +895,25 @@ function criarCard(produto){
 
   const imagemContainer=elemento("div","card-imagem");
 
-  const imagem=document.createElement("img");
+  if(produto.imagem){
 
-  imagem.src="imagens/"+produto.imagem+".png";
-  imagem.alt=produto.nome;
-  imagem.loading="lazy";
+    const imagem=document.createElement("img");
 
-  imagemContainer.appendChild(imagem);
+    imagem.src="imagens/"+produto.imagem+".png";
+    imagem.alt=produto.nome;
+    imagem.loading="lazy";
+
+    imagem.onerror=function(){
+      imagemContainer.replaceChildren(criarPlaceholder());
+    };
+
+    imagemContainer.appendChild(imagem);
+
+  }else{
+
+    imagemContainer.appendChild(criarPlaceholder());
+
+  }
 
   const conteudo=elemento("div","card-conteudo");
 
@@ -839,7 +934,9 @@ function criarCard(produto){
     "",
     temPagina
       ?"Visualização interativa do produto."
-      :"Conheça este modelo da linha FLEXPRO."
+      :produto.imagem
+        ?"Conheça este modelo da linha FLEXPRO."
+        :"Produto em preparação para o catálogo."
   );
 
   const abrir=elemento(
@@ -847,7 +944,9 @@ function criarCard(produto){
     "abrir",
     temPagina
       ?"EXPLORAR EM 360° →"
-      :"360° EM PREPARAÇÃO"
+      :produto.imagem
+        ?"360° EM PREPARAÇÃO"
+        :"EM PREPARAÇÃO"
   );
 
   conteudo.appendChild(categoria);
@@ -861,7 +960,7 @@ function criarCard(produto){
   return card;
 }
 
-/* RENDERIZAÇÃO DOS PRODUTOS */
+/* MOSTRA OS PRODUTOS */
 
 function renderizarProdutos(){
 
@@ -886,7 +985,7 @@ function renderizarProdutos(){
       :nomeCategoria(categoriaSelecionada).toUpperCase();
 }
 
-/* OPÇÕES DO FILTRO */
+/* CRIA OS BOTÕES DAS CATEGORIAS */
 
 function criarOpcao(id,nome){
 
@@ -920,7 +1019,7 @@ categorias.forEach(function(categoria){
   criarOpcao(categoria.id,categoria.nome);
 });
 
-/* ATUALIZA BOTÕES */
+/* DESTACA O FILTRO SELECIONADO */
 
 function atualizarBotoes(){
 
@@ -938,7 +1037,7 @@ function atualizarBotoes(){
   });
 }
 
-/* ABRIR E FECHAR FILTRO */
+/* ABRIR / FECHAR FILTRO */
 
 botaoFiltro.addEventListener("click",function(){
 
