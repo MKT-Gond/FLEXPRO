@@ -13,6 +13,7 @@
   --azul-medio: #267fa4;
   --cinza: #67869b;
   --borda: #dcebf1;
+  --largura-catalogo: 1300px;
 }
 
 * {
@@ -46,7 +47,7 @@ header {
 }
 
 .cabecalho {
-  width: min(1300px,94%);
+  width: min(var(--largura-catalogo),94%);
   margin: auto;
   padding: 20px 0;
   display: flex;
@@ -76,12 +77,11 @@ header {
   text-align: right;
 }
 
-/* BANNER EM VÍDEO - 1200 x 600 */
+/* BANNER - MESMA LARGURA DA GRADE */
 
 .banner {
-  width: min(1200px, 94%);
+  width: min(var(--largura-catalogo),94%);
   aspect-ratio: 2 / 1;
-  height: auto;
   margin: 30px auto 0;
   overflow: hidden;
   border-radius: 14px;
@@ -108,7 +108,7 @@ header {
 /* CONTEÚDO */
 
 main {
-  width: min(1300px,94%);
+  width: min(var(--largura-catalogo),94%);
   margin: 0 auto;
   padding: 30px 0 75px;
   flex: 1;
@@ -273,7 +273,7 @@ a.card:hover {
   box-shadow: 0 17px 35px rgba(9,45,89,.13);
 }
 
-/* IMAGENS DOS PRODUTOS - 1050 x 900 */
+/* IMAGENS DOS PRODUTOS */
 
 .card-imagem {
   width: 100%;
@@ -505,7 +505,7 @@ footer {
   </div>
 </header>
 
-<!-- BANNER EM VÍDEO 1200 x 600 -->
+<!-- VÍDEO ALINHADO À GRADE DE PRODUTOS -->
 
 <section class="banner" id="bannerPrincipal">
   <video
@@ -635,8 +635,8 @@ bannerFallback.addEventListener("error", function() {
 });
 
 videoBanner.play().catch(function() {
-  /* Se o navegador bloquear o autoplay,
-     a imagem de capa permanece visível. */
+  /* O navegador pode bloquear a reprodução automática.
+     Nesse caso, o poster continua visível. */
 });
 
 /* CATEGORIAS */
