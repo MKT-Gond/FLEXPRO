@@ -4,307 +4,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Catálogo FLEXPRO | Gondopar</title>
+
 <style>
-:root{
-  --azul:#092d59;
-  --azul-medio:#267fa4;
-  --cinza:#67869b;
-  --borda:#dcebf1;
+:root {
+  --azul: #092d59;
+  --azul-medio: #267fa4;
+  --cinza: #67869b;
+  --borda: #dcebf1;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--azul);
-  background:linear-gradient(120deg,#f7fcfe,#e7f7fb 55%,#d9f2f9);
+
+* {
+  box-sizing: border-box;
 }
-header{
-  background:rgba(255,255,255,.85);
-  border-bottom:1px solid var(--borda);
+
+html {
+  scroll-behavior: smooth;
 }
-.cabecalho{
-  width:min(1300px,94%);
-  margin:auto;
-  padding:20px 0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--azul);
+  background: linear-gradient(
+    120deg,
+    #f7fcfe 0%,
+    #e7f7fb 55%,
+    #d9f2f9 100%
+  );
 }
-.logo{
-  display:block;
-  width:185px;
-  max-height:65px;
-  object-fit:contain;
+
+/* CABEÇALHO */
+
+header {
+  background: rgba(255,255,255,.85);
+  border-bottom: 1px solid var(--borda);
 }
-.logo-texto{
-  display:none;
-  color:#d80019;
-  font-size:28px;
-  font-weight:900;
+
+.cabecalho {
+  width: min(1300px,94%);
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
-.marca{
-  color:var(--cinza);
-  font-size:12px;
-  text-align:right;
+
+.logo {
+  display: block;
+  width: 185px;
+  max-height: 65px;
+  object-fit: contain;
 }
-.banner{
-  width:100%;
-  background:#e8f5f9;
+
+.logo-texto {
+  display: none;
+  color: #d80019;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
-.banner img{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:contain;
+
+.marca {
+  color: var(--cinza);
+  font-size: 12px;
+  text-align: right;
 }
-main{
-  width:min(1300px,94%);
-  margin:0 auto;
-  padding:43px 0 75px;
-  flex:1;
+
+/* BANNER EM VÍDEO */
+
+.banner {
+  width: 100%;
+  overflow: hidden;
+  background: #e8f5f9;
 }
-.referencia{
-  display:block;
-  color:var(--azul-medio);
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:2px;
+
+.banner video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
-h1{
-  margin:12px 0;
-  font-size:clamp(30px,4vw,46px);
+
+.banner-imagem {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
-.descricao{
-  margin:0;
-  color:var(--cinza);
-  font-size:14px;
-  line-height:1.7;
+
+/* CONTEÚDO */
+
+main {
+  width: min(1300px,94%);
+  margin: 0 auto;
+  padding: 43px 0 75px;
+  flex: 1;
 }
-.barra-filtros{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:15px;
-  margin:35px 0 23px;
+
+.referencia {
+  display: block;
+  color: var(--azul-medio);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
-.filtros-esquerda{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:12px;
+
+h1 {
+  margin: 12px 0;
+  font-size: clamp(30px,4vw,46px);
+  line-height: 1.2;
 }
-.botao-filtro{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 18px;
-  border:1px solid var(--azul);
-  border-radius:9px;
-  background:var(--azul);
-  color:white;
-  font:700 12px Arial,sans-serif;
-  cursor:pointer;
+
+.descricao {
+  margin: 0;
+  color: var(--cinza);
+  font-size: 14px;
+  line-height: 1.7;
 }
+
+/* FILTROS */
+
+.barra-filtros {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 35px 0 23px;
+}
+
+.filtros-esquerda {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.botao-filtro {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--azul);
+  border-radius: 9px;
+  background: var(--azul);
+  color: white;
+  font: 700 12px Arial, sans-serif;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+
 .botao-filtro:hover,
-.botao-filtro.ativo{
-  background:var(--azul-medio);
-  border-color:var(--azul-medio);
+.botao-filtro.ativo {
+  background: var(--azul-medio);
+  border-color: var(--azul-medio);
 }
-.seta{transition:transform .2s}
-.botao-filtro.ativo .seta{transform:rotate(180deg)}
-.filtro-atual{
-  padding:11px 14px;
-  border:1px solid #d4e7ee;
-  border-radius:8px;
-  background:rgba(255,255,255,.75);
-  font-size:11px;
-  font-weight:bold;
+
+.seta {
+  transition: transform .2s;
 }
-.contador{
-  color:var(--cinza);
-  font-size:11px;
-  font-weight:bold;
+
+.botao-filtro.ativo .seta {
+  transform: rotate(180deg);
 }
-.painel-filtros{
-  display:none;
-  margin-bottom:28px;
-  padding:20px;
-  border:1px solid var(--borda);
-  border-radius:12px;
-  background:rgba(255,255,255,.92);
+
+.filtro-atual {
+  padding: 11px 14px;
+  border: 1px solid #d4e7ee;
+  border-radius: 8px;
+  background: rgba(255,255,255,.75);
+  font-size: 11px;
+  font-weight: bold;
 }
-.painel-filtros.aberto{display:block}
-.painel-filtros h2{
-  margin:0 0 15px;
-  font-size:12px;
-  letter-spacing:1px;
+
+.contador {
+  color: var(--cinza);
+  font-size: 11px;
+  font-weight: bold;
 }
-.opcoes-categoria{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
+
+/* PAINEL DE CATEGORIAS */
+
+.painel-filtros {
+  display: none;
+  margin-bottom: 28px;
+  padding: 20px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: rgba(255,255,255,.92);
 }
-.opcao-categoria{
-  padding:12px 15px;
-  border:1px solid #d7e7ee;
-  border-radius:8px;
-  background:#f8fcfd;
-  color:var(--azul);
-  font:700 11px Arial,sans-serif;
-  cursor:pointer;
+
+.painel-filtros.aberto {
+  display: block;
 }
-.opcao-categoria:hover{border-color:var(--azul-medio)}
-.opcao-categoria.selecionada{
-  background:var(--azul);
-  border-color:var(--azul);
-  color:white;
+
+.painel-filtros h2 {
+  margin: 0 0 15px;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
-.grade{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:24px;
-  align-items:stretch;
+
+.opcoes-categoria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
 }
-.card{
-  display:flex;
-  flex-direction:column;
-  min-width:0;
-  overflow:hidden;
-  border:1px solid var(--borda);
-  border-radius:15px;
-  background:white;
-  color:inherit;
-  text-decoration:none;
-  box-shadow:0 10px 28px rgba(9,45,89,.07);
-  transition:transform .2s,box-shadow .2s;
+
+.opcao-categoria {
+  padding: 12px 15px;
+  border: 1px solid #d7e7ee;
+  border-radius: 8px;
+  background: #f8fcfd;
+  color: var(--azul);
+  font: 700 11px Arial, sans-serif;
+  cursor: pointer;
 }
-a.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 17px 35px rgba(9,45,89,.13);
+
+.opcao-categoria:hover {
+  border-color: var(--azul-medio);
 }
-.card-imagem{
-  width:100%;
-  aspect-ratio:7/6;
-  padding:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:#f7fbfd;
+
+.opcao-categoria.selecionada {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: white;
 }
-.card-imagem img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
+
+/* GRADE DE PRODUTOS */
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 24px;
+  align-items: stretch;
 }
-.sem-imagem{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  width:100%;
-  height:100%;
-  border:1px dashed #c5dce7;
-  border-radius:10px;
-  background:linear-gradient(135deg,#f7fcfe,#edf7fa);
-  color:#91adba;
-  text-align:center;
+
+/* CARDS */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--borda);
+  border-radius: 15px;
+  background: white;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(9,45,89,.07);
+  transition: transform .2s, box-shadow .2s;
 }
-.sem-imagem svg{
-  width:43px;
-  height:43px;
-  stroke:#9ab5c3;
+
+a.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 17px 35px rgba(9,45,89,.13);
 }
-.sem-imagem span{
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:.5px;
+
+/* IMAGENS DOS PRODUTOS - 1050 x 900 */
+
+.card-imagem {
+  width: 100%;
+  aspect-ratio: 7 / 6;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f7fbfd;
 }
-.card-conteudo{
-  padding:18px 20px 21px;
-  display:flex;
-  flex-direction:column;
-  flex:1;
+
+.card-imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
-.card-categoria{
-  display:block;
-  margin-bottom:9px;
-  color:var(--azul-medio);
-  font-size:10px;
-  font-weight:bold;
-  letter-spacing:1px;
+
+/* PRODUTOS SEM IMAGEM */
+
+.sem-imagem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #c5dce7;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#f7fcfe,#edf7fa);
+  color: #91adba;
+  text-align: center;
 }
-.card h3{
-  margin:0 0 10px;
-  font-size:17px;
-  line-height:1.4;
+
+.sem-imagem svg {
+  width: 43px;
+  height: 43px;
+  stroke: #9ab5c3;
 }
-.card p{
-  margin:0 0 19px;
-  color:var(--cinza);
-  font-size:12px;
-  line-height:1.6;
+
+.sem-imagem span {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: .5px;
 }
-.abrir{
-  display:inline-block;
-  align-self:flex-start;
-  margin-top:auto;
-  padding:12px 16px;
-  border-radius:8px;
-  background:var(--azul);
-  color:white;
-  font-size:10px;
-  font-weight:bold;
+
+/* CONTEÚDO DOS CARDS */
+
+.card-conteudo {
+  padding: 18px 20px 21px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
-a.card:hover .abrir{background:var(--azul-medio)}
-.card.pendente .abrir{
-  background:#eaf2f6;
-  color:#7892a2;
+
+.card-categoria {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--azul-medio);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
-footer{
-  padding:26px 5%;
-  text-align:center;
-  background:rgba(255,255,255,.4);
-  border-top:1px solid var(--borda);
-  color:var(--cinza);
-  font-size:11px;
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  line-height: 1.4;
 }
-@media(max-width:1000px){
-  .grade{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.card p {
+  margin: 0 0 19px;
+  color: var(--cinza);
+  font-size: 12px;
+  line-height: 1.6;
 }
-@media(max-width:650px){
-  .cabecalho{width:92%;padding:16px 0}
-  .logo{width:135px}
-  .logo-texto{font-size:21px}
-  .marca{font-size:10px}
-  main{width:92%;padding:30px 0 50px}
-  h1{font-size:31px}
-  .descricao{font-size:12px}
-  .barra-filtros{margin:27px 0 20px}
-  .filtros-esquerda{width:100%}
-  .botao-filtro{padding:12px 14px;font-size:11px}
-  .filtro-atual{font-size:10px}
-  .painel-filtros{padding:15px}
-  .opcao-categoria{padding:10px 12px;font-size:10px}
-  .grade{grid-template-columns:1fr;gap:20px}
-  .card{width:100%;max-width:420px;margin:0 auto}
-  .card h3{font-size:16px}
-  .card-conteudo{padding:17px}
+
+.abrir {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--azul);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+a.card:hover .abrir {
+  background: var(--azul-medio);
+}
+
+.card.pendente .abrir {
+  background: #eaf2f6;
+  color: #7892a2;
+}
+
+/* RODAPÉ */
+
+footer {
+  padding: 26px 5%;
+  text-align: center;
+  background: rgba(255,255,255,.4);
+  border-top: 1px solid var(--borda);
+  color: var(--cinza);
+  font-size: 11px;
+}
+
+/* TABLET */
+
+@media(max-width:1000px) {
+  .grade {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+/* CELULAR */
+
+@media(max-width:650px) {
+  .cabecalho {
+    width: 92%;
+    padding: 16px 0;
+  }
+
+  .logo {
+    width: 135px;
+  }
+
+  .logo-texto {
+    font-size: 21px;
+  }
+
+  .marca {
+    font-size: 10px;
+  }
+
+  main {
+    width: 92%;
+    padding: 30px 0 50px;
+  }
+
+  h1 {
+    font-size: 31px;
+  }
+
+  .descricao {
+    font-size: 12px;
+  }
+
+  .barra-filtros {
+    margin: 27px 0 20px;
+  }
+
+  .filtros-esquerda {
+    width: 100%;
+  }
+
+  .botao-filtro {
+    padding: 12px 14px;
+    font-size: 11px;
+  }
+
+  .filtro-atual {
+    font-size: 10px;
+  }
+
+  .painel-filtros {
+    padding: 15px;
+  }
+
+  .opcao-categoria {
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+
+  .grade {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card-conteudo {
+    padding: 17px;
+  }
 }
 </style>
 </head>
 
 <body>
+
+<!-- CABEÇALHO -->
 
 <header>
   <div class="cabecalho">
@@ -314,32 +480,61 @@ footer{
         class="logo"
         src="imagens/logo-gondopar.png.png"
         alt="Gondopar">
+
       <span id="logoTexto" class="logo-texto">
         GONDOPAR
       </span>
     </div>
+
     <div class="marca">
       Gôndolas e mobílias especiais
     </div>
   </div>
 </header>
 
+<!-- BANNER EM VÍDEO -->
+
 <section class="banner" id="bannerPrincipal">
+  <video
+    id="videoBanner"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="imagens/BANNER_FARMACIA.png"
+    aria-label="Vídeo de apresentação da linha FLEXPRO">
+
+    <source
+      src="imagens/Caderno técnico FLEXPRO.mp4"
+      type="video/mp4">
+
+  </video>
+
   <img
-    id="imagemBanner"
+    id="bannerFallback"
+    class="banner-imagem"
     src="imagens/BANNER_FARMACIA.png"
     alt="Ambientação de farmácia Gondopar">
 </section>
 
+<!-- CONTEÚDO -->
+
 <main>
   <section class="apresentacao">
-    <span class="referencia">CATÁLOGO INTERATIVO</span>
+    <span class="referencia">
+      CATÁLOGO INTERATIVO
+    </span>
+
     <h1>LINHA FLEXPRO</h1>
+
     <p class="descricao">
       Conheça nossas soluções em mobiliário para farmácias.
       Explore os modelos e visualize os produtos disponíveis em 360°.
     </p>
   </section>
+
+  <!-- FILTRO -->
 
   <div class="barra-filtros">
     <div class="filtros-esquerda">
@@ -349,6 +544,7 @@ footer{
         type="button"
         aria-expanded="false"
         aria-controls="painelFiltros">
+
         <span>☷</span>
         FILTRAR POR CATEGORIA
         <span class="seta">▼</span>
@@ -366,8 +562,13 @@ footer{
 
   <div id="painelFiltros" class="painel-filtros">
     <h2>SELECIONE UMA CATEGORIA</h2>
-    <div id="opcoesCategoria" class="opcoes-categoria"></div>
+    <div
+      id="opcoesCategoria"
+      class="opcoes-categoria">
+    </div>
   </div>
+
+  <!-- PRODUTOS -->
 
   <section
     id="gradeProdutos"
@@ -384,28 +585,49 @@ footer{
 
 /* LOGO */
 
-const logo=document.getElementById("logo");
-const logoTexto=document.getElementById("logoTexto");
+const logo = document.getElementById("logo");
+const logoTexto = document.getElementById("logoTexto");
 
-logo.onerror=function(){
-  if(!this.dataset.alternativa){
-    this.dataset.alternativa="sim";
-    this.src="imagens/logo-gondopar.png";
-  }else{
-    this.style.display="none";
-    logoTexto.style.display="block";
+logo.onerror = function() {
+  if (!this.dataset.alternativa) {
+    this.dataset.alternativa = "sim";
+    this.src = "imagens/logo-gondopar.png";
+  } else {
+    this.style.display = "none";
+    logoTexto.style.display = "block";
   }
 };
 
-/* BANNER */
+/* VÍDEO DO BANNER */
 
-document.getElementById("imagemBanner").onerror=function(){
-  document.getElementById("bannerPrincipal").style.display="none";
-};
+const videoBanner = document.getElementById("videoBanner");
+const bannerFallback = document.getElementById("bannerFallback");
+const bannerPrincipal = document.getElementById("bannerPrincipal");
+
+function mostrarBannerEstatico() {
+  videoBanner.style.display = "none";
+  bannerFallback.style.display = "block";
+}
+
+videoBanner.addEventListener("error", mostrarBannerEstatico);
+
+const fonteVideo = videoBanner.querySelector("source");
+fonteVideo.addEventListener("error", mostrarBannerEstatico);
+
+bannerFallback.addEventListener("error", function() {
+  if (videoBanner.style.display === "none") {
+    bannerPrincipal.style.display = "none";
+  }
+});
+
+videoBanner.play().catch(function() {
+  /* Se o navegador bloquear o autoplay,
+     a imagem de capa do vídeo permanece visível. */
+});
 
 /* CATEGORIAS */
 
-const categorias=[
+const categorias = [
   {id:"parede",nome:"Gôndolas de Parede"},
   {id:"centro",nome:"Gôndolas de Centro e Pontas"},
   {id:"balcoes",nome:"Balcões e Expositores"},
@@ -413,30 +635,15 @@ const categorias=[
   {id:"dermo",nome:"Dermocosméticos"},
   {id:"mip",nome:"MIP e Armários"},
   {id:"outros",nome:"Outros Mobiliários"},
-
-  /* NOVAS CATEGORIAS */
   {id:"fechamentos",nome:"Fechamentos"},
   {id:"cestos",nome:"Cestos"},
   {id:"suportes",nome:"Suportes para Monitor"},
   {id:"acessorios",nome:"Acessórios e Complementos"}
 ];
 
-/*
-  CADASTRO DOS PRODUTOS
+/* CADASTRO DOS 55 PRODUTOS */
 
-  nome: nome exibido no catálogo
-  imagem: nome do PNG sem a extensão
-  categoria: grupo do filtro
-  pagina: endereço da página 360° ou null
-
-  Produtos sem imagem:
-  imagem:null
-
-  Esses produtos exibem um espaço reservado,
-  sem tentar carregar um PNG inexistente.
-*/
-
-const produtos=[
+const produtos = [
 
   /* GÔNDOLAS DE PAREDE */
 
@@ -633,7 +840,7 @@ const produtos=[
     pagina:null
   },
 
-  /* NOVOS: FECHAMENTOS */
+  /* FECHAMENTOS */
 
   {
     nome:"Fechamento Lateral",
@@ -666,7 +873,7 @@ const produtos=[
     pagina:null
   },
 
-  /* NOVOS: CESTOS */
+  /* CESTOS */
 
   {
     nome:"Cesto Promoção",
@@ -711,7 +918,7 @@ const produtos=[
     pagina:null
   },
 
-  /* NOVOS: SUPORTES PARA MONITOR */
+  /* SUPORTES PARA MONITOR */
 
   {
     nome:"Suporte Simples",
@@ -738,7 +945,7 @@ const produtos=[
     pagina:null
   },
 
-  /* NOVOS: ACESSÓRIOS E COMPLEMENTOS */
+  /* ACESSÓRIOS E COMPLEMENTOS */
 
   {
     nome:"Expositor de Esparadrapo",
@@ -805,45 +1012,45 @@ const produtos=[
 
 /* ELEMENTOS */
 
-const grade=document.getElementById("gradeProdutos");
-const contador=document.getElementById("contador");
-const filtroAtual=document.getElementById("filtroAtual");
-const botaoFiltro=document.getElementById("botaoFiltro");
-const painelFiltros=document.getElementById("painelFiltros");
-const opcoesCategoria=document.getElementById("opcoesCategoria");
+const grade = document.getElementById("gradeProdutos");
+const contador = document.getElementById("contador");
+const filtroAtual = document.getElementById("filtroAtual");
+const botaoFiltro = document.getElementById("botaoFiltro");
+const painelFiltros = document.getElementById("painelFiltros");
+const opcoesCategoria = document.getElementById("opcoesCategoria");
 
-let categoriaSelecionada="todos";
+let categoriaSelecionada = "todos";
 
 /* FUNÇÕES AUXILIARES */
 
-function elemento(tag,classe,texto){
-  const el=document.createElement(tag);
+function elemento(tag,classe,texto) {
+  const el = document.createElement(tag);
 
-  if(classe){
-    el.className=classe;
+  if (classe) {
+    el.className = classe;
   }
 
-  if(texto!==undefined){
-    el.textContent=texto;
+  if (texto !== undefined) {
+    el.textContent = texto;
   }
 
   return el;
 }
 
-function nomeCategoria(id){
-  const categoria=categorias.find(function(item){
-    return item.id===id;
+function nomeCategoria(id) {
+  const categoria = categorias.find(function(item) {
+    return item.id === id;
   });
 
-  return categoria?categoria.nome:"";
+  return categoria ? categoria.nome : "";
 }
 
-/* PLACEHOLDER PARA PRODUTOS SEM IMAGEM */
+/* PLACEHOLDER SEM IMAGEM */
 
-function criarPlaceholder(){
-  const caixa=elemento("div","sem-imagem");
+function criarPlaceholder() {
+  const caixa = elemento("div","sem-imagem");
 
-  const icone=document.createElementNS(
+  const icone = document.createElementNS(
     "http://www.w3.org/2000/svg","svg"
   );
 
@@ -854,7 +1061,7 @@ function criarPlaceholder(){
   icone.setAttribute("stroke-linejoin","round");
   icone.setAttribute("aria-hidden","true");
 
-  const caminho=document.createElementNS(
+  const caminho = document.createElementNS(
     "http://www.w3.org/2000/svg","path"
   );
 
@@ -875,78 +1082,73 @@ function criarPlaceholder(){
 
 /* CRIA OS CARDS */
 
-function criarCard(produto){
+function criarCard(produto) {
+  const temPagina = Boolean(produto.pagina);
 
-  const temPagina=Boolean(produto.pagina);
-
-  const card=document.createElement(
-    temPagina?"a":"article"
+  const card = document.createElement(
+    temPagina ? "a" : "article"
   );
 
-  card.className=temPagina?"card":"card pendente";
+  card.className = temPagina ? "card" : "card pendente";
 
-  if(temPagina){
-    card.href=produto.pagina;
+  if (temPagina) {
+    card.href = produto.pagina;
     card.setAttribute(
       "aria-label",
-      "Explorar "+produto.nome+" em 360 graus"
+      "Explorar " + produto.nome + " em 360 graus"
     );
   }
 
-  const imagemContainer=elemento("div","card-imagem");
+  const imagemContainer = elemento("div","card-imagem");
 
-  if(produto.imagem){
+  if (produto.imagem) {
+    const imagem = document.createElement("img");
 
-    const imagem=document.createElement("img");
+    imagem.src = "imagens/" + produto.imagem + ".png";
+    imagem.alt = produto.nome;
+    imagem.loading = "lazy";
 
-    imagem.src="imagens/"+produto.imagem+".png";
-    imagem.alt=produto.nome;
-    imagem.loading="lazy";
-
-    imagem.onerror=function(){
+    imagem.onerror = function() {
       imagemContainer.replaceChildren(criarPlaceholder());
     };
 
     imagemContainer.appendChild(imagem);
-
-  }else{
-
+  } else {
     imagemContainer.appendChild(criarPlaceholder());
-
   }
 
-  const conteudo=elemento("div","card-conteudo");
+  const conteudo = elemento("div","card-conteudo");
 
-  const categoria=elemento(
+  const categoria = elemento(
     "span",
     "card-categoria",
     nomeCategoria(produto.categoria).toUpperCase()
   );
 
-  const titulo=elemento(
+  const titulo = elemento(
     "h3",
     "",
     produto.nome.toUpperCase()
   );
 
-  const descricao=elemento(
+  const descricao = elemento(
     "p",
     "",
     temPagina
-      ?"Visualização interativa do produto."
-      :produto.imagem
-        ?"Conheça este modelo da linha FLEXPRO."
-        :"Produto em preparação para o catálogo."
+      ? "Visualização interativa do produto."
+      : produto.imagem
+        ? "Conheça este modelo da linha FLEXPRO."
+        : "Produto em preparação para o catálogo."
   );
 
-  const abrir=elemento(
+  const abrir = elemento(
     "span",
     "abrir",
     temPagina
-      ?"EXPLORAR EM 360° →"
-      :produto.imagem
-        ?"360° EM PREPARAÇÃO"
-        :"EM PREPARAÇÃO"
+      ? "EXPLORAR EM 360° →"
+      : produto.imagem
+        ? "360° EM PREPARAÇÃO"
+        : "EM PREPARAÇÃO"
   );
 
   conteudo.appendChild(categoria);
@@ -960,47 +1162,44 @@ function criarCard(produto){
   return card;
 }
 
-/* MOSTRA OS PRODUTOS */
+/* RENDERIZAÇÃO */
 
-function renderizarProdutos(){
-
+function renderizarProdutos() {
   grade.replaceChildren();
 
-  const visiveis=produtos.filter(function(produto){
-    return categoriaSelecionada==="todos" ||
-           produto.categoria===categoriaSelecionada;
+  const visiveis = produtos.filter(function(produto) {
+    return categoriaSelecionada === "todos" ||
+           produto.categoria === categoriaSelecionada;
   });
 
-  visiveis.forEach(function(produto){
+  visiveis.forEach(function(produto) {
     grade.appendChild(criarCard(produto));
   });
 
-  contador.textContent=
-    visiveis.length+
-    (visiveis.length===1?" PRODUTO":" PRODUTOS");
+  contador.textContent =
+    visiveis.length +
+    (visiveis.length === 1 ? " PRODUTO" : " PRODUTOS");
 
-  filtroAtual.textContent=
-    categoriaSelecionada==="todos"
-      ?"TODOS OS PRODUTOS"
-      :nomeCategoria(categoriaSelecionada).toUpperCase();
+  filtroAtual.textContent =
+    categoriaSelecionada === "todos"
+      ? "TODOS OS PRODUTOS"
+      : nomeCategoria(categoriaSelecionada).toUpperCase();
 }
 
-/* CRIA OS BOTÕES DAS CATEGORIAS */
+/* OPÇÕES DO FILTRO */
 
-function criarOpcao(id,nome){
-
-  const botao=elemento(
+function criarOpcao(id,nome) {
+  const botao = elemento(
     "button",
     "opcao-categoria",
     nome.toUpperCase()
   );
 
-  botao.type="button";
-  botao.dataset.categoria=id;
+  botao.type = "button";
+  botao.dataset.categoria = id;
 
-  botao.addEventListener("click",function(){
-
-    categoriaSelecionada=id;
+  botao.addEventListener("click",function() {
+    categoriaSelecionada = id;
 
     atualizarBotoes();
     renderizarProdutos();
@@ -1015,22 +1214,20 @@ function criarOpcao(id,nome){
 
 criarOpcao("todos","Todos os produtos");
 
-categorias.forEach(function(categoria){
+categorias.forEach(function(categoria) {
   criarOpcao(categoria.id,categoria.nome);
 });
 
-/* DESTACA O FILTRO SELECIONADO */
+/* BOTÃO SELECIONADO */
 
-function atualizarBotoes(){
-
-  const botoes=opcoesCategoria.querySelectorAll(
+function atualizarBotoes() {
+  const botoes = opcoesCategoria.querySelectorAll(
     ".opcao-categoria"
   );
 
-  botoes.forEach(function(botao){
-
-    const selecionado=
-      botao.dataset.categoria===categoriaSelecionada;
+  botoes.forEach(function(botao) {
+    const selecionado =
+      botao.dataset.categoria === categoriaSelecionada;
 
     botao.classList.toggle("selecionada",selecionado);
     botao.setAttribute("aria-pressed",String(selecionado));
@@ -1039,9 +1236,8 @@ function atualizarBotoes(){
 
 /* ABRIR / FECHAR FILTRO */
 
-botaoFiltro.addEventListener("click",function(){
-
-  const aberto=painelFiltros.classList.toggle("aberto");
+botaoFiltro.addEventListener("click",function() {
+  const aberto = painelFiltros.classList.toggle("aberto");
 
   botaoFiltro.classList.toggle("ativo",aberto);
   botaoFiltro.setAttribute("aria-expanded",String(aberto));
