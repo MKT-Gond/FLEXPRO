@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Produto em preparação | FLEXPRO Gondopar</title>
+
+<style>
+:root {
+  --azul:#092d59;
+  --azul-medio:#267fa4;
+  --cinza:#67869b;
+  --borda:#dcebf1;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--azul);
+  background:linear-gradient(
+    120deg,
+    #f7fcfe,
+    #e7f7fb,
+    #d9f2f9
+  );
+}
+
+/* CABEÇALHO */
+
+header {
+  background:rgba(255,255,255,.86);
+  border-bottom:1px solid var(--borda);
+}
+
+.cabecalho {
+  width:min(1300px,94%);
+  margin:auto;
+  padding:20px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo {
+  width:185px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.logo-texto {
+  display:none;
+  font-size:27px;
+  font-weight:900;
+  color:#d80019;
+}
+
+.marca {
+  font-size:12px;
+  color:var(--cinza);
+  text-align:right;
+}
+
+/* CONTEÚDO */
+
+main {
+  width:min(1100px,94%);
+  margin:0 auto;
+  padding:35px 0 75px;
+  flex:1;
+}
+
+.voltar {
+  display:inline-flex;
+  gap:7px;
+  align-items:center;
+  margin-bottom:30px;
+  text-decoration:none;
+  color:var(--azul-medio);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.rotulo {
+  display:block;
+  color:var(--azul-medio);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1.8px;
+}
+
+h1 {
+  font-size:clamp(26px,4vw,43px);
+  line-height:1.15;
+  margin:12px 0 10px;
+}
+
+.descricao {
+  margin:0 0 28px;
+  color:var(--cinza);
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* PAINEL DA ROTAÇÃO */
+
+.painel {
+  padding:18px;
+  background:white;
+  border:1px solid var(--borda);
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(9,45,89,.08);
+}
+
+.quadro-360 {
+  width:100%;
+  aspect-ratio:1453/1000;
+  min-height:290px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:linear-gradient(
+    140deg,
+    #fafdfe,
+    #e9f7fb
+  );
+  border:1px solid #dbeaf0;
+  border-radius:12px;
+  text-align:center;
+}
+
+/* MENSAGEM EM PREPARAÇÃO */
+
+.status {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+  max-width:450px;
+}
+
+.icone {
+  display:grid;
+  place-items:center;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#e0f5f9;
+  color:var(--azul-medio);
+}
+
+.icone svg {
+  width:34px;
+  height:34px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.status h2 {
+  margin:0;
+  font-size:clamp(22px,3vw,34px);
+  letter-spacing:2px;
+}
+
+.status p {
+  margin:0;
+  color:var(--cinza);
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* IMAGEM OPCIONAL */
+
+.imagem-produto {
+  display:none;
+  max-width:280px;
+  max-height:220px;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  margin:22px auto 0;
+}
+
+/* INFORMAÇÕES */
+
+.detalhes {
+  margin-top:24px;
+  padding:18px 3px 0;
+  border-top:1px solid var(--borda);
+}
+
+.detalhes h3 {
+  margin:0 0 8px;
+  font-size:15px;
+}
+
+.detalhes p {
+  margin:0;
+  color:var(--cinza);
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* RODAPÉ */
+
+footer {
+  padding:25px;
+  border-top:1px solid var(--borda);
+  text-align:center;
+  color:var(--cinza);
+  font-size:11px;
+}
+
+/* CELULAR */
+
+@media(max-width:650px) {
+
+  .cabecalho {
+    width:92%;
+    padding:15px 0;
+  }
+
+  .logo { width:135px; }
+  .marca { font-size:10px; }
+
+  main {
+    width:92%;
+    padding:24px 0 50px;
+  }
+
+  .painel { padding:10px; }
+
+  .quadro-360 {
+    min-height:300px;
+    aspect-ratio:auto;
+  }
+
+  .status h2 { letter-spacing:1px; }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <div class="cabecalho">
+    <div>
+      <img
+        id="logo"
+        class="logo"
+        src="../imagens/logo-gondopar.png.png"
+        alt="Gondopar">
+      <span id="logoTexto" class="logo-texto">
+        GONDOPAR
+      </span>
+    </div>
+
+    <div class="marca">
+      Gôndolas e mobílias especiais
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <a class="voltar" href="../index.html">
+    ← VOLTAR AO CATÁLOGO FLEXPRO
+  </a>
+
+  <span id="categoria" class="rotulo">
+    CATÁLOGO FLEXPRO
+  </span>
+
+  <h1 id="nomeProduto">
+    Produto FLEXPRO
+  </h1>
+
+  <p class="descricao">
+    Conheça este modelo da linha FLEXPRO.
+  </p>
+
+  <section class="painel">
+
+    <div class="quadro-360">
+
+      <div class="status">
+
+        <div class="icone">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 12a9 9 0 0 1 15.36-6.36L21 8"/>
+            <path d="M21 3v5h-5"/>
+            <path d="M21 12a9 9 0 0 1-15.36 6.36L3 16"/>
+            <path d="M3 21v-5h5"/>
+          </svg>
+        </div>
+
+        <h2>EM PREPARAÇÃO</h2>
+
+        <p>
+          A visualização interativa em 360° deste produto
+          estará disponível em breve.
+        </p>
+
+        <img
+          id="imagemProduto"
+          class="imagem-produto"
+          alt="Imagem do produto">
+
+      </div>
+
+    </div>
+
+    <div class="detalhes">
+      <h3>Informações do produto</h3>
+      <p>
+        Para conhecer mais detalhes sobre este mobiliário,
+        entre em contato com a Gondopar.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  GONDOPAR | Gôndolas e mobílias especiais
+</footer>
+
+<script>
+
+/* LOGO */
+
+const logo = document.getElementById("logo");
+
+logo.onerror = function() {
+  if (!this.dataset.alternativa) {
+    this.dataset.alternativa = "sim";
+    this.src = "../imagens/logo-gondopar.png";
+  } else {
+    this.style.display = "none";
+    document.getElementById("logoTexto").style.display = "block";
+  }
+};
+
+/*
+ CADASTRO DOS PRODUTOS EM PREPARAÇÃO
+
+ Os IDs correspondem à posição dos produtos
+ no catálogo principal.
+*/
+
+const produtos = [
+
+  ["02","Gôndola Parede sem Base","AMBIENTAÇÃO_PAREDE SEM BASE","parede"],
+  ["03","Gôndola Parede sem Fundo","AMBIENTAÇÃO_PAREDE SEM FUNDO","parede"],
+  ["05","Gôndola Parede com Testeira Concept","AMBIENTAÇÃO_PAREDE G2","parede"],
+
+  ["07","Ponta Premium","AMBIENTAÇÃO_PONTA PREMIUM","centro"],
+  ["08","Ponta Premium Podium Aço","AMBIENTAÇÃO_PONTA PREMIUM PODIUM AÇO","centro"],
+  ["09","Ponta Destaque DUO","AMBIENTAÇÃO_PONTA DESTAQUE DUO","centro"],
+  ["10","Ponta","AMBIENTAÇÃO_PONTA FLEXPRO","centro"],
+  ["11","Ponta Cega","AMBIENTAÇÃO_PONTA CEGA","centro"],
+
+  ["12","Balcão CPU","AMBIENTAÇÃO_CPU FLEX","balcoes"],
+  ["13","Balcão CPU Alumínio","AMBIENTAÇÃO_CPU ALUMINIO","balcoes"],
+  ["14","Balcão CPU Concept","AMBIENTAÇÃO_CPU CONCEPT","balcoes"],
+  ["15","Balcão Fechado","AMBIENTAÇÃO_BALCAO FECHADO FLEX","balcoes"],
+  ["16","Balcão Vitrine","AMBIENTAÇÃO_EXPOSITOR FLEX","balcoes"],
+  ["17","Balcão Expositor Alumínio","AMBIENTAÇÃO_EXPOSITOR ALUMINIO","balcoes"],
+  ["18","Balcão Expositor Concept","AMBIENTAÇÃO_EXPOSITOR CONCEPT","balcoes"],
+
+  ["20","Checkout Concept","AMBIENTAÇÃO_CHECKOUT CONCEPT","checkouts"],
+
+  ["23","Dermo Sem Fundo","AMBIENTAÇÃO_DERMO SEM FUNDO","dermo"],
+
+  ["25","MIP","AMBIENTAÇÃO_MIP","mip"],
+
+  ["27","Gôndola Fila Única","AMBIENTAÇÃO_FILA UNICA","outros"],
+  ["28","Gôndola Fralda","AMBIENTAÇÃO_FRALDA","outros"],
+  ["29","Base metálica","AMBIENTAÇÃO_BASE METALICA","outros"],
+
+  ["30","Fechamento Lateral",null,"fechamentos"],
+  ["31","Fechamento U",null,"fechamentos"],
+  ["32","Fechamento L",null,"fechamentos"],
+  ["33","Canto Triangular Fechado",null,"fechamentos"],
+  ["34","Canto Triangular Aberto",null,"fechamentos"],
+
+  ["35","Cesto Promoção",null,"cestos"],
+  ["36","Cesto Última Chance",null,"cestos"],
+  ["37","Cesto Lenço",null,"cestos"],
+  ["38","Cesto Aço",null,"cestos"],
+  ["39","Cesto MDF",null,"cestos"],
+  ["40","Cesto Alumínio",null,"cestos"],
+  ["41","Cesto Aramado",null,"cestos"],
+
+  ["42","Suporte Simples",null,"suportes"],
+  ["43","Suporte Duplo",null,"suportes"],
+  ["44","Suporte Simples + Numeração",null,"suportes"],
+  ["45","Suporte Duplo + Numeração",null,"suportes"],
+
+  ["46","Expositor de Esparadrapo",null,"acessorios"],
+  ["47","Aparador",null,"acessorios"],
+  ["48","Comprimideiro OTC",null,"acessorios"],
+  ["49","Régua com Ganchos",null,"acessorios"],
+  ["50","Mobiliário Descarte",null,"acessorios"],
+  ["51","Display de Balcão Grande",null,"acessorios"],
+  ["52","Display de Balcão Pequeno",null,"acessorios"],
+  ["53","Totem para Tablet",null,"acessorios"],
+  ["54","Porta Encarte",null,"acessorios"],
+  ["55","Letreiro",null,"acessorios"]
+
+];
+
+/* NOMES DAS CATEGORIAS */
+
+const nomesCategorias = {
+  parede:"GÔNDOLAS DE PAREDE",
+  centro:"GÔNDOLAS DE CENTRO E PONTAS",
+  balcoes:"BALCÕES E EXPOSITORES",
+  checkouts:"CHECKOUTS",
+  dermo:"DERMOCOSMÉTICOS",
+  mip:"MIP E ARMÁRIOS",
+  outros:"OUTROS MOBILIÁRIOS",
+  fechamentos:"FECHAMENTOS",
+  cestos:"CESTOS",
+  suportes:"SUPORTES PARA MONITOR",
+  acessorios:"ACESSÓRIOS E COMPLEMENTOS"
+};
+
+/* IDENTIFICAR O PRODUTO PELO LINK */
+
+const parametros = new URLSearchParams(window.location.search);
+const id = parametros.get("id");
+
+const produto = produtos.find(p=>p[0]===id);
+
+if (produto) {
+
+  const nome = produto[1];
+  const imagem = produto[2];
+  const categoria = produto[3];
+
+  document.title = nome + " | FLEXPRO Gondopar";
+
+  document.getElementById("nomeProduto").textContent =
+    nome.toUpperCase();
+
+  document.getElementById("categoria").textContent =
+    nomesCategorias[categoria] || "CATÁLOGO FLEXPRO";
+
+  /* MOSTRAR IMAGEM SE EXISTIR */
+
+  if (imagem) {
+
+    const img = document.getElementById("imagemProduto");
+
+    img.src = "../imagens/" + imagem + ".png";
+    img.alt = nome;
+    img.style.display = "block";
+
+    img.onerror = function() {
+      this.style.display = "none";
+    };
+  }
+
+} else {
+
+  document.getElementById("nomeProduto").textContent =
+    "PRODUTO NÃO ENCONTRADO";
+
+  document.querySelector(".status h2").textContent =
+    "LINK NÃO ENCONTRADO";
+
+  document.querySelector(".status p").textContent =
+    "Verifique o endereço ou retorne ao catálogo.";
+
+}
+
+</script>
+
+</body>
+</html>
