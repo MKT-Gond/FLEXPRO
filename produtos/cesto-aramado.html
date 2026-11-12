@@ -1,1 +1,197 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cesto Aramado | FLEXPRO Gondopar</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #092d59;
+  background: linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9);
+}
+
+header {
+  padding: 22px 4%;
+  background: rgba(255,255,255,.9);
+  border-bottom: 1px solid #dcebf1;
+}
+
+.marca {
+  color: #d80019;
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+main {
+  width: min(1100px,94%);
+  margin: 35px auto 70px;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: #267fa4;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.categoria {
+  color: #267fa4;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  margin: 12px 0 26px;
+  font-size: clamp(28px,4vw,42px);
+}
+
+.seletor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.seletor button {
+  padding: 13px 24px;
+  border: 1px solid #b9dbe7;
+  border-radius: 8px;
+  background: white;
+  color: #092d59;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.seletor button.ativo {
+  background: #092d59;
+  border-color: #092d59;
+  color: white;
+}
+
+.painel {
+  padding: 14px;
+  background: white;
+  border: 1px solid #dcebf1;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(9,45,89,.08);
+}
+
+.visualizador {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1453 / 1000;
+  border: 0;
+  border-radius: 10px;
+  background: #f5fbfd;
+}
+
+.aviso {
+  margin-top: 14px;
+  color: #67869b;
+  text-align: center;
+  font-size: 12px;
+}
+
+footer {
+  padding: 25px;
+  color: #67869b;
+  text-align: center;
+  font-size: 11px;
+}
+
+@media(max-width:650px) {
+  .visualizador { aspect-ratio: 1 / 1; }
+  .seletor button { flex: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="marca" href="../index.html">
+    GONDOPAR
+  </a>
+</header>
+
+<main>
+
+  <a class="voltar" href="../index.html">
+    ← VOLTAR AO CATÁLOGO FLEXPRO
+  </a>
+
+  <div class="categoria">CESTOS</div>
+
+  <h1>CESTO ARAMADO</h1>
+
+  <div class="seletor">
+
+    <button id="botao-normal" class="ativo"
+      onclick="trocarModelo('normal')">
+      MODELO NORMAL
+    </button>
+
+    <button id="botao-dois"
+      onclick="trocarModelo('dois')">
+      MODELO 2 ANDARES
+    </button>
+
+  </div>
+
+  <section class="painel">
+
+    <iframe
+      id="visualizador"
+      class="visualizador"
+      title="Visualização 360° do Cesto Aramado">
+    </iframe>
+
+    <p class="aviso">
+      Clique e arraste sobre o produto para girar em 360°.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  GONDOPAR | Gôndolas e mobílias especiais
+</footer>
+
+<script>
+const ROTACOES = {
+  normal: "../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12/",
+  dois: "../KeyShotXR/CESTO ARAMADO 2 ANDARES.13/"
+};
+
+function trocarModelo(modelo) {
+  const pasta = ROTACOES[modelo];
+
+  document.getElementById("visualizador").src =
+    pasta + "index.html";
+
+  document.getElementById("botao-normal")
+    .classList.toggle("ativo", modelo === "normal");
+
+  document.getElementById("botao-dois")
+    .classList.toggle("ativo", modelo === "dois");
+}
+
+trocarModelo("normal");
+</script>
+
+</body>
+</html>
