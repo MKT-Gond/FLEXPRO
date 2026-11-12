@@ -1,58 +1,302 @@
-<!--
-  KeyShotXR
-  (c) Copyright 2012-2017 Luxion ApS - All Rights Reserved.
--->
 
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml'>
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>KeyShotXR</title>
-    <style type="text/css">
-      body { -ms-touch-action: none; }
-    </style>
-    <script type="text/javascript" src="CESTO_ARAMADO_FLEXPRO.12/files/KeyShotXR.js"></script>
-    <script type="text/javascript">
-      var keyshotXR;
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      function initKeyShotXR() {
-        var nameOfDiv = "KeyShotXR";
-        var folderName = "CESTO_ARAMADO_FLEXPRO.12";
-        var viewPortWidth = 1204;
-        var viewPortHeight = 823;
-        var backgroundColor = "#FFFFFF";
-        var uCount = 25;
-        var vCount = 5;
-        var uWrap = true;
-        var vWrap = false;
-        var uMouseSensitivity = -0.0694444;
-        var vMouseSensitivity = 0.03125;
-        var uStartIndex = 12;
-        var vStartIndex = 3;
-        var minZoom = 1;
-        var maxZoom = 1;
-        var rotationDamping = 0.96;
-        var downScaleToBrowser = true;
-        var addDownScaleGUIButton = false;
-        var downloadOnInteraction = false;
-        var imageExtension = "jpg";
-        var showLoading = true;
-        var loadingIcon = "ks_logo.png"; // Set to empty string for default icon.
-        var allowFullscreen = true; // Double-click in desktop browsers for fullscreen.
-        var uReverse = false;
-        var vReverse = false;
-        var hotspots = {};
-        var isIBooksWidget = false;
-        
-        keyshotXR = new keyshotXR(nameOfDiv,folderName,viewPortWidth,viewPortHeight,backgroundColor,uCount,vCount,uWrap,vWrap,uMouseSensitivity,vMouseSensitivity,uStartIndex,vStartIndex,minZoom,maxZoom,rotationDamping,downScaleToBrowser,addDownScaleGUIButton,downloadOnInteraction,imageExtension,showLoading,loadingIcon,allowFullscreen,uReverse,vReverse,hotspots,isIBooksWidget);
-      }
+<title>Cesto Aramado | FLEXPRO Gondopar</title>
 
-      window.onload = initKeyShotXR;
-    </script>
-  </head>
-  <body oncontextmenu="return false;">
-    <div id="KeyShotXR"></div>
-  </body>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #092d59;
+  background: linear-gradient(
+    120deg,
+    #f7fcfe,
+    #e7f7fb,
+    #d9f2f9
+  );
+}
+
+/* CABEÇALHO */
+
+header {
+  background: rgba(255,255,255,.9);
+  border-bottom: 1px solid #dcebf1;
+}
+
+.cabecalho {
+  width: min(1300px,94%);
+  margin: auto;
+  padding: 20px 0;
+}
+
+.marca {
+  color: #d80019;
+  font-size: 28px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* CONTEÚDO */
+
+main {
+  width: min(1100px,94%);
+  margin: 35px auto 70px;
+  flex: 1;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: #267fa4;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.voltar:hover {
+  color: #092d59;
+}
+
+.categoria {
+  color: #267fa4;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-size: clamp(28px,4vw,42px);
+  margin: 12px 0 26px;
+}
+
+/* SELETOR DE MODELOS */
+
+.seletor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.seletor button {
+  padding: 13px 24px;
+  border: 1px solid #b9dbe7;
+  border-radius: 8px;
+  background: white;
+  color: #092d59;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.seletor button:hover {
+  border-color: #092d59;
+}
+
+.seletor button.ativo {
+  background: #092d59;
+  border-color: #092d59;
+  color: white;
+}
+
+/* VISUALIZADOR 360 */
+
+.painel {
+  padding: 14px;
+  background: white;
+  border: 1px solid #dcebf1;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(9,45,89,.08);
+}
+
+.visualizador {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1453 / 1000;
+  border: 0;
+  border-radius: 10px;
+  background: #f5fbfd;
+}
+
+.aviso {
+  margin: 16px 0 0;
+  color: #67869b;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* RODAPÉ */
+
+footer {
+  padding: 25px;
+  border-top: 1px solid #dcebf1;
+  color: #67869b;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width:650px) {
+
+  main {
+    width: 94%;
+    margin-top: 25px;
+  }
+
+  .marca {
+    font-size: 23px;
+  }
+
+  .seletor button {
+    flex: 1;
+    padding: 13px 10px;
+    font-size: 11px;
+  }
+
+  .painel {
+    padding: 8px;
+  }
+
+  .visualizador {
+    aspect-ratio: 1 / 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="cabecalho">
+    <a class="marca" href="../index.html">
+      GONDOPAR
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <a class="voltar" href="../index.html">
+    ← VOLTAR AO CATÁLOGO FLEXPRO
+  </a>
+
+  <div class="categoria">
+    CESTOS
+  </div>
+
+  <h1>CESTO ARAMADO</h1>
+
+  <div class="seletor">
+
+    <button
+      type="button"
+      id="botao-normal"
+      class="ativo"
+      aria-pressed="true"
+      onclick="trocarModelo('normal')">
+      MODELO NORMAL
+    </button>
+
+    <button
+      type="button"
+      id="botao-dois"
+      aria-pressed="false"
+      onclick="trocarModelo('dois')">
+      MODELO 2 ANDARES
+    </button>
+
+  </div>
+
+  <section class="painel">
+
+    <iframe
+      id="visualizador"
+      class="visualizador"
+      title="Visualização 360° do Cesto Aramado"
+      loading="eager"
+      allowfullscreen>
+    </iframe>
+
+    <p class="aviso">
+      Clique e arraste sobre o produto para
+      visualizar em 360°.
+    </p>
+
+  </section>
+
+</main>
+
+<footer>
+  GONDOPAR – soluções e mobiliários especiais
+</footer>
+
+<script>
+
+/* CAMINHOS REAIS DOS ARQUIVOS KEYSHOTXR */
+
+const ROTACOES = {
+
+  normal:
+    "../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html",
+
+  dois:
+    "../KeyShotXR/CESTO ARAMADO 2 ANDARES.13.html"
+
+};
+
+/* ALTERNAÇÃO ENTRE OS MODELOS */
+
+function trocarModelo(modelo) {
+
+  const visualizador =
+    document.getElementById("visualizador");
+
+  const botaoNormal =
+    document.getElementById("botao-normal");
+
+  const botaoDois =
+    document.getElementById("botao-dois");
+
+  visualizador.src = ROTACOES[modelo];
+
+  const normalAtivo = modelo === "normal";
+
+  botaoNormal.classList.toggle(
+    "ativo", normalAtivo
+  );
+
+  botaoDois.classList.toggle(
+    "ativo", !normalAtivo
+  );
+
+  botaoNormal.setAttribute(
+    "aria-pressed", String(normalAtivo)
+  );
+
+  botaoDois.setAttribute(
+    "aria-pressed", String(!normalAtivo)
+  );
+
+}
+
+/* INICIAR NO MODELO NORMAL */
+
+trocarModelo("normal");
+
+</script>
+
+</body>
 </html>
