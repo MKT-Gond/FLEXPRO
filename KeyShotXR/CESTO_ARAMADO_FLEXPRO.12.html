@@ -247,50 +247,24 @@ footer {
 
 /* CAMINHOS REAIS DOS ARQUIVOS KEYSHOTXR */
 
+
 const ROTACOES = {
-
-  normal:
-    "../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html",
-
-  dois:
-    "../KeyShotXR/CESTO ARAMADO 2 ANDARES.13.html"
-
+  normal: "../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html",
+  dois: "../KeyShotXR/CESTO ARAMADO 2 ANDARES.13.html"
 };
 
-/* ALTERNAÇÃO ENTRE OS MODELOS */
-
 function trocarModelo(modelo) {
+  document.getElementById("visualizador").src =
+    ROTACOES[modelo];
 
-  const visualizador =
-    document.getElementById("visualizador");
+  document.getElementById("botao-normal")
+    .classList.toggle("ativo", modelo === "normal");
 
-  const botaoNormal =
-    document.getElementById("botao-normal");
-
-  const botaoDois =
-    document.getElementById("botao-dois");
-
-  visualizador.src = ROTACOES[modelo];
-
-  const normalAtivo = modelo === "normal";
-
-  botaoNormal.classList.toggle(
-    "ativo", normalAtivo
-  );
-
-  botaoDois.classList.toggle(
-    "ativo", !normalAtivo
-  );
-
-  botaoNormal.setAttribute(
-    "aria-pressed", String(normalAtivo)
-  );
-
-  botaoDois.setAttribute(
-    "aria-pressed", String(!normalAtivo)
-  );
-
+  document.getElementById("botao-dois")
+    .classList.toggle("ativo", modelo === "dois");
 }
+
+trocarModelo("normal");
 
 /* INICIAR NO MODELO NORMAL */
 
