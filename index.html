@@ -15,9 +15,13 @@
   --largura:1300px;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+}
 
 body {
   margin:0;
@@ -26,8 +30,15 @@ body {
   flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9);
+  background:linear-gradient(
+    120deg,
+    #f7fcfe,
+    #e7f7fb,
+    #d9f2f9
+  );
 }
+
+/* CABEÇALHO */
 
 header {
   background:rgba(255,255,255,.85);
@@ -83,8 +94,13 @@ header {
   object-position:center;
 }
 
-.banner video { display:block; }
-.banner-imagem { display:none; }
+.banner video {
+  display:block;
+}
+
+.banner-imagem {
+  display:none;
+}
 
 /* CATÁLOGO */
 
@@ -175,7 +191,9 @@ h1 {
   background:white;
 }
 
-.painel-filtros.aberto { display:block; }
+.painel-filtros.aberto {
+  display:block;
+}
 
 .painel-filtros h2 {
   font-size:12px;
@@ -314,6 +332,8 @@ h1 {
   background:var(--azul-medio);
 }
 
+/* RODAPÉ */
+
 footer {
   padding:26px 5%;
   text-align:center;
@@ -322,6 +342,8 @@ footer {
   font-size:11px;
 }
 
+/* RESPONSIVIDADE */
+
 @media(max-width:1000px) {
   .grade {
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -329,16 +351,51 @@ footer {
 }
 
 @media(max-width:650px) {
-  .cabecalho { width:92%;padding:16px 0; }
-  .logo { width:135px; }
-  .marca { font-size:10px; }
-  .banner { width:92%;margin-top:18px; }
-  main { width:92%;padding:25px 0 50px; }
-  h1 { font-size:31px; }
-  .descricao { font-size:12px; }
-  .grade { grid-template-columns:1fr;gap:20px; }
-  .card { width:100%;max-width:420px;margin:auto; }
-  .card-conteudo { padding:17px; }
+  .cabecalho {
+    width:92%;
+    padding:16px 0;
+  }
+
+  .logo {
+    width:135px;
+  }
+
+  .marca {
+    font-size:10px;
+  }
+
+  .banner {
+    width:92%;
+    margin-top:18px;
+  }
+
+  main {
+    width:92%;
+    padding:25px 0 50px;
+  }
+
+  h1 {
+    font-size:31px;
+  }
+
+  .descricao {
+    font-size:12px;
+  }
+
+  .grade {
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .card {
+    width:100%;
+    max-width:420px;
+    margin:auto;
+  }
+
+  .card-conteudo {
+    padding:17px;
+  }
 }
 </style>
 </head>
@@ -353,42 +410,67 @@ footer {
         class="logo"
         src="imagens/logo-gondopar.png.png"
         alt="Gondopar">
-      <span id="logoTexto" class="logo-texto">GONDOPAR</span>
+      <span
+        id="logoTexto"
+        class="logo-texto">
+        GONDOPAR
+      </span>
     </div>
-    <div class="marca">Gôndolas e mobiliários especiais</div>
+
+    <div class="marca">
+      Gôndolas e mobiliários especiais
+    </div>
   </div>
 </header>
 
+<!-- VÍDEO PRINCIPAL -->
+
 <section class="banner" id="bannerPrincipal">
+
   <video
     id="videoBanner"
-    autoplay muted loop playsinline
+    autoplay
+    muted
+    loop
+    playsinline
     preload="metadata"
     poster="imagens/BANNER_FARMACIA.png">
+
     <source
       src="imagens/Caderno técnico FLEXPRO.mp4"
       type="video/mp4">
+
   </video>
+
   <img
     id="bannerFallback"
     class="banner-imagem"
     src="imagens/BANNER_FARMACIA.png"
     alt="Farmácia Gondopar">
+
 </section>
 
 <main>
 
   <section>
-    <span class="referencia">CATÁLOGO INTERATIVO</span>
+    <span class="referencia">
+      CATÁLOGO INTERATIVO
+    </span>
+
     <h1>LINHA FLEXPRO</h1>
+
     <p class="descricao">
       Conheça nossas soluções em mobiliário para farmácias.
       Explore os modelos e visualize os produtos disponíveis.
     </p>
   </section>
 
+  <!-- FILTROS -->
+
   <div class="barra-filtros">
+
     <div class="filtros-esquerda">
+
       <button
         id="botaoFiltro"
         class="botao-filtro"
@@ -396,23 +478,46 @@ footer {
         aria-expanded="false">
         ☷ FILTRAR POR CATEGORIA ▼
       </button>
-      <span id="filtroAtual" class="filtro-atual">
+
+      <span
+        id="filtroAtual"
+        class="filtro-atual">
         TODOS OS PRODUTOS
       </span>
+
     </div>
-    <span id="contador" class="contador">55 PRODUTOS</span>
+
+    <span id="contador" class="contador">
+      55 PRODUTOS
+    </span>
+
   </div>
 
-  <div id="painelFiltros" class="painel-filtros">
+  <div
+    id="painelFiltros"
+    class="painel-filtros">
+
     <h2>SELECIONE UMA CATEGORIA</h2>
-    <div id="opcoesCategoria" class="opcoes-categoria"></div>
+
+    <div
+      id="opcoesCategoria"
+      class="opcoes-categoria">
+    </div>
+
   </div>
 
-  <section id="gradeProdutos" class="grade"></section>
+  <!-- CARDS -->
+
+  <section
+    id="gradeProdutos"
+    class="grade">
+  </section>
 
 </main>
 
-<footer>GONDOPAR | Gôndolas e mobílias especiais</footer>
+<footer>
+  GONDOPAR – soluções e mobiliários especiais
+</footer>
 
 <script>
 
@@ -440,13 +545,18 @@ function mostrarImagem() {
   fallback.style.display = "block";
 }
 
-video.addEventListener("error",mostrarImagem);
-video.querySelector("source").addEventListener("error",mostrarImagem);
-fallback.addEventListener("error",function() {
+video.addEventListener("error", mostrarImagem);
+
+video.querySelector("source")
+  .addEventListener("error", mostrarImagem);
+
+fallback.addEventListener("error", function() {
   if (video.style.display === "none") {
-    document.getElementById("bannerPrincipal").style.display = "none";
+    document.getElementById("bannerPrincipal")
+      .style.display = "none";
   }
 });
+
 video.play().catch(function(){});
 
 /* CATEGORIAS */
@@ -466,86 +576,430 @@ const categorias = [
 ];
 
 /*
- FORMATO DOS PRODUTOS:
- [nome, imagem, categoria, página 360]
+  FORMATO:
+  [nome, imagem, categoria, página]
 
- Se a página for null, o produto abre
- automaticamente a página EM PREPARAÇÃO.
+  Páginas já existentes recebem o caminho
+  do arquivo HTML correspondente.
 
- O ID é gerado pela posição do produto.
+  Produtos ainda sem página individual
+  permanecem com null.
 */
 
 /* TODOS OS 55 PRODUTOS */
 
 const dadosProdutos = [
 
-  ["Gôndola Parede com Base","AMBIENTAÇÃO_PAREDE COM BASE","parede","produtos/gondola-parede-com-base.html"],
-  ["Gôndola Parede sem Base","AMBIENTAÇÃO_PAREDE SEM BASE","parede","produtos/gondola-parede-sem-base.html"],
-  ["Gôndola Parede sem Fundo","AMBIENTAÇÃO_PAREDE SEM FUNDO","parede","produtos/gondola-parede-sem-fundo.html"],
-  ["Gôndola Parede com Sanca","AMBIENTAÇÃO_PAREDE COM SANCA","parede","produtos/gondola-parede-com-sanca.html"],
-  ["Gôndola Parede com Testeira Concept","AMBIENTAÇÃO_PAREDE G2","parede","produtos/gondola-parede-testeira-concept.html"],
+  /* GÔNDOLAS DE PAREDE */
 
-  ["Gôndola Centro","AMBIENTAÇÃO_GONDOLA CENTRO","centro","produtos/gondola-centro.html"],
-  ["Ponta Premium","AMBIENTAÇÃO_PONTA PREMIUM","centro","produtos/ponta-premium.html"],
-  ["Ponta Premium Podium Aço","AMBIENTAÇÃO_PONTA PREMIUM PODIUM AÇO","centro","produtos/ponta-premium-podium-aco.html"],
-  ["Ponta Destaque DUO","AMBIENTAÇÃO_PONTA DESTAQUE DUO","centro","produtos/ponta-destaque-duo.html"],
-  ["Ponta","AMBIENTAÇÃO_PONTA FLEXPRO","centro","produtos/ponta.html"],
-  ["Ponta Cega","AMBIENTAÇÃO_PONTA CEGA","centro","produtos/ponta-cega.html"],
+  [
+    "Gôndola Parede com Base",
+    "AMBIENTAÇÃO_PAREDE COM BASE",
+    "parede",
+    "produtos/gondola-parede-com-base.html"
+  ],
 
-  ["Balcão CPU","AMBIENTAÇÃO_CPU FLEX","balcoes","produtos/balcao-cpu.html"],
-  ["Balcão CPU Alumínio","AMBIENTAÇÃO_CPU ALUMINIO","balcoes","produtos/balcao-cpu-aluminio.html"],
-  ["Balcão CPU Concept","AMBIENTAÇÃO_CPU CONCEPT","balcoes","produtos/balcao-cpu-concept.html"],
-  ["Balcão Fechado","AMBIENTAÇÃO_BALCAO FECHADO FLEX","balcoes","produtos/balcao-fechado.html"],
-  ["Balcão Vitrine","AMBIENTAÇÃO_EXPOSITOR FLEX","balcoes","produtos/balcao-vitrine.html"],
-  ["Balcão Expositor Alumínio","AMBIENTAÇÃO_EXPOSITOR ALUMINIO","balcoes","produtos/balcao-expositor-aluminio.html"],
-  ["Balcão Expositor Concept","AMBIENTAÇÃO_EXPOSITOR CONCEPT","balcoes","produtos/balcao-expositor-concept.html"],
+  [
+    "Gôndola Parede sem Base",
+    "AMBIENTAÇÃO_PAREDE SEM BASE",
+    "parede",
+    null
+  ],
 
-  ["Checkout","AMBIENTAÇÃO_CHECKOUT FLEX","checkouts","produtos/checkout.html"],
-  ["Checkout Concept","AMBIENTAÇÃO_CHECKOUT CONCEPT","checkouts","produtos/checkout-concept.html"],
-  ["Checkout Reto","AMBIENTAÇÃO_CHECKOUT RETO","checkouts","produtos/checkout-reto.html"],
+  [
+    "Gôndola Parede sem Fundo",
+    "AMBIENTAÇÃO_PAREDE SEM FUNDO",
+    "parede",
+    null
+  ],
 
-  ["Dermo","AMBIENTAÇÃO_DERMO SIMPLES","dermo","produtos/dermo.html"],
-  ["Dermo Sem Fundo","AMBIENTAÇÃO_DERMO SEM FUNDO","dermo","produtos/dermo-sem-fundo.html"],
-  ["Dermo com Vidro","AMBIENTAÇÃO_DERMO PORTA DE VIDRO","dermo","produtos/dermo-com-vidro.html"],
+  [
+    "Gôndola Parede com Sanca",
+    "AMBIENTAÇÃO_PAREDE COM SANCA",
+    "parede",
+    "produtos/gondola-parede-com-sanca.html"
+  ],
 
-  ["MIP","AMBIENTAÇÃO_MIP","mip","produtos/mip.html"],
-  ["Armário Psicotrópico","AMBIENTAÇÃO_ARMARIO PSICO","mip","produtos/armario-psicotropico.html"],
+  [
+    "Gôndola Parede com Testeira Concept",
+    "AMBIENTAÇÃO_PAREDE G2",
+    "parede",
+    null
+  ],
 
-  ["Gôndola Fila Única","AMBIENTAÇÃO_FILA UNICA","outros","produtos/gondola-fila-unica.html"],
-  ["Gôndola Fralda","AMBIENTAÇÃO_FRALDA","outros","produtos/gondola-fralda.html"],
-  ["Base metálica","AMBIENTAÇÃO_BASE METALICA","outros","produtos/base-metalica.html"],
+  /* GÔNDOLAS DE CENTRO E PONTAS */
 
-  ["Fechamento Lateral",null,"fechamentos","produtos/fechamento-lateral.html"],
-  ["Fechamento U",null,"fechamentos","produtos/fechamento-u.html"],
-  ["Fechamento L",null,"fechamentos","produtos/fechamento-l.html"],
-  ["Canto Triangular Fechado",null,"fechamentos","produtos/canto-triangular-fechado.html"],
-  ["Canto Triangular Aberto",null,"fechamentos","produtos/canto-triangular-aberto.html"],
+  [
+    "Gôndola Centro",
+    "AMBIENTAÇÃO_GONDOLA CENTRO",
+    "centro",
+    "produtos/gondola-centro.html"
+  ],
 
-  ["Cesto Promoção",null,"cestos","produtos/cesto-promocao.html"],
-  ["Cesto Última Chance",null,"cestos","produtos/cesto-ultima-chance.html"],
-  ["Cesto Lenço",null,"cestos","produtos/cesto-lenco.html"],
-  ["Cesto Aço",null,"cestos","produtos/cesto-aco.html"],
-  ["Cesto MDF",null,"cestos","produtos/cesto-mdf.html"],
-  ["Cesto Alumínio",null,"cestos","produtos/cesto-aluminio.html"],
-  ["Cesto Aramado",null,"cestos","produtos/cesto-aramado.html"],
+  [
+    "Ponta Premium",
+    "AMBIENTAÇÃO_PONTA PREMIUM",
+    "centro",
+    null
+  ],
 
-  ["Suporte Simples",null,"suportes","produtos/suporte-simples.html"],
-  ["Suporte Duplo",null,"suportes","produtos/suporte-duplo.html"],
-  ["Suporte Simples + Numeração",null,"suportes","produtos/suporte-simples-numeracao.html"],
-  ["Suporte Duplo + Numeração",null,"suportes","produtos/suporte-duplo-numeracao.html"],
+  [
+    "Ponta Premium Podium Aço",
+    "AMBIENTAÇÃO_PONTA PREMIUM PODIUM AÇO",
+    "centro",
+    null
+  ],
 
-  ["Expositor de Esparadrapo",null,"acessorios","produtos/expositor-esparadrapo.html"],
-  ["Aparador",null,"acessorios","produtos/aparador.html"],
-  ["Comprimideiro OTC",null,"acessorios","produtos/comprimideiro-otc.html"],
-  ["Régua com Ganchos",null,"acessorios","produtos/regua-ganchos.html"],
-  ["Mobiliário Descarte",null,"acessorios","produtos/mobiliario-descarte.html"],
-  ["Display de Balcão Grande",null,"acessorios","produtos/display-balcao-grande.html"],
-  ["Display de Balcão Pequeno",null,"acessorios","produtos/display-balcao-pequeno.html"],
-  ["Totem para Tablet",null,"acessorios","produtos/totem-tablet.html"],
-  ["Porta Encarte",null,"acessorios","produtos/porta-encarte.html"],
-  ["Letreiro",null,"acessorios","produtos/letreiro.html"]
+  [
+    "Ponta Destaque DUO",
+    "AMBIENTAÇÃO_PONTA DESTAQUE DUO",
+    "centro",
+    null
+  ],
+
+  [
+    "Ponta",
+    "AMBIENTAÇÃO_PONTA FLEXPRO",
+    "centro",
+    null
+  ],
+
+  [
+    "Ponta Cega",
+    "AMBIENTAÇÃO_PONTA CEGA",
+    "centro",
+    null
+  ],
+
+  /* BALCÕES E EXPOSITORES */
+
+  [
+    "Balcão CPU",
+    "AMBIENTAÇÃO_CPU FLEX",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão CPU Alumínio",
+    "AMBIENTAÇÃO_CPU ALUMINIO",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão CPU Concept",
+    "AMBIENTAÇÃO_CPU CONCEPT",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão Fechado",
+    "AMBIENTAÇÃO_BALCAO FECHADO FLEX",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão Vitrine",
+    "AMBIENTAÇÃO_EXPOSITOR FLEX",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão Expositor Alumínio",
+    "AMBIENTAÇÃO_EXPOSITOR ALUMINIO",
+    "balcoes",
+    null
+  ],
+
+  [
+    "Balcão Expositor Concept",
+    "AMBIENTAÇÃO_EXPOSITOR CONCEPT",
+    "balcoes",
+    null
+  ],
+
+  /* CHECKOUTS */
+
+  [
+    "Checkout",
+    "AMBIENTAÇÃO_CHECKOUT FLEX",
+    "checkouts",
+    "produtos/checkout.html"
+  ],
+
+  [
+    "Checkout Concept",
+    "AMBIENTAÇÃO_CHECKOUT CONCEPT",
+    "checkouts",
+    null
+  ],
+
+  [
+    "Checkout Reto",
+    "AMBIENTAÇÃO_CHECKOUT RETO",
+    "checkouts",
+    "produtos/checkout-reto.html"
+  ],
+
+  /* DERMOCOSMÉTICOS */
+
+  [
+    "Dermo",
+    "AMBIENTAÇÃO_DERMO SIMPLES",
+    "dermo",
+    "produtos/dermo.html"
+  ],
+
+  [
+    "Dermo Sem Fundo",
+    "AMBIENTAÇÃO_DERMO SEM FUNDO",
+    "dermo",
+    null
+  ],
+
+  [
+    "Dermo com Vidro",
+    "AMBIENTAÇÃO_DERMO PORTA DE VIDRO",
+    "dermo",
+    "produtos/dermo-com-vidro.html"
+  ],
+
+  /* MIP E ARMÁRIOS */
+
+  [
+    "MIP",
+    "AMBIENTAÇÃO_MIP",
+    "mip",
+    null
+  ],
+
+  [
+    "Armário Psicotrópico",
+    "AMBIENTAÇÃO_ARMARIO PSICO",
+    "mip",
+    "produtos/armario-psicotropico.html"
+  ],
+
+  /* OUTROS MOBILIÁRIOS */
+
+  [
+    "Gôndola Fila Única",
+    "AMBIENTAÇÃO_FILA UNICA",
+    "outros",
+    null
+  ],
+
+  [
+    "Gôndola Fralda",
+    "AMBIENTAÇÃO_FRALDA",
+    "outros",
+    null
+  ],
+
+  [
+    "Base metálica",
+    "AMBIENTAÇÃO_BASE METALICA",
+    "outros",
+    null
+  ],
+
+  /* FECHAMENTOS */
+
+  [
+    "Fechamento Lateral",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento U",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento L",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Fechado",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Aberto",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  /* CESTOS */
+
+  [
+    "Cesto Promoção",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Última Chance",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Lenço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Aço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto MDF",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Alumínio",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Aramado",
+    null,
+    "cestos",
+    "produtos/cesto-aramado.html"
+  ],
+
+  /* SUPORTES PARA MONITOR */
+
+  [
+    "Suporte Simples",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Simples + Numeração",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo + Numeração",
+    null,
+    "suportes",
+    null
+  ],
+
+  /* ACESSÓRIOS */
+
+  [
+    "Expositor de Esparadrapo",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Aparador",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Comprimideiro OTC",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Régua com Ganchos",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Mobiliário Descarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Grande",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Pequeno",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Totem para Tablet",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Porta Encarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Letreiro",
+    null,
+    "acessorios",
+    null
+  ]
 
 ];
+
+/* ORGANIZAR PRODUTOS */
 
 const produtos = dadosProdutos.map((p,i)=>({
   id:String(i+1).padStart(2,"0"),
@@ -557,14 +1011,27 @@ const produtos = dadosProdutos.map((p,i)=>({
 
 /* ELEMENTOS */
 
-const grade = document.getElementById("gradeProdutos");
-const contador = document.getElementById("contador");
-const filtroAtual = document.getElementById("filtroAtual");
-const botaoFiltro = document.getElementById("botaoFiltro");
-const painelFiltros = document.getElementById("painelFiltros");
-const opcoesCategoria = document.getElementById("opcoesCategoria");
+const grade =
+  document.getElementById("gradeProdutos");
+
+const contador =
+  document.getElementById("contador");
+
+const filtroAtual =
+  document.getElementById("filtroAtual");
+
+const botaoFiltro =
+  document.getElementById("botaoFiltro");
+
+const painelFiltros =
+  document.getElementById("painelFiltros");
+
+const opcoesCategoria =
+  document.getElementById("opcoesCategoria");
 
 let categoriaSelecionada = "todos";
+
+/* NOME DA CATEGORIA */
 
 function nomeCategoria(id) {
   const item = categorias.find(c=>c[0]===id);
@@ -574,6 +1041,7 @@ function nomeCategoria(id) {
 /* PRODUTOS SEM IMAGEM */
 
 function criarPlaceholder() {
+
   const caixa = document.createElement("div");
   caixa.className = "sem-imagem";
 
@@ -598,60 +1066,121 @@ function criarCard(produto) {
   const card = document.createElement("a");
   card.className = "card";
 
-  /* Link permanente da página individual do produto */
-  card.href = produto.pagina;
+  /*
+    PRODUTO COM PÁGINA:
+    abre diretamente a página HTML.
+
+    PRODUTO SEM PÁGINA:
+    abre a página de preparação.
+  */
+
+  if (produto.pagina) {
+
+    card.href = produto.pagina;
+
+  } else {
+
+    card.href =
+      "produtos/em-preparacao.html?id=" +
+      encodeURIComponent(produto.id);
+
+  }
 
   card.setAttribute(
     "aria-label",
     "Abrir página de " + produto.nome
   );
 
-  const imagemContainer = document.createElement("div");
+  /* IMAGEM */
+
+  const imagemContainer =
+    document.createElement("div");
+
   imagemContainer.className = "card-imagem";
 
   if (produto.imagem) {
+
     const img = document.createElement("img");
 
-    img.src = "imagens/" + produto.imagem + ".png";
+    img.src =
+      "imagens/" + produto.imagem + ".png";
+
     img.alt = produto.nome;
     img.loading = "lazy";
 
     img.onerror = function() {
-      imagemContainer.replaceChildren(criarPlaceholder());
+      imagemContainer.replaceChildren(
+        criarPlaceholder()
+      );
     };
 
     imagemContainer.appendChild(img);
 
   } else {
-    imagemContainer.appendChild(criarPlaceholder());
+
+    imagemContainer.appendChild(
+      criarPlaceholder()
+    );
+
   }
 
-  const conteudo = document.createElement("div");
+  /* CONTEÚDO */
+
+  const conteudo =
+    document.createElement("div");
+
   conteudo.className = "card-conteudo";
 
-  const categoria = document.createElement("span");
+  const categoria =
+    document.createElement("span");
+
   categoria.className = "card-categoria";
+
   categoria.textContent =
     nomeCategoria(produto.categoria).toUpperCase();
 
-  const titulo = document.createElement("h3");
-  titulo.textContent = produto.nome.toUpperCase();
+  const titulo =
+    document.createElement("h3");
 
-  const descricao = document.createElement("p");
+  titulo.textContent =
+    produto.nome.toUpperCase();
 
-  descricao.textContent = produto.nome === "Cesto Aramado"
-    ? "Explore os modelos Normal e 2 Andares em 360°."
-    : "Conheça o produto e sua visualização interativa, quando disponível.";
+  const descricao =
+    document.createElement("p");
 
-  const abrir = document.createElement("span");
+  if (produto.pagina) {
+
+    descricao.textContent =
+      "Visualização interativa do produto.";
+
+  } else {
+
+    descricao.textContent =
+      "Página do produto disponível. " +
+      "Visualização 360° em preparação.";
+
+  }
+
+  const abrir =
+    document.createElement("span");
+
   abrir.className = "abrir";
 
-  abrir.textContent = produto.nome === "Cesto Aramado"
+  abrir.textContent = produto.pagina
     ? "EXPLORAR EM 360° →"
     : "VER PÁGINA DO PRODUTO →";
 
-  conteudo.append(categoria,titulo,descricao,abrir);
-  card.append(imagemContainer,conteudo);
+  conteudo.append(
+    categoria,
+    titulo,
+    descricao,
+    abrir
+  );
+
+  card.append(
+    imagemContainer,
+    conteudo
+  );
 
   return card;
 }
@@ -673,19 +1202,24 @@ function renderizarProdutos() {
 
   contador.textContent =
     visiveis.length +
-    (visiveis.length===1?" PRODUTO":" PRODUTOS");
+    (visiveis.length === 1
+      ? " PRODUTO"
+      : " PRODUTOS");
 
   filtroAtual.textContent =
-    categoriaSelecionada==="todos"
+    categoriaSelecionada === "todos"
       ? "TODOS OS PRODUTOS"
-      : nomeCategoria(categoriaSelecionada).toUpperCase();
+      : nomeCategoria(
+          categoriaSelecionada
+        ).toUpperCase();
 }
 
-/* FILTROS */
+/* CRIAR FILTROS */
 
 function criarOpcao(id,nome) {
 
-  const botao = document.createElement("button");
+  const botao =
+    document.createElement("button");
 
   botao.type = "button";
   botao.className = "opcao-categoria";
@@ -700,49 +1234,82 @@ function criarOpcao(id,nome) {
     renderizarProdutos();
 
     painelFiltros.classList.remove("aberto");
+
     botaoFiltro.classList.remove("ativo");
-    botaoFiltro.setAttribute("aria-expanded","false");
+
+    botaoFiltro.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
   });
 
   opcoesCategoria.appendChild(botao);
 }
 
-criarOpcao("todos","Todos os produtos");
+/* TODOS OS PRODUTOS */
+
+criarOpcao(
+  "todos",
+  "Todos os produtos"
+);
+
+/* CATEGORIAS */
 
 categorias.forEach(c=>{
   criarOpcao(c[0],c[1]);
 });
 
+/* ATUALIZAR BOTÕES */
+
 function atualizarBotoes() {
 
-  document.querySelectorAll(".opcao-categoria")
-    .forEach(botao=>{
+  document.querySelectorAll(
+    ".opcao-categoria"
+  ).forEach(botao=>{
 
-      const selecionado =
-        botao.dataset.categoria === categoriaSelecionada;
+    const selecionado =
+      botao.dataset.categoria ===
+      categoriaSelecionada;
 
-      botao.classList.toggle("selecionada",selecionado);
-      botao.setAttribute(
-        "aria-pressed",
-        String(selecionado)
-      );
+    botao.classList.toggle(
+      "selecionada",
+      selecionado
+    );
 
-    });
+    botao.setAttribute(
+      "aria-pressed",
+      String(selecionado)
+    );
+
+  });
 }
 
-botaoFiltro.addEventListener("click",function(){
+/* ABRIR E FECHAR FILTROS */
 
-  const aberto =
-    painelFiltros.classList.toggle("aberto");
+botaoFiltro.addEventListener(
+  "click",
+  function(){
 
-  botaoFiltro.classList.toggle("ativo",aberto);
-  botaoFiltro.setAttribute(
-    "aria-expanded",
-    String(aberto)
-  );
+    const aberto =
+      painelFiltros.classList.toggle(
+        "aberto"
+      );
 
-});
+    botaoFiltro.classList.toggle(
+      "ativo",
+      aberto
+    );
+
+    botaoFiltro.setAttribute(
+      "aria-expanded",
+      String(aberto)
+    );
+
+  }
+);
+
+/* INICIALIZAÇÃO */
 
 atualizarBotoes();
 renderizarProdutos();
