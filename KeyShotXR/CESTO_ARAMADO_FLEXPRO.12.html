@@ -1,589 +1,653 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Cesto Aramado | FLEXPRO Gondopar</title>
-
-<style>
-
-:root {
-  --azul:#092d59;
-  --azul-medio:#267fa4;
-  --cinza:#67869b;
-  --borda:#dcebf1;
-  --largura:1300px;
-}
-
-* {
-  box-sizing:border-box;
-}
-
-body {
-  margin:0;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--azul);
-  background:linear-gradient(
-    120deg,
-    #f7fcfe,
-    #e7f7fb,
-    #d9f2f9
-  );
-}
-
-/* CABEÇALHO PADRÃO FLEXPRO */
-
-header {
-  background:rgba(255,255,255,.85);
-  border-bottom:1px solid var(--borda);
-}
-
-.cabecalho {
-  width:min(1650px,94%);
-  min-height:100px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.identidade {
-  display:flex;
-  align-items:center;
-  gap:25px;
-}
-
-.logo-link {
-  display:flex;
-  align-items:center;
-  text-decoration:none;
-}
-
-.logo {
-  display:block;
-  width:215px;
-  max-height:75px;
-  object-fit:contain;
-}
-
-.divisoria {
-  height:45px;
-  width:1px;
-  background:#cbdce5;
-}
-
-.linha-nome {
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
-
-.linha-nome strong {
-  font-size:20px;
-  letter-spacing:4px;
-  color:var(--azul);
-}
-
-.linha-nome span {
-  font-size:12px;
-  letter-spacing:1px;
-  color:var(--cinza);
-}
-
-.botao-catalogo {
-  padding:15px 25px;
-  background:white;
-  color:var(--azul);
-  border:1px solid var(--borda);
-  border-radius:12px;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:bold;
-  transition:.2s;
-}
-
-.botao-catalogo:hover {
-  background:#f2f9fc;
-  border-color:#b9dbe7;
-}
-
-/* CONTEÚDO */
-
-main {
-  width:min(1300px,92%);
-  margin:0 auto;
-  padding:35px 0 70px;
-  flex:1;
-}
-
-.categoria {
-  color:var(--azul-medio);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-h1 {
-  margin:15px 0 14px;
-  font-size:clamp(30px,4vw,46px);
-  line-height:1.2;
-}
-
-.subtitulo {
-  margin:0 0 28px;
-  color:var(--cinza);
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* SELETOR DOS MODELOS */
-
-.seletor {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-bottom:25px;
-}
-
-.botao-modelo {
-  min-width:210px;
-  padding:16px 22px;
-  background:white;
-  color:var(--azul);
-  border:1px solid #b9dbe7;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.botao-modelo:hover {
-  border-color:var(--azul);
-}
-
-.botao-modelo.ativo {
-  background:var(--azul);
-  border-color:var(--azul);
-  color:white;
-}
-
-/* PAINEL 360 */
-
-.painel {
-  overflow:hidden;
-  background:white;
-  border:1px solid var(--borda);
-  border-radius:17px;
-  box-shadow:0 12px 32px rgba(9,45,89,.08);
-}
-
-.painel-topo {
-  min-height:55px;
-  padding:0 25px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  border-bottom:1px solid var(--borda);
-  background:#f8fcfe;
-}
-
-.painel-titulo {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-.ponto {
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#25b9d5;
-}
-
-.painel-info {
-  color:var(--cinza);
-  font-size:12px;
-}
-
-/* IFRAME DO KEYSHOTXR */
-
-.visualizador-area {
-  padding:15px;
-  background:white;
-}
-
-.visualizador {
-  display:block;
-  width:100%;
-  aspect-ratio:1453 / 1000;
-  border:0;
-  background:#f2f2f2;
-}
-
-.instrucao {
-  margin:0;
-  padding:16px 20px 20px;
-  text-align:center;
-  color:var(--cinza);
-  font-size:12px;
-}
-
-/* RODAPÉ */
-
-footer {
-  padding:25px 5%;
-  text-align:center;
-  border-top:1px solid var(--borda);
-  color:var(--cinza);
-  font-size:11px;
-}
-
-/* RESPONSIVIDADE */
-
-@media(max-width:700px) {
-
-  .cabecalho {
-    width:92%;
-    min-height:85px;
-    gap:10px;
-  }
-
-  .identidade {
-    gap:12px;
-  }
-
-  .logo {
-    width:125px;
-  }
-
-  .divisoria {
-    height:35px;
-  }
-
-  .linha-nome strong {
-    font-size:13px;
-    letter-spacing:2px;
-  }
-
-  .linha-nome span {
-    font-size:9px;
-    letter-spacing:0;
-  }
-
-  .botao-catalogo {
-    padding:11px 12px;
-    font-size:10px;
-  }
-
-  main {
-    width:94%;
-    padding:25px 0 50px;
-  }
-
-  h1 {
-    font-size:32px;
-  }
-
-  .seletor {
-    gap:10px;
-  }
-
-  .botao-modelo {
-    flex:1;
-    min-width:0;
-    padding:14px 10px;
-    font-size:11px;
-  }
-
-  .painel-topo {
-    padding:0 12px;
-  }
-
-  .painel-titulo {
-    font-size:10px;
-    letter-spacing:0;
-  }
-
-  .painel-info {
-    font-size:10px;
-  }
-
-  .visualizador-area {
-    padding:7px;
-  }
-
-  .visualizador {
-    aspect-ratio:1 / 1;
-  }
-
-}
-
-@media(max-width:420px) {
-
-  .logo {
-    width:100px;
-  }
-
-  .identidade {
-    gap:8px;
-  }
-
-  .linha-nome strong {
-    font-size:11px;
-    letter-spacing:1px;
-  }
-
-  .linha-nome span {
-    font-size:8px;
-  }
-
-  .botao-catalogo {
-    padding:10px 8px;
-    font-size:9px;
-  }
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cesto Aramado | FLEXPRO | Gondopar</title>
+
+  <style>
+    :root {
+      --azul: #092d59;
+      --azul-claro: #e7f5fb;
+      --cinza: #698197;
+      --borda: #dbe9f0;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--azul);
+      background: linear-gradient(
+        125deg,
+        #f8fcff 0%,
+        #eaf8fc 50%,
+        #e0f3f9 100%
+      );
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* CABEÇALHO */
+
+    .cabecalho {
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .cabecalho-interno {
+      max-width: 1500px;
+      margin: auto;
+      padding: 22px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      width: 210px;
+      max-height: 70px;
+      object-fit: contain;
+    }
+
+    .divisoria {
+      width: 1px;
+      height: 48px;
+      background: #d0e0e9;
+    }
+
+    .marca-texto {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .marca-texto strong {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .marca-texto span {
+      font-size: 11px;
+      color: var(--cinza);
+      letter-spacing: 1.5px;
+    }
+
+    .voltar {
+      padding: 14px 22px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      background: var(--branco);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .voltar:hover {
+      background: #f2f9fd;
+    }
+
+    /* CONTEÚDO */
+
+    .conteudo {
+      max-width: 1300px;
+      margin: auto;
+      padding: 42px 25px 75px;
+    }
+
+    .categoria {
+      color: #2381a5;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 15px 0;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -1px;
+    }
+
+    .descricao {
+      margin: 0 0 32px;
+      color: var(--cinza);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* SELEÇÃO DOS MODELOS */
+
+    .modelos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .modelo {
+      padding: 16px 26px;
+      border: 1px solid #b9d6e5;
+      border-radius: 11px;
+      background: white;
+      color: var(--azul);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .modelo:hover {
+      border-color: var(--azul);
+    }
+
+    .modelo.ativo {
+      background: var(--azul);
+      border-color: var(--azul);
+      color: white;
+    }
+
+    /* PAINEL 360 */
+
+    .painel {
+      overflow: hidden;
+      border: 1px solid var(--borda);
+      border-radius: 17px;
+      background: white;
+      box-shadow: 0 15px 35px rgba(9,45,89,.07);
+    }
+
+    .painel-cabecalho {
+      min-height: 60px;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      border-bottom: 1px solid var(--borda);
+      background: #f9fcfe;
+    }
+
+    .painel-titulo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .indicador {
+      width: 9px;
+      height: 9px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #24b6d2;
+    }
+
+    .painel-tipo {
+      color: var(--cinza);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .visualizador-area {
+      padding: 15px;
+      background: white;
+    }
+
+    .visualizador {
+      display: block;
+      width: 100%;
+      height: min(72vw, 760px);
+      min-height: 350px;
+      border: 0;
+      background: #f5f7f9;
+    }
+
+    .instrucao {
+      padding: 0 20px 22px;
+      color: var(--cinza);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .abrir-externo {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 24px;
+      color: #267fa4;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .abrir-externo:hover {
+      text-decoration: underline;
+    }
+
+    /* DIMENSÕES */
+
+    .dimensoes {
+      margin-top: 30px;
+      padding: 30px;
+      border: 1px solid var(--borda);
+      border-radius: 17px;
+      background: rgba(255,255,255,.94);
+    }
+
+    .dimensoes h2 {
+      margin: 0 0 20px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .medidas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .medida {
+      padding: 18px;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      background: #f9fcfe;
+    }
+
+    .medida span {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--cinza);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .medida strong {
+      font-size: 16px;
+    }
+
+    footer {
+      padding: 28px;
+      border-top: 1px solid var(--borda);
+      color: var(--cinza);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 700px) {
+      .cabecalho-interno {
+        padding: 18px 15px;
+      }
+
+      .marca {
+        gap: 12px;
+      }
+
+      .logo {
+        width: 120px;
+      }
+
+      .divisoria {
+        height: 35px;
+      }
+
+      .marca-texto strong {
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+
+      .marca-texto span {
+        font-size: 9px;
+        letter-spacing: 0;
+      }
+
+      .voltar {
+        padding: 11px;
+        font-size: 10px;
+      }
+
+      .conteudo {
+        padding: 30px 15px 55px;
+      }
+
+      .modelos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .modelo {
+        padding: 14px 8px;
+        font-size: 11px;
+      }
+
+      .painel-cabecalho {
+        padding: 15px 12px;
+      }
+
+      .painel-titulo,
+      .painel-tipo {
+        font-size: 10px;
+      }
+
+      .visualizador-area {
+        padding: 6px;
+      }
+
+      .visualizador {
+        height: 430px;
+        min-height: 0;
+      }
+
+      .medidas {
+        grid-template-columns: 1fr;
+      }
+
+      .dimensoes {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .logo {
+        width: 95px;
+      }
+
+      .marca {
+        gap: 8px;
+      }
+
+      .marca-texto strong {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .marca-texto span {
+        font-size: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- CABEÇALHO -->
+  <!-- CABEÇALHO -->
 
-<header>
+  <header class="cabecalho">
+    <div class="cabecalho-interno">
 
-  <div class="cabecalho">
+      <div class="marca">
 
-    <div class="identidade">
+        <a href="../index.html">
+          <img
+            class="logo"
+            src="../imagens/logo-gondopar.png"
+            alt="Gondopar">
+        </a>
 
-      <a
-        class="logo-link"
-        href="../index.html">
+        <div class="divisoria"></div>
 
-        <img
-          class="logo"
-          src="../imagens/logo-gondopar.png"
-          alt="Gondopar">
+        <div class="marca-texto">
+          <strong>FLEXPRO</strong>
+          <span>LINHA DE GÔNDOLAS</span>
+        </div>
 
+      </div>
+
+      <a class="voltar" href="../index.html">
+        ← CATÁLOGO
       </a>
 
-      <div class="divisoria"></div>
+    </div>
+  </header>
 
-      <div class="linha-nome">
+  <!-- PRODUTO -->
 
-        <strong>FLEXPRO</strong>
+  <main class="conteudo">
 
-        <span>LINHA DE GÔNDOLAS</span>
-
-      </div>
-
+    <div class="categoria">
+      LINHA FLEXPRO · CESTOS
     </div>
 
-    <a
-      class="botao-catalogo"
-      href="../index.html">
+    <h1>CESTO ARAMADO</h1>
 
-      ← CATÁLOGO
-
-    </a>
-
-  </div>
-
-</header>
-
-<!-- CONTEÚDO PRINCIPAL -->
-
-<main>
-
-  <div class="categoria">
-    LINHA FLEXPRO · CESTOS
-  </div>
-
-  <h1>CESTO ARAMADO</h1>
-
-  <p class="subtitulo">
-    Explore o produto em 360° e conheça
-    as duas versões disponíveis.
-  </p>
-
-  <!-- BOTÕES -->
-
-  <div class="seletor">
-
-    <button
-      type="button"
-      id="botao-normal"
-      class="botao-modelo ativo"
-      aria-pressed="true"
-      onclick="trocarModelo('normal')">
-
-      MODELO NORMAL
-
-    </button>
-
-    <button
-      type="button"
-      id="botao-dois"
-      class="botao-modelo"
-      aria-pressed="false"
-      onclick="trocarModelo('dois')">
-
-      MODELO 2 ANDARES
-
-    </button>
-
-  </div>
-
-  <!-- VISUALIZADOR -->
-
-  <section class="painel">
-
-    <div class="painel-topo">
-
-      <div class="painel-titulo">
-
-        <span class="ponto"></span>
-
-        VISUALIZADOR DO PRODUTO
-
-      </div>
-
-      <span class="painel-info">
-        KEYSHOTXR · 360°
-      </span>
-
-    </div>
-
-    <div class="visualizador-area">
-
-      <iframe
-        id="visualizador"
-        class="visualizador"
-        title="Visualização 360° do Cesto Aramado"
-        src="../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html"
-        loading="eager"
-        allowfullscreen>
-      </iframe>
-
-    </div>
-
-    <p class="instrucao">
-      Clique e arraste sobre o produto
-      para visualizar em 360°.
+    <p class="descricao">
+      Visualize o Cesto Aramado Gondopar em 360°.
+      Selecione uma das versões disponíveis para
+      conhecer o produto em diferentes ângulos.
     </p>
 
-  </section>
+    <!-- BOTÕES DE VARIAÇÃO -->
 
-</main>
+    <div class="modelos">
 
-<!-- RODAPÉ -->
+      <button
+        id="btn-normal"
+        class="modelo ativo"
+        type="button"
+        aria-pressed="true">
+        MODELO NORMAL
+      </button>
 
-<footer>
-  GONDOPAR – soluções e mobiliários especiais
-</footer>
+      <button
+        id="btn-dois"
+        class="modelo"
+        type="button"
+        aria-pressed="false">
+        MODELO 2 ANDARES
+      </button>
 
-<script>
+    </div>
 
-/*
-  ARQUIVOS KEYSHOTXR
+    <!-- VISUALIZADOR -->
 
-  Modelo Normal:
-  CESTO_ARAMADO_FLEXPRO.12.html
+    <section class="painel">
 
-  Modelo 2 Andares:
-  CESTO ARAMADO 2 ANDARES.13.html
+      <div class="painel-cabecalho">
 
-  Ambos estão diretamente
-  na pasta KeyShotXR.
-*/
+        <div class="painel-titulo">
+          <span class="indicador"></span>
+          VISUALIZADOR DO PRODUTO
+        </div>
 
-const ROTACOES = {
+        <div class="painel-tipo">
+          KEYSHOTXR · 360°
+        </div>
 
-  normal:
-    "../KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html",
+      </div>
 
-  dois:
-    "../KeyShotXR/CESTO%20ARAMADO%202%20ANDARES.13.html"
+      <div class="visualizador-area">
 
-};
+        <iframe
+          id="visualizador"
+          class="visualizador"
+          title="Cesto Aramado em 360 graus"
+          loading="eager"
+          allowfullscreen>
+        </iframe>
 
-/* ELEMENTOS */
+      </div>
 
-const visualizador =
-  document.getElementById("visualizador");
+      <p class="instrucao">
+        Clique e arraste sobre o produto
+        para visualizar em 360°.
+      </p>
 
-const botaoNormal =
-  document.getElementById("botao-normal");
+      <a
+        id="link-externo"
+        class="abrir-externo"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer">
+        Abrir visualização 360° em nova guia
+      </a>
 
-const botaoDois =
-  document.getElementById("botao-dois");
+    </section>
 
-/* ALTERAR MODELO */
+    <!-- DIMENSÕES -->
 
-function trocarModelo(modelo) {
+    <section class="dimensoes">
 
-  if (!ROTACOES[modelo]) {
-    return;
-  }
+      <h2>DIMENSÕES DO PRODUTO</h2>
 
-  const novoEndereco =
-    new URL(
-      ROTACOES[modelo],
-      document.baseURI
-    ).href;
+      <div class="medidas">
 
-  if (visualizador.src !== novoEndereco) {
+        <div class="medida">
+          <span>Altura</span>
+          <strong>Sob consulta</strong>
+        </div>
 
-    visualizador.src = novoEndereco;
+        <div class="medida">
+          <span>Largura</span>
+          <strong>Sob consulta</strong>
+        </div>
 
-  }
+        <div class="medida">
+          <span>Profundidade</span>
+          <strong>Sob consulta</strong>
+        </div>
 
-  const normalAtivo =
-    modelo === "normal";
+      </div>
 
-  botaoNormal.classList.toggle(
-    "ativo",
-    normalAtivo
-  );
+    </section>
 
-  botaoDois.classList.toggle(
-    "ativo",
-    !normalAtivo
-  );
+  </main>
 
-  botaoNormal.setAttribute(
-    "aria-pressed",
-    String(normalAtivo)
-  );
+  <footer>
+    Gondopar – soluções e mobiliários especiais
+  </footer>
 
-  botaoDois.setAttribute(
-    "aria-pressed",
-    String(!normalAtivo)
-  );
+  <script>
+    /*
+      LINKS DAS EXPORTAÇÕES KEYSHOTXR
 
-}
+      Usamos os endereços absolutos para
+      evitar erros de caminhos relativos.
+    */
 
-/* INICIAR NO MODELO NORMAL */
+    const modelos = {
+      normal:
+        "https://mkt-gond.github.io/FLEXPRO/KeyShotXR/CESTO_ARAMADO_FLEXPRO.12.html",
 
-trocarModelo("normal");
+      dois:
+        "https://mkt-gond.github.io/FLEXPRO/KeyShotXR/CESTO%20ARAMADO%202%20ANDARES.13.html"
+    };
 
-</script>
+    const iframe = document.getElementById(
+      "visualizador"
+    );
+
+    const linkExterno = document.getElementById(
+      "link-externo"
+    );
+
+    const btnNormal = document.getElementById(
+      "btn-normal"
+    );
+
+    const btnDois = document.getElementById(
+      "btn-dois"
+    );
+
+    /*
+      PROTEÇÃO CONTRA LOOP
+
+      Se algum endereço apontar para
+      a própria página, ele não será
+      carregado no iframe.
+    */
+
+    function enderecoSeguro(url) {
+      const destino = new URL(url, location.href);
+
+      const paginaAtual = new URL(location.href);
+
+      if (
+        destino.origin === paginaAtual.origin &&
+        destino.pathname === paginaAtual.pathname
+      ) {
+        return false;
+      }
+
+      return true;
+    }
+
+    function selecionarModelo(modelo) {
+      const url = modelos[modelo];
+
+      if (!url || !enderecoSeguro(url)) {
+        iframe.removeAttribute("src");
+        linkExterno.removeAttribute("href");
+        console.error(
+          "Endereço inválido para o visualizador:",
+          url
+        );
+        return;
+      }
+
+      iframe.src = url;
+      linkExterno.href = url;
+
+      const normalAtivo = modelo === "normal";
+
+      btnNormal.classList.toggle(
+        "ativo",
+        normalAtivo
+      );
+
+      btnDois.classList.toggle(
+        "ativo",
+        !normalAtivo
+      );
+
+      btnNormal.setAttribute(
+        "aria-pressed",
+        String(normalAtivo)
+      );
+
+      btnDois.setAttribute(
+        "aria-pressed",
+        String(!normalAtivo)
+      );
+    }
+
+    btnNormal.addEventListener(
+      "click",
+      function() {
+        selecionarModelo("normal");
+      }
+    );
+
+    btnDois.addEventListener(
+      "click",
+      function() {
+        selecionarModelo("dois");
+      }
+    );
+
+    selecionarModelo("normal");
+  </script>
 
 </body>
-
 </html>
