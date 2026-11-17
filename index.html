@@ -74,7 +74,7 @@ header {
   text-align:right;
 }
 
-/* VÍDEO */
+/* VÍDEO PRINCIPAL */
 
 .banner {
   width:min(var(--largura),94%);
@@ -222,7 +222,7 @@ h1 {
   color:white;
 }
 
-/* GRADE */
+/* GRADE DE PRODUTOS */
 
 .grade {
   display:grid;
@@ -402,14 +402,18 @@ footer {
 
 <body>
 
+<!-- CABEÇALHO -->
+
 <header>
   <div class="cabecalho">
+
     <div>
       <img
         id="logo"
         class="logo"
-        src="imagens/logo-gondopar.png.png"
+        src="imagens/logo-gondopar.png"
         alt="Gondopar">
+
       <span
         id="logoTexto"
         class="logo-texto">
@@ -420,6 +424,7 @@ footer {
     <div class="marca">
       Gôndolas e mobiliários especiais
     </div>
+
   </div>
 </header>
 
@@ -460,8 +465,9 @@ footer {
     <h1>LINHA FLEXPRO</h1>
 
     <p class="descricao">
-      Conheça nossas soluções em mobiliário para farmácias.
-      Explore os modelos e visualize os produtos disponíveis.
+      Conheça nossas soluções em mobiliário
+      para farmácias. Explore os modelos e
+      visualize os produtos disponíveis.
     </p>
   </section>
 
@@ -526,13 +532,9 @@ footer {
 const logo = document.getElementById("logo");
 
 logo.onerror = function() {
-  if (!this.dataset.alternativa) {
-    this.dataset.alternativa = "sim";
-    this.src = "imagens/logo-gondopar.png";
-  } else {
-    this.style.display = "none";
-    document.getElementById("logoTexto").style.display = "block";
-  }
+  this.style.display = "none";
+  document.getElementById("logoTexto")
+    .style.display = "block";
 };
 
 /* VÍDEO */
@@ -576,17 +578,16 @@ const categorias = [
 ];
 
 /*
-  FORMATO:
+  FORMATO DOS PRODUTOS:
+
   [nome, imagem, categoria, página]
 
-  Páginas já existentes recebem o caminho
-  do arquivo HTML correspondente.
+  O caminho da página deve corresponder
+  exatamente ao arquivo na pasta produtos.
 
-  Produtos ainda sem página individual
+  Produtos sem página individual
   permanecem com null.
 */
-
-/* TODOS OS 55 PRODUTOS */
 
 const dadosProdutos = [
 
@@ -603,7 +604,7 @@ const dadosProdutos = [
     "Gôndola Parede sem Base",
     "AMBIENTAÇÃO_PAREDE SEM BASE",
     "parede",
-    null
+    "produtos/gondola-parede-sem-base.html"
   ],
 
   [
@@ -1038,20 +1039,22 @@ function nomeCategoria(id) {
   return item ? item[1] : "";
 }
 
-/* PRODUTOS SEM IMAGEM */
+/* PLACEHOLDER PARA PRODUTOS SEM IMAGEM */
 
 function criarPlaceholder() {
-
   const caixa = document.createElement("div");
   caixa.className = "sem-imagem";
 
   caixa.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="none"
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round">
-      <path d="M3 3h18v18H3z M8 8h.01
-        M3 17l5-5 4 4 3-3 6 6"/>
+      <rect x="3" y="3" width="18" height="18" rx="2"/>
+      <circle cx="8.5" cy="8.5" r="1.5"/>
+      <path d="m21 15-5-5L5 21"/>
     </svg>
     <span>IMAGEM EM PREPARAÇÃO</span>
   `;
@@ -1059,128 +1062,106 @@ function criarPlaceholder() {
   return caixa;
 }
 
+/* CRIAR IMAGEM DO PRODUTO */
+
+function criarImagem(produto) {
+  const caixa = document.createElement("div");
+  caixa.className = "card-imagem";
+
+  if (!produto.imagem) {
+    caixa.appendChild(criarPlaceholder());
+    return caixa;
+  }
+
+  const img = document.createElement("img");
+
+  img.alt = produto.nome;
+  img.loading = "lazy";
+
+  /*
+    As capas permanecem na pasta imagens.
+    Tentamos os formatos de arquivo mais comuns.
+  */
+
+  const nome = produto.imagem;
+
+  const caminhos = [
+    "imagens/" + nome + ".png",
+    "imagens/" + nome + ".jpg",
+    "imagens/" + nome + ".jpeg",
+    "imagens/" + nome + ".webp"
+  ];
+
+  let tentativa = 0;
+
+  img.onerror = function() {
+    tentativa++;
+
+    if (tentativa < caminhos.length) {
+      img.src = caminhos[tentativa];
+    } else {
+      img.remove();
+      caixa.appendChild(criarPlaceholder());
+    }
+  };
+
+  img.src = caminhos[0];
+
+  caixa.appendChild(img);
+
+  return caixa;
+}
+
 /* CRIAR CARD */
 
 function criarCard(produto) {
-
   const card = document.createElement("a");
   card.className = "card";
 
   /*
-    PRODUTO COM PÁGINA:
-    abre diretamente a página HTML.
+    Se existe uma página cadastrada,
+    o card abre diretamente essa página.
 
-    PRODUTO SEM PÁGINA:
-    abre a página de preparação.
+    Caso contrário, mantém o destino
+    de preparação utilizado no catálogo.
   */
 
-  if (produto.pagina) {
+  card.href = produto.pagina ||
+    ("produtos/em-preparacao.html?id=" +
+      encodeURIComponent(produto.id));
 
-    card.href = produto.pagina;
+  card.appendChild(criarImagem(produto));
 
-  } else {
-
-    card.href =
-      "produtos/em-preparacao.html?id=" +
-      encodeURIComponent(produto.id);
-
-  }
-
-  card.setAttribute(
-    "aria-label",
-    "Abrir página de " + produto.nome
-  );
-
-  /* IMAGEM */
-
-  const imagemContainer =
-    document.createElement("div");
-
-  imagemContainer.className = "card-imagem";
-
-  if (produto.imagem) {
-
-    const img = document.createElement("img");
-
-    img.src =
-      "imagens/" + produto.imagem + ".png";
-
-    img.alt = produto.nome;
-    img.loading = "lazy";
-
-    img.onerror = function() {
-      imagemContainer.replaceChildren(
-        criarPlaceholder()
-      );
-    };
-
-    imagemContainer.appendChild(img);
-
-  } else {
-
-    imagemContainer.appendChild(
-      criarPlaceholder()
-    );
-
-  }
-
-  /* CONTEÚDO */
-
-  const conteudo =
-    document.createElement("div");
-
+  const conteudo = document.createElement("div");
   conteudo.className = "card-conteudo";
 
-  const categoria =
-    document.createElement("span");
-
+  const categoria = document.createElement("div");
   categoria.className = "card-categoria";
-
   categoria.textContent =
     nomeCategoria(produto.categoria).toUpperCase();
 
-  const titulo =
-    document.createElement("h3");
+  const titulo = document.createElement("h3");
+  titulo.textContent = produto.nome.toUpperCase();
 
-  titulo.textContent =
-    produto.nome.toUpperCase();
+  const descricao = document.createElement("p");
 
-  const descricao =
-    document.createElement("p");
+  descricao.textContent = produto.pagina
+    ? "Visualização interativa do produto."
+    : "Página do produto disponível. Visualização 360° em preparação.";
 
-  if (produto.pagina) {
+  const botao = document.createElement("span");
+  botao.className = "abrir";
 
-    descricao.textContent =
-      "Visualização interativa do produto.";
-
-  } else {
-
-    descricao.textContent =
-      "Página do produto disponível. " +
-      "Visualização 360° em preparação.";
-
-  }
-
-  const abrir =
-    document.createElement("span");
-
-  abrir.className = "abrir";
-
-  abrir.textContent = produto.pagina
+  botao.textContent = produto.pagina
     ? "EXPLORAR EM 360° →"
     : "VER PÁGINA DO PRODUTO →";
 
-  conteudo.append(
-    categoria,
-    titulo,
-    descricao,
-    abrir
-  );
+  conteudo.appendChild(categoria);
+  conteudo.appendChild(titulo);
+  conteudo.appendChild(descricao);
+  conteudo.appendChild(botao);
 
-  card.append(
-    imagemContainer,
-    conteudo
-  );
+  card.appendChild(conteudo);
 
   return card;
 }
@@ -1188,130 +1169,80 @@ function criarCard(produto) {
 /* EXIBIR PRODUTOS */
 
 function renderizarProdutos() {
+  grade.innerHTML = "";
 
-  grade.replaceChildren();
+  const lista = categoriaSelecionada === "todos"
+    ? produtos
+    : produtos.filter(
+        p => p.categoria === categoriaSelecionada
+      );
 
-  const visiveis = produtos.filter(p=>
-    categoriaSelecionada === "todos" ||
-    p.categoria === categoriaSelecionada
-  );
-
-  visiveis.forEach(p=>{
-    grade.appendChild(criarCard(p));
+  lista.forEach(produto => {
+    grade.appendChild(criarCard(produto));
   });
 
   contador.textContent =
-    visiveis.length +
-    (visiveis.length === 1
-      ? " PRODUTO"
-      : " PRODUTOS");
+    lista.length +
+    (lista.length === 1 ? " PRODUTO" : " PRODUTOS");
 
   filtroAtual.textContent =
     categoriaSelecionada === "todos"
       ? "TODOS OS PRODUTOS"
-      : nomeCategoria(
-          categoriaSelecionada
-        ).toUpperCase();
+      : nomeCategoria(categoriaSelecionada).toUpperCase();
 }
 
-/* CRIAR FILTROS */
+/* CRIAR BOTÕES DE FILTRO */
 
-function criarOpcao(id,nome) {
+function criarFiltros() {
+  opcoesCategoria.innerHTML = "";
 
-  const botao =
-    document.createElement("button");
+  const opcoes = [
+    ["todos","Todos os Produtos"],
+    ...categorias
+  ];
 
-  botao.type = "button";
-  botao.className = "opcao-categoria";
-  botao.textContent = nome.toUpperCase();
-  botao.dataset.categoria = id;
+  opcoes.forEach(opcao => {
+    const botao = document.createElement("button");
 
-  botao.addEventListener("click",function(){
+    botao.type = "button";
+    botao.className = "opcao-categoria";
+    botao.textContent = opcao[1];
 
-    categoriaSelecionada = id;
+    if (opcao[0] === categoriaSelecionada) {
+      botao.classList.add("selecionada");
+    }
 
-    atualizarBotoes();
-    renderizarProdutos();
+    botao.addEventListener("click", function() {
+      categoriaSelecionada = opcao[0];
 
-    painelFiltros.classList.remove("aberto");
+      criarFiltros();
+      renderizarProdutos();
 
-    botaoFiltro.classList.remove("ativo");
+      painelFiltros.classList.remove("aberto");
+      botaoFiltro.classList.remove("ativo");
+      botaoFiltro.setAttribute("aria-expanded","false");
+    });
 
-    botaoFiltro.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-  });
-
-  opcoesCategoria.appendChild(botao);
-}
-
-/* TODOS OS PRODUTOS */
-
-criarOpcao(
-  "todos",
-  "Todos os produtos"
-);
-
-/* CATEGORIAS */
-
-categorias.forEach(c=>{
-  criarOpcao(c[0],c[1]);
-});
-
-/* ATUALIZAR BOTÕES */
-
-function atualizarBotoes() {
-
-  document.querySelectorAll(
-    ".opcao-categoria"
-  ).forEach(botao=>{
-
-    const selecionado =
-      botao.dataset.categoria ===
-      categoriaSelecionada;
-
-    botao.classList.toggle(
-      "selecionada",
-      selecionado
-    );
-
-    botao.setAttribute(
-      "aria-pressed",
-      String(selecionado)
-    );
-
+    opcoesCategoria.appendChild(botao);
   });
 }
 
 /* ABRIR E FECHAR FILTROS */
 
-botaoFiltro.addEventListener(
-  "click",
-  function(){
+botaoFiltro.addEventListener("click", function() {
+  const aberto = painelFiltros.classList.toggle("aberto");
 
-    const aberto =
-      painelFiltros.classList.toggle(
-        "aberto"
-      );
+  botaoFiltro.classList.toggle("ativo", aberto);
 
-    botaoFiltro.classList.toggle(
-      "ativo",
-      aberto
-    );
-
-    botaoFiltro.setAttribute(
-      "aria-expanded",
-      String(aberto)
-    );
-
-  }
-);
+  botaoFiltro.setAttribute(
+    "aria-expanded",
+    String(aberto)
+  );
+});
 
 /* INICIALIZAÇÃO */
 
-atualizarBotoes();
+criarFiltros();
 renderizarProdutos();
 
 </script>
