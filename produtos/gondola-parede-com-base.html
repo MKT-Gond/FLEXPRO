@@ -5,488 +5,415 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gôndola de Parede - REF. 01 | Gondopar</title>
+<title>Gôndola de Parede com Base | Gondopar FLEXPRO</title>
 
 <style>
 :root {
-  --azul: #092d59;
-  --azul-medio: #267fa4;
-  --cinza: #67869b;
-  --borda: #dcebf1;
+  --azul:#092d59;
+  --azul-claro:#2582a5;
+  --cinza:#698197;
+  --borda:#dbe9f0;
+  --branco:#ffffff;
 }
 
 * {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  min-height: 100%;
+  box-sizing:border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--azul);
-  background: #e6f7fb;
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--azul);
+  background:linear-gradient(
+    125deg,
+    #f8fcff 0%,
+    #eaf8fc 50%,
+    #e0f3f9 100%
+  );
 }
 
-.pagina {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background:
-    radial-gradient(
-      ellipse at 90% 15%,
-      rgba(113,219,240,.25),
-      transparent 48%
-    ),
-    linear-gradient(
-      120deg,
-      #f8fdff,
-      #e5f7fb 50%,
-      #d5f1f9
-    );
+a {
+  color:inherit;
 }
 
 /* CABEÇALHO */
 
 .cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 17px 5%;
-  background: rgba(255,255,255,.4);
-  border-bottom: 1px solid rgba(9,45,89,.08);
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--borda);
+}
+
+.cabecalho-interno {
+  max-width:1500px;
+  margin:auto;
+  padding:22px 35px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .marca {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display:flex;
+  align-items:center;
+  gap:25px;
 }
 
 .logo {
-  width: 175px;
-  max-height: 65px;
-  object-fit: contain;
+  display:block;
+  width:210px;
+  max-height:70px;
+  object-fit:contain;
 }
 
-.divisor {
-  width: 1px;
-  height: 35px;
-  background: #c4dce5;
+.divisoria {
+  width:1px;
+  height:48px;
+  background:#d0e0e9;
 }
 
-.nome-linha {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.marca-texto {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 
-.nome-linha strong {
-  font-size: 15px;
-  letter-spacing: 3px;
+.marca-texto strong {
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:4px;
 }
 
-.nome-linha span {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--cinza);
+.marca-texto span {
+  font-size:11px;
+  color:var(--cinza);
+  letter-spacing:1.5px;
 }
 
 .voltar {
-  padding: 13px 19px;
-  border: 1px solid #d5e4eb;
-  border-radius: 9px;
-  background: white;
-  color: var(--azul);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
+  padding:14px 22px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:white;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
 }
 
 .voltar:hover {
-  border-color: var(--azul-medio);
+  background:#f2f9fd;
 }
 
 /* CONTEÚDO */
 
 .conteudo {
-  width: min(1200px, 94%);
-  margin: 0 auto;
-  padding: 27px 0 35px;
-  flex: 1;
+  max-width:1300px;
+  margin:auto;
+  padding:42px 25px 75px;
 }
 
-.identificacao {
-  margin-bottom: 20px;
+.categoria {
+  color:var(--azul-claro);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
-.referencia {
-  display: block;
-  margin-bottom: 9px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: var(--azul-medio);
+h1 {
+  margin:15px 0;
+  font-size:clamp(30px,4vw,48px);
+  letter-spacing:-1px;
 }
 
-.identificacao h1 {
-  margin: 0;
-  font-size: clamp(24px, 3vw, 35px);
+.descricao {
+  margin:0 0 32px;
+  color:var(--cinza);
+  font-size:15px;
+  line-height:1.7;
 }
 
-.subtitulo {
-  margin: 9px 0 0;
-  font-size: 12px;
-  color: var(--cinza);
+/* VISUALIZADOR */
+
+.painel {
+  overflow:hidden;
+  border:1px solid var(--borda);
+  border-radius:17px;
+  background:white;
+  box-shadow:0 15px 35px rgba(9,45,89,.07);
 }
 
-/* QUADRO DO VISUALIZADOR */
-
-.quadro {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 15px;
-  background: white;
-  border: 1px solid #e0edf2;
-  box-shadow: 0 15px 45px rgba(9,45,89,.06);
+.painel-cabecalho {
+  min-height:60px;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-bottom:1px solid var(--borda);
+  background:#f9fcfe;
 }
 
-.barra {
-  min-height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 0 20px;
-  background: #f8fcfd;
-  border-bottom: 1px solid #e8f0f4;
+.painel-titulo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
 }
 
-.barra-esquerda {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.indicador {
+  width:9px;
+  height:9px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:#24b6d2;
 }
 
-.ponto {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #37bbd0;
+.painel-tipo {
+  color:var(--cinza);
+  font-size:12px;
+  white-space:nowrap;
 }
 
-.barra-direita {
-  font-size: 10px;
-  color: var(--cinza);
+.visualizador-area {
+  padding:15px;
+  background:white;
 }
 
-/* VISUALIZADOR KEYSHOTXR */
-
-/*
-  Resolução original:
-  1000 x 688 px
-
-  O quadro é responsivo.
-  A imagem mantém sua proporção.
-*/
-
-.viewer {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #fff;
-}
-
-.viewer iframe {
-  position: absolute;
-  display: block;
-  width: 1000px;
-  height: 688px;
-  border: 0;
-  background: white;
-  transform-origin: top left;
+.visualizador {
+  display:block;
+  width:100%;
+  height:min(72vw,760px);
+  min-height:350px;
+  border:0;
+  background:#f5f7f9;
 }
 
 .instrucao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  min-height: 52px;
-  padding: 11px 20px;
-  background: #f8fcfd;
-  border-top: 1px solid #e8f0f4;
+  padding:0 20px 22px;
+  color:var(--cinza);
+  text-align:center;
+  font-size:12px;
 }
 
-.instrucao span {
-  font-size: 11px;
+.abrir-externo {
+  display:block;
+  width:fit-content;
+  margin:0 auto 24px;
+  color:var(--azul-claro);
+  font-size:12px;
+  font-weight:700;
+  text-decoration:none;
 }
 
-.instrucao small {
-  font-size: 10px;
-  color: var(--cinza);
+.abrir-externo:hover {
+  text-decoration:underline;
 }
 
-/* DIMENSÕES */
+/* INFORMAÇÕES TÉCNICAS */
 
-.painel {
-  margin-top: 23px;
-  padding: 22px;
-  border: 1px solid var(--borda);
-  border-radius: 14px;
-  background: rgba(255,255,255,.8);
+.informacoes {
+  margin-top:30px;
+  padding:30px;
+  border:1px solid var(--borda);
+  border-radius:17px;
+  background:rgba(255,255,255,.94);
 }
 
-.painel-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 18px;
+.informacoes h2 {
+  margin:0 0 24px;
+  font-size:19px;
+  letter-spacing:.5px;
 }
 
-.painel h2 {
-  margin: 0;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-}
-
-.painel-topo span {
-  font-size: 10px;
-  color: var(--cinza);
-}
-
-.medidas-resumo {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+.medidas {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
 }
 
 .medida {
-  min-width: 0;
-  padding: 18px 12px;
-  border: 1px solid #e1edf2;
-  border-radius: 10px;
-  background: #f4fafc;
-  text-align: center;
+  padding:22px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:#f9fcfe;
 }
 
-.medida-label {
-  display: block;
-  margin-bottom: 9px;
-  color: var(--cinza);
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.medida span {
+  display:block;
+  margin-bottom:12px;
+  color:var(--cinza);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.medida-valor {
-  display: block;
-  font-size: clamp(13px, 1.7vw, 19px);
-  font-weight: bold;
-  line-height: 1.4;
+.medida strong {
+  display:block;
+  font-size:18px;
+  line-height:1.6;
 }
 
-.medida-unidade {
-  font-size: 12px;
-  font-weight: normal;
-  color: var(--cinza);
+.unidade {
+  margin-top:15px;
+  color:var(--cinza);
+  font-size:12px;
 }
 
-.separador {
-  height: 1px;
-  margin: 22px 0;
-  background: #e2edf2;
+/* OPCIONAIS */
+
+.opcionais {
+  margin-top:30px;
+  padding:30px;
+  border:1px solid var(--borda);
+  border-radius:17px;
+  background:rgba(255,255,255,.94);
 }
 
-.combinacoes-titulo {
-  margin: 0 0 13px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: .5px;
+.opcionais h2 {
+  margin:0 0 22px;
+  font-size:19px;
 }
 
-.combinacoes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+.opcionais-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
 }
 
-.combinacao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 10px;
-  border: 1px solid #e0ebf0;
-  border-radius: 9px;
-  background: white;
-  text-align: center;
+.opcional {
+  padding:24px;
+  border:1px solid var(--borda);
+  border-radius:13px;
+  background:#f9fcfe;
 }
 
-.combinacao-numero {
-  color: var(--azul-medio);
-  font-size: 10px;
-  font-weight: bold;
+.opcional .tag {
+  display:inline-block;
+  margin-bottom:14px;
+  padding:7px 12px;
+  border-radius:7px;
+  background:#e6f3fa;
+  color:#237fa4;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1px;
 }
 
-.combinacao-medida {
-  font-size: 12px;
-  font-weight: bold;
-  white-space: nowrap;
+.opcional h3 {
+  margin:0 0 12px;
+  font-size:17px;
 }
 
-.nota-medidas {
-  margin: 14px 0 0;
-  font-size: 10px;
-  color: var(--cinza);
+.opcional p {
+  margin:0;
+  color:var(--cinza);
+  font-size:14px;
+  line-height:1.7;
 }
 
-/* RODAPÉ */
-
-.rodape {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 17px 5%;
-  color: #68869b;
-  font-size: 10px;
+.consulta {
+  display:inline-block;
+  margin-top:15px;
+  color:#d80019;
+  font-size:12px;
+  font-weight:700;
 }
 
-.rodape strong {
-  color: var(--azul);
-  letter-spacing: 1px;
+footer {
+  padding:28px;
+  border-top:1px solid var(--borda);
+  color:var(--cinza);
+  text-align:center;
+  font-size:12px;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVIDADE */
 
-@media (max-width: 700px) {
-
-  .cabecalho {
-    padding: 13px 4%;
-    gap: 10px;
+@media(max-width:700px) {
+  .cabecalho-interno {
+    padding:18px 15px;
   }
 
   .marca {
-    gap: 10px;
+    gap:12px;
   }
 
   .logo {
-    width: 115px;
+    width:120px;
   }
 
-  .divisor {
-    height: 27px;
+  .divisoria {
+    height:35px;
   }
 
-  .nome-linha strong {
-    font-size: 11px;
-    letter-spacing: 1px;
+  .marca-texto strong {
+    font-size:14px;
+    letter-spacing:2px;
   }
 
-  .nome-linha span {
-    font-size: 8px;
-    letter-spacing: 0;
+  .marca-texto span {
+    font-size:9px;
+    letter-spacing:0;
   }
 
   .voltar {
-    padding: 10px;
-    font-size: 10px;
+    padding:11px;
+    font-size:10px;
   }
 
   .conteudo {
-    width: 96%;
-    padding-top: 20px;
+    padding:30px 15px 55px;
   }
 
-  .identificacao h1 {
-    font-size: 23px;
+  .painel-cabecalho {
+    padding:15px 12px;
   }
 
-  .subtitulo {
-    font-size: 11px;
+  .painel-titulo,
+  .painel-tipo {
+    font-size:10px;
   }
 
-  .barra {
-    padding: 0 12px;
-    min-height: 40px;
+  .visualizador-area {
+    padding:6px;
   }
 
-  .barra-esquerda,
-  .barra-direita {
-    font-size: 9px;
+  .visualizador {
+    height:430px;
+    min-height:0;
   }
 
-  .instrucao {
-    padding: 10px 12px;
+  .medidas,
+  .opcionais-grid {
+    grid-template-columns:1fr;
   }
 
-  .instrucao span,
-  .instrucao small {
-    font-size: 9px;
-  }
-
-  .painel {
-    padding: 15px;
-  }
-
-  .painel h2 {
-    font-size: 11px;
-  }
-
-  .medidas-resumo {
-    gap: 7px;
-  }
-
-  .medida {
-    padding: 13px 5px;
-  }
-
-  .medida-label {
-    font-size: 8px;
-    letter-spacing: 0;
-  }
-
-  .medida-valor {
-    font-size: 12px;
-  }
-
-  .medida-unidade {
-    font-size: 10px;
-  }
-
-  .combinacoes {
-    gap: 8px;
-  }
-
-  .combinacao {
-    padding: 12px 5px;
-    gap: 5px;
-  }
-
-  .combinacao-numero {
-    font-size: 9px;
-  }
-
-  .combinacao-medida {
-    font-size: 10px;
-  }
-
-  .rodape {
-    padding: 15px 4%;
-    font-size: 9px;
+  .informacoes,
+  .opcionais {
+    padding:20px;
   }
 }
 
-@media (max-width: 360px) {
-  .combinacoes {
-    grid-template-columns: 1fr;
+@media(max-width:420px) {
+  .logo {
+    width:95px;
+  }
+
+  .marca {
+    gap:8px;
+  }
+
+  .marca-texto strong {
+    font-size:12px;
+    letter-spacing:1px;
+  }
+
+  .marca-texto span {
+    font-size:8px;
   }
 }
 </style>
@@ -494,21 +421,23 @@ body {
 
 <body>
 
-<div class="pagina">
+<!-- CABEÇALHO -->
 
-  <header class="cabecalho">
+<header class="cabecalho">
+  <div class="cabecalho-interno">
 
     <div class="marca">
 
-      <img
-        id="logo"
-        class="logo"
-        src="../imagens/logo-gondopar.png.png"
-        alt="Gondopar">
+      <a href="../index.html">
+        <img
+          class="logo"
+          src="../imagens/logo-gondopar.png"
+          alt="Gondopar">
+      </a>
 
-      <div class="divisor"></div>
+      <div class="divisoria"></div>
 
-      <div class="nome-linha">
+      <div class="marca-texto">
         <strong>FLEXPRO</strong>
         <span>LINHA DE GÔNDOLAS</span>
       </div>
@@ -519,260 +448,201 @@ body {
       ← CATÁLOGO
     </a>
 
-  </header>
+  </div>
+</header>
 
-  <main class="conteudo">
+<!-- CONTEÚDO -->
 
-    <section class="identificacao">
+<main class="conteudo">
 
-      <span class="referencia">
-        LINHA FLEXPRO · REF. 01
-      </span>
+  <div class="categoria">
+    LINHA FLEXPRO · GÔNDOLAS DE PAREDE
+  </div>
 
-      <h1>GÔNDOLA DE PAREDE</h1>
+  <h1>GÔNDOLA DE PAREDE COM BASE</h1>
 
-      <p class="subtitulo">
-        Explore o produto em 360° e consulte
-        as dimensões disponíveis.
-      </p>
+  <p class="descricao">
+    Explore a Gôndola de Parede com Base em 360°,
+    conheça suas dimensões disponíveis e
+    as opções de personalização.
+  </p>
 
-    </section>
+  <!-- VISUALIZADOR 360 -->
 
-    <!-- VISUALIZADOR 360 -->
+  <section class="painel">
 
-    <section class="quadro">
+    <div class="painel-cabecalho">
 
-      <div class="barra">
+      <div class="painel-titulo">
+        <span class="indicador"></span>
+        VISUALIZADOR DO PRODUTO
+      </div>
 
-        <div class="barra-esquerda">
-          <span class="ponto"></span>
-          VISUALIZADOR DO PRODUTO
-        </div>
+      <div class="painel-tipo">
+        KEYSHOTXR · 360°
+      </div>
 
-        <span class="barra-direita">
-          KEYSHOTXR · 360°
+    </div>
+
+    <div class="visualizador-area">
+
+      <iframe
+        id="visualizador"
+        class="visualizador"
+        title="Gôndola de Parede com Base em 360 graus"
+        loading="eager"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <p class="instrucao">
+      Clique e arraste sobre o produto
+      para visualizar em 360°.
+    </p>
+
+    <a
+      id="abrir-360"
+      class="abrir-externo"
+      target="_blank"
+      rel="noopener noreferrer">
+      Abrir visualização 360° em nova guia
+    </a>
+
+  </section>
+
+  <!-- DIMENSÕES -->
+
+  <section class="informacoes">
+
+    <h2>DIMENSÕES DISPONÍVEIS</h2>
+
+    <div class="medidas">
+
+      <div class="medida">
+        <span>Profundidade</span>
+        <strong>
+          200, 250, 300 e 400 mm
+        </strong>
+      </div>
+
+      <div class="medida">
+        <span>Largura</span>
+        <strong>
+          590, 750 e 1000 mm
+        </strong>
+      </div>
+
+      <div class="medida">
+        <span>Altura</span>
+        <strong>
+          1200, 1400, 2200 e 2400 mm
+        </strong>
+      </div>
+
+    </div>
+
+    <p class="unidade">
+      Todas as dimensões estão expressas
+      em milímetros (mm).
+    </p>
+
+  </section>
+
+  <!-- OPCIONAIS -->
+
+  <section class="opcionais">
+
+    <h2>OPCIONAIS E PERSONALIZAÇÃO</h2>
+
+    <div class="opcionais-grid">
+
+      <div class="opcional">
+
+        <span class="tag">OPCIONAL</span>
+
+        <h3>Comunicação Visual</h3>
+
+        <p>
+          Painel de fundo com plotagem
+          ou opções de cores para
+          personalização visual.
+        </p>
+
+        <span class="consulta">
+          CONSULTE OPÇÕES
         </span>
 
       </div>
 
-      <div class="viewer" id="viewer">
+      <div class="opcional">
 
-        <iframe
-          id="keyshotFrame"
-          title="Gôndola de Parede REF. 01 em 360°"
-          src="../keyshotxr/GONDOLA_PAREDE_FLEXPRO.16.html"
-          scrolling="no"
-          loading="eager">
-        </iframe>
+        <span class="tag">OPCIONAL</span>
 
-      </div>
+        <h3>Sem Painel de Fundo</h3>
 
-      <div class="instrucao">
-
-        <span>
-          ↻ Clique e arraste para girar o produto
-        </span>
-
-        <small>RENDER FOTORREALISTA</small>
+        <p>
+          Configuração opcional da
+          gôndola sem painel de fundo.
+        </p>
 
       </div>
 
-    </section>
+    </div>
 
-    <!-- DIMENSÕES -->
+  </section>
 
-    <section class="painel">
+</main>
 
-      <div class="painel-topo">
+<!-- RODAPÉ -->
 
-        <h2>DIMENSÕES DISPONÍVEIS</h2>
+<footer>
+  Gondopar – soluções e mobiliários especiais
+</footer>
 
-        <span>Medidas em mm</span>
-
-      </div>
-
-      <div class="medidas-resumo">
-
-        <div class="medida">
-          <span class="medida-label">
-            PROFUNDIDADE
-          </span>
-          <span class="medida-valor">
-            200 / 250 / 300 / 400
-            <span class="medida-unidade">mm</span>
-          </span>
-        </div>
-
-        <div class="medida">
-          <span class="medida-label">
-            LARGURA
-          </span>
-          <span class="medida-valor">
-            590 / 750 / 1000
-            <span class="medida-unidade">mm</span>
-          </span>
-        </div>
-
-        <div class="medida">
-          <span class="medida-label">
-            ALTURA
-          </span>
-          <span class="medida-valor">
-            2200 / 2400
-            <span class="medida-unidade">mm</span>
-          </span>
-        </div>
-
-      </div>
-
-      <div class="separador"></div>
-
-      <p class="combinacoes-titulo">
-        COMBINAÇÕES DE MEDIDAS (P × L × A)
-      </p>
-
-      <div class="combinacoes" id="combinacoes">
-      </div>
-
-      <p class="nota-medidas">
-        P = Profundidade · L = Largura · A = Altura
-      </p>
-
-    </section>
-
-  </main>
-
-  <footer class="rodape">
-    <strong>GONDOPAR</strong>
-    <span>Gôndolas e mobílias especiais</span>
-  </footer>
-
-</div>
+<!-- CONFIGURAÇÃO DO KEYSHOTXR -->
 
 <script>
+  /*
+    Caminho esperado do HTML exportado
+    pelo KeyShotXR.
 
-/* LOGO */
+    Arquivo:
+    KeyShotXR/GONDOLA COM BASE .15.html
+  */
 
-const logo = document.getElementById("logo");
+  const URL_360 =
+    "../KeyShotXR/GONDOLA%20COM%20BASE%20.15.html";
 
-logo.onerror = function() {
-  if (!this.dataset.tentouOutro) {
-    this.dataset.tentouOutro = "sim";
-    this.src = "../imagens/logo-gondopar.png";
+  const visualizador =
+    document.getElementById("visualizador");
+
+  const abrir360 =
+    document.getElementById("abrir-360");
+
+  const endereco =
+    new URL(URL_360, document.baseURI);
+
+  const paginaAtual =
+    new URL(window.location.href);
+
+  /*
+    Evita carregar a própria página
+    dentro do visualizador.
+  */
+
+  if (
+    endereco.origin !== paginaAtual.origin ||
+    endereco.pathname !== paginaAtual.pathname
+  ) {
+    visualizador.src = endereco.href;
+    abrir360.href = endereco.href;
+  } else {
+    console.error(
+      "O visualizador está apontando para a própria página."
+    );
+    abrir360.hidden = true;
   }
-};
-
-/* VISUALIZADOR KEYSHOTXR */
-
-/*
-  Dimensões confirmadas no arquivo original:
-  1000 x 688 px.
-
-  Não altera o KeyShotXR.
-  Apenas dimensiona e centraliza o iframe.
-*/
-
-const frame = document.getElementById("keyshotFrame");
-const viewer = document.getElementById("viewer");
-
-const larguraRender = 1000;
-const alturaRender = 688;
-
-function ajustarVisualizador() {
-
-  const larguraQuadro = viewer.clientWidth;
-
-  if (!larguraQuadro) return;
-
-  /*
-    Nunca amplia além da resolução original.
-    Em telas menores, reduz proporcionalmente.
-  */
-
-  const escala = Math.min(
-    1,
-    larguraQuadro / larguraRender
-  );
-
-  const larguraFinal = larguraRender * escala;
-  const alturaFinal = alturaRender * escala;
-
-  /*
-    Altura exata da imagem renderizada.
-    Não corta a parte superior ou inferior.
-  */
-
-  viewer.style.height = alturaFinal + "px";
-
-  /*
-    Centralização horizontal.
-  */
-
-  const deslocamentoX =
-    (larguraQuadro - larguraFinal) / 2;
-
-  frame.style.width = larguraRender + "px";
-  frame.style.height = alturaRender + "px";
-
-  frame.style.left = deslocamentoX + "px";
-  frame.style.top = "0px";
-
-  frame.style.transform =
-    "scale(" + escala + ")";
-}
-
-window.addEventListener(
-  "resize",
-  ajustarVisualizador
-);
-
-window.addEventListener(
-  "load",
-  ajustarVisualizador
-);
-
-ajustarVisualizador();
-
-/* COMBINAÇÕES DE MEDIDAS */
-
-const profundidades = [200, 250, 300, 400];
-const larguras = [590, 750, 1000];
-const alturas = [2200, 2400];
-
-const lista = document.getElementById("combinacoes");
-
-let numero = 1;
-
-profundidades.forEach(function(p) {
-
-  larguras.forEach(function(l) {
-
-    alturas.forEach(function(a) {
-
-      const item = document.createElement("div");
-
-      item.className = "combinacao";
-
-      const indice = String(numero).padStart(2, "0");
-
-      item.innerHTML =
-        '<span class="combinacao-numero">' +
-        indice +
-        '</span>' +
-        '<span class="combinacao-medida">' +
-        p + ' × ' + l + ' × ' + a + ' mm' +
-        '</span>';
-
-      lista.appendChild(item);
-
-      numero++;
-
-    });
-
-  });
-
-});
-
 </script>
 
 </body>
