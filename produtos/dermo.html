@@ -4,1015 +4,409 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>DERMO FLEXPRO PREMIUM | Gondopar</title>
-
+<title>Dermo | Gondopar FLEXPRO</title>
 <style>
 :root {
-  --azul: #092d59;
-  --azul-medio: #267fa4;
-  --cinza: #67869b;
-  --borda: #dcebf1;
+  --azul:#092d59;
+  --azul-claro:#2582a5;
+  --cinza:#698197;
+  --borda:#dbe9f0;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  min-height: 100%;
-}
-
+* {box-sizing:border-box}
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--azul);
-  background: #e6f7fb;
+  margin:0;
+  min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--azul);
+  background:linear-gradient(125deg,#f8fcff,#eaf8fc 50%,#e0f3f9);
 }
-
-.pagina {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background:
-    radial-gradient(
-      ellipse at 90% 15%,
-      rgba(113,219,240,.25),
-      transparent 48%
-    ),
-    linear-gradient(
-      120deg,
-      #f8fdff,
-      #e5f7fb 50%,
-      #d5f1f9
-    );
-}
-
-/* CABEÇALHO */
-
+a {color:inherit}
 .cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 17px 5%;
-  background: rgba(255,255,255,.4);
-  border-bottom: 1px solid rgba(9,45,89,.08);
+  background:rgba(255,255,255,.94);
+  border-bottom:1px solid var(--borda);
 }
-
-.marca {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.cabecalho-interno {
+  max-width:1500px;
+  margin:auto;
+  padding:22px 35px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-
+.marca {display:flex;align-items:center;gap:25px}
 .logo {
-  width: 175px;
-  max-height: 65px;
-  object-fit: contain;
+  display:block;
+  width:210px;
+  max-height:70px;
+  object-fit:contain;
 }
-
-.divisor {
-  width: 1px;
-  height: 35px;
-  background: #c4dce5;
+.divisoria {width:1px;height:48px;background:#d0e0e9}
+.marca-texto {display:flex;flex-direction:column;gap:6px}
+.marca-texto strong {
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:4px;
 }
-
-.nome-linha {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.marca-texto span {
+  font-size:11px;
+  color:var(--cinza);
+  letter-spacing:1.5px;
 }
-
-.nome-linha strong {
-  font-size: 15px;
-  letter-spacing: 3px;
-}
-
-.nome-linha span {
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--cinza);
-}
-
 .voltar {
-  padding: 13px 19px;
-  border: 1px solid #d5e4eb;
-  border-radius: 9px;
-  background: white;
-  color: var(--azul);
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
+  padding:14px 22px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:white;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  white-space:nowrap;
 }
-
-.voltar:hover {
-  border-color: var(--azul-medio);
-}
-
-/* CONTEÚDO */
-
+.voltar:hover {background:#f2f9fd}
 .conteudo {
-  width: min(1200px, 94%);
-  margin: 0 auto;
-  padding: 27px 0 35px;
-  flex: 1;
+  max-width:1300px;
+  margin:auto;
+  padding:42px 25px 75px;
 }
-
-.identificacao {
-  margin-bottom: 20px;
+.categoria {
+  color:var(--azul-claro);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
 }
-
-.referencia {
-  display: block;
-  margin-bottom: 9px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: var(--azul-medio);
+h1 {
+  margin:15px 0;
+  font-size:clamp(30px,4vw,48px);
+  letter-spacing:-1px;
 }
-
-.identificacao h1 {
-  margin: 0;
-  font-size: clamp(24px, 3vw, 35px);
+.descricao {
+  margin:0 0 32px;
+  color:var(--cinza);
+  font-size:15px;
+  line-height:1.7;
 }
-
-.subtitulo {
-  margin: 9px 0 0;
-  font-size: 12px;
-  color: var(--cinza);
-}
-
-/* QUADRO DO VISUALIZADOR */
-
-.quadro {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 15px;
-  background: white;
-  border: 1px solid #e0edf2;
-  box-shadow: 0 15px 45px rgba(9,45,89,.06);
-}
-
-.barra {
-  min-height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 0 20px;
-  background: #f8fcfd;
-  border-bottom: 1px solid #e8f0f4;
-}
-
-.barra-esquerda {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.ponto {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #37bbd0;
-}
-
-.barra-direita {
-  font-size: 10px;
-  color: var(--cinza);
-}
-
-/* VISUALIZADOR 360 */
-
-.viewer {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1453 / 1000;
-  overflow: hidden;
-  background: white;
-}
-
-.viewer iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
-  background: white;
-  transform-origin: top left;
-}
-
-/* INSTRUÇÕES */
-
-.instrucao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  min-height: 52px;
-  padding: 11px 20px;
-  background: #f8fcfd;
-  border-top: 1px solid #e8f0f4;
-}
-
-.instrucao span {
-  font-size: 11px;
-}
-
-.instrucao small {
-  font-size: 10px;
-  color: var(--cinza);
-}
-
-/* PAINÉIS */
-
 .painel {
-  margin-top: 23px;
-  padding: 22px;
-  border: 1px solid var(--borda);
-  border-radius: 14px;
-  background: rgba(255,255,255,.8);
+  overflow:hidden;
+  border:1px solid var(--borda);
+  border-radius:17px;
+  background:white;
+  box-shadow:0 15px 35px rgba(9,45,89,.07);
 }
-
-.painel-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 18px;
+.painel-cabecalho {
+  min-height:60px;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  border-bottom:1px solid var(--borda);
+  background:#f9fcfe;
 }
-
-.painel h2 {
-  margin: 0;
-  font-size: 13px;
-  letter-spacing: 1.5px;
+.painel-titulo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
 }
-
-.painel-topo span {
-  font-size: 10px;
-  color: var(--cinza);
+.indicador {
+  width:9px;
+  height:9px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:#24b6d2;
 }
-
-/* ACABAMENTOS */
-
-.opcoes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.painel-tipo {
+  color:var(--cinza);
+  font-size:12px;
+  white-space:nowrap;
 }
-
-.opcao {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 15px;
-  border: 1px solid #d9e7ed;
-  border-radius: 10px;
-  background: white;
-  cursor: pointer;
-  transition: .2s;
-  text-align: left;
-  color: var(--azul);
-  font-family: inherit;
+.visualizador-area {padding:15px;background:white}
+.visualizador {
+  display:block;
+  width:100%;
+  height:min(72vw,760px);
+  min-height:350px;
+  border:0;
+  background:#f5f7f9;
 }
-
-.opcao:hover {
-  border-color: #7cbdd4;
-  background: #f7fcfe;
+.instrucao {
+  padding:0 20px 22px;
+  color:var(--cinza);
+  text-align:center;
+  font-size:12px;
 }
-
-.opcao.ativa {
-  border: 2px solid var(--azul-medio);
-  background: #f1fbfe;
+.abrir-externo {
+  display:block;
+  width:fit-content;
+  margin:0 auto 24px;
+  color:var(--azul-claro);
+  font-size:12px;
+  font-weight:700;
+  text-decoration:none;
 }
-
-.amostra {
-  width: 35px;
-  height: 35px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,.12);
+.abrir-externo:hover {text-decoration:underline}
+.informacoes {
+  margin-top:30px;
+  padding:30px;
+  border:1px solid var(--borda);
+  border-radius:17px;
+  background:rgba(255,255,255,.94);
 }
-
-.itapua {
-  background: #a77b54;
+.informacoes h2 {
+  margin:0 0 24px;
+  font-size:19px;
+  letter-spacing:.5px;
 }
-
-.branco {
-  background: #f2f1ed;
+.medidas {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
 }
-
-.preto {
-  background: #303238;
-}
-
-.opcao-texto {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.opcao-texto strong {
-  font-size: 12px;
-}
-
-.opcao-texto small {
-  font-size: 10px;
-  color: var(--cinza);
-}
-
-/* DIMENSÕES */
-
-.medidas-resumo {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
 .medida {
-  min-width: 0;
-  padding: 18px 12px;
-  border: 1px solid #e1edf2;
-  border-radius: 10px;
-  background: #f4fafc;
-  text-align: center;
+  padding:22px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:#f9fcfe;
 }
-
-.medida-label {
-  display: block;
-  margin-bottom: 9px;
-  color: var(--cinza);
-  font-size: 10px;
-  font-weight: bold;
-  letter-spacing: 1px;
+.medida span {
+  display:block;
+  margin-bottom:12px;
+  color:var(--cinza);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
-
-.medida-valor {
-  display: block;
-  font-size: clamp(13px, 1.7vw, 19px);
-  font-weight: bold;
-  line-height: 1.4;
+.medida strong {
+  display:block;
+  font-size:22px;
+  line-height:1.6;
 }
-
-.medida-unidade {
-  font-size: 12px;
-  font-weight: normal;
-  color: var(--cinza);
+.cores {
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  margin-top:20px;
 }
-
-.separador {
-  height: 1px;
-  margin: 22px 0;
-  background: #e2edf2;
+.cor {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:9px;
+  color:var(--cinza);
+  font-size:12px;
 }
-
-.combinacoes-titulo {
-  margin: 0 0 13px;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: .5px;
+.amostra {
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:2px solid white;
+  box-shadow:0 0 0 1px #d5e1e7;
 }
-
-.combinacoes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+.preto {background:#111}
+.branco {background:#fff}
+.madeirado {background:#a67a53}
+.nota {
+  margin:18px 0 0;
+  color:var(--cinza);
+  font-size:12px;
+  line-height:1.7;
 }
-
-.combinacao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 10px;
-  border: 1px solid #e0ebf0;
-  border-radius: 9px;
-  background: white;
-  text-align: center;
+footer {
+  padding:28px;
+  border-top:1px solid var(--borda);
+  color:var(--cinza);
+  text-align:center;
+  font-size:12px;
 }
-
-.combinacao-numero {
-  color: var(--azul-medio);
-  font-size: 10px;
-  font-weight: bold;
+@media(max-width:700px) {
+  .cabecalho-interno {padding:18px 15px}
+  .marca {gap:12px}
+  .logo {width:120px}
+  .divisoria {height:35px}
+  .marca-texto strong {font-size:14px;letter-spacing:2px}
+  .marca-texto span {font-size:9px;letter-spacing:0}
+  .voltar {padding:11px;font-size:10px}
+  .conteudo {padding:30px 15px 55px}
+  .painel-cabecalho {padding:15px 12px}
+  .painel-titulo,.painel-tipo {font-size:10px}
+  .visualizador-area {padding:6px}
+  .visualizador {height:430px;min-height:0}
+  .medidas {grid-template-columns:1fr}
+  .informacoes {padding:20px}
 }
-
-.combinacao-medida {
-  font-size: 12px;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.nota-medidas {
-  margin: 14px 0 0;
-  font-size: 10px;
-  color: var(--cinza);
-}
-
-/* RODAPÉ */
-
-.rodape {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 17px 5%;
-  color: #68869b;
-  font-size: 10px;
-}
-
-.rodape strong {
-  color: var(--azul);
-  letter-spacing: 1px;
-}
-
-/* RESPONSIVIDADE */
-
-@media (max-width: 700px) {
-
-  .cabecalho {
-    padding: 13px 4%;
-    gap: 10px;
-  }
-
-  .marca {
-    gap: 10px;
-  }
-
-  .logo {
-    width: 115px;
-  }
-
-  .divisor {
-    height: 27px;
-  }
-
-  .nome-linha strong {
-    font-size: 11px;
-    letter-spacing: 1px;
-  }
-
-  .nome-linha span {
-    font-size: 8px;
-    letter-spacing: 0;
-  }
-
-  .voltar {
-    padding: 10px;
-    font-size: 10px;
-  }
-
-  .conteudo {
-    width: 96%;
-    padding-top: 20px;
-  }
-
-  .identificacao h1 {
-    font-size: 23px;
-  }
-
-  .subtitulo {
-    font-size: 11px;
-  }
-
-  .barra {
-    padding: 0 12px;
-    min-height: 40px;
-  }
-
-  .barra-esquerda,
-  .barra-direita {
-    font-size: 9px;
-  }
-
-  .instrucao {
-    padding: 10px 12px;
-  }
-
-  .instrucao span,
-  .instrucao small {
-    font-size: 9px;
-  }
-
-  .painel {
-    padding: 15px;
-  }
-
-  .painel h2 {
-    font-size: 11px;
-  }
-
-  .opcoes {
-    gap: 8px;
-  }
-
-  .opcao {
-    padding: 10px 6px;
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
-
-  .amostra {
-    width: 30px;
-    height: 30px;
-  }
-
-  .opcao-texto strong {
-    font-size: 10px;
-  }
-
-  .opcao-texto small {
-    font-size: 9px;
-  }
-
-  .medidas-resumo {
-    gap: 7px;
-  }
-
-  .medida {
-    padding: 13px 5px;
-  }
-
-  .medida-label {
-    font-size: 8px;
-    letter-spacing: 0;
-  }
-
-  .medida-valor {
-    font-size: 12px;
-  }
-
-  .medida-unidade {
-    font-size: 10px;
-  }
-
-  .combinacoes {
-    gap: 8px;
-  }
-
-  .combinacao {
-    padding: 12px 5px;
-    gap: 5px;
-  }
-
-  .combinacao-numero {
-    font-size: 9px;
-  }
-
-  .combinacao-medida {
-    font-size: 10px;
-  }
-
-  .rodape {
-    padding: 15px 4%;
-    font-size: 9px;
-  }
-}
-
-@media (max-width: 360px) {
-  .combinacoes {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:420px) {
+  .logo {width:95px}
+  .marca {gap:8px}
+  .marca-texto strong {font-size:12px;letter-spacing:1px}
+  .marca-texto span {font-size:8px}
 }
 </style>
 </head>
-
 <body>
 
-<div class="pagina">
-
-  <!-- CABEÇALHO -->
-
-  <header class="cabecalho">
-
+<header class="cabecalho">
+  <div class="cabecalho-interno">
     <div class="marca">
-
-      <img
-        id="logo"
-        class="logo"
-        src="../imagens/logo-gondopar.png.png"
-        alt="Gondopar">
-
-      <div class="divisor"></div>
-
-      <div class="nome-linha">
+      <a href="../index.html">
+        <img
+          class="logo"
+          src="../imagens/logo-gondopar.png"
+          alt="Gondopar">
+      </a>
+      <div class="divisoria"></div>
+      <div class="marca-texto">
         <strong>FLEXPRO</strong>
-        <span>LINHA DE EXPOSITORES</span>
+        <span>LINHA DE GÔNDOLAS</span>
+      </div>
+    </div>
+    <a class="voltar" href="../index.html">
+      ← CATÁLOGO
+    </a>
+  </div>
+</header>
+
+<main class="conteudo">
+
+  <div class="categoria">
+    LINHA FLEXPRO · DERMOCOSMÉTICOS
+  </div>
+
+  <h1>DERMO</h1>
+
+  <p class="descricao">
+    Explore o Dermo em 360°
+    e consulte as dimensões e cores disponíveis.
+  </p>
+
+  <section class="painel">
+
+    <div class="painel-cabecalho">
+      <div class="painel-titulo">
+        <span class="indicador"></span>
+        VISUALIZADOR DO PRODUTO
+      </div>
+      <div class="painel-tipo">
+        KEYSHOTXR · 360°
+      </div>
+    </div>
+
+    <div class="visualizador-area">
+      <iframe
+        id="visualizador"
+        class="visualizador"
+        title="Dermo em 360 graus"
+        loading="eager"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p class="instrucao">
+      Clique e arraste sobre o produto
+      para visualizar em 360°.
+    </p>
+
+    <a
+      id="abrir-360"
+      class="abrir-externo"
+      target="_blank"
+      rel="noopener noreferrer">
+      Abrir visualização 360° em nova guia
+    </a>
+
+  </section>
+
+  <section class="informacoes">
+
+    <h2>DIMENSÕES DISPONÍVEIS</h2>
+
+    <div class="medidas">
+
+      <div class="medida">
+        <span>Profundidade</span>
+        <strong>300 mm</strong>
+      </div>
+
+      <div class="medida">
+        <span>Largura</span>
+        <strong>330 e 630 mm</strong>
+      </div>
+
+      <div class="medida">
+        <span>Altura</span>
+        <strong>2200 e 2400 mm</strong>
       </div>
 
     </div>
 
-    <a class="voltar" href="../index.html">
-      ← CATÁLOGO
-    </a>
+    <h2 style="margin-top:32px">CORES DISPONÍVEIS</h2>
 
-  </header>
-
-  <!-- CONTEÚDO -->
-
-  <main class="conteudo">
-
-    <section class="identificacao">
-
-      <span class="referencia">
-        LINHA FLEXPRO · REF. 25
-      </span>
-
-      <h1>DERMO FLEXPRO PREMIUM</h1>
-
-      <p class="subtitulo">
-        Explore o produto em 360° e selecione
-        o acabamento desejado.
-      </p>
-
-    </section>
-
-    <!-- VISUALIZADOR -->
-
-    <section class="quadro">
-
-      <div class="barra">
-
-        <div class="barra-esquerda">
-          <span class="ponto"></span>
-          VISUALIZADOR DO PRODUTO
-        </div>
-
-        <span class="barra-direita">
-          KEYSHOTXR · 360°
-        </span>
-
+    <div class="cores">
+      <div class="cor">
+        <span class="amostra preto"></span>
+        <span>Preto</span>
       </div>
-
-      <div class="viewer" id="viewer">
-
-        <iframe
-          id="keyshotFrame"
-          src="../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html"
-          title="DERMO FLEXPRO PREMIUM 360°"
-          allowfullscreen
-          loading="eager">
-        </iframe>
-
+      <div class="cor">
+        <span class="amostra branco"></span>
+        <span>Branco</span>
       </div>
-
-      <div class="instrucao">
-
-        <span>
-          ↻ Clique e arraste para girar o produto
-        </span>
-
-        <small>RENDER FOTORREALISTA</small>
-
+      <div class="cor">
+        <span class="amostra madeirado"></span>
+        <span>Madeirado</span>
       </div>
+    </div>
 
-    </section>
+    <p class="nota">
+      As cores representam opções de acabamento.
+      A visualização 360° apresenta o modelo da
+      exportação disponibilizada.
+    </p>
 
-    <!-- ACABAMENTOS -->
+    <p class="nota">
+      Todas as dimensões estão expressas em
+      milímetros (mm).
+    </p>
 
-    <section class="painel">
+  </section>
 
-      <div class="painel-topo">
+</main>
 
-        <h2>ACABAMENTOS DISPONÍVEIS</h2>
-
-        <span>Selecione uma opção</span>
-
-      </div>
-
-      <div class="opcoes">
-
-        <button
-          class="opcao ativa"
-          type="button"
-          aria-pressed="true"
-          onclick="mudarCor('itapua', this)">
-
-          <span class="amostra itapua"></span>
-
-          <span class="opcao-texto">
-            <strong>Itapuã</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-        <button
-          class="opcao"
-          type="button"
-          aria-pressed="false"
-          onclick="mudarCor('branco', this)">
-
-          <span class="amostra branco"></span>
-
-          <span class="opcao-texto">
-            <strong>Branco</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-        <button
-          class="opcao"
-          type="button"
-          aria-pressed="false"
-          onclick="mudarCor('preto', this)">
-
-          <span class="amostra preto"></span>
-
-          <span class="opcao-texto">
-            <strong>Preto</strong>
-            <small>Visualizar em 360°</small>
-          </span>
-
-        </button>
-
-      </div>
-
-    </section>
-
-    <!-- DIMENSÕES DISPONÍVEIS -->
-
-    <section class="painel">
-
-      <div class="painel-topo">
-
-        <h2>DIMENSÕES DISPONÍVEIS</h2>
-
-        <span>Medidas em mm</span>
-
-      </div>
-
-      <div class="medidas-resumo">
-
-        <div class="medida">
-
-          <span class="medida-label">
-            PROFUNDIDADE
-          </span>
-
-          <span class="medida-valor">
-            300 <span class="medida-unidade">mm</span>
-          </span>
-
-        </div>
-
-        <div class="medida">
-
-          <span class="medida-label">
-            LARGURA
-          </span>
-
-          <span class="medida-valor">
-            330 / 630
-            <span class="medida-unidade">mm</span>
-          </span>
-
-        </div>
-
-        <div class="medida">
-
-          <span class="medida-label">
-            ALTURA
-          </span>
-
-          <span class="medida-valor">
-            2200 / 2400
-            <span class="medida-unidade">mm</span>
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="separador"></div>
-
-      <p class="combinacoes-titulo">
-        COMBINAÇÕES DISPONÍVEIS (P × L × A)
-      </p>
-
-      <div class="combinacoes">
-
-        <div class="combinacao">
-          <span class="combinacao-numero">01</span>
-          <span class="combinacao-medida">
-            300 × 330 × 2200 mm
-          </span>
-        </div>
-
-        <div class="combinacao">
-          <span class="combinacao-numero">02</span>
-          <span class="combinacao-medida">
-            300 × 630 × 2200 mm
-          </span>
-        </div>
-
-        <div class="combinacao">
-          <span class="combinacao-numero">03</span>
-          <span class="combinacao-medida">
-            300 × 330 × 2400 mm
-          </span>
-        </div>
-
-        <div class="combinacao">
-          <span class="combinacao-numero">04</span>
-          <span class="combinacao-medida">
-            300 × 630 × 2400 mm
-          </span>
-        </div>
-
-      </div>
-
-      <p class="nota-medidas">
-        P = Profundidade · L = Largura · A = Altura
-      </p>
-
-    </section>
-
-  </main>
-
-  <!-- RODAPÉ -->
-
-  <footer class="rodape">
-    <strong>GONDOPAR</strong>
-    <span>Gôndolas e mobílias especiais</span>
-  </footer>
-
-</div>
+<footer>
+  Gondopar – soluções e mobiliários especiais
+</footer>
 
 <script>
-
-/* LOGO */
-
-const logo = document.getElementById("logo");
-
-logo.onerror = function() {
-  if (!this.dataset.tentouOutro) {
-    this.dataset.tentouOutro = "sim";
-    this.src = "../imagens/logo-gondopar.png";
-  }
-};
-
-/* CONFIGURAÇÃO DOS RENDERS */
-
-const modelos = {
-
-  itapua: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_ITAPUA.6.html",
-    largura: 1453,
-    altura: 1000
-  },
-
-  branco: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_BRANCO.5.html",
-    largura: 1453,
-    altura: 1000
-  },
-
-  preto: {
-    arquivo:
-      "../keyshotxr/DERMO_FLEXPRO_PREMIUM_PRETO.5.html",
-    largura: 1571,
-    altura: 823
-  }
-
-};
-
-const viewer = document.getElementById("viewer");
-const frame = document.getElementById("keyshotFrame");
-
-let corAtual = "itapua";
-
-const proporcaoPadrao = 1000 / 1453;
-
 /*
-  AJUSTE DO VISUALIZADOR
+  Estrutura esperada:
 
-  Branco e Itapuã:
-  mantêm o enquadramento original.
-
-  Preto:
-  preenche a altura inteira do quadro,
-  eliminando as faixas brancas.
-
-  O render não é deformado.
+  KeyShotXR/
+    DERMO.29.html
+    DERMO.29/
+      files/
 */
 
-function ajustarVisualizador() {
-
-  const modelo = modelos[corAtual];
-
-  const larguraQuadro = viewer.clientWidth;
-
-  if (!larguraQuadro) return;
-
-  const alturaQuadro =
-    larguraQuadro * proporcaoPadrao;
-
-  viewer.style.height = alturaQuadro + "px";
-
-  /*
-    Para o Preto, usa a maior escala,
-    preenchendo toda a área disponível.
-
-    Para os outros acabamentos,
-    mantém a escala original.
-  */
-
-  const escala = corAtual === "preto"
-    ? Math.max(
-        larguraQuadro / modelo.largura,
-        alturaQuadro / modelo.altura
-      )
-    : Math.min(
-        larguraQuadro / modelo.largura,
-        alturaQuadro / modelo.altura
-      );
-
-  const larguraFinal =
-    modelo.largura * escala;
-
-  const alturaFinal =
-    modelo.altura * escala;
-
-  /*
-    Centralização do render.
-    O excesso lateral do Preto
-    fica oculto pelo quadro.
-  */
-
-  const deslocamentoX =
-    (larguraQuadro - larguraFinal) / 2;
-
-  const deslocamentoY =
-    (alturaQuadro - alturaFinal) / 2;
-
-  frame.style.width =
-    modelo.largura + "px";
-
-  frame.style.height =
-    modelo.altura + "px";
-
-  frame.style.left =
-    deslocamentoX + "px";
-
-  frame.style.top =
-    deslocamentoY + "px";
-
-  frame.style.transformOrigin = "top left";
-
-  frame.style.transform =
-    "scale(" + escala + ")";
-
-}
-
-/* TROCA DE ACABAMENTOS */
-
-function mudarCor(cor, botao) {
-
-  const modelo = modelos[cor];
-
-  if (!modelo) return;
-
-  corAtual = cor;
-
-  document.querySelectorAll(".opcao").forEach(
-    opcao => {
-      opcao.classList.remove("ativa");
-      opcao.setAttribute("aria-pressed", "false");
-    }
-  );
-
-  botao.classList.add("ativa");
-  botao.setAttribute("aria-pressed", "true");
-
-  ajustarVisualizador();
-
-  if (frame.getAttribute("src") !== modelo.arquivo) {
-    frame.src = modelo.arquivo;
-  }
-
-}
-
-/* RESPONSIVIDADE */
-
-window.addEventListener(
-  "resize",
-  ajustarVisualizador
+const url360 = new URL(
+  "../KeyShotXR/DERMO.29.html",
+  document.baseURI
 );
 
-window.addEventListener(
-  "load",
-  ajustarVisualizador
-);
+const paginaAtual = new URL(window.location.href);
+const visualizador = document.getElementById("visualizador");
+const link360 = document.getElementById("abrir-360");
 
-ajustarVisualizador();
-
+if (
+  url360.origin === paginaAtual.origin &&
+  url360.pathname === paginaAtual.pathname
+) {
+  visualizador.removeAttribute("src");
+  link360.hidden = true;
+  console.error("O visualizador aponta para a própria página.");
+} else {
+  visualizador.src = url360.href;
+  link360.href = url360.href;
+}
 </script>
 
 </body>
