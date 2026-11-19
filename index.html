@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Catálogo FLEXPRO | Gondopar</title>
 
 <style>
@@ -32,12 +31,11 @@ body {
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
   background:linear-gradient(
-    120deg,
-    #f7fcfe,
-    #e7f7fb,
-    #d9f2f9
+    120deg,#f7fcfe,#e7f7fb,#d9f2f9
   );
 }
+
+/* CABEÇALHO */
 
 header {
   background:rgba(255,255,255,.85);
@@ -74,6 +72,8 @@ header {
   text-align:right;
 }
 
+/* VÍDEO PRINCIPAL */
+
 .banner {
   width:min(var(--largura),94%);
   aspect-ratio:2/1;
@@ -100,6 +100,8 @@ header {
   display:none;
 }
 
+/* CATÁLOGO */
+
 main {
   width:min(var(--largura),94%);
   margin:0 auto;
@@ -125,6 +127,8 @@ h1 {
   font-size:14px;
   line-height:1.7;
 }
+
+/* FILTROS */
 
 .barra-filtros {
   display:flex;
@@ -216,6 +220,8 @@ h1 {
   color:white;
 }
 
+/* GRADE DE PRODUTOS */
+
 .grade {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -253,7 +259,6 @@ h1 {
 }
 
 .card-imagem img {
-  display:block;
   width:100%;
   height:100%;
   object-fit:contain;
@@ -325,6 +330,8 @@ h1 {
   background:var(--azul-medio);
 }
 
+/* RODAPÉ */
+
 footer {
   padding:26px 5%;
   text-align:center;
@@ -332,6 +339,8 @@ footer {
   color:var(--cinza);
   font-size:11px;
 }
+
+/* RESPONSIVIDADE */
 
 @media(max-width:1000px) {
   .grade {
@@ -393,15 +402,12 @@ footer {
 
 <header>
   <div class="cabecalho">
-
     <div>
-      <a href="index.html">
-        <img
-          id="logo"
-          class="logo"
-          src="imagens/logo-gondopar.png"
-          alt="Gondopar">
-      </a>
+      <img
+        id="logo"
+        class="logo"
+        src="imagens/logo-gondopar.png"
+        alt="Gondopar">
 
       <span id="logoTexto" class="logo-texto">
         GONDOPAR
@@ -411,9 +417,10 @@ footer {
     <div class="marca">
       Gôndolas e mobiliários especiais
     </div>
-
   </div>
 </header>
+
+<!-- VÍDEO PRINCIPAL -->
 
 <section class="banner" id="bannerPrincipal">
 
@@ -455,6 +462,8 @@ footer {
     </p>
   </section>
 
+  <!-- FILTROS -->
+
   <div class="barra-filtros">
 
     <div class="filtros-esquerda">
@@ -467,19 +476,23 @@ footer {
         ☷ FILTRAR POR CATEGORIA ▼
       </button>
 
-      <span id="filtroAtual" class="filtro-atual">
+      <span
+        id="filtroAtual"
+        class="filtro-atual">
         TODOS OS PRODUTOS
       </span>
 
     </div>
 
     <span id="contador" class="contador">
-      PRODUTOS
+      55 PRODUTOS
     </span>
 
   </div>
 
-  <div id="painelFiltros" class="painel-filtros">
+  <div
+    id="painelFiltros"
+    class="painel-filtros">
 
     <h2>SELECIONE UMA CATEGORIA</h2>
 
@@ -490,7 +503,12 @@ footer {
 
   </div>
 
-  <section id="gradeProdutos" class="grade"></section>
+  <!-- CARDS -->
+
+  <section
+    id="gradeProdutos"
+    class="grade">
+  </section>
 
 </main>
 
@@ -500,9 +518,7 @@ footer {
 
 <script>
 
-/* =========================================
-   LOGOTIPO
-========================================= */
+/* LOGO */
 
 const logo = document.getElementById("logo");
 
@@ -511,9 +527,7 @@ logo.onerror = function() {
   document.getElementById("logoTexto").style.display = "block";
 };
 
-/* =========================================
-   BANNER
-========================================= */
+/* VÍDEO */
 
 const video = document.getElementById("videoBanner");
 const fallback = document.getElementById("bannerFallback");
@@ -525,50 +539,51 @@ function mostrarImagem() {
 
 video.addEventListener("error", mostrarImagem);
 
-video.querySelector("source").addEventListener(
-  "error",
-  mostrarImagem
-);
+video.querySelector("source")
+  .addEventListener("error", mostrarImagem);
 
 fallback.addEventListener("error", function() {
   if (video.style.display === "none") {
-    document.getElementById("bannerPrincipal").style.display = "none";
+    document.getElementById("bannerPrincipal")
+      .style.display = "none";
   }
 });
 
-video.play().catch(function() {});
+video.play().catch(function(){});
 
-/* =========================================
-   CATEGORIAS
-========================================= */
+/* CATEGORIAS */
 
 const categorias = [
-  ["parede", "Gôndolas de Parede"],
-  ["centro", "Gôndolas de Centro e Pontas"],
-  ["balcoes", "Balcões e Expositores"],
-  ["checkouts", "Checkouts"],
-  ["dermo", "Dermocosméticos"],
-  ["mip", "MIP e Armários"],
-  ["outros", "Outros Mobiliários"],
-  ["fechamentos", "Fechamentos"],
-  ["cestos", "Cestos"],
-  ["suportes", "Suportes para Monitor"],
-  ["acessorios", "Acessórios e Complementos"]
+  ["parede","Gôndolas de Parede"],
+  ["centro","Gôndolas de Centro e Pontas"],
+  ["balcoes","Balcões e Expositores"],
+  ["checkouts","Checkouts"],
+  ["dermo","Dermocosméticos"],
+  ["mip","MIP e Armários"],
+  ["outros","Outros Mobiliários"],
+  ["fechamentos","Fechamentos"],
+  ["cestos","Cestos"],
+  ["suportes","Suportes para Monitor"],
+  ["acessorios","Acessórios e Complementos"]
 ];
 
-/* =========================================
-   PRODUTOS FLEXPRO
+/*
+  FORMATO DE CADA PRODUTO:
 
-   Estrutura:
-   [
-     Nome,
-     Nome da imagem sem extensão,
-     Categoria,
-     Página HTML
-   ]
+  [
+    "Nome",
+    "Nome da imagem sem extensão",
+    "categoria",
+    "produtos/pagina.html"
+  ]
 
-   Produtos sem página pronta usam null.
-========================================= */
+  Para imagem ausente: null
+
+  O catálogo procura primeiro .png.
+  Se não encontrar, tenta .jpg, .jpeg e .webp.
+*/
+
+/* TODOS OS 55 PRODUTOS */
 
 const dadosProdutos = [
 
@@ -606,7 +621,7 @@ const dadosProdutos = [
     "Gôndola Parede com Testeira Concept",
     "AMBIENTAÇÃO_PAREDE G2",
     "parede",
-    "produtos/gondola-parede-testeira-concept.html"
+    "produtos/gondola-parede-com-testeira-concept.html"
   ],
 
   /* GÔNDOLAS DE CENTRO E PONTAS */
@@ -756,12 +771,12 @@ const dadosProdutos = [
     "MIP",
     "AMBIENTAÇÃO_MIP",
     "mip",
-    null
+    "produtos/mip.html"
   ],
 
   [
     "Armário Psicotrópico",
-    "AMBIENTAÇÃO_ARMARIO PSICO",
+    "AMBIENTAÇÃO_ARMARIO PSICO ",
     "mip",
     "produtos/armario-psicotropico.html"
   ],
@@ -791,20 +806,84 @@ const dadosProdutos = [
 
   /* FECHAMENTOS */
 
-  ["Fechamento Lateral", null, "fechamentos", null],
-  ["Fechamento U", null, "fechamentos", null],
-  ["Fechamento L", null, "fechamentos", null],
-  ["Canto Triangular Fechado", null, "fechamentos", null],
-  ["Canto Triangular Aberto", null, "fechamentos", null],
+  [
+    "Fechamento Lateral",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento U",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento L",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Fechado",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Aberto",
+    null,
+    "fechamentos",
+    null
+  ],
 
   /* CESTOS */
 
-  ["Cesto Promoção", null, "cestos", null],
-  ["Cesto Última Chance", null, "cestos", null],
-  ["Cesto Lenço", null, "cestos", null],
-  ["Cesto Aço", null, "cestos", null],
-  ["Cesto MDF", null, "cestos", null],
-  ["Cesto Alumínio", null, "cestos", null],
+  [
+    "Cesto Promoção",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Última Chance",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Lenço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Aço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto MDF",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Alumínio",
+    null,
+    "cestos",
+    null
+  ],
 
   [
     "Cesto Aramado",
@@ -815,37 +894,120 @@ const dadosProdutos = [
 
   /* SUPORTES PARA MONITOR */
 
-  ["Suporte Simples", null, "suportes", null],
-  ["Suporte Duplo", null, "suportes", null],
-  ["Suporte Simples + Numeração", null, "suportes", null],
-  ["Suporte Duplo + Numeração", null, "suportes", null],
+  [
+    "Suporte Simples",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Simples + Numeração",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo + Numeração",
+    null,
+    "suportes",
+    null
+  ],
 
   /* ACESSÓRIOS E COMPLEMENTOS */
 
-  ["Expositor de Esparadrapo", null, "acessorios", null],
-  ["Aparador", null, "acessorios", null],
-  ["Comprimideiro OTC", null, "acessorios", null],
-  ["Régua com Ganchos", null, "acessorios", null],
-  ["Mobiliário Descarte", null, "acessorios", null],
-  ["Display de Balcão Grande", null, "acessorios", null],
-  ["Display de Balcão Pequeno", null, "acessorios", null],
-  ["Totem para Tablet", null, "acessorios", null],
-  ["Porta Encarte", null, "acessorios", null],
-  ["Letreiro", null, "acessorios", null]
+  [
+    "Expositor de Esparadrapo",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Aparador",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Comprimideiro OTC",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Régua com Ganchos",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Mobiliário Descarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Grande",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Pequeno",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Totem para Tablet",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Porta Encarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Letreiro",
+    null,
+    "acessorios",
+    null
+  ]
 
 ];
 
-/* =========================================
-   PREPARAÇÃO DOS DADOS
-========================================= */
+/* ORGANIZAR PRODUTOS */
 
-const produtos = dadosProdutos.map((p, i) => ({
-  id:String(i + 1).padStart(2, "0"),
-  nome:p[0],
-  imagem:p[1],
-  categoria:p[2],
-  pagina:p[3]
-}));
+const produtos = dadosProdutos.map(function(p) {
+  return {
+    nome:p[0],
+    imagem:p[1],
+    categoria:p[2],
+    pagina:p[3]
+  };
+});
+
+/* ELEMENTOS */
 
 const grade = document.getElementById("gradeProdutos");
 const contador = document.getElementById("contador");
@@ -856,136 +1018,114 @@ const opcoesCategoria = document.getElementById("opcoesCategoria");
 
 let categoriaSelecionada = "todos";
 
-/* =========================================
-   NOMES DAS CATEGORIAS
-========================================= */
+/* NOME DA CATEGORIA */
 
 function nomeCategoria(id) {
-  const item = categorias.find(c => c[0] === id);
+  const item = categorias.find(function(c) {
+    return c[0] === id;
+  });
+
   return item ? item[1] : "";
 }
 
-/* =========================================
-   IMAGEM EM PREPARAÇÃO
-========================================= */
+/* IMAGEM EM PREPARAÇÃO */
 
 function criarPlaceholder() {
-
   const caixa = document.createElement("div");
   caixa.className = "sem-imagem";
 
   caixa.innerHTML = `
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 48 48"
       fill="none"
-      stroke-width="1.5"
+      stroke-width="2"
       stroke-linecap="round"
-      stroke-linejoin="round">
-
-      <rect
-        x="3"
-        y="3"
-        width="18"
-        height="18"
-        rx="2">
-      </rect>
-
-      <circle
-        cx="8.5"
-        cy="8.5"
-        r="1.5">
-      </circle>
-
-      <path d="m21 15-5-5L5 21"></path>
-
+      stroke-linejoin="round"
+      aria-hidden="true">
+      <rect x="5" y="7" width="38" height="34" rx="4"/>
+      <circle cx="16" cy="18" r="3"/>
+      <path d="M7 37L20 24L27 30L33 23L42 32"/>
     </svg>
-
     <span>IMAGEM EM PREPARAÇÃO</span>
   `;
 
   return caixa;
 }
 
-/* =========================================
-   CARREGAMENTO DAS IMAGENS
+/* CARREGAMENTO DE IMAGENS */
 
-   Tenta PNG, JPG, JPEG e WEBP.
-   Mantém a imagem inteira, sem cortes.
-========================================= */
+/*
+  Tenta localizar a imagem com extensões
+  diferentes, mantendo o nome exato informado.
 
-function criarImagem(produto) {
+  Isso inclui o espaço antes de .png no
+  Armário Psicotrópico.
+*/
 
-  const caixa = document.createElement("div");
-  caixa.className = "card-imagem";
+function criarImagem(nomeImagem) {
 
-  if (!produto.imagem) {
-    caixa.appendChild(criarPlaceholder());
-    return caixa;
+  const recipiente = document.createElement("div");
+  recipiente.className = "card-imagem";
+
+  if (!nomeImagem) {
+    recipiente.appendChild(criarPlaceholder());
+    return recipiente;
   }
 
-  const img = document.createElement("img");
+  const imagem = document.createElement("img");
+  imagem.alt = nomeImagem;
+  imagem.loading = "lazy";
 
-  img.alt = produto.nome;
-  img.loading = "lazy";
-  img.decoding = "async";
-
-  const nomeArquivo = produto.imagem;
-
-  const caminhos = [
-    "imagens/" + nomeArquivo + ".png",
-    "imagens/" + nomeArquivo + ".jpg",
-    "imagens/" + nomeArquivo + ".jpeg",
-    "imagens/" + nomeArquivo + ".webp"
-  ];
-
+  const extensoes = [".png",".jpg",".jpeg",".webp"];
   let tentativa = 0;
 
-  img.onerror = function() {
+  function tentarImagem() {
+
+    if (tentativa >= extensoes.length) {
+      imagem.remove();
+      recipiente.appendChild(criarPlaceholder());
+      return;
+    }
+
+    const caminho =
+      "imagens/" + nomeImagem + extensoes[tentativa];
 
     tentativa++;
 
-    if (tentativa < caminhos.length) {
+    imagem.src = encodeURI(caminho);
+  }
 
-      img.src = caminhos[tentativa];
+  imagem.onerror = tentarImagem;
 
-    } else {
+  recipiente.appendChild(imagem);
 
-      img.remove();
-      caixa.appendChild(criarPlaceholder());
+  tentarImagem();
 
-    }
-  };
-
-  img.src = caminhos[0];
-
-  caixa.appendChild(img);
-
-  return caixa;
+  return recipiente;
 }
 
-/* =========================================
-   CRIAÇÃO DOS CARDS
-========================================= */
+/* CRIAR CARD */
 
 function criarCard(produto) {
 
+  const temPagina = Boolean(produto.pagina);
+
+  const destino = temPagina
+    ? produto.pagina
+    : "produtos/em-preparacao.html";
+
   const card = document.createElement("a");
+
   card.className = "card";
+  card.href = destino;
 
-  card.href = produto.pagina ||
-    (
-      "produtos/em-preparacao.html?id=" +
-      encodeURIComponent(produto.id)
-    );
-
-  card.appendChild(criarImagem(produto));
+  const imagem = criarImagem(produto.imagem);
 
   const conteudo = document.createElement("div");
   conteudo.className = "card-conteudo";
 
   const categoria = document.createElement("div");
   categoria.className = "card-categoria";
-
   categoria.textContent =
     nomeCategoria(produto.categoria).toUpperCase();
 
@@ -994,107 +1134,99 @@ function criarCard(produto) {
 
   const descricao = document.createElement("p");
 
-  descricao.textContent = produto.pagina
+  descricao.textContent = temPagina
     ? "Visualização interativa do produto."
-    : "Página do produto disponível. Visualização 360° em preparação.";
+    : "Página do produto em preparação.";
 
   const botao = document.createElement("span");
   botao.className = "abrir";
 
-  botao.textContent = produto.pagina
+  botao.textContent = temPagina
     ? "EXPLORAR EM 360° →"
-    : "VER PÁGINA DO PRODUTO →";
+    : "EM PREPARAÇÃO →";
 
-  conteudo.append(
-    categoria,
-    titulo,
-    descricao,
-    botao
-  );
+  conteudo.appendChild(categoria);
+  conteudo.appendChild(titulo);
+  conteudo.appendChild(descricao);
+  conteudo.appendChild(botao);
 
+  card.appendChild(imagem);
   card.appendChild(conteudo);
 
   return card;
 }
 
-/* =========================================
-   EXIBIÇÃO DOS PRODUTOS
-========================================= */
+/* RENDERIZAR PRODUTOS */
 
 function renderizarProdutos() {
 
   grade.innerHTML = "";
 
-  const lista = categoriaSelecionada === "todos"
-    ? produtos
-    : produtos.filter(
-        p => p.categoria === categoriaSelecionada
-      );
+  const filtrados = produtos.filter(function(produto) {
+    return (
+      categoriaSelecionada === "todos" ||
+      produto.categoria === categoriaSelecionada
+    );
+  });
 
-  lista.forEach(produto => {
+  filtrados.forEach(function(produto) {
     grade.appendChild(criarCard(produto));
   });
 
   contador.textContent =
-    lista.length +
-    (lista.length === 1 ? " PRODUTO" : " PRODUTOS");
+    filtrados.length +
+    (filtrados.length === 1 ? " PRODUTO" : " PRODUTOS");
 
   filtroAtual.textContent =
     categoriaSelecionada === "todos"
       ? "TODOS OS PRODUTOS"
       : nomeCategoria(categoriaSelecionada).toUpperCase();
+
 }
 
-/* =========================================
-   FILTROS POR CATEGORIA
-========================================= */
+/* BOTÕES DE CATEGORIA */
 
 function criarFiltros() {
 
   opcoesCategoria.innerHTML = "";
 
-  const opcoes = [
-    ["todos", "Todos os Produtos"],
+  const todasCategorias = [
+    ["todos","Todos os Produtos"],
     ...categorias
   ];
 
-  opcoes.forEach(opcao => {
+  todasCategorias.forEach(function(categoria) {
 
     const botao = document.createElement("button");
 
     botao.type = "button";
     botao.className = "opcao-categoria";
-    botao.textContent = opcao[1];
+    botao.textContent = categoria[1];
 
-    if (opcao[0] === categoriaSelecionada) {
+    if (categoria[0] === categoriaSelecionada) {
       botao.classList.add("selecionada");
     }
 
     botao.addEventListener("click", function() {
 
-      categoriaSelecionada = opcao[0];
+      categoriaSelecionada = categoria[0];
 
       criarFiltros();
       renderizarProdutos();
 
       painelFiltros.classList.remove("aberto");
       botaoFiltro.classList.remove("ativo");
-
-      botaoFiltro.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+      botaoFiltro.setAttribute("aria-expanded","false");
 
     });
 
     opcoesCategoria.appendChild(botao);
 
   });
+
 }
 
-/* =========================================
-   ABRIR E FECHAR FILTROS
-========================================= */
+/* ABRIR E FECHAR FILTROS */
 
 botaoFiltro.addEventListener("click", function() {
 
@@ -1109,9 +1241,7 @@ botaoFiltro.addEventListener("click", function() {
 
 });
 
-/* =========================================
-   INICIALIZAÇÃO
-========================================= */
+/* INICIALIZAÇÃO */
 
 criarFiltros();
 renderizarProdutos();
