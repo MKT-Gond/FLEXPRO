@@ -3,8 +3,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gôndola de Parede com Testeira Concept | Gondopar FLEXPRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gôndola Parede com Testeira Concept | Gondopar FLEXPRO</title>
 
 <style>
 :root {
@@ -25,8 +25,6 @@ body {
 }
 
 a {color:inherit}
-
-/* CABEÇALHO */
 
 .cabecalho {
   background:rgba(255,255,255,.94);
@@ -93,8 +91,6 @@ a {color:inherit}
 
 .voltar:hover {background:#f2f9fd}
 
-/* CONTEÚDO */
-
 .conteudo {
   max-width:1300px;
   margin:auto;
@@ -115,13 +111,11 @@ h1 {
 }
 
 .descricao {
-  margin:0 0 32px;
+  margin:0 0 30px;
   color:var(--cinza);
   font-size:15px;
   line-height:1.7;
 }
-
-/* VISUALIZADOR */
 
 .painel {
   overflow:hidden;
@@ -180,7 +174,7 @@ h1 {
 }
 
 .instrucao {
-  padding:0 20px 22px;
+  padding:0 20px 15px;
   color:var(--cinza);
   text-align:center;
   font-size:12px;
@@ -189,7 +183,7 @@ h1 {
 .abrir-externo {
   display:block;
   width:fit-content;
-  margin:0 auto 24px;
+  margin:0 auto 25px;
   color:var(--azul-claro);
   font-size:12px;
   font-weight:700;
@@ -198,89 +192,79 @@ h1 {
 
 .abrir-externo:hover {text-decoration:underline}
 
-/* DIMENSÕES E PERSONALIZAÇÃO */
-
-.informacoes,
-.opcionais {
-  margin-top:30px;
-  padding:30px;
+.bloco {
+  margin-top:28px;
+  padding:26px 30px;
   border:1px solid var(--borda);
   border-radius:17px;
   background:rgba(255,255,255,.94);
 }
 
-.informacoes h2,
-.opcionais h2 {
-  margin:0 0 24px;
+.bloco h2 {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 20px;
   font-size:19px;
-  letter-spacing:.5px;
 }
 
-.medidas {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+.bloco h2::before {
+  content:"";
+  width:8px;
+  height:22px;
+  border-radius:4px;
+  background:#d80019;
 }
 
-.medida,
-.opcional {
-  padding:22px;
+.tabela {
+  width:100%;
+  border-collapse:collapse;
+}
+
+.tabela th,
+.tabela td {
+  padding:17px 15px;
+  border-bottom:1px solid #e6edf2;
+  text-align:left;
+  font-size:14px;
+}
+
+.tabela th {
+  width:220px;
+  font-weight:700;
+}
+
+.tabela td {color:var(--cinza)}
+
+.tabela tr:last-child th,
+.tabela tr:last-child td {border-bottom:0}
+
+.acessorio {
+  padding:20px;
   border:1px solid var(--borda);
   border-radius:12px;
   background:#f9fcfe;
 }
 
-.medida span {
-  display:block;
-  margin-bottom:12px;
-  color:var(--cinza);
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.medida strong {
-  display:block;
-  font-size:18px;
-  line-height:1.6;
-}
-
-.unidade {
-  margin:18px 0 0;
-  color:var(--cinza);
-  font-size:12px;
-}
-
-.tag {
+.acessorio-tipo {
   display:inline-block;
-  margin-bottom:14px;
-  padding:7px 12px;
-  border-radius:7px;
-  background:#e6f3fa;
-  color:#237fa4;
-  font-size:11px;
+  margin-bottom:10px;
+  color:var(--azul-claro);
+  font-size:10px;
   font-weight:bold;
   letter-spacing:1px;
 }
 
-.opcional h3 {
-  margin:0 0 12px;
+.acessorio h3 {
+  margin:0 0 10px;
   font-size:17px;
 }
 
-.opcional p {
+.acessorio p {
   margin:0;
   color:var(--cinza);
-  font-size:14px;
+  font-size:13px;
   line-height:1.7;
-}
-
-.consulta {
-  display:inline-block;
-  margin-top:15px;
-  color:#d80019;
-  font-size:12px;
-  font-weight:700;
 }
 
 footer {
@@ -291,46 +275,60 @@ footer {
   font-size:12px;
 }
 
-/* CELULAR */
-
 @media(max-width:700px) {
   .cabecalho-interno {padding:18px 15px}
   .marca {gap:12px}
   .logo {width:120px}
   .divisoria {height:35px}
+
   .marca-texto strong {
     font-size:14px;
     letter-spacing:2px;
   }
+
   .marca-texto span {
     font-size:9px;
     letter-spacing:0;
   }
+
   .voltar {
     padding:11px;
     font-size:10px;
   }
+
   .conteudo {padding:30px 15px 55px}
   .painel-cabecalho {padding:15px 12px}
+
   .painel-titulo,
   .painel-tipo {font-size:10px}
+
   .visualizador-area {padding:6px}
+
   .visualizador {
     height:430px;
     min-height:0;
   }
-  .medidas {grid-template-columns:1fr}
-  .informacoes,
-  .opcionais {padding:20px}
+
+  .bloco {padding:20px}
+
+  .tabela th,
+  .tabela td {
+    padding:14px 8px;
+    font-size:12px;
+  }
+
+  .tabela th {width:130px}
 }
 
 @media(max-width:420px) {
   .logo {width:95px}
   .marca {gap:8px}
+
   .marca-texto strong {
     font-size:12px;
     letter-spacing:1px;
   }
+
   .marca-texto span {font-size:8px}
 }
 </style>
@@ -370,15 +368,12 @@ footer {
     LINHA FLEXPRO · GÔNDOLAS DE PAREDE
   </div>
 
-  <h1>GÔNDOLA DE PAREDE COM TESTEIRA CONCEPT</h1>
+  <h1>GÔNDOLA PAREDE COM TESTEIRA CONCEPT</h1>
 
   <p class="descricao">
-    Explore a Gôndola de Parede com Testeira Concept
-    em 360°, consulte as dimensões disponíveis e
-    conheça as opções de personalização.
+    Explore a Gôndola Parede com Testeira Concept
+    em 360° e consulte suas dimensões disponíveis.
   </p>
-
-  <!-- VISUALIZADOR 360° -->
 
   <section class="painel">
 
@@ -397,7 +392,7 @@ footer {
       <iframe
         id="visualizador"
         class="visualizador"
-        title="Gôndola de Parede com Testeira Concept em 360 graus"
+        title="Gôndola Parede com Testeira Concept em 360 graus"
         loading="eager"
         allowfullscreen>
       </iframe>
@@ -409,7 +404,7 @@ footer {
     </p>
 
     <a
-      id="abrir-360"
+      id="abrir360"
       class="abrir-externo"
       target="_blank"
       rel="noopener noreferrer">
@@ -418,59 +413,48 @@ footer {
 
   </section>
 
-  <!-- DIMENSÕES -->
-
-  <section class="informacoes">
+  <section class="bloco">
 
     <h2>DIMENSÕES DISPONÍVEIS</h2>
 
-    <div class="medidas">
+    <table class="tabela">
+      <tbody>
+        <tr>
+          <th scope="row">Profundidade</th>
+          <td>200, 250, 300 e 400 mm</td>
+        </tr>
 
-      <div class="medida">
-        <span>Profundidade</span>
-        <strong>200, 250, 300 e 400 mm</strong>
-      </div>
+        <tr>
+          <th scope="row">Largura</th>
+          <td>750 e 1000 mm</td>
+        </tr>
 
-      <div class="medida">
-        <span>Largura</span>
-        <strong>750 e 1000 mm</strong>
-      </div>
-
-      <div class="medida">
-        <span>Altura</span>
-        <strong>2200 e 2400 mm</strong>
-      </div>
-
-    </div>
-
-    <p class="unidade">
-      Todas as dimensões estão expressas em milímetros (mm).
-    </p>
+        <tr>
+          <th scope="row">Altura</th>
+          <td>2200 e 2400 mm</td>
+        </tr>
+      </tbody>
+    </table>
 
   </section>
 
-  <!-- PERSONALIZAÇÃO -->
+  <section class="bloco">
 
-  <section class="opcionais">
+    <h2>COMUNICAÇÃO VISUAL</h2>
 
-    <h2>OPCIONAIS E PERSONALIZAÇÃO</h2>
-
-    <div class="opcional">
-
-      <span class="tag">OPCIONAL</span>
-
-      <h3>Comunicação Visual com Iluminação</h3>
-
-      <p>
-        Testeira Concept com possibilidade de
-        comunicação visual personalizada por plotagem
-        e iluminação, conforme a configuração desejada.
-      </p>
-
-      <span class="consulta">
-        CONSULTE OPÇÕES
+    <div class="acessorio">
+      <span class="acessorio-tipo">
+        PERSONALIZAÇÃO
       </span>
 
+      <h3>TESTEIRA CONCEPT</h3>
+
+      <p>
+        Comunicação visual com possibilidade
+        de plotagem personalizada e iluminação.
+        Consulte a Gondopar para conhecer
+        as opções disponíveis.
+      </p>
     </div>
 
   </section>
@@ -482,45 +466,26 @@ footer {
 </footer>
 
 <script>
-  /*
-    Estrutura esperada no GitHub:
+/*
+  Arquivos esperados:
 
-    KeyShotXR/
-      GONDOLA G2.14.html
-      GONDOLA G2.14/
-        files/
+  KeyShotXR/GONDOLA G2.14.html
 
-    O HTML exportado precisa estar
-    ao lado da pasta do KeyShotXR.
-  */
+  KeyShotXR/GONDOLA G2.14/files/
 
-  const url360 = new URL(
-    "../KeyShotXR/GONDOLA%20G2.14.html",
-    document.baseURI
-  );
+  A pasta deve conter as imagens
+  e os arquivos da exportação KeyShotXR.
+*/
 
-  const paginaAtual = new URL(window.location.href);
+const caminho360 = "../KeyShotXR/GONDOLA%20G2.14.html";
 
-  const visualizador =
-    document.getElementById("visualizador");
+const url360 = new URL(
+  caminho360,
+  document.baseURI
+).href;
 
-  const link360 =
-    document.getElementById("abrir-360");
-
-  if (
-    url360.origin === paginaAtual.origin &&
-    url360.pathname === paginaAtual.pathname
-  ) {
-    visualizador.removeAttribute("src");
-    link360.hidden = true;
-
-    console.error(
-      "O visualizador está apontando para a própria página."
-    );
-  } else {
-    visualizador.src = url360.href;
-    link360.href = url360.href;
-  }
+document.getElementById("visualizador").src = url360;
+document.getElementById("abrir360").href = url360;
 </script>
 
 </body>
