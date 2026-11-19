@@ -24,12 +24,7 @@ body {
   min-height:100vh;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(
-    125deg,
-    #f8fcff,
-    #eaf8fc 50%,
-    #e0f3f9
-  );
+  background:linear-gradient(125deg,#f8fcff,#eaf8fc 50%,#e0f3f9);
 }
 
 a {
@@ -478,24 +473,24 @@ footer {
   <h1>CHECKOUT CONCEPT</h1>
 
   <p class="descricao">
-    Explore o Checkout Concept completo em 360°
+    Explore o Checkout Concept montado em 360°
     ou selecione um dos módulos para visualizar
     cada componente individualmente.
   </p>
-
-  <!-- SELEÇÃO DOS MODELOS -->
 
   <section class="seletor">
 
     <h2>EXPLORE A COMPOSIÇÃO</h2>
 
     <p>
-      Selecione o conjunto completo ou um dos módulos
-      abaixo. A visualização será atualizada na mesma página.
+      Selecione o conjunto completo ou um dos módulos.
+      A visualização será atualizada na mesma página.
     </p>
 
-    <div class="opcoes" role="group"
-         aria-label="Selecionar modelo do Checkout Concept">
+    <div
+      class="opcoes"
+      role="group"
+      aria-label="Selecionar visualização do Checkout Concept">
 
       <button
         type="button"
@@ -504,32 +499,20 @@ footer {
         aria-pressed="true">
 
         <span class="opcao-numero">01</span>
-
-        <span class="opcao-nome">
-          CONJUNTO COMPLETO
-        </span>
-
-        <span class="opcao-tipo">
-          MONTAGEM PRINCIPAL
-        </span>
+        <span class="opcao-nome">CONJUNTO COMPLETO</span>
+        <span class="opcao-tipo">MONTAGEM PRINCIPAL</span>
 
       </button>
 
       <button
         type="button"
         class="opcao"
-        data-modelo="balcao"
+        data-modelo="isolado"
         aria-pressed="false">
 
         <span class="opcao-numero">02</span>
-
-        <span class="opcao-nome">
-          BALCÃO CONCEPT
-        </span>
-
-        <span class="opcao-tipo">
-          MÓDULO INDIVIDUAL
-        </span>
+        <span class="opcao-nome">CHECKOUT CONCEPT ISOLADO</span>
+        <span class="opcao-tipo">MÓDULO INDIVIDUAL</span>
 
       </button>
 
@@ -540,40 +523,26 @@ footer {
         aria-pressed="false">
 
         <span class="opcao-numero">03</span>
-
-        <span class="opcao-nome">
-          CONEXÃO CONCEPT
-        </span>
-
-        <span class="opcao-tipo">
-          MÓDULO INDIVIDUAL
-        </span>
+        <span class="opcao-nome">CONEXÃO CONCEPT</span>
+        <span class="opcao-tipo">MÓDULO INDIVIDUAL</span>
 
       </button>
 
       <button
         type="button"
         class="opcao"
-        data-modelo="isolado"
+        data-modelo="expositor"
         aria-pressed="false">
 
         <span class="opcao-numero">04</span>
-
-        <span class="opcao-nome">
-          CHECKOUT CONCEPT ISOLADO
-        </span>
-
-        <span class="opcao-tipo">
-          MÓDULO INDIVIDUAL
-        </span>
+        <span class="opcao-nome">BALCÃO EXPOSITOR CONCEPT</span>
+        <span class="opcao-tipo">MÓDULO INDIVIDUAL</span>
 
       </button>
 
     </div>
 
   </section>
-
-  <!-- VISUALIZADOR PRINCIPAL -->
 
   <section class="painel">
 
@@ -611,7 +580,7 @@ footer {
       <iframe
         id="visualizador"
         class="visualizador"
-        title="Visualizador 360 graus do Checkout Concept"
+        title="Checkout Concept em 360 graus"
         loading="eager"
         allowfullscreen>
       </iframe>
@@ -619,8 +588,7 @@ footer {
     </div>
 
     <p class="instrucao">
-      Clique e arraste sobre o produto
-      para visualizar em 360°.
+      Clique e arraste sobre o produto para visualizar em 360°.
     </p>
 
     <a
@@ -629,9 +597,7 @@ footer {
       href="#"
       target="_blank"
       rel="noopener noreferrer">
-
       Abrir visualização 360° em nova guia
-
     </a>
 
   </section>
@@ -641,11 +607,13 @@ footer {
     <h2>COMPOSIÇÃO DO CHECKOUT CONCEPT</h2>
 
     <p>
-      O Checkout Concept pode ser explorado como conjunto
-      montado ou por módulos individuais: Balcão Concept,
-      Conexão Concept e Checkout Concept Isolado.
-      Utilize as opções acima para visualizar os detalhes
-      de cada componente.
+      O Checkout Concept pode ser visualizado como
+      conjunto montado ou por seus três módulos:
+      Checkout Concept Isolado, Conexão Concept
+      e Balcão Expositor Concept.
+
+      Selecione uma opção acima para explorar
+      cada componente em 360°.
     </p>
 
   </section>
@@ -659,24 +627,12 @@ footer {
 <script>
 
 /*
-  EXPORTAÇÕES KEYSHOTXR
+  Arquivos HTML esperados na pasta KeyShotXR:
 
-  Os arquivos HTML devem estar diretamente
-  dentro da pasta KeyShotXR, ao lado das
-  respectivas pastas com as imagens.
-
-  KeyShotXR/
-    CHECKOUT CONCEPT.25.html
-    CHECKOUT CONCEPT.25/
-
-    BALCAO CONCEPT.21.html
-    BALCAO CONCEPT.21/
-
-    CONEXAO CONCEPT.34.html
-    CONEXAO CONCEPT.34/
-
-    CHECKOUT CONCEPT ISOLADO.35.html
-    CHECKOUT CONCEPT ISOLADO.35/
+  CHECKOUT CONCEPT.25.html
+  CHECKOUT CONCEPT ISOLADO.35.html
+  CONEXAO CONCEPT.34.html
+  BALCAO EXPOSITOR CONCEPT.24.html
 */
 
 const modelos = {
@@ -688,11 +644,11 @@ const modelos = {
     arquivo:"CHECKOUT CONCEPT.25.html"
   },
 
-  balcao: {
-    nome:"BALCÃO CONCEPT",
+  isolado: {
+    nome:"CHECKOUT CONCEPT ISOLADO",
     tipo:"MÓDULO INDIVIDUAL",
-    descricao:"Visualização individual do Balcão Concept.",
-    arquivo:"BALCAO CONCEPT.21.html"
+    descricao:"Visualização individual do Checkout Concept Isolado.",
+    arquivo:"CHECKOUT CONCEPT ISOLADO.35.html"
   },
 
   conexao: {
@@ -702,11 +658,11 @@ const modelos = {
     arquivo:"CONEXAO CONCEPT.34.html"
   },
 
-  isolado: {
-    nome:"CHECKOUT CONCEPT ISOLADO",
+  expositor: {
+    nome:"BALCÃO EXPOSITOR CONCEPT",
     tipo:"MÓDULO INDIVIDUAL",
-    descricao:"Visualização individual do Checkout Concept Isolado.",
-    arquivo:"CHECKOUT CONCEPT ISOLADO.35.html"
+    descricao:"Visualização individual do Balcão Expositor Concept.",
+    arquivo:"BALCAO EXPOSITOR CONCEPT.24.html"
   }
 
 };
@@ -735,57 +691,38 @@ function selecionarModelo(chave) {
 
   const modelo = modelos[chave];
 
-  if (!modelo) {
+  if (!modelo || modeloSelecionado === chave) {
     return;
   }
-
-  if (modeloSelecionado === chave) {
-    return;
-  }
-
-  const caminho =
-    "../KeyShotXR/" +
-    encodeURIComponent(modelo.arquivo);
 
   const url = new URL(
-    caminho,
+    "../KeyShotXR/" + encodeURIComponent(modelo.arquivo),
     document.baseURI
   );
 
-  const paginaAtual = new URL(
-    window.location.href
-  );
+  const paginaAtual = new URL(window.location.href);
 
   if (
     url.origin === paginaAtual.origin &&
     url.pathname === paginaAtual.pathname
   ) {
     console.error(
-      "O visualizador não pode apontar para a própria página."
+      "O visualizador aponta para a própria página."
     );
     return;
   }
 
   modeloSelecionado = chave;
 
-  nomeModelo.textContent =
-    modelo.nome;
+  nomeModelo.textContent = modelo.nome;
+  tipoModelo.textContent = modelo.tipo;
+  descricaoModelo.textContent = modelo.descricao;
 
-  tipoModelo.textContent =
-    modelo.tipo;
+  botoes.forEach(function(botao) {
 
-  descricaoModelo.textContent =
-    modelo.descricao;
+    const ativo = botao.dataset.modelo === chave;
 
-  botoes.forEach(botao => {
-
-    const ativo =
-      botao.dataset.modelo === chave;
-
-    botao.classList.toggle(
-      "ativo",
-      ativo
-    );
+    botao.classList.toggle("ativo", ativo);
 
     botao.setAttribute(
       "aria-pressed",
@@ -795,8 +732,7 @@ function selecionarModelo(chave) {
   });
 
   visualizador.title =
-    "Visualizador 360 graus - " +
-    modelo.nome;
+    "Visualizador 360 graus - " + modelo.nome;
 
   visualizador.src = url.href;
 
@@ -804,20 +740,17 @@ function selecionarModelo(chave) {
 
 }
 
-botoes.forEach(botao => {
+botoes.forEach(function(botao) {
 
   botao.addEventListener("click", function() {
 
-    selecionarModelo(
-      this.dataset.modelo
-    );
+    selecionarModelo(this.dataset.modelo);
 
   });
 
 });
 
 /* Inicia mostrando o conjunto completo */
-
 selecionarModelo("completo");
 
 </script>
