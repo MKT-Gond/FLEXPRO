@@ -251,12 +251,14 @@ h1 {
   box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
 
-/* IMAGENS PADRÃO */
+/*
+  TODAS AS IMAGENS PREENCHENDO O QUADRADO
+*/
 
 .card-imagem {
   width:100%;
-  aspect-ratio:7/6;
-  padding:8px;
+  aspect-ratio:1/1;
+  padding:0;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -265,25 +267,7 @@ h1 {
 }
 
 .card-imagem img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-}
-
-/*
-  CESTO PROMOÇÃO
-
-  Preenche todo o quadrado.
-  Os outros cards não são alterados.
-*/
-
-.card-imagem.imagem-preenchida {
-  aspect-ratio:1/1;
-  padding:0;
-}
-
-.card-imagem.imagem-preenchida img {
+  display:block;
   width:100%;
   height:100%;
   object-fit:cover;
@@ -749,14 +733,10 @@ function criarPlaceholder() {
 
 /* CARREGAR IMAGENS */
 
-function criarImagem(nomeImagem, preencherQuadrado) {
+function criarImagem(nomeImagem) {
 
   const recipiente = document.createElement("div");
   recipiente.className = "card-imagem";
-
-  if (preencherQuadrado) {
-    recipiente.classList.add("imagem-preenchida");
-  }
 
   if (!nomeImagem) {
     recipiente.appendChild(criarPlaceholder());
@@ -807,18 +787,7 @@ function criarCard(produto) {
     ? produto.pagina
     : "produtos/em-preparacao.html";
 
-  /*
-    Somente o Cesto Promoção
-    utiliza preenchimento quadrado.
-  */
-
-  const preencherQuadrado =
-    produto.nome === "Cesto Promoção";
-
-  const imagem = criarImagem(
-    produto.imagem,
-    preencherQuadrado
-  );
+  const imagem = criarImagem(produto.imagem);
 
   const conteudo = document.createElement("div");
   conteudo.className = "card-conteudo";
