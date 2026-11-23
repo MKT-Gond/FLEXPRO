@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Catálogo FLEXPRO | Gondopar</title>
 
 <style>
@@ -30,8 +31,15 @@ body {
   flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9);
+  background:linear-gradient(
+    120deg,
+    #f7fcfe,
+    #e7f7fb,
+    #d9f2f9
+  );
 }
+
+/* CABEÇALHO */
 
 header {
   background:rgba(255,255,255,.85);
@@ -68,6 +76,8 @@ header {
   text-align:right;
 }
 
+/* BANNER */
+
 .banner {
   width:min(var(--largura),94%);
   aspect-ratio:2/1;
@@ -94,6 +104,8 @@ header {
   display:none;
 }
 
+/* CONTEÚDO */
+
 main {
   width:min(var(--largura),94%);
   margin:0 auto;
@@ -119,6 +131,8 @@ h1 {
   font-size:14px;
   line-height:1.7;
 }
+
+/* FILTROS */
 
 .barra-filtros {
   display:flex;
@@ -210,6 +224,8 @@ h1 {
   color:white;
 }
 
+/* CARDS */
+
 .grade {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -235,6 +251,8 @@ h1 {
   box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
 
+/* IMAGENS PADRÃO */
+
 .card-imagem {
   width:100%;
   aspect-ratio:7/6;
@@ -250,7 +268,29 @@ h1 {
   width:100%;
   height:100%;
   object-fit:contain;
+  object-position:center;
 }
+
+/*
+  CESTO PROMOÇÃO
+
+  Preenche todo o quadrado.
+  Os outros cards não são alterados.
+*/
+
+.card-imagem.imagem-preenchida {
+  aspect-ratio:1/1;
+  padding:0;
+}
+
+.card-imagem.imagem-preenchida img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+/* IMAGEM EM PREPARAÇÃO */
 
 .sem-imagem {
   display:flex;
@@ -274,6 +314,8 @@ h1 {
   height:43px;
   stroke:#9ab5c3;
 }
+
+/* TEXTO DOS CARDS */
 
 .card-conteudo {
   padding:18px 20px 21px;
@@ -318,6 +360,8 @@ h1 {
   background:var(--azul-medio);
 }
 
+/* RODAPÉ */
+
 footer {
   padding:26px 5%;
   text-align:center;
@@ -325,6 +369,8 @@ footer {
   color:var(--cinza);
   font-size:11px;
 }
+
+/* RESPONSIVIDADE */
 
 @media(max-width:1000px) {
   .grade {
@@ -384,8 +430,11 @@ footer {
 
 <body>
 
+<!-- CABEÇALHO -->
+
 <header>
   <div class="cabecalho">
+
     <div>
       <img
         id="logo"
@@ -401,8 +450,11 @@ footer {
     <div class="marca">
       Gôndolas e mobiliários especiais
     </div>
+
   </div>
 </header>
+
+<!-- BANNER -->
 
 <section class="banner" id="bannerPrincipal">
 
@@ -418,6 +470,7 @@ footer {
     <source
       src="imagens/Caderno técnico FLEXPRO.mp4"
       type="video/mp4">
+
   </video>
 
   <img
@@ -428,16 +481,23 @@ footer {
 
 </section>
 
+<!-- CATÁLOGO -->
+
 <main>
 
   <section>
-    <span class="referencia">CATÁLOGO INTERATIVO</span>
+
+    <span class="referencia">
+      CATÁLOGO INTERATIVO
+    </span>
+
     <h1>LINHA FLEXPRO</h1>
 
     <p class="descricao">
       Conheça nossas soluções em mobiliário para farmácias.
       Explore os modelos e visualize os produtos disponíveis.
     </p>
+
   </section>
 
   <div class="barra-filtros">
@@ -465,11 +525,20 @@ footer {
   </div>
 
   <div id="painelFiltros" class="painel-filtros">
+
     <h2>SELECIONE UMA CATEGORIA</h2>
-    <div id="opcoesCategoria" class="opcoes-categoria"></div>
+
+    <div
+      id="opcoesCategoria"
+      class="opcoes-categoria">
+    </div>
+
   </div>
 
-  <section id="gradeProdutos" class="grade"></section>
+  <section
+    id="gradeProdutos"
+    class="grade">
+  </section>
 
 </main>
 
@@ -680,10 +749,14 @@ function criarPlaceholder() {
 
 /* CARREGAR IMAGENS */
 
-function criarImagem(nomeImagem) {
+function criarImagem(nomeImagem, preencherQuadrado) {
 
   const recipiente = document.createElement("div");
   recipiente.className = "card-imagem";
+
+  if (preencherQuadrado) {
+    recipiente.classList.add("imagem-preenchida");
+  }
 
   if (!nomeImagem) {
     recipiente.appendChild(criarPlaceholder());
@@ -734,7 +807,18 @@ function criarCard(produto) {
     ? produto.pagina
     : "produtos/em-preparacao.html";
 
-  const imagem = criarImagem(produto.imagem);
+  /*
+    Somente o Cesto Promoção
+    utiliza preenchimento quadrado.
+  */
+
+  const preencherQuadrado =
+    produto.nome === "Cesto Promoção";
+
+  const imagem = criarImagem(
+    produto.imagem,
+    preencherQuadrado
+  );
 
   const conteudo = document.createElement("div");
   conteudo.className = "card-conteudo";
