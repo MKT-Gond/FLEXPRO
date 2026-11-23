@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo FLEXPRO | Gondopar</title>
+
 <style>
 :root {
   --azul:#092d59;
@@ -13,150 +14,426 @@
   --borda:#dcebf1;
   --largura:1300px;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;min-height:100vh;display:flex;flex-direction:column;
-  font-family:Arial,Helvetica,sans-serif;color:var(--azul);
-  background:linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9)
+
+* {
+  box-sizing:border-box;
 }
-header{background:rgba(255,255,255,.85);border-bottom:1px solid var(--borda)}
-.cabecalho{
-  width:min(var(--largura),94%);margin:auto;padding:20px 0;
-  display:flex;align-items:center;justify-content:space-between;gap:20px
+
+html {
+  scroll-behavior:smooth;
 }
-.logo{display:block;width:185px;max-height:65px;object-fit:contain}
-.logo-texto{display:none;color:#d80019;font-size:28px;font-weight:900}
-.marca{color:var(--cinza);font-size:12px;text-align:right}
-.banner{
-  width:min(var(--largura),94%);aspect-ratio:2/1;margin:30px auto 0;
-  overflow:hidden;border-radius:14px;background:#e8f5f9;
-  box-shadow:0 12px 32px rgba(9,45,89,.09)
+
+body {
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--azul);
+  background:linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9);
 }
-.banner video,.banner-imagem{
-  width:100%;height:100%;object-fit:contain;object-position:center
+
+header {
+  background:rgba(255,255,255,.85);
+  border-bottom:1px solid var(--borda);
 }
-.banner video{display:block}
-.banner-imagem{display:none}
-main{width:min(var(--largura),94%);margin:0 auto;padding:30px 0 75px;flex:1}
-.referencia{
-  color:var(--azul-medio);font-size:11px;font-weight:bold;letter-spacing:2px
+
+.cabecalho {
+  width:min(var(--largura),94%);
+  margin:auto;
+  padding:20px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-h1{margin:12px 0;font-size:clamp(30px,4vw,46px)}
-.descricao{margin:0;color:var(--cinza);font-size:14px;line-height:1.7}
-.barra-filtros{
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:15px;margin:35px 0 23px
+
+.logo {
+  display:block;
+  width:185px;
+  max-height:65px;
+  object-fit:contain;
 }
-.filtros-esquerda{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
-.botao-filtro{
-  display:flex;align-items:center;gap:12px;padding:14px 18px;
-  border:1px solid var(--azul);border-radius:9px;background:var(--azul);
-  color:white;font-size:12px;font-weight:bold;cursor:pointer
+
+.logo-texto {
+  display:none;
+  color:#d80019;
+  font-size:28px;
+  font-weight:900;
 }
-.botao-filtro:hover,.botao-filtro.ativo{background:var(--azul-medio)}
-.filtro-atual{
-  padding:11px 14px;border:1px solid #d4e7ee;border-radius:8px;
-  background:white;font-size:11px;font-weight:bold
+
+.marca {
+  color:var(--cinza);
+  font-size:12px;
+  text-align:right;
 }
-.contador{color:var(--cinza);font-size:11px;font-weight:bold}
-.painel-filtros{
-  display:none;margin-bottom:28px;padding:20px;border:1px solid var(--borda);
-  border-radius:12px;background:white
+
+.banner {
+  width:min(var(--largura),94%);
+  aspect-ratio:2/1;
+  margin:30px auto 0;
+  overflow:hidden;
+  border-radius:14px;
+  background:#e8f5f9;
+  box-shadow:0 12px 32px rgba(9,45,89,.09);
 }
-.painel-filtros.aberto{display:block}
-.painel-filtros h2{font-size:12px;margin:0 0 15px}
-.opcoes-categoria{display:flex;flex-wrap:wrap;gap:9px}
-.opcao-categoria{
-  padding:12px 15px;border:1px solid #d7e7ee;border-radius:8px;
-  background:#f8fcfd;color:var(--azul);font-size:11px;
-  font-weight:bold;cursor:pointer
+
+.banner video,
+.banner-imagem {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
 }
-.opcao-categoria.selecionada{background:var(--azul);color:white}
-.grade{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.card{
-  display:flex;flex-direction:column;min-width:0;overflow:hidden;
-  border:1px solid var(--borda);border-radius:15px;background:white;
-  color:inherit;text-decoration:none;
+
+.banner video {
+  display:block;
+}
+
+.banner-imagem {
+  display:none;
+}
+
+main {
+  width:min(var(--largura),94%);
+  margin:0 auto;
+  padding:30px 0 75px;
+  flex:1;
+}
+
+.referencia {
+  color:var(--azul-medio);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+h1 {
+  margin:12px 0;
+  font-size:clamp(30px,4vw,46px);
+}
+
+.descricao {
+  margin:0;
+  color:var(--cinza);
+  font-size:14px;
+  line-height:1.7;
+}
+
+.barra-filtros {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin:35px 0 23px;
+}
+
+.filtros-esquerda {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.botao-filtro {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  border:1px solid var(--azul);
+  border-radius:9px;
+  background:var(--azul);
+  color:white;
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.botao-filtro:hover,
+.botao-filtro.ativo {
+  background:var(--azul-medio);
+}
+
+.filtro-atual {
+  padding:11px 14px;
+  border:1px solid #d4e7ee;
+  border-radius:8px;
+  background:white;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.contador {
+  color:var(--cinza);
+  font-size:11px;
+  font-weight:bold;
+}
+
+.painel-filtros {
+  display:none;
+  margin-bottom:28px;
+  padding:20px;
+  border:1px solid var(--borda);
+  border-radius:12px;
+  background:white;
+}
+
+.painel-filtros.aberto {
+  display:block;
+}
+
+.painel-filtros h2 {
+  font-size:12px;
+  margin:0 0 15px;
+}
+
+.opcoes-categoria {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.opcao-categoria {
+  padding:12px 15px;
+  border:1px solid #d7e7ee;
+  border-radius:8px;
+  background:#f8fcfd;
+  color:var(--azul);
+  font-size:11px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.opcao-categoria.selecionada {
+  background:var(--azul);
+  color:white;
+}
+
+.grade {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+}
+
+.card {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--borda);
+  border-radius:15px;
+  background:white;
+  color:inherit;
+  text-decoration:none;
   box-shadow:0 10px 28px rgba(9,45,89,.07);
-  transition:transform .2s,box-shadow .2s
+  transition:transform .2s,box-shadow .2s;
 }
-.card:hover{
+
+.card:hover {
   transform:translateY(-4px);
-  box-shadow:0 17px 35px rgba(9,45,89,.13)
+  box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
-.card-imagem{
-  width:100%;aspect-ratio:7/6;padding:8px;display:flex;
-  align-items:center;justify-content:center;background:#f7fbfd;overflow:hidden
+
+.card-imagem {
+  width:100%;
+  aspect-ratio:7/6;
+  padding:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f7fbfd;
+  overflow:hidden;
 }
-.card-imagem img{width:100%;height:100%;object-fit:contain}
-.sem-imagem{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;width:100%;height:100%;border:1px dashed #c5dce7;
-  border-radius:10px;background:#f1f9fc;color:#91adba;
-  text-align:center;font-size:11px;font-weight:bold
+
+.card-imagem img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
-.sem-imagem svg{width:43px;height:43px;stroke:#9ab5c3}
-.card-conteudo{padding:18px 20px 21px;display:flex;flex-direction:column;flex:1}
-.card-categoria{
-  margin-bottom:9px;color:var(--azul-medio);
-  font-size:10px;font-weight:bold;letter-spacing:1px
+
+.sem-imagem {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  height:100%;
+  border:1px dashed #c5dce7;
+  border-radius:10px;
+  background:#f1f9fc;
+  color:#91adba;
+  text-align:center;
+  font-size:11px;
+  font-weight:bold;
 }
-.card h3{margin:0 0 10px;font-size:17px;line-height:1.4}
-.card p{margin:0 0 19px;color:var(--cinza);font-size:12px;line-height:1.6}
-.abrir{
-  align-self:flex-start;margin-top:auto;padding:12px 16px;
-  border-radius:8px;background:var(--azul);color:white;
-  font-size:10px;font-weight:bold
+
+.sem-imagem svg {
+  width:43px;
+  height:43px;
+  stroke:#9ab5c3;
 }
-.card:hover .abrir{background:var(--azul-medio)}
-footer{
-  padding:26px 5%;text-align:center;border-top:1px solid var(--borda);
-  color:var(--cinza);font-size:11px
+
+.card-conteudo {
+  padding:18px 20px 21px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
 }
-@media(max-width:1000px){
-  .grade{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+.card-categoria {
+  margin-bottom:9px;
+  color:var(--azul-medio);
+  font-size:10px;
+  font-weight:bold;
+  letter-spacing:1px;
 }
-@media(max-width:650px){
-  .cabecalho{width:92%;padding:16px 0}
-  .logo{width:135px}
-  .marca{font-size:10px}
-  .banner{width:92%;margin-top:18px}
-  main{width:92%;padding:25px 0 50px}
-  h1{font-size:31px}
-  .descricao{font-size:12px}
-  .grade{grid-template-columns:1fr;gap:20px}
-  .card{width:100%;max-width:420px;margin:auto}
-  .card-conteudo{padding:17px}
+
+.card h3 {
+  margin:0 0 10px;
+  font-size:17px;
+  line-height:1.4;
+}
+
+.card p {
+  margin:0 0 19px;
+  color:var(--cinza);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.abrir {
+  align-self:flex-start;
+  margin-top:auto;
+  padding:12px 16px;
+  border-radius:8px;
+  background:var(--azul);
+  color:white;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.card:hover .abrir {
+  background:var(--azul-medio);
+}
+
+footer {
+  padding:26px 5%;
+  text-align:center;
+  border-top:1px solid var(--borda);
+  color:var(--cinza);
+  font-size:11px;
+}
+
+@media(max-width:1000px) {
+  .grade {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px) {
+  .cabecalho {
+    width:92%;
+    padding:16px 0;
+  }
+
+  .logo {
+    width:135px;
+  }
+
+  .marca {
+    font-size:10px;
+  }
+
+  .banner {
+    width:92%;
+    margin-top:18px;
+  }
+
+  main {
+    width:92%;
+    padding:25px 0 50px;
+  }
+
+  h1 {
+    font-size:31px;
+  }
+
+  .descricao {
+    font-size:12px;
+  }
+
+  .grade {
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .card {
+    width:100%;
+    max-width:420px;
+    margin:auto;
+  }
+
+  .card-conteudo {
+    padding:17px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="cabecalho">
     <div>
-      <img id="logo" class="logo"
-           src="imagens/logo-gondopar.png" alt="Gondopar">
-      <span id="logoTexto" class="logo-texto">GONDOPAR</span>
+      <img
+        id="logo"
+        class="logo"
+        src="imagens/logo-gondopar.png"
+        alt="Gondopar">
+
+      <span id="logoTexto" class="logo-texto">
+        GONDOPAR
+      </span>
     </div>
-    <div class="marca">Gôndolas e mobiliários especiais</div>
+
+    <div class="marca">
+      Gôndolas e mobiliários especiais
+    </div>
   </div>
 </header>
 
 <section class="banner" id="bannerPrincipal">
-  <video id="videoBanner" autoplay muted loop playsinline
-         preload="metadata" poster="imagens/BANNER_FARMACIA.png">
-    <source src="imagens/Caderno técnico FLEXPRO.mp4" type="video/mp4">
+
+  <video
+    id="videoBanner"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster="imagens/BANNER_FARMACIA.png">
+
+    <source
+      src="imagens/Caderno técnico FLEXPRO.mp4"
+      type="video/mp4">
   </video>
-  <img id="bannerFallback" class="banner-imagem"
-       src="imagens/BANNER_FARMACIA.png" alt="Farmácia Gondopar">
+
+  <img
+    id="bannerFallback"
+    class="banner-imagem"
+    src="imagens/BANNER_FARMACIA.png"
+    alt="Farmácia Gondopar">
+
 </section>
 
 <main>
+
   <section>
     <span class="referencia">CATÁLOGO INTERATIVO</span>
     <h1>LINHA FLEXPRO</h1>
+
     <p class="descricao">
       Conheça nossas soluções em mobiliário para farmácias.
       Explore os modelos e visualize os produtos disponíveis.
@@ -164,16 +441,27 @@ footer{
   </section>
 
   <div class="barra-filtros">
+
     <div class="filtros-esquerda">
-      <button id="botaoFiltro" class="botao-filtro"
-              type="button" aria-expanded="false">
+
+      <button
+        id="botaoFiltro"
+        class="botao-filtro"
+        type="button"
+        aria-expanded="false">
         ☷ FILTRAR POR CATEGORIA ▼
       </button>
+
       <span id="filtroAtual" class="filtro-atual">
         TODOS OS PRODUTOS
       </span>
+
     </div>
-    <span id="contador" class="contador">55 PRODUTOS</span>
+
+    <span id="contador" class="contador">
+      55 PRODUTOS
+    </span>
+
   </div>
 
   <div id="painelFiltros" class="painel-filtros">
@@ -182,34 +470,51 @@ footer{
   </div>
 
   <section id="gradeProdutos" class="grade"></section>
+
 </main>
 
-<footer>GONDOPAR – soluções e mobiliários especiais</footer>
+<footer>
+  GONDOPAR – soluções e mobiliários especiais
+</footer>
 
 <script>
-const logo=document.getElementById("logo");
-logo.onerror=function(){
-  this.style.display="none";
-  document.getElementById("logoTexto").style.display="block";
+
+/* LOGO */
+
+const logo = document.getElementById("logo");
+
+logo.onerror = function() {
+  this.style.display = "none";
+  document.getElementById("logoTexto").style.display = "block";
 };
 
-const video=document.getElementById("videoBanner");
-const fallback=document.getElementById("bannerFallback");
+/* VÍDEO */
 
-function mostrarImagem(){
-  video.style.display="none";
-  fallback.style.display="block";
+const video = document.getElementById("videoBanner");
+const fallback = document.getElementById("bannerFallback");
+
+function mostrarImagem() {
+  video.style.display = "none";
+  fallback.style.display = "block";
 }
-video.addEventListener("error",mostrarImagem);
-video.querySelector("source").addEventListener("error",mostrarImagem);
-fallback.addEventListener("error",function(){
-  if(video.style.display==="none"){
-    document.getElementById("bannerPrincipal").style.display="none";
+
+video.addEventListener("error", mostrarImagem);
+
+video.querySelector("source")
+  .addEventListener("error", mostrarImagem);
+
+fallback.addEventListener("error", function() {
+  if (video.style.display === "none") {
+    document.getElementById("bannerPrincipal")
+      .style.display = "none";
   }
 });
+
 video.play().catch(function(){});
 
-const categorias=[
+/* CATEGORIAS */
+
+const categorias = [
   ["parede","Gôndolas de Parede"],
   ["centro","Gôndolas de Centro e Pontas"],
   ["balcoes","Balcões e Expositores"],
@@ -223,12 +528,19 @@ const categorias=[
   ["acessorios","Acessórios e Complementos"]
 ];
 
-const dadosProdutos=[
+/* TODOS OS 55 PRODUTOS */
+
+const dadosProdutos = [
+
+  /* GÔNDOLAS DE PAREDE */
+
   ["Gôndola Parede com Base","AMBIENTAÇÃO_PAREDE COM BASE","parede","produtos/gondola-parede-com-base.html"],
   ["Gôndola Parede sem Base","AMBIENTAÇÃO_PAREDE SEM BASE","parede","produtos/gondola-parede-sem-base.html"],
   ["Gôndola Parede sem Fundo","AMBIENTAÇÃO_PAREDE SEM FUNDO","parede","produtos/gondola-parede-sem-fundo.html"],
   ["Gôndola Parede com Sanca","AMBIENTAÇÃO_PAREDE COM SANCA","parede","produtos/gondola-parede-com-sanca.html"],
   ["Gôndola Parede com Testeira Concept","AMBIENTAÇÃO_PAREDE G2","parede","produtos/gondola-parede-testeira-concept.html"],
+
+  /* GÔNDOLAS DE CENTRO E PONTAS */
 
   ["Gôndola Centro","AMBIENTAÇÃO_GONDOLA CENTRO","centro","produtos/gondola-centro.html"],
   ["Ponta Premium","AMBIENTAÇÃO_PONTA PREMIUM","centro","produtos/ponta-premium.html"],
@@ -236,6 +548,8 @@ const dadosProdutos=[
   ["Ponta Destaque DUO","AMBIENTAÇÃO_PONTA DESTAQUE DUO","centro","produtos/ponta-destaque-duo.html"],
   ["Ponta Padrão","PONTA PADRAO","centro","produtos/ponta-padrao.html"],
   ["Ponta Cega","AMBIENTAÇÃO_PONTA CEGA","centro","produtos/ponta-cega.html"],
+
+  /* BALCÕES E EXPOSITORES */
 
   ["Balcão CPU","AMBIENTAÇÃO_CPU FLEX","balcoes","produtos/balcao-cpu.html"],
   ["Balcão CPU Alumínio","AMBIENTAÇÃO_CPU ALUMINIO","balcoes","produtos/balcao-cpu-aluminio.html"],
@@ -245,21 +559,30 @@ const dadosProdutos=[
   ["Balcão Expositor Alumínio","AMBIENTAÇÃO_EXPOSITOR ALUMINIO","balcoes","produtos/balcao-expositor-aluminio.html"],
   ["Balcão Expositor Concept","AMBIENTAÇÃO_EXPOSITOR CONCEPT","balcoes","produtos/balcao-expositor-concept.html"],
 
+  /* CHECKOUTS */
+
   ["Checkout","AMBIENTAÇÃO_CHECKOUT FLEX","checkouts","produtos/checkout.html"],
   ["Checkout Concept","AMBIENTAÇÃO_CHECKOUT CONCEPT","checkouts","produtos/checkout-concept.html"],
   ["Checkout Reto","AMBIENTAÇÃO_CHECKOUT RETO","checkouts","produtos/checkout-reto.html"],
+
+  /* DERMOCOSMÉTICOS */
 
   ["Dermo","AMBIENTAÇÃO_DERMO SIMPLES","dermo","produtos/dermo.html"],
   ["Dermo Sem Fundo","AMBIENTAÇÃO_DERMO SEM FUNDO","dermo","produtos/dermo-sem-fundo.html"],
   ["Dermo com Vidro","AMBIENTAÇÃO_DERMO PORTA DE VIDRO","dermo","produtos/dermo-com-vidro.html"],
 
+  /* MIP E ARMÁRIOS */
+
   ["MIP","AMBIENTAÇÃO_MIP","mip","produtos/mip.html"],
   ["Armário Psicotrópico","AMBIENTAÇÃO_ARMARIO PSICO ","mip","produtos/armario-psicotropico.html"],
 
+  /* OUTROS MOBILIÁRIOS */
+
   ["Gôndola Fila Única","AMBIENTAÇÃO_FILA UNICA","outros","produtos/gondola-fila-unica.html"],
   ["Gôndola Fralda","fralda","outros","produtos/gondola-fralda.html"],
-
   ["Base Metálica","AMBIENTAÇÃO_BASE METALICA","outros","produtos/base-metalica.html"],
+
+  /* FECHAMENTOS */
 
   ["Fechamento Lateral",null,"fechamentos",null],
   ["Fechamento U",null,"fechamentos",null],
@@ -267,7 +590,9 @@ const dadosProdutos=[
   ["Canto Triangular Fechado",null,"fechamentos",null],
   ["Canto Triangular Aberto",null,"fechamentos",null],
 
-  ["Cesto Promoção",null,"cestos",null],
+  /* CESTOS */
+
+  ["Cesto Promoção",null,"cestos","produtos/cesto-promocao.html"],
   ["Cesto Última Chance",null,"cestos",null],
   ["Cesto Lenço",null,"cestos",null],
   ["Cesto Aço",null,"cestos",null],
@@ -275,10 +600,14 @@ const dadosProdutos=[
   ["Cesto Alumínio",null,"cestos",null],
   ["Cesto Aramado",null,"cestos","produtos/cesto-aramado.html"],
 
+  /* SUPORTES PARA MONITOR */
+
   ["Suporte Simples",null,"suportes",null],
   ["Suporte Duplo",null,"suportes",null],
   ["Suporte Simples + Numeração",null,"suportes",null],
   ["Suporte Duplo + Numeração",null,"suportes",null],
+
+  /* ACESSÓRIOS E COMPLEMENTOS */
 
   ["Expositor de Esparadrapo",null,"acessorios",null],
   ["Aparador",null,"acessorios",null],
@@ -290,152 +619,214 @@ const dadosProdutos=[
   ["Totem para Tablet",null,"acessorios",null],
   ["Porta Encarte",null,"acessorios",null],
   ["Letreiro",null,"acessorios",null]
+
 ];
 
-const produtos=dadosProdutos.map(p=>({
-  nome:p[0],imagem:p[1],categoria:p[2],pagina:p[3]
-}));
+/* ORGANIZAR PRODUTOS */
 
-const grade=document.getElementById("gradeProdutos");
-const contador=document.getElementById("contador");
-const filtroAtual=document.getElementById("filtroAtual");
-const botaoFiltro=document.getElementById("botaoFiltro");
-const painelFiltros=document.getElementById("painelFiltros");
-const opcoesCategoria=document.getElementById("opcoesCategoria");
+const produtos = dadosProdutos.map(function(p) {
+  return {
+    nome:p[0],
+    imagem:p[1],
+    categoria:p[2],
+    pagina:p[3]
+  };
+});
 
-let categoriaSelecionada="todos";
+/* ELEMENTOS */
 
-function nomeCategoria(id){
-  const item=categorias.find(c=>c[0]===id);
-  return item?item[1]:"";
+const grade = document.getElementById("gradeProdutos");
+const contador = document.getElementById("contador");
+const filtroAtual = document.getElementById("filtroAtual");
+const botaoFiltro = document.getElementById("botaoFiltro");
+const painelFiltros = document.getElementById("painelFiltros");
+const opcoesCategoria = document.getElementById("opcoesCategoria");
+
+let categoriaSelecionada = "todos";
+
+/* NOME DA CATEGORIA */
+
+function nomeCategoria(id) {
+  const item = categorias.find(function(c) {
+    return c[0] === id;
+  });
+
+  return item ? item[1] : "";
 }
 
-function criarPlaceholder(){
-  const caixa=document.createElement("div");
-  caixa.className="sem-imagem";
-  caixa.innerHTML=`
-    <svg viewBox="0 0 48 48" fill="none"
-      stroke-width="2" stroke-linecap="round"
-      stroke-linejoin="round" aria-hidden="true">
+/* IMAGEM EM PREPARAÇÃO */
+
+function criarPlaceholder() {
+  const caixa = document.createElement("div");
+  caixa.className = "sem-imagem";
+
+  caixa.innerHTML = `
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true">
       <rect x="5" y="7" width="38" height="34" rx="4"/>
       <circle cx="16" cy="18" r="3"/>
       <path d="M7 37L20 24L27 30L33 23L42 32"/>
     </svg>
-    <span>IMAGEM EM PREPARAÇÃO</span>`;
+    <span>IMAGEM EM PREPARAÇÃO</span>
+  `;
+
   return caixa;
 }
 
-function criarImagem(nomeImagem){
-  const recipiente=document.createElement("div");
-  recipiente.className="card-imagem";
+/* CARREGAR IMAGENS */
 
-  if(!nomeImagem){
+function criarImagem(nomeImagem) {
+
+  const recipiente = document.createElement("div");
+  recipiente.className = "card-imagem";
+
+  if (!nomeImagem) {
     recipiente.appendChild(criarPlaceholder());
     return recipiente;
   }
 
-  const imagem=document.createElement("img");
-  imagem.alt=nomeImagem;
-  imagem.loading="lazy";
+  const imagem = document.createElement("img");
+  imagem.alt = nomeImagem;
+  imagem.loading = "lazy";
 
-  const extensoes=[".png",".jpg",".jpeg",".webp"];
-  let tentativa=0;
+  const extensoes = [".png",".jpg",".jpeg",".webp"];
+  let tentativa = 0;
 
-  function tentarImagem(){
-    if(tentativa>=extensoes.length){
+  function tentarImagem() {
+
+    if (tentativa >= extensoes.length) {
       imagem.remove();
       recipiente.appendChild(criarPlaceholder());
       return;
     }
-    const caminho="imagens/"+nomeImagem+extensoes[tentativa];
+
+    const caminho =
+      "imagens/" + nomeImagem + extensoes[tentativa];
+
     tentativa++;
-    imagem.src=encodeURI(caminho);
+
+    imagem.src = encodeURI(caminho);
   }
 
-  imagem.onerror=tentarImagem;
+  imagem.onerror = tentarImagem;
+
   recipiente.appendChild(imagem);
   tentarImagem();
+
   return recipiente;
 }
 
-function criarCard(produto){
-  const temPagina=Boolean(produto.pagina);
-  const card=document.createElement("a");
-  card.className="card";
-  card.href=temPagina
-    ?produto.pagina
-    :"produtos/em-preparacao.html";
+/* CRIAR CARD */
 
-  const imagem=criarImagem(produto.imagem);
-  const conteudo=document.createElement("div");
-  conteudo.className="card-conteudo";
+function criarCard(produto) {
 
-  const categoria=document.createElement("div");
-  categoria.className="card-categoria";
-  categoria.textContent=nomeCategoria(produto.categoria).toUpperCase();
+  const temPagina = Boolean(produto.pagina);
 
-  const titulo=document.createElement("h3");
-  titulo.textContent=produto.nome.toUpperCase();
+  const card = document.createElement("a");
+  card.className = "card";
 
-  const descricao=document.createElement("p");
-  descricao.textContent=temPagina
-    ?"Visualização interativa do produto."
-    :"Página do produto em preparação.";
+  card.href = temPagina
+    ? produto.pagina
+    : "produtos/em-preparacao.html";
 
-  const botao=document.createElement("span");
-  botao.className="abrir";
-  botao.textContent=temPagina
-    ?"EXPLORAR EM 360° →"
-    :"EM PREPARAÇÃO →";
+  const imagem = criarImagem(produto.imagem);
+
+  const conteudo = document.createElement("div");
+  conteudo.className = "card-conteudo";
+
+  const categoria = document.createElement("div");
+  categoria.className = "card-categoria";
+  categoria.textContent =
+    nomeCategoria(produto.categoria).toUpperCase();
+
+  const titulo = document.createElement("h3");
+  titulo.textContent = produto.nome.toUpperCase();
+
+  const descricao = document.createElement("p");
+
+  descricao.textContent = temPagina
+    ? "Visualização interativa do produto."
+    : "Página do produto em preparação.";
+
+  const botao = document.createElement("span");
+  botao.className = "abrir";
+
+  botao.textContent = temPagina
+    ? "EXPLORAR EM 360° →"
+    : "EM PREPARAÇÃO →";
 
   conteudo.appendChild(categoria);
   conteudo.appendChild(titulo);
   conteudo.appendChild(descricao);
   conteudo.appendChild(botao);
+
   card.appendChild(imagem);
   card.appendChild(conteudo);
+
   return card;
 }
 
-function renderizarProdutos(){
-  grade.innerHTML="";
-  const filtrados=produtos.filter(produto=>
-    categoriaSelecionada==="todos"||
-    produto.categoria===categoriaSelecionada
-  );
+/* EXIBIR PRODUTOS */
 
-  filtrados.forEach(produto=>{
+function renderizarProdutos() {
+
+  grade.innerHTML = "";
+
+  const filtrados = produtos.filter(function(produto) {
+    return (
+      categoriaSelecionada === "todos" ||
+      produto.categoria === categoriaSelecionada
+    );
+  });
+
+  filtrados.forEach(function(produto) {
     grade.appendChild(criarCard(produto));
   });
 
-  contador.textContent=filtrados.length+
-    (filtrados.length===1?" PRODUTO":" PRODUTOS");
+  contador.textContent =
+    filtrados.length +
+    (filtrados.length === 1 ? " PRODUTO" : " PRODUTOS");
 
-  filtroAtual.textContent=categoriaSelecionada==="todos"
-    ?"TODOS OS PRODUTOS"
-    :nomeCategoria(categoriaSelecionada).toUpperCase();
+  filtroAtual.textContent =
+    categoriaSelecionada === "todos"
+      ? "TODOS OS PRODUTOS"
+      : nomeCategoria(categoriaSelecionada).toUpperCase();
 }
 
-function criarFiltros(){
-  opcoesCategoria.innerHTML="";
-  const todasCategorias=[
-    ["todos","Todos os Produtos"],...categorias
+/* FILTROS */
+
+function criarFiltros() {
+
+  opcoesCategoria.innerHTML = "";
+
+  const todasCategorias = [
+    ["todos","Todos os Produtos"],
+    ...categorias
   ];
 
-  todasCategorias.forEach(categoria=>{
-    const botao=document.createElement("button");
-    botao.type="button";
-    botao.className="opcao-categoria";
-    botao.textContent=categoria[1];
+  todasCategorias.forEach(function(categoria) {
 
-    if(categoria[0]===categoriaSelecionada){
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.className = "opcao-categoria";
+    botao.textContent = categoria[1];
+
+    if (categoria[0] === categoriaSelecionada) {
       botao.classList.add("selecionada");
     }
 
-    botao.addEventListener("click",function(){
-      categoriaSelecionada=categoria[0];
+    botao.addEventListener("click", function() {
+
+      categoriaSelecionada = categoria[0];
+
       criarFiltros();
       renderizarProdutos();
+
       painelFiltros.classList.remove("aberto");
       botaoFiltro.classList.remove("ativo");
       botaoFiltro.setAttribute("aria-expanded","false");
@@ -445,14 +836,26 @@ function criarFiltros(){
   });
 }
 
-botaoFiltro.addEventListener("click",function(){
-  const aberto=painelFiltros.classList.toggle("aberto");
-  botaoFiltro.classList.toggle("ativo",aberto);
-  botaoFiltro.setAttribute("aria-expanded",String(aberto));
+/* ABRIR E FECHAR FILTROS */
+
+botaoFiltro.addEventListener("click", function() {
+
+  const aberto = painelFiltros.classList.toggle("aberto");
+
+  botaoFiltro.classList.toggle("ativo", aberto);
+
+  botaoFiltro.setAttribute(
+    "aria-expanded",
+    String(aberto)
+  );
 });
+
+/* INICIALIZAR */
 
 criarFiltros();
 renderizarProdutos();
+
 </script>
+
 </body>
 </html>
