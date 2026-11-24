@@ -4,11 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Catálogo FLEXPRO | Gondopar</title>
 
 <style>
-:root {
+:root{
   --azul:#092d59;
   --azul-medio:#267fa4;
   --cinza:#67869b;
@@ -16,15 +15,15 @@
   --largura:1300px;
 }
 
-* {
+*{
   box-sizing:border-box;
 }
 
-html {
+html{
   scroll-behavior:smooth;
 }
 
-body {
+body{
   margin:0;
   min-height:100vh;
   display:flex;
@@ -41,12 +40,12 @@ body {
 
 /* CABEÇALHO */
 
-header {
+header{
   background:rgba(255,255,255,.85);
   border-bottom:1px solid var(--borda);
 }
 
-.cabecalho {
+.cabecalho{
   width:min(var(--largura),94%);
   margin:auto;
   padding:20px 0;
@@ -56,21 +55,21 @@ header {
   gap:20px;
 }
 
-.logo {
+.logo{
   display:block;
   width:185px;
   max-height:65px;
   object-fit:contain;
 }
 
-.logo-texto {
+.logo-texto{
   display:none;
   color:#d80019;
   font-size:28px;
   font-weight:900;
 }
 
-.marca {
+.marca{
   color:var(--cinza);
   font-size:12px;
   text-align:right;
@@ -78,7 +77,7 @@ header {
 
 /* BANNER */
 
-.banner {
+.banner{
   width:min(var(--largura),94%);
   aspect-ratio:2/1;
   margin:30px auto 0;
@@ -89,43 +88,43 @@ header {
 }
 
 .banner video,
-.banner-imagem {
+.banner-imagem{
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:center;
 }
 
-.banner video {
+.banner video{
   display:block;
 }
 
-.banner-imagem {
+.banner-imagem{
   display:none;
 }
 
 /* CONTEÚDO */
 
-main {
+main{
   width:min(var(--largura),94%);
   margin:0 auto;
   padding:30px 0 75px;
   flex:1;
 }
 
-.referencia {
+.referencia{
   color:var(--azul-medio);
   font-size:11px;
   font-weight:bold;
   letter-spacing:2px;
 }
 
-h1 {
+h1{
   margin:12px 0;
   font-size:clamp(30px,4vw,46px);
 }
 
-.descricao {
+.descricao{
   margin:0;
   color:var(--cinza);
   font-size:14px;
@@ -134,7 +133,7 @@ h1 {
 
 /* FILTROS */
 
-.barra-filtros {
+.barra-filtros{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -143,14 +142,14 @@ h1 {
   margin:35px 0 23px;
 }
 
-.filtros-esquerda {
+.filtros-esquerda{
   display:flex;
   align-items:center;
   flex-wrap:wrap;
   gap:12px;
 }
 
-.botao-filtro {
+.botao-filtro{
   display:flex;
   align-items:center;
   gap:12px;
@@ -165,11 +164,11 @@ h1 {
 }
 
 .botao-filtro:hover,
-.botao-filtro.ativo {
+.botao-filtro.ativo{
   background:var(--azul-medio);
 }
 
-.filtro-atual {
+.filtro-atual{
   padding:11px 14px;
   border:1px solid #d4e7ee;
   border-radius:8px;
@@ -178,13 +177,13 @@ h1 {
   font-weight:bold;
 }
 
-.contador {
+.contador{
   color:var(--cinza);
   font-size:11px;
   font-weight:bold;
 }
 
-.painel-filtros {
+.painel-filtros{
   display:none;
   margin-bottom:28px;
   padding:20px;
@@ -193,22 +192,22 @@ h1 {
   background:white;
 }
 
-.painel-filtros.aberto {
+.painel-filtros.aberto{
   display:block;
 }
 
-.painel-filtros h2 {
+.painel-filtros h2{
   font-size:12px;
   margin:0 0 15px;
 }
 
-.opcoes-categoria {
+.opcoes-categoria{
   display:flex;
   flex-wrap:wrap;
   gap:9px;
 }
 
-.opcao-categoria {
+.opcao-categoria{
   padding:12px 15px;
   border:1px solid #d7e7ee;
   border-radius:8px;
@@ -219,20 +218,24 @@ h1 {
   cursor:pointer;
 }
 
-.opcao-categoria.selecionada {
+.opcao-categoria:hover{
+  border-color:var(--azul-medio);
+}
+
+.opcao-categoria.selecionada{
   background:var(--azul);
   color:white;
 }
 
-/* CARDS */
+/* GRADE DE PRODUTOS */
 
-.grade {
+.grade{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:24px;
 }
 
-.card {
+.card{
   display:flex;
   flex-direction:column;
   min-width:0;
@@ -246,16 +249,14 @@ h1 {
   transition:transform .2s,box-shadow .2s;
 }
 
-.card:hover {
+.card:hover{
   transform:translateY(-4px);
   box-shadow:0 17px 35px rgba(9,45,89,.13);
 }
 
-/*
-  TODAS AS IMAGENS PREENCHENDO O QUADRADO
-*/
+/* IMAGENS QUADRADAS */
 
-.card-imagem {
+.card-imagem{
   width:100%;
   aspect-ratio:1/1;
   padding:0;
@@ -266,7 +267,7 @@ h1 {
   overflow:hidden;
 }
 
-.card-imagem img {
+.card-imagem img{
   display:block;
   width:100%;
   height:100%;
@@ -276,7 +277,7 @@ h1 {
 
 /* IMAGEM EM PREPARAÇÃO */
 
-.sem-imagem {
+.sem-imagem{
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -293,22 +294,22 @@ h1 {
   font-weight:bold;
 }
 
-.sem-imagem svg {
+.sem-imagem svg{
   width:43px;
   height:43px;
   stroke:#9ab5c3;
 }
 
-/* TEXTO DOS CARDS */
+/* INFORMAÇÕES DOS CARDS */
 
-.card-conteudo {
+.card-conteudo{
   padding:18px 20px 21px;
   display:flex;
   flex-direction:column;
   flex:1;
 }
 
-.card-categoria {
+.card-categoria{
   margin-bottom:9px;
   color:var(--azul-medio);
   font-size:10px;
@@ -316,20 +317,20 @@ h1 {
   letter-spacing:1px;
 }
 
-.card h3 {
+.card h3{
   margin:0 0 10px;
   font-size:17px;
   line-height:1.4;
 }
 
-.card p {
+.card p{
   margin:0 0 19px;
   color:var(--cinza);
   font-size:12px;
   line-height:1.6;
 }
 
-.abrir {
+.abrir{
   align-self:flex-start;
   margin-top:auto;
   padding:12px 16px;
@@ -340,13 +341,13 @@ h1 {
   font-weight:bold;
 }
 
-.card:hover .abrir {
+.card:hover .abrir{
   background:var(--azul-medio);
 }
 
 /* RODAPÉ */
 
-footer {
+footer{
   padding:26px 5%;
   text-align:center;
   border-top:1px solid var(--borda);
@@ -356,59 +357,64 @@ footer {
 
 /* RESPONSIVIDADE */
 
-@media(max-width:1000px) {
-  .grade {
+@media(max-width:1000px){
+
+  .grade{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
+
 }
 
-@media(max-width:650px) {
-  .cabecalho {
+@media(max-width:650px){
+
+  .cabecalho{
     width:92%;
     padding:16px 0;
   }
 
-  .logo {
+  .logo{
     width:135px;
   }
 
-  .marca {
+  .marca{
     font-size:10px;
   }
 
-  .banner {
+  .banner{
     width:92%;
     margin-top:18px;
   }
 
-  main {
+  main{
     width:92%;
     padding:25px 0 50px;
   }
 
-  h1 {
+  h1{
     font-size:31px;
   }
 
-  .descricao {
+  .descricao{
     font-size:12px;
   }
 
-  .grade {
+  .grade{
     grid-template-columns:1fr;
     gap:20px;
   }
 
-  .card {
+  .card{
     width:100%;
     max-width:420px;
     margin:auto;
   }
 
-  .card-conteudo {
+  .card-conteudo{
     padding:17px;
   }
+
 }
+
 </style>
 </head>
 
@@ -417,6 +423,7 @@ footer {
 <!-- CABEÇALHO -->
 
 <header>
+
   <div class="cabecalho">
 
     <div>
@@ -426,7 +433,9 @@ footer {
         src="imagens/logo-gondopar.png"
         alt="Gondopar">
 
-      <span id="logoTexto" class="logo-texto">
+      <span
+        id="logoTexto"
+        class="logo-texto">
         GONDOPAR
       </span>
     </div>
@@ -436,6 +445,7 @@ footer {
     </div>
 
   </div>
+
 </header>
 
 <!-- BANNER -->
@@ -448,7 +458,7 @@ footer {
     muted
     loop
     playsinline
-    preload="metadata"
+    preload="auto"
     poster="imagens/BANNER_FARMACIA.png">
 
     <source
@@ -461,7 +471,7 @@ footer {
     id="bannerFallback"
     class="banner-imagem"
     src="imagens/BANNER_FARMACIA.png"
-    alt="Farmácia Gondopar">
+    alt="Linha FLEXPRO Gondopar">
 
 </section>
 
@@ -469,59 +479,69 @@ footer {
 
 <main>
 
-  <section>
+  <div class="referencia">
+    CATÁLOGO INTERATIVO
+  </div>
 
-    <span class="referencia">
-      CATÁLOGO INTERATIVO
-    </span>
+  <h1>LINHA FLEXPRO</h1>
 
-    <h1>LINHA FLEXPRO</h1>
+  <p class="descricao">
+    Conheça nossas soluções em mobiliário para farmácias.
+    Explore os modelos e visualize os produtos disponíveis.
+  </p>
 
-    <p class="descricao">
-      Conheça nossas soluções em mobiliário para farmácias.
-      Explore os modelos e visualize os produtos disponíveis.
-    </p>
-
-  </section>
+  <!-- FILTROS -->
 
   <div class="barra-filtros">
 
     <div class="filtros-esquerda">
 
       <button
-        id="botaoFiltro"
-        class="botao-filtro"
         type="button"
-        aria-expanded="false">
+        class="botao-filtro"
+        id="botaoFiltro"
+        aria-expanded="false"
+        aria-controls="painelFiltros">
+
         ☷ FILTRAR POR CATEGORIA ▼
+
       </button>
 
-      <span id="filtroAtual" class="filtro-atual">
+      <span
+        class="filtro-atual"
+        id="filtroAtual">
+
         TODOS OS PRODUTOS
+
       </span>
 
     </div>
 
-    <span id="contador" class="contador">
-      55 PRODUTOS
+    <span
+      class="contador"
+      id="contador">
     </span>
 
   </div>
 
-  <div id="painelFiltros" class="painel-filtros">
+  <section
+    class="painel-filtros"
+    id="painelFiltros">
 
     <h2>SELECIONE UMA CATEGORIA</h2>
 
     <div
-      id="opcoesCategoria"
-      class="opcoes-categoria">
+      class="opcoes-categoria"
+      id="opcoesCategoria">
     </div>
 
-  </div>
+  </section>
+
+  <!-- PRODUTOS -->
 
   <section
-    id="gradeProdutos"
-    class="grade">
+    class="grade"
+    id="gradeProdutos">
   </section>
 
 </main>
@@ -535,185 +555,552 @@ footer {
 /* LOGO */
 
 const logo = document.getElementById("logo");
+const logoTexto = document.getElementById("logoTexto");
 
-logo.onerror = function() {
-  this.style.display = "none";
-  document.getElementById("logoTexto").style.display = "block";
+logo.onerror = function(){
+  logo.style.display = "none";
+  logoTexto.style.display = "block";
 };
 
-/* VÍDEO */
-
-const video = document.getElementById("videoBanner");
-const fallback = document.getElementById("bannerFallback");
-
-function mostrarImagem() {
-  video.style.display = "none";
-  fallback.style.display = "block";
+if(logo.complete && logo.naturalWidth === 0){
+  logo.onerror();
 }
 
-video.addEventListener("error", mostrarImagem);
+/* BANNER */
 
-video.querySelector("source")
-  .addEventListener("error", mostrarImagem);
+const videoBanner =
+  document.getElementById("videoBanner");
 
-fallback.addEventListener("error", function() {
-  if (video.style.display === "none") {
-    document.getElementById("bannerPrincipal")
-      .style.display = "none";
+const bannerFallback =
+  document.getElementById("bannerFallback");
+
+const bannerPrincipal =
+  document.getElementById("bannerPrincipal");
+
+function mostrarBannerFallback(){
+
+  videoBanner.style.display = "none";
+  bannerFallback.style.display = "block";
+
+  if(
+    bannerFallback.complete &&
+    bannerFallback.naturalWidth === 0
+  ){
+    bannerPrincipal.style.display = "none";
   }
+
+}
+
+videoBanner.addEventListener(
+  "error",
+  mostrarBannerFallback
+);
+
+videoBanner.querySelectorAll("source").forEach(source => {
+
+  source.addEventListener(
+    "error",
+    mostrarBannerFallback
+  );
+
 });
 
-video.play().catch(function(){});
+bannerFallback.onerror = function(){
+
+  if(videoBanner.style.display === "none"){
+    bannerPrincipal.style.display = "none";
+  }
+
+};
+
+videoBanner.play().catch(()=>{});
 
 /* CATEGORIAS */
 
 const categorias = [
+
   ["parede","Gôndolas de Parede"],
+
   ["centro","Gôndolas de Centro e Pontas"],
+
   ["balcoes","Balcões e Expositores"],
+
   ["checkouts","Checkouts"],
+
   ["dermo","Dermocosméticos"],
+
   ["mip","MIP e Armários"],
+
   ["outros","Outros Mobiliários"],
+
   ["fechamentos","Fechamentos"],
+
   ["cestos","Cestos"],
+
   ["suportes","Suportes para Monitor"],
+
   ["acessorios","Acessórios e Complementos"]
+
 ];
 
-/* TODOS OS 55 PRODUTOS */
+/* CADASTRO DOS PRODUTOS */
 
 const dadosProdutos = [
 
   /* GÔNDOLAS DE PAREDE */
 
-  ["Gôndola Parede com Base","AMBIENTAÇÃO_PAREDE COM BASE","parede","produtos/gondola-parede-com-base.html"],
-  ["Gôndola Parede sem Base","AMBIENTAÇÃO_PAREDE SEM BASE","parede","produtos/gondola-parede-sem-base.html"],
-  ["Gôndola Parede sem Fundo","AMBIENTAÇÃO_PAREDE SEM FUNDO","parede","produtos/gondola-parede-sem-fundo.html"],
-  ["Gôndola Parede com Sanca","AMBIENTAÇÃO_PAREDE COM SANCA","parede","produtos/gondola-parede-com-sanca.html"],
-  ["Gôndola Parede com Testeira Concept","AMBIENTAÇÃO_PAREDE G2","parede","produtos/gondola-parede-testeira-concept.html"],
+  [
+    "Gôndola Parede com Base",
+    "AMBIENTAÇÃO_PAREDE COM BASE",
+    "parede",
+    "produtos/gondola-parede-com-base.html"
+  ],
+
+  [
+    "Gôndola Parede sem Base",
+    "AMBIENTAÇÃO_PAREDE SEM BASE",
+    "parede",
+    "produtos/gondola-parede-sem-base.html"
+  ],
+
+  [
+    "Gôndola Parede sem Fundo",
+    "AMBIENTAÇÃO_PAREDE SEM FUNDO",
+    "parede",
+    "produtos/gondola-parede-sem-fundo.html"
+  ],
+
+  [
+    "Gôndola Parede com Sanca",
+    "AMBIENTAÇÃO_PAREDE COM SANCA",
+    "parede",
+    "produtos/gondola-parede-com-sanca.html"
+  ],
+
+  [
+    "Gôndola Parede com Testeira Concept",
+    "AMBIENTAÇÃO_PAREDE G2",
+    "parede",
+    "produtos/gondola-parede-testeira-concept.html"
+  ],
 
   /* GÔNDOLAS DE CENTRO E PONTAS */
 
-  ["Gôndola Centro","AMBIENTAÇÃO_GONDOLA CENTRO","centro","produtos/gondola-centro.html"],
-  ["Ponta Premium","AMBIENTAÇÃO_PONTA PREMIUM","centro","produtos/ponta-premium.html"],
-  ["Ponta Premium Podium Aço","AMBIENTAÇÃO_PONTA PREMIUM PODIUM AÇO","centro","produtos/ponta-premium-podium-aco.html"],
-  ["Ponta Destaque DUO","AMBIENTAÇÃO_PONTA DESTAQUE DUO","centro","produtos/ponta-destaque-duo.html"],
-  ["Ponta Padrão","PONTA PADRAO","centro","produtos/ponta-padrao.html"],
-  ["Ponta Cega","AMBIENTAÇÃO_PONTA CEGA","centro","produtos/ponta-cega.html"],
+  [
+    "Gôndola Centro",
+    "AMBIENTAÇÃO_GONDOLA CENTRO",
+    "centro",
+    "produtos/gondola-centro.html"
+  ],
+
+  [
+    "Ponta Premium",
+    "AMBIENTAÇÃO_PONTA PREMIUM",
+    "centro",
+    "produtos/ponta-premium.html"
+  ],
+
+  [
+    "Ponta Premium Podium Aço",
+    "AMBIENTAÇÃO_PONTA PREMIUM PODIUM AÇO",
+    "centro",
+    "produtos/ponta-premium-podium-aco.html"
+  ],
+
+  [
+    "Ponta Destaque DUO",
+    "AMBIENTAÇÃO_PONTA DESTAQUE DUO",
+    "centro",
+    "produtos/ponta-destaque-duo.html"
+  ],
+
+  [
+    "Ponta Padrão",
+    "PONTA PADRAO",
+    "centro",
+    "produtos/ponta-padrao.html"
+  ],
+
+  [
+    "Ponta Cega",
+    "AMBIENTAÇÃO_PONTA CEGA",
+    "centro",
+    "produtos/ponta-cega.html"
+  ],
 
   /* BALCÕES E EXPOSITORES */
 
-  ["Balcão CPU","AMBIENTAÇÃO_CPU FLEX","balcoes","produtos/balcao-cpu.html"],
-  ["Balcão CPU Alumínio","AMBIENTAÇÃO_CPU ALUMINIO","balcoes","produtos/balcao-cpu-aluminio.html"],
-  ["Balcão CPU Concept","AMBIENTAÇÃO_CPU CONCEPT","balcoes","produtos/balcao-cpu-concept.html"],
-  ["Balcão Fechado","AMBIENTAÇÃO_BALCAO FECHADO FLEX","balcoes","produtos/balcao-fechado.html"],
-  ["Balcão Vitrine","AMBIENTAÇÃO_EXPOSITOR FLEX","balcoes","produtos/balcao-vitrine.html"],
-  ["Balcão Expositor Alumínio","AMBIENTAÇÃO_EXPOSITOR ALUMINIO","balcoes","produtos/balcao-expositor-aluminio.html"],
-  ["Balcão Expositor Concept","AMBIENTAÇÃO_EXPOSITOR CONCEPT","balcoes","produtos/balcao-expositor-concept.html"],
+  [
+    "Balcão CPU",
+    "AMBIENTAÇÃO_CPU FLEX",
+    "balcoes",
+    "produtos/balcao-cpu.html"
+  ],
+
+  [
+    "Balcão CPU Alumínio",
+    "AMBIENTAÇÃO_CPU ALUMINIO",
+    "balcoes",
+    "produtos/balcao-cpu-aluminio.html"
+  ],
+
+  [
+    "Balcão CPU Concept",
+    "AMBIENTAÇÃO_CPU CONCEPT",
+    "balcoes",
+    "produtos/balcao-cpu-concept.html"
+  ],
+
+  [
+    "Balcão Fechado",
+    "AMBIENTAÇÃO_BALCAO FECHADO FLEX",
+    "balcoes",
+    "produtos/balcao-fechado.html"
+  ],
+
+  [
+    "Balcão Vitrine",
+    "AMBIENTAÇÃO_EXPOSITOR FLEX",
+    "balcoes",
+    "produtos/balcao-vitrine.html"
+  ],
+
+  [
+    "Balcão Expositor Alumínio",
+    "AMBIENTAÇÃO_EXPOSITOR ALUMINIO",
+    "balcoes",
+    "produtos/balcao-expositor-aluminio.html"
+  ],
+
+  [
+    "Balcão Expositor Concept",
+    "AMBIENTAÇÃO_EXPOSITOR CONCEPT",
+    "balcoes",
+    "produtos/balcao-expositor-concept.html"
+  ],
 
   /* CHECKOUTS */
 
-  ["Checkout","AMBIENTAÇÃO_CHECKOUT FLEX","checkouts","produtos/checkout.html"],
-  ["Checkout Concept","AMBIENTAÇÃO_CHECKOUT CONCEPT","checkouts","produtos/checkout-concept.html"],
-  ["Checkout Reto","AMBIENTAÇÃO_CHECKOUT RETO","checkouts","produtos/checkout-reto.html"],
+  [
+    "Checkout",
+    "AMBIENTAÇÃO_CHECKOUT FLEX",
+    "checkouts",
+    "produtos/checkout.html"
+  ],
+
+  [
+    "Checkout Concept",
+    "AMBIENTAÇÃO_CHECKOUT CONCEPT",
+    "checkouts",
+    "produtos/checkout-concept.html"
+  ],
+
+  [
+    "Checkout Reto",
+    "AMBIENTAÇÃO_CHECKOUT RETO",
+    "checkouts",
+    "produtos/checkout-reto.html"
+  ],
 
   /* DERMOCOSMÉTICOS */
 
-  ["Dermo","AMBIENTAÇÃO_DERMO SIMPLES","dermo","produtos/dermo.html"],
-  ["Dermo Sem Fundo","AMBIENTAÇÃO_DERMO SEM FUNDO","dermo","produtos/dermo-sem-fundo.html"],
-  ["Dermo com Vidro","AMBIENTAÇÃO_DERMO PORTA DE VIDRO","dermo","produtos/dermo-com-vidro.html"],
+  [
+    "Dermo",
+    "AMBIENTAÇÃO_DERMO SIMPLES",
+    "dermo",
+    "produtos/dermo.html"
+  ],
+
+  [
+    "Dermo Sem Fundo",
+    "AMBIENTAÇÃO_DERMO SEM FUNDO",
+    "dermo",
+    "produtos/dermo-sem-fundo.html"
+  ],
+
+  [
+    "Dermo com Vidro",
+    "AMBIENTAÇÃO_DERMO PORTA DE VIDRO",
+    "dermo",
+    "produtos/dermo-com-vidro.html"
+  ],
 
   /* MIP E ARMÁRIOS */
 
-  ["MIP","AMBIENTAÇÃO_MIP","mip","produtos/mip.html"],
-  ["Armário Psicotrópico","AMBIENTAÇÃO_ARMARIO PSICO ","mip","produtos/armario-psicotropico.html"],
+  [
+    "MIP",
+    "AMBIENTAÇÃO_MIP",
+    "mip",
+    "produtos/mip.html"
+  ],
+
+  [
+    "Armário Psicotrópico",
+    "AMBIENTAÇÃO_ARMARIO PSICO ",
+    "mip",
+    "produtos/armario-psicotropico.html"
+  ],
 
   /* OUTROS MOBILIÁRIOS */
 
-  ["Gôndola Fila Única","AMBIENTAÇÃO_FILA UNICA","outros","produtos/gondola-fila-unica.html"],
-  ["Gôndola Fralda","fralda","outros","produtos/gondola-fralda.html"],
-  ["Base Metálica","AMBIENTAÇÃO_BASE METALICA","outros","produtos/base-metalica.html"],
+  [
+    "Gôndola Fila Única",
+    "AMBIENTAÇÃO_FILA UNICA",
+    "outros",
+    "produtos/gondola-fila-unica.html"
+  ],
+
+  [
+    "Gôndola Fralda",
+    "fralda",
+    "outros",
+    "produtos/gondola-fralda.html"
+  ],
+
+  [
+    "Base Metálica",
+    "AMBIENTAÇÃO_BASE METALICA",
+    "outros",
+    "produtos/base-metalica.html"
+  ],
 
   /* FECHAMENTOS */
 
-  ["Fechamento Lateral",null,"fechamentos",null],
-  ["Fechamento U",null,"fechamentos",null],
-  ["Fechamento L",null,"fechamentos",null],
-  ["Canto Triangular Fechado",null,"fechamentos",null],
-  ["Canto Triangular Aberto",null,"fechamentos",null],
+  [
+    "Fechamento Lateral",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento U",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Fechamento L",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Fechado",
+    null,
+    "fechamentos",
+    null
+  ],
+
+  [
+    "Canto Triangular Aberto",
+    null,
+    "fechamentos",
+    null
+  ],
 
   /* CESTOS */
 
-  ["Cesto Promoção","CESTO2","cestos","produtos/cesto-promocao.html"],
-  ["Cesto Última Chance",null,"cestos",null],
-  ["Cesto Lenço",null,"cestos",null],
-  ["Cesto Aço",null,"cestos",null],
-  ["Cesto MDF",null,"cestos",null],
-  ["Cesto Alumínio",null,"cestos",null],
-  ["Cesto Aramado",null,"cestos","produtos/cesto-aramado.html"],
+  [
+    "Cesto Promoção",
+    "CESTO2",
+    "cestos",
+    "produtos/cesto-promocao.html"
+  ],
+
+  [
+    "Cesto Última Chance",
+    null,
+    "cestos",
+    "produtos/cesto-ultima-chance.html"
+  ],
+
+  [
+    "Cesto Lenço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Aço",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto MDF",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Alumínio",
+    null,
+    "cestos",
+    null
+  ],
+
+  [
+    "Cesto Aramado",
+    null,
+    "cestos",
+    "produtos/cesto-aramado.html"
+  ],
 
   /* SUPORTES PARA MONITOR */
 
-  ["Suporte Simples",null,"suportes",null],
-  ["Suporte Duplo",null,"suportes",null],
-  ["Suporte Simples + Numeração",null,"suportes",null],
-  ["Suporte Duplo + Numeração",null,"suportes",null],
+  [
+    "Suporte Simples",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Simples + Numeração",
+    null,
+    "suportes",
+    null
+  ],
+
+  [
+    "Suporte Duplo + Numeração",
+    null,
+    "suportes",
+    null
+  ],
 
   /* ACESSÓRIOS E COMPLEMENTOS */
 
-  ["Expositor de Esparadrapo",null,"acessorios",null],
-  ["Aparador",null,"acessorios",null],
-  ["Comprimideiro OTC",null,"acessorios",null],
-  ["Régua com Ganchos",null,"acessorios",null],
-  ["Mobiliário Descarte",null,"acessorios",null],
-  ["Display de Balcão Grande",null,"acessorios",null],
-  ["Display de Balcão Pequeno",null,"acessorios",null],
-  ["Totem para Tablet",null,"acessorios",null],
-  ["Porta Encarte",null,"acessorios",null],
-  ["Letreiro",null,"acessorios",null]
+  [
+    "Expositor de Esparadrapo",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Aparador",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Comprimideiro OTC",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Régua com Ganchos",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Mobiliário Descarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Grande",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Display de Balcão Pequeno",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Totem para Tablet",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Porta Encarte",
+    null,
+    "acessorios",
+    null
+  ],
+
+  [
+    "Letreiro",
+    null,
+    "acessorios",
+    null
+  ]
 
 ];
 
-/* ORGANIZAR PRODUTOS */
+/* ORGANIZAÇÃO DOS DADOS */
 
-const produtos = dadosProdutos.map(function(p) {
-  return {
-    nome:p[0],
-    imagem:p[1],
-    categoria:p[2],
-    pagina:p[3]
-  };
-});
+const produtos = dadosProdutos.map(p => ({
 
-/* ELEMENTOS */
+  nome:p[0],
+  imagem:p[1],
+  categoria:p[2],
+  pagina:p[3]
 
-const grade = document.getElementById("gradeProdutos");
-const contador = document.getElementById("contador");
-const filtroAtual = document.getElementById("filtroAtual");
-const botaoFiltro = document.getElementById("botaoFiltro");
-const painelFiltros = document.getElementById("painelFiltros");
-const opcoesCategoria = document.getElementById("opcoesCategoria");
+}));
+
+const nomesCategorias =
+  Object.fromEntries(categorias);
 
 let categoriaSelecionada = "todos";
 
-/* NOME DA CATEGORIA */
+const gradeProdutos =
+  document.getElementById("gradeProdutos");
 
-function nomeCategoria(id) {
-  const item = categorias.find(function(c) {
-    return c[0] === id;
-  });
+const opcoesCategoria =
+  document.getElementById("opcoesCategoria");
 
-  return item ? item[1] : "";
-}
+const painelFiltros =
+  document.getElementById("painelFiltros");
 
-/* IMAGEM EM PREPARAÇÃO */
+const botaoFiltro =
+  document.getElementById("botaoFiltro");
 
-function criarPlaceholder() {
-  const caixa = document.createElement("div");
-  caixa.className = "sem-imagem";
+const filtroAtual =
+  document.getElementById("filtroAtual");
 
-  caixa.innerHTML = `
+const contador =
+  document.getElementById("contador");
+
+/* PLACEHOLDER */
+
+function criarPlaceholder(){
+
+  const placeholder =
+    document.createElement("div");
+
+  placeholder.className = "sem-imagem";
+
+  placeholder.innerHTML = `
+
     <svg
       viewBox="0 0 48 48"
       fill="none"
@@ -721,191 +1108,304 @@ function criarPlaceholder() {
       stroke-linecap="round"
       stroke-linejoin="round"
       aria-hidden="true">
-      <rect x="5" y="7" width="38" height="34" rx="4"/>
-      <circle cx="16" cy="18" r="3"/>
-      <path d="M7 37L20 24L27 30L33 23L42 32"/>
+
+      <rect
+        x="5"
+        y="7"
+        width="38"
+        height="34"
+        rx="4"/>
+
+      <circle
+        cx="16"
+        cy="18"
+        r="3"/>
+
+      <path
+        d="M7 37L20 24L27 30L33 23L42 32"/>
+
     </svg>
+
     <span>IMAGEM EM PREPARAÇÃO</span>
+
   `;
 
-  return caixa;
+  return placeholder;
+
 }
 
-/* CARREGAR IMAGENS */
+/* CARREGAMENTO DAS IMAGENS */
 
-function criarImagem(nomeImagem) {
+function criarImagem(nomeImagem){
 
-  const recipiente = document.createElement("div");
-  recipiente.className = "card-imagem";
+  const container =
+    document.createElement("div");
 
-  if (!nomeImagem) {
-    recipiente.appendChild(criarPlaceholder());
-    return recipiente;
+  container.className = "card-imagem";
+
+  if(!nomeImagem){
+
+    container.appendChild(
+      criarPlaceholder()
+    );
+
+    return container;
+
   }
 
-  const imagem = document.createElement("img");
-  imagem.alt = nomeImagem;
-  imagem.loading = "lazy";
+  const img =
+    document.createElement("img");
 
-  const extensoes = [".png",".jpg",".jpeg",".webp"];
+  img.alt = nomeImagem;
+  img.loading = "lazy";
+
+  const extensoes = [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".webp"
+  ];
+
   let tentativa = 0;
 
-  function tentarImagem() {
+  function carregarImagem(){
 
-    if (tentativa >= extensoes.length) {
-      imagem.remove();
-      recipiente.appendChild(criarPlaceholder());
-      return;
-    }
+    img.src = encodeURI(
+      "imagens/" +
+      nomeImagem +
+      extensoes[tentativa]
+    );
 
-    const caminho =
-      "imagens/" + nomeImagem + extensoes[tentativa];
+  }
+
+  img.onerror = function(){
 
     tentativa++;
 
-    imagem.src = encodeURI(caminho);
-  }
+    if(tentativa < extensoes.length){
 
-  imagem.onerror = tentarImagem;
+      carregarImagem();
 
-  recipiente.appendChild(imagem);
-  tentarImagem();
+    }else{
 
-  return recipiente;
+      img.remove();
+
+      container.appendChild(
+        criarPlaceholder()
+      );
+
+    }
+
+  };
+
+  container.appendChild(img);
+
+  carregarImagem();
+
+  return container;
+
 }
 
-/* CRIAR CARD */
+/* CRIAÇÃO DOS CARDS */
 
-function criarCard(produto) {
+function criarCard(produto){
 
-  const temPagina = Boolean(produto.pagina);
+  const card =
+    document.createElement("a");
 
-  const card = document.createElement("a");
   card.className = "card";
 
-  card.href = temPagina
-    ? produto.pagina
-    : "produtos/em-preparacao.html";
+  card.href = produto.pagina ||
+    "produtos/em-preparacao.html";
 
-  const imagem = criarImagem(produto.imagem);
+  card.appendChild(
+    criarImagem(produto.imagem)
+  );
 
-  const conteudo = document.createElement("div");
+  const conteudo =
+    document.createElement("div");
+
   conteudo.className = "card-conteudo";
 
-  const categoria = document.createElement("div");
+  const categoria =
+    document.createElement("div");
+
   categoria.className = "card-categoria";
+
   categoria.textContent =
-    nomeCategoria(produto.categoria).toUpperCase();
+    nomesCategorias[
+      produto.categoria
+    ].toUpperCase();
 
-  const titulo = document.createElement("h3");
-  titulo.textContent = produto.nome.toUpperCase();
+  const titulo =
+    document.createElement("h3");
 
-  const descricao = document.createElement("p");
+  titulo.textContent =
+    produto.nome.toUpperCase();
 
-  descricao.textContent = temPagina
+  const descricao =
+    document.createElement("p");
+
+  descricao.textContent = produto.pagina
     ? "Visualização interativa do produto."
     : "Página do produto em preparação.";
 
-  const botao = document.createElement("span");
-  botao.className = "abrir";
+  const abrir =
+    document.createElement("span");
 
-  botao.textContent = temPagina
+  abrir.className = "abrir";
+
+  abrir.textContent = produto.pagina
     ? "EXPLORAR EM 360° →"
     : "EM PREPARAÇÃO →";
 
   conteudo.appendChild(categoria);
   conteudo.appendChild(titulo);
   conteudo.appendChild(descricao);
-  conteudo.appendChild(botao);
+  conteudo.appendChild(abrir);
 
-  card.appendChild(imagem);
   card.appendChild(conteudo);
 
   return card;
+
 }
 
-/* EXIBIR PRODUTOS */
+/* RENDERIZAÇÃO DO CATÁLOGO */
 
-function renderizarProdutos() {
+function renderizarProdutos(){
 
-  grade.innerHTML = "";
+  gradeProdutos.innerHTML = "";
 
-  const filtrados = produtos.filter(function(produto) {
-    return (
-      categoriaSelecionada === "todos" ||
-      produto.categoria === categoriaSelecionada
+  const produtosFiltrados =
+    categoriaSelecionada === "todos"
+
+    ? produtos
+
+    : produtos.filter(produto =>
+        produto.categoria === categoriaSelecionada
+      );
+
+  produtosFiltrados.forEach(produto => {
+
+    gradeProdutos.appendChild(
+      criarCard(produto)
     );
-  });
 
-  filtrados.forEach(function(produto) {
-    grade.appendChild(criarCard(produto));
   });
 
   contador.textContent =
-    filtrados.length +
-    (filtrados.length === 1 ? " PRODUTO" : " PRODUTOS");
+    produtosFiltrados.length +
+    (
+      produtosFiltrados.length === 1
+      ? " PRODUTO"
+      : " PRODUTOS"
+    );
 
   filtroAtual.textContent =
     categoriaSelecionada === "todos"
-      ? "TODOS OS PRODUTOS"
-      : nomeCategoria(categoriaSelecionada).toUpperCase();
+
+    ? "TODOS OS PRODUTOS"
+
+    : nomesCategorias[
+        categoriaSelecionada
+      ].toUpperCase();
+
 }
 
-/* FILTROS */
+/* CRIAÇÃO DOS FILTROS */
 
-function criarFiltros() {
+function criarFiltros(){
 
   opcoesCategoria.innerHTML = "";
 
   const todasCategorias = [
-    ["todos","Todos os Produtos"],
+
+    ["todos","Todos os produtos"],
+
     ...categorias
+
   ];
 
-  todasCategorias.forEach(function(categoria) {
+  todasCategorias.forEach(([id,nome]) => {
 
-    const botao = document.createElement("button");
+    const botao =
+      document.createElement("button");
+
     botao.type = "button";
-    botao.className = "opcao-categoria";
-    botao.textContent = categoria[1];
 
-    if (categoria[0] === categoriaSelecionada) {
-      botao.classList.add("selecionada");
+    botao.className =
+      "opcao-categoria";
+
+    botao.textContent =
+      nome.toUpperCase();
+
+    botao.setAttribute(
+      "aria-pressed",
+      String(id === categoriaSelecionada)
+    );
+
+    if(id === categoriaSelecionada){
+
+      botao.classList.add(
+        "selecionada"
+      );
+
     }
 
-    botao.addEventListener("click", function() {
+    botao.addEventListener("click",()=>{
 
-      categoriaSelecionada = categoria[0];
+      categoriaSelecionada = id;
 
       criarFiltros();
+
       renderizarProdutos();
 
-      painelFiltros.classList.remove("aberto");
-      botaoFiltro.classList.remove("ativo");
-      botaoFiltro.setAttribute("aria-expanded","false");
+      painelFiltros.classList.remove(
+        "aberto"
+      );
+
+      botaoFiltro.classList.remove(
+        "ativo"
+      );
+
+      botaoFiltro.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
     });
 
     opcoesCategoria.appendChild(botao);
+
   });
+
 }
 
 /* ABRIR E FECHAR FILTROS */
 
-botaoFiltro.addEventListener("click", function() {
+botaoFiltro.addEventListener("click",()=>{
 
-  const aberto = painelFiltros.classList.toggle("aberto");
+  const aberto =
+    painelFiltros.classList.toggle(
+      "aberto"
+    );
 
-  botaoFiltro.classList.toggle("ativo", aberto);
+  botaoFiltro.classList.toggle(
+    "ativo",
+    aberto
+  );
 
   botaoFiltro.setAttribute(
     "aria-expanded",
     String(aberto)
   );
+
 });
 
-/* INICIALIZAR */
+/* INICIALIZAÇÃO */
 
 criarFiltros();
+
 renderizarProdutos();
 
 </script>
