@@ -15,13 +15,9 @@
   --largura:1300px;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -30,12 +26,7 @@ body{
   flex-direction:column;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--azul);
-  background:linear-gradient(
-    120deg,
-    #f7fcfe,
-    #e7f7fb,
-    #d9f2f9
-  );
+  background:linear-gradient(120deg,#f7fcfe,#e7f7fb,#d9f2f9);
 }
 
 /* CABEÇALHO */
@@ -95,13 +86,8 @@ header{
   object-position:center;
 }
 
-.banner video{
-  display:block;
-}
-
-.banner-imagem{
-  display:none;
-}
+.banner video{display:block}
+.banner-imagem{display:none}
 
 /* CONTEÚDO */
 
@@ -192,9 +178,7 @@ h1{
   background:white;
 }
 
-.painel-filtros.aberto{
-  display:block;
-}
+.painel-filtros.aberto{display:block}
 
 .painel-filtros h2{
   font-size:12px;
@@ -358,11 +342,9 @@ footer{
 /* RESPONSIVIDADE */
 
 @media(max-width:1000px){
-
   .grade{
     grid-template-columns:repeat(2,minmax(0,1fr));
   }
-
 }
 
 @media(max-width:650px){
@@ -372,13 +354,8 @@ footer{
     padding:16px 0;
   }
 
-  .logo{
-    width:135px;
-  }
-
-  .marca{
-    font-size:10px;
-  }
+  .logo{width:135px}
+  .marca{font-size:10px}
 
   .banner{
     width:92%;
@@ -390,13 +367,8 @@ footer{
     padding:25px 0 50px;
   }
 
-  h1{
-    font-size:31px;
-  }
-
-  .descricao{
-    font-size:12px;
-  }
+  h1{font-size:31px}
+  .descricao{font-size:12px}
 
   .grade{
     grid-template-columns:1fr;
@@ -409,10 +381,7 @@ footer{
     margin:auto;
   }
 
-  .card-conteudo{
-    padding:17px;
-  }
-
+  .card-conteudo{padding:17px}
 }
 
 </style>
@@ -423,7 +392,6 @@ footer{
 <!-- CABEÇALHO -->
 
 <header>
-
   <div class="cabecalho">
 
     <div>
@@ -433,9 +401,7 @@ footer{
         src="imagens/logo-gondopar.png"
         alt="Gondopar">
 
-      <span
-        id="logoTexto"
-        class="logo-texto">
+      <span id="logoTexto" class="logo-texto">
         GONDOPAR
       </span>
     </div>
@@ -445,7 +411,6 @@ footer{
     </div>
 
   </div>
-
 </header>
 
 <!-- BANNER -->
@@ -507,26 +472,17 @@ footer{
 
       </button>
 
-      <span
-        class="filtro-atual"
-        id="filtroAtual">
-
+      <span class="filtro-atual" id="filtroAtual">
         TODOS OS PRODUTOS
-
       </span>
 
     </div>
 
-    <span
-      class="contador"
-      id="contador">
-    </span>
+    <span class="contador" id="contador"></span>
 
   </div>
 
-  <section
-    class="painel-filtros"
-    id="painelFiltros">
+  <section class="painel-filtros" id="painelFiltros">
 
     <h2>SELECIONE UMA CATEGORIA</h2>
 
@@ -539,9 +495,7 @@ footer{
 
   <!-- PRODUTOS -->
 
-  <section
-    class="grade"
-    id="gradeProdutos">
+  <section class="grade" id="gradeProdutos">
   </section>
 
 </main>
@@ -620,25 +574,15 @@ videoBanner.play().catch(()=>{});
 const categorias = [
 
   ["parede","Gôndolas de Parede"],
-
   ["centro","Gôndolas de Centro e Pontas"],
-
   ["balcoes","Balcões e Expositores"],
-
   ["checkouts","Checkouts"],
-
   ["dermo","Dermocosméticos"],
-
   ["mip","MIP e Armários"],
-
   ["outros","Outros Mobiliários"],
-
   ["fechamentos","Fechamentos"],
-
   ["cestos","Cestos"],
-
   ["suportes","Suportes para Monitor"],
-
   ["acessorios","Acessórios e Complementos"]
 
 ];
@@ -912,7 +856,7 @@ const dadosProdutos = [
 
   [
     "Cesto Última Chance",
-    null,
+    "ULTIMA CHANCE",
     "cestos",
     "produtos/cesto-ultima-chance.html"
   ],
